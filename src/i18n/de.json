@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Laden...",
+    "error": "Ein Fehler ist aufgetreten",
+    "retry": "Erneut versuchen",
+    "noData": "Keine Daten verfügbar",
+    "search": "Suchen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "settings": "Einstellungen"
+  },
+  "tabs": {
+    "home": "Startseite",
+    "punish": "Bestrafung",
+    "search": "Suche"
+  },
+  "character": {
+    "selectMyCharacter": "Deinen Charakter wählen",
+    "myCharacter": "Mein Charakter",
+    "opponent": "Gegner",
+    "selectCharacter": "Charakter wählen",
+    "allCharacters": "Alle Charaktere"
+  },
+  "frameData": {
+    "title": "Frame-Daten",
+    "startup": "Startup",
+    "active": "Aktiv",
+    "recovery": "Erholung",
+    "onBlock": "Bei Block",
+    "onHit": "Bei Treffer",
+    "damage": "Schaden",
+    "command": "Befehl"
+  },
+  "punish": {
+    "title": "Bestrafungssuche",
+    "description": "Finde Bestrafungen nach dem Blocken gegnerischer Angriffe",
+    "selectOpponentMove": "Gegnerischen Angriff wählen",
+    "punishableOnly": "Nur bestrafbar",
+    "noPunish": "Keine Bestrafung verfügbar",
+    "fastestPunish": "Schnellste Bestrafung",
+    "framesToSpare": "{{frames}}F Spielraum",
+    "result": "Bestrafungen: {{count}}"
+  },
+  "filter": {
+    "all": "Alle",
+    "normal": "Normal",
+    "special": "Spezial",
+    "super": "Super Art",
+    "unique": "Einzigartig",
+    "throw": "Wurf",
+    "commandNormal": "Befehlsnormal"
+  },
+  "sort": {
+    "startup": "Nach Startup",
+    "damage": "Nach Schaden",
+    "onBlock": "Nach Blockvorteil"
+  },
+  "settings": {
+    "language": "Sprache",
+    "dataUpdate": "Datenaktualisierung",
+    "lastUpdated": "Zuletzt aktualisiert: {{date}}",
+    "checkUpdate": "Nach Updates suchen",
+    "updating": "Aktualisierung...",
+    "upToDate": "Aktuell",
+    "version": "Datenversion: {{version}}"
+  }
+}

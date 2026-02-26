@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류가 발생했습니다",
+    "retry": "재시도",
+    "noData": "데이터가 없습니다",
+    "search": "검색",
+    "cancel": "취소",
+    "save": "저장",
+    "settings": "설정"
+  },
+  "tabs": {
+    "home": "홈",
+    "punish": "확정반격",
+    "search": "검색"
+  },
+  "character": {
+    "selectMyCharacter": "내 캐릭터 선택",
+    "myCharacter": "내 캐릭터",
+    "opponent": "상대",
+    "selectCharacter": "캐릭터 선택",
+    "allCharacters": "전체 캐릭터"
+  },
+  "frameData": {
+    "title": "프레임 데이터",
+    "startup": "발생",
+    "active": "지속",
+    "recovery": "경직",
+    "onBlock": "가드 시",
+    "onHit": "히트 시",
+    "damage": "데미지",
+    "command": "커맨드"
+  },
+  "punish": {
+    "title": "확정반격 검색",
+    "description": "상대의 기술을 가드한 후 확정반격을 검색",
+    "selectOpponentMove": "상대의 기술 선택",
+    "punishableOnly": "확반 가능만",
+    "noPunish": "확정반격 없음",
+    "fastestPunish": "최속 확반",
+    "framesToSpare": "{{frames}}F 여유",
+    "result": "확정반격: {{count}}개"
+  },
+  "filter": {
+    "all": "전체",
+    "normal": "일반기",
+    "special": "필살기",
+    "super": "슈퍼 아츠",
+    "unique": "고유기",
+    "throw": "잡기",
+    "commandNormal": "커맨드 일반기"
+  },
+  "sort": {
+    "startup": "발생순",
+    "damage": "데미지순",
+    "onBlock": "가드 유리순"
+  },
+  "settings": {
+    "language": "언어",
+    "dataUpdate": "데이터 업데이트",
+    "lastUpdated": "마지막 업데이트: {{date}}",
+    "checkUpdate": "업데이트 확인",
+    "updating": "업데이트 중...",
+    "upToDate": "최신 상태",
+    "version": "데이터 버전: {{version}}"
+  }
+}

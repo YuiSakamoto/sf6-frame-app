@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Ładowanie...",
+    "error": "Wystąpił błąd",
+    "retry": "Ponów próbę",
+    "noData": "Brak dostępnych danych",
+    "search": "Szukaj",
+    "cancel": "Anuluj",
+    "save": "Zapisz",
+    "settings": "Ustawienia"
+  },
+  "tabs": {
+    "home": "Główna",
+    "punish": "Karanie",
+    "search": "Szukaj"
+  },
+  "character": {
+    "selectMyCharacter": "Wybierz swoją postać",
+    "myCharacter": "Moja postać",
+    "opponent": "Przeciwnik",
+    "selectCharacter": "Wybierz postać",
+    "allCharacters": "Wszystkie postacie"
+  },
+  "frameData": {
+    "title": "Dane klatek",
+    "startup": "Startup",
+    "active": "Aktywne",
+    "recovery": "Regeneracja",
+    "onBlock": "Na bloku",
+    "onHit": "Na trafieniu",
+    "damage": "Obrażenia",
+    "command": "Komenda"
+  },
+  "punish": {
+    "title": "Wyszukiwarka karań",
+    "description": "Znajdź karania po zablokowaniu ataków przeciwnika",
+    "selectOpponentMove": "Wybierz atak przeciwnika",
+    "punishableOnly": "Tylko karalne",
+    "noPunish": "Brak dostępnego karania",
+    "fastestPunish": "Najszybsze karanie",
+    "framesToSpare": "{{frames}}F zapasu",
+    "result": "Karania: {{count}}"
+  },
+  "filter": {
+    "all": "Wszystkie",
+    "normal": "Normalne",
+    "special": "Specjalne",
+    "super": "Super Art",
+    "unique": "Unikalne",
+    "throw": "Rzut",
+    "commandNormal": "Normalne cmd"
+  },
+  "sort": {
+    "startup": "Wg startupu",
+    "damage": "Wg obrażeń",
+    "onBlock": "Wg przewagi na bloku"
+  },
+  "settings": {
+    "language": "Język",
+    "dataUpdate": "Aktualizacja danych",
+    "lastUpdated": "Ostatnia aktualizacja: {{date}}",
+    "checkUpdate": "Sprawdź aktualizacje",
+    "updating": "Aktualizowanie...",
+    "upToDate": "Aktualne",
+    "version": "Wersja danych: {{version}}"
+  }
+}

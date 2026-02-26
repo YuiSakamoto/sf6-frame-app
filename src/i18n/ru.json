@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Загрузка...",
+    "error": "Произошла ошибка",
+    "retry": "Повторить",
+    "noData": "Нет данных",
+    "search": "Поиск",
+    "cancel": "Отмена",
+    "save": "Сохранить",
+    "settings": "Настройки"
+  },
+  "tabs": {
+    "home": "Главная",
+    "punish": "Наказание",
+    "search": "Поиск"
+  },
+  "character": {
+    "selectMyCharacter": "Выбрать своего персонажа",
+    "myCharacter": "Мой персонаж",
+    "opponent": "Противник",
+    "selectCharacter": "Выбрать персонажа",
+    "allCharacters": "Все персонажи"
+  },
+  "frameData": {
+    "title": "Данные фреймов",
+    "startup": "Стартап",
+    "active": "Активные",
+    "recovery": "Восстановление",
+    "onBlock": "При блоке",
+    "onHit": "При попадании",
+    "damage": "Урон",
+    "command": "Команда"
+  },
+  "punish": {
+    "title": "Поиск наказаний",
+    "description": "Найдите наказания после блокировки атак противника",
+    "selectOpponentMove": "Выберите атаку противника",
+    "punishableOnly": "Только наказуемые",
+    "noPunish": "Наказание недоступно",
+    "fastestPunish": "Самое быстрое наказание",
+    "framesToSpare": "{{frames}}F запаса",
+    "result": "Наказания: {{count}}"
+  },
+  "filter": {
+    "all": "Все",
+    "normal": "Обычные",
+    "special": "Специальные",
+    "super": "Супер Арт",
+    "unique": "Уникальные",
+    "throw": "Захват",
+    "commandNormal": "Обычные cmd"
+  },
+  "sort": {
+    "startup": "По стартапу",
+    "damage": "По урону",
+    "onBlock": "По преимуществу при блоке"
+  },
+  "settings": {
+    "language": "Язык",
+    "dataUpdate": "Обновление данных",
+    "lastUpdated": "Последнее обновление: {{date}}",
+    "checkUpdate": "Проверить обновления",
+    "updating": "Обновление...",
+    "upToDate": "Актуально",
+    "version": "Версия данных: {{version}}"
+  }
+}

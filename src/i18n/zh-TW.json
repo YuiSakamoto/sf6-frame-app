@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "載入中...",
+    "error": "發生錯誤",
+    "retry": "重試",
+    "noData": "沒有資料",
+    "search": "搜尋",
+    "cancel": "取消",
+    "save": "儲存",
+    "settings": "設定"
+  },
+  "tabs": {
+    "home": "首頁",
+    "punish": "確反",
+    "search": "搜尋"
+  },
+  "character": {
+    "selectMyCharacter": "選擇你的角色",
+    "myCharacter": "我的角色",
+    "opponent": "對手",
+    "selectCharacter": "選擇角色",
+    "allCharacters": "全部角色"
+  },
+  "frameData": {
+    "title": "幀數據",
+    "startup": "發生",
+    "active": "持續",
+    "recovery": "硬直",
+    "onBlock": "防禦後",
+    "onHit": "命中後",
+    "damage": "傷害",
+    "command": "指令"
+  },
+  "punish": {
+    "title": "確反搜尋",
+    "description": "搜尋防禦對手招式後的確定反擊",
+    "selectOpponentMove": "選擇對手的招式",
+    "punishableOnly": "僅可確反",
+    "noPunish": "無確定反擊",
+    "fastestPunish": "最快確反",
+    "framesToSpare": "{{frames}}F餘裕",
+    "result": "確定反擊: {{count}}個"
+  },
+  "filter": {
+    "all": "全部",
+    "normal": "普通技",
+    "special": "必殺技",
+    "super": "超級藝術",
+    "unique": "固有技",
+    "throw": "投技",
+    "commandNormal": "指令普通技"
+  },
+  "sort": {
+    "startup": "依發生排序",
+    "damage": "依傷害排序",
+    "onBlock": "依防禦優勢排序"
+  },
+  "settings": {
+    "language": "語言",
+    "dataUpdate": "資料更新",
+    "lastUpdated": "最後更新: {{date}}",
+    "checkUpdate": "檢查更新",
+    "updating": "更新中...",
+    "upToDate": "已是最新",
+    "version": "資料版本: {{version}}"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "noData": "No data available",
+    "search": "Search",
+    "cancel": "Cancel",
+    "save": "Save",
+    "settings": "Settings"
+  },
+  "tabs": {
+    "home": "Home",
+    "punish": "Punish",
+    "search": "Search"
+  },
+  "character": {
+    "selectMyCharacter": "Select Your Character",
+    "myCharacter": "My Character",
+    "opponent": "Opponent",
+    "selectCharacter": "Select Character",
+    "allCharacters": "All Characters"
+  },
+  "frameData": {
+    "title": "Frame Data",
+    "startup": "Startup",
+    "active": "Active",
+    "recovery": "Recovery",
+    "onBlock": "On Block",
+    "onHit": "On Hit",
+    "damage": "Damage",
+    "command": "Command"
+  },
+  "punish": {
+    "title": "Punish Finder",
+    "description": "Find punish options after blocking opponent's moves",
+    "selectOpponentMove": "Select opponent's move",
+    "punishableOnly": "Punishable only",
+    "noPunish": "No punish available",
+    "fastestPunish": "Fastest punish",
+    "framesToSpare": "{{frames}}F to spare",
+    "result": "Punish options: {{count}}"
+  },
+  "filter": {
+    "all": "All",
+    "normal": "Normal",
+    "special": "Special",
+    "super": "Super Art",
+    "unique": "Unique",
+    "throw": "Throw",
+    "commandNormal": "Cmd Normal"
+  },
+  "sort": {
+    "startup": "By Startup",
+    "damage": "By Damage",
+    "onBlock": "By Block Adv."
+  },
+  "settings": {
+    "language": "Language",
+    "dataUpdate": "Data Update",
+    "lastUpdated": "Last updated: {{date}}",
+    "checkUpdate": "Check for updates",
+    "updating": "Updating...",
+    "upToDate": "Up to date",
+    "version": "Data version: {{version}}"
+  }
+}

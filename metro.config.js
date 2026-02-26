@@ -1,0 +1,27 @@
+const { getDefaultConfig } = require("expo/metro-config");
+const path = require("path");
+
+const config = getDefaultConfig(__dirname);
+
+// Zustand の ESM (middleware.mjs) が import.meta.env を使っていて
+// Metro/Hermes の Web 向けでは未サポートのため、
+// resolveRequest をカスタマイズして CJS を優先する
+const originalResolveRequest = config.resolver.resolveRequest;
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  // zustand/middleware の ESM が import.meta.env を使うため CJS を強制
+  if (moduleName === "zustand/middleware" && platform === "web") {
+    return {
+      type: "sourceFile",
+      filePath: path.resolve(
+        __dirname,
+        "node_modules/zustand/middleware.js",
+      ),
+    };
+  }
+  if (originalResolveRequest) {
+    return originalResolveRequest(context, moduleName, platform);
+  }
+  return context.resolveRequest(context, moduleName, platform);
+};
+
+module.exports = config;

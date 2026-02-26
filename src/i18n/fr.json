@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "noData": "Aucune donnée disponible",
+    "search": "Rechercher",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "settings": "Paramètres"
+  },
+  "tabs": {
+    "home": "Accueil",
+    "punish": "Punition",
+    "search": "Recherche"
+  },
+  "character": {
+    "selectMyCharacter": "Choisir votre personnage",
+    "myCharacter": "Mon personnage",
+    "opponent": "Adversaire",
+    "selectCharacter": "Choisir un personnage",
+    "allCharacters": "Tous les personnages"
+  },
+  "frameData": {
+    "title": "Données de frames",
+    "startup": "Démarrage",
+    "active": "Active",
+    "recovery": "Récupération",
+    "onBlock": "En garde",
+    "onHit": "En hit",
+    "damage": "Dégâts",
+    "command": "Commande"
+  },
+  "punish": {
+    "title": "Recherche de punitions",
+    "description": "Trouvez les punitions après avoir bloqué les coups adverses",
+    "selectOpponentMove": "Sélectionner le coup adverse",
+    "punishableOnly": "Punissable uniquement",
+    "noPunish": "Aucune punition disponible",
+    "fastestPunish": "Punition la plus rapide",
+    "framesToSpare": "{{frames}}F de marge",
+    "result": "Punitions : {{count}}"
+  },
+  "filter": {
+    "all": "Tout",
+    "normal": "Normaux",
+    "special": "Spéciaux",
+    "super": "Super Art",
+    "unique": "Uniques",
+    "throw": "Choppe",
+    "commandNormal": "Normaux cmd"
+  },
+  "sort": {
+    "startup": "Par démarrage",
+    "damage": "Par dégâts",
+    "onBlock": "Par avantage garde"
+  },
+  "settings": {
+    "language": "Langue",
+    "dataUpdate": "Mise à jour des données",
+    "lastUpdated": "Dernière mise à jour : {{date}}",
+    "checkUpdate": "Vérifier les mises à jour",
+    "updating": "Mise à jour...",
+    "upToDate": "À jour",
+    "version": "Version des données : {{version}}"
+  }
+}

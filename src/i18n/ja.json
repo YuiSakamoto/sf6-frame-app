@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "読み込み中...",
+    "error": "エラーが発生しました",
+    "retry": "再試行",
+    "noData": "データがありません",
+    "search": "検索",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "settings": "設定"
+  },
+  "tabs": {
+    "home": "ホーム",
+    "punish": "確定反撃",
+    "search": "検索"
+  },
+  "character": {
+    "selectMyCharacter": "自キャラを選択",
+    "myCharacter": "自キャラ",
+    "opponent": "相手キャラ",
+    "selectCharacter": "キャラクターを選択",
+    "allCharacters": "全キャラクター"
+  },
+  "frameData": {
+    "title": "フレームデータ",
+    "startup": "発生",
+    "active": "持続",
+    "recovery": "硬直",
+    "onBlock": "ガード時",
+    "onHit": "ヒット時",
+    "damage": "ダメージ",
+    "command": "コマンド"
+  },
+  "punish": {
+    "title": "確定反撃検索",
+    "description": "相手の技をガードした時の確定反撃を検索",
+    "selectOpponentMove": "相手の技を選択",
+    "punishableOnly": "確反可能のみ",
+    "noPunish": "確定反撃なし",
+    "fastestPunish": "最速確反",
+    "framesToSpare": "{{frames}}F余裕",
+    "result": "確定反撃: {{count}}個"
+  },
+  "filter": {
+    "all": "すべて",
+    "normal": "通常技",
+    "special": "必殺技",
+    "super": "SA",
+    "unique": "固有技",
+    "throw": "投げ",
+    "commandNormal": "コマンド通常技"
+  },
+  "sort": {
+    "startup": "発生順",
+    "damage": "ダメージ順",
+    "onBlock": "ガード時順"
+  },
+  "settings": {
+    "language": "言語",
+    "dataUpdate": "データ更新",
+    "lastUpdated": "最終更新: {{date}}",
+    "checkUpdate": "更新を確認",
+    "updating": "更新中...",
+    "upToDate": "最新です",
+    "version": "データバージョン: {{version}}"
+  }
+}

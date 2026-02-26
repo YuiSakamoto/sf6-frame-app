@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "error": "Ocurrió un error",
+    "retry": "Reintentar",
+    "noData": "No hay datos disponibles",
+    "search": "Buscar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "settings": "Configuración"
+  },
+  "tabs": {
+    "home": "Inicio",
+    "punish": "Castigo",
+    "search": "Buscar"
+  },
+  "character": {
+    "selectMyCharacter": "Elige tu personaje",
+    "myCharacter": "Mi personaje",
+    "opponent": "Oponente",
+    "selectCharacter": "Elegir personaje",
+    "allCharacters": "Todos los personajes"
+  },
+  "frameData": {
+    "title": "Datos de cuadros",
+    "startup": "Inicio",
+    "active": "Activo",
+    "recovery": "Recuperación",
+    "onBlock": "En bloqueo",
+    "onHit": "En golpe",
+    "damage": "Daño",
+    "command": "Comando"
+  },
+  "punish": {
+    "title": "Buscador de castigos",
+    "description": "Encuentra castigos luego de bloquear los ataques del oponente",
+    "selectOpponentMove": "Seleccionar ataque del oponente",
+    "punishableOnly": "Solo castigables",
+    "noPunish": "Sin castigo disponible",
+    "fastestPunish": "Castigo más rápido",
+    "framesToSpare": "{{frames}}F de margen",
+    "result": "Castigos: {{count}}"
+  },
+  "filter": {
+    "all": "Todos",
+    "normal": "Normales",
+    "special": "Especiales",
+    "super": "Super Art",
+    "unique": "Únicos",
+    "throw": "Agarre",
+    "commandNormal": "Normal de cmd"
+  },
+  "sort": {
+    "startup": "Por inicio",
+    "damage": "Por daño",
+    "onBlock": "Por ventaja en bloqueo"
+  },
+  "settings": {
+    "language": "Idioma",
+    "dataUpdate": "Actualización de datos",
+    "lastUpdated": "Última actualización: {{date}}",
+    "checkUpdate": "Buscar actualizaciones",
+    "updating": "Actualizando...",
+    "upToDate": "Actualizado",
+    "version": "Versión de datos: {{version}}"
+  }
+}

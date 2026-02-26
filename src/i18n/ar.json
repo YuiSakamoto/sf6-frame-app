@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "جارٍ التحميل...",
+    "error": "حدث خطأ",
+    "retry": "إعادة المحاولة",
+    "noData": "لا توجد بيانات",
+    "search": "بحث",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "settings": "الإعدادات"
+  },
+  "tabs": {
+    "home": "الرئيسية",
+    "punish": "العقاب",
+    "search": "بحث"
+  },
+  "character": {
+    "selectMyCharacter": "اختر شخصيتك",
+    "myCharacter": "شخصيتي",
+    "opponent": "الخصم",
+    "selectCharacter": "اختر شخصية",
+    "allCharacters": "جميع الشخصيات"
+  },
+  "frameData": {
+    "title": "بيانات الإطارات",
+    "startup": "بدء التشغيل",
+    "active": "نشط",
+    "recovery": "استعادة",
+    "onBlock": "عند الصد",
+    "onHit": "عند الإصابة",
+    "damage": "الضرر",
+    "command": "الأمر"
+  },
+  "punish": {
+    "title": "باحث العقوبات",
+    "description": "ابحث عن العقوبات بعد صد هجمات الخصم",
+    "selectOpponentMove": "اختر هجمة الخصم",
+    "punishableOnly": "القابلة للعقاب فقط",
+    "noPunish": "لا توجد عقوبة متاحة",
+    "fastestPunish": "أسرع عقوبة",
+    "framesToSpare": "{{frames}} إطار احتياطي",
+    "result": "العقوبات: {{count}}"
+  },
+  "filter": {
+    "all": "الكل",
+    "normal": "عادية",
+    "special": "خاصة",
+    "super": "سوبر آرت",
+    "unique": "فريدة",
+    "throw": "إمساك",
+    "commandNormal": "عادية بأمر"
+  },
+  "sort": {
+    "startup": "حسب البدء",
+    "damage": "حسب الضرر",
+    "onBlock": "حسب أفضلية الصد"
+  },
+  "settings": {
+    "language": "اللغة",
+    "dataUpdate": "تحديث البيانات",
+    "lastUpdated": "آخر تحديث: {{date}}",
+    "checkUpdate": "التحقق من التحديثات",
+    "updating": "جارٍ التحديث...",
+    "upToDate": "محدّث",
+    "version": "إصدار البيانات: {{version}}"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "common": {
+    "loading": "Caricamento...",
+    "error": "Si è verificato un errore",
+    "retry": "Riprova",
+    "noData": "Nessun dato disponibile",
+    "search": "Cerca",
+    "cancel": "Annulla",
+    "save": "Salva",
+    "settings": "Impostazioni"
+  },
+  "tabs": {
+    "home": "Home",
+    "punish": "Punizione",
+    "search": "Cerca"
+  },
+  "character": {
+    "selectMyCharacter": "Seleziona il tuo personaggio",
+    "myCharacter": "Il mio personaggio",
+    "opponent": "Avversario",
+    "selectCharacter": "Seleziona personaggio",
+    "allCharacters": "Tutti i personaggi"
+  },
+  "frameData": {
+    "title": "Dati frame",
+    "startup": "Avvio",
+    "active": "Attivo",
+    "recovery": "Recupero",
+    "onBlock": "In parata",
+    "onHit": "In colpo",
+    "damage": "Danno",
+    "command": "Comando"
+  },
+  "punish": {
+    "title": "Cerca punizioni",
+    "description": "Trova le punizioni dopo aver parato i colpi avversari",
+    "selectOpponentMove": "Seleziona il colpo avversario",
+    "punishableOnly": "Solo punibili",
+    "noPunish": "Nessuna punizione disponibile",
+    "fastestPunish": "Punizione più veloce",
+    "framesToSpare": "{{frames}}F di margine",
+    "result": "Punizioni: {{count}}"
+  },
+  "filter": {
+    "all": "Tutti",
+    "normal": "Normali",
+    "special": "Speciali",
+    "super": "Super Art",
+    "unique": "Unici",
+    "throw": "Presa",
+    "commandNormal": "Normali cmd"
+  },
+  "sort": {
+    "startup": "Per avvio",
+    "damage": "Per danno",
+    "onBlock": "Per vantaggio parata"
+  },
+  "settings": {
+    "language": "Lingua",
+    "dataUpdate": "Aggiornamento dati",
+    "lastUpdated": "Ultimo aggiornamento: {{date}}",
+    "checkUpdate": "Controlla aggiornamenti",
+    "updating": "Aggiornamento...",
+    "upToDate": "Aggiornato",
+    "version": "Versione dati: {{version}}"
+  }
+}
