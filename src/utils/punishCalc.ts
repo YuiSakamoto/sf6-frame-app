@@ -34,6 +34,16 @@ export function findPunishes(
   const punishes: PunishOption[] = [];
 
   for (const move of myMoves) {
+    // 通常投げ・共通システムは確反候補から除外（ドライブインパクトは例外として含む）
+    if (move.category === "throw") continue;
+    if (
+      move.category === "common" &&
+      !move.name.toLowerCase().includes("drive impact") &&
+      !move.nameJa.includes("ドライブインパクト")
+    ) {
+      continue;
+    }
+
     const startup = parseFrameValue(move.startup);
     if (startup === null || startup <= 0) continue;
 

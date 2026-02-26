@@ -17,7 +17,7 @@ const CATEGORIES: Array<MoveCategory | "all"> = [
   "special",
   "super",
   "throw",
-  "command-normal",
+  "common",
 ];
 
 export default function CharacterDetailScreen() {
@@ -70,7 +70,7 @@ export default function CharacterDetailScreen() {
         {CATEGORIES.map((cat) => (
           <FilterChip
             key={cat}
-            label={t(`filter.${cat === "command-normal" ? "commandNormal" : cat}`)}
+            label={t(`filter.${cat}`)}
             selected={categoryFilter === cat}
             onPress={() => setCategoryFilter(cat)}
           />

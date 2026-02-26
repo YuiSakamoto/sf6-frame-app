@@ -48,7 +48,7 @@ async function scrapePage(page: Page, url: string): Promise<RawRow[]> {
   console.log(`    ${url}`);
   await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
   try {
-    await page.waitForSelector("table", { timeout: 10000 });
+    await page.waitForSelector("table", { timeout: 30000 });
   } catch {
     console.warn(`      テーブル未検出: ${url}`);
     return [];

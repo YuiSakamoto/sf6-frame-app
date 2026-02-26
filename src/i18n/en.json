@@ -6,6 +6,7 @@
     "noData": "No data available",
     "search": "Search",
     "cancel": "Cancel",
+    "change": "Change",
     "save": "Save",
     "settings": "Settings"
   },
@@ -48,7 +49,7 @@
     "super": "Super Art",
     "unique": "Unique",
     "throw": "Throw",
-    "commandNormal": "Cmd Normal"
+    "common": "Common"
   },
   "sort": {
     "startup": "By Startup",

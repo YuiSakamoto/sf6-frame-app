@@ -26,6 +26,14 @@ import bundledRashid from "../../data/frames/rashid.json";
 import bundledAki from "../../data/frames/aki.json";
 import bundledEd from "../../data/frames/ed.json";
 import bundledAkuma from "../../data/frames/gouki_akuma.json";
+import bundledChunli from "../../data/frames/chunli.json";
+import bundledEhonda from "../../data/frames/ehonda.json";
+import bundledBison from "../../data/frames/vega_mbison.json";
+import bundledTerry from "../../data/frames/terry.json";
+import bundledMai from "../../data/frames/mai.json";
+import bundledElena from "../../data/frames/elena.json";
+import bundledCviper from "../../data/frames/cviper.json";
+import bundledSagat from "../../data/frames/sagat.json";
 
 const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   ryu: bundledRyu as CharacterFrameData,
@@ -48,6 +56,14 @@ const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   aki: bundledAki as CharacterFrameData,
   ed: bundledEd as CharacterFrameData,
   gouki_akuma: bundledAkuma as CharacterFrameData,
+  chunli: bundledChunli as CharacterFrameData,
+  ehonda: bundledEhonda as CharacterFrameData,
+  vega_mbison: bundledBison as CharacterFrameData,
+  terry: bundledTerry as CharacterFrameData,
+  mai: bundledMai as CharacterFrameData,
+  elena: bundledElena as CharacterFrameData,
+  cviper: bundledCviper as CharacterFrameData,
+  sagat: bundledSagat as CharacterFrameData,
 };
 
 interface DataState {

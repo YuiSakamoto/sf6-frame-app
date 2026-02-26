@@ -1,5 +1,5 @@
-import { useCallback } from "react";
-import { Text, View } from "react-native";
+import { useCallback, useState } from "react";
+import { Pressable, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { colors } from "@/theme/colors";
 import { useDataStore } from "@/stores/useDataStore";
@@ -10,10 +10,11 @@ import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
 
 export default function HomeScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const characters = useDataStore((s) => s.characters);
   const { myCharacter, setMyCharacter, isSet } = useMyCharacter();
+  const [isChanging, setIsChanging] = useState(false);
 
   const handleCharacterPress = useCallback(
     (character: Character) => {
@@ -25,25 +26,36 @@ export default function HomeScreen() {
   const handleMyCharacterSelect = useCallback(
     (character: Character) => {
       setMyCharacter(character.slug);
+      setIsChanging(false);
     },
     [setMyCharacter],
   );
 
+  const showMyCharacterGrid = !isSet || isChanging;
+
   return (
     <View style={{ flex: 1, backgroundColor: colors.background }}>
       <View style={{ paddingHorizontal: 16, paddingTop: 16, paddingBottom: 8 }}>
-        <Text
-          style={{
-            color: colors.textSecondary,
-            fontSize: 12,
-            fontWeight: "600",
-            marginBottom: 8,
-          }}
-        >
-          {t("character.myCharacter")}
-        </Text>
+        <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+          <Text
+            style={{
+              color: colors.textSecondary,
+              fontSize: 12,
+              fontWeight: "600",
+            }}
+          >
+            {t("character.myCharacter")}
+          </Text>
+          {isSet && (
+            <Pressable onPress={() => setIsChanging(!isChanging)}>
+              <Text style={{ color: colors.accent, fontSize: 12 }}>
+                {isChanging ? t("common.cancel") : t("common.change")}
+              </Text>
+            </Pressable>
+          )}
+        </View>
         {isSet && myCharacter ? (
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 8 }}>
             <View
               style={{
                 width: 36,
@@ -61,23 +73,23 @@ export default function HomeScreen() {
               </Text>
             </View>
             <Text style={{ color: colors.text, fontSize: 16, fontWeight: "700" }}>
-              {myCharacter.nameJa}
+              {i18n.language === "ja" ? myCharacter.nameJa : myCharacter.name}
             </Text>
-            <Badge label={myCharacter.name} />
+            <Badge label={i18n.language === "ja" ? myCharacter.name : myCharacter.nameJa} />
           </View>
         ) : (
-          <Text style={{ color: colors.textMuted, fontSize: 13 }}>
+          <Text style={{ color: colors.textMuted, fontSize: 13, marginTop: 4 }}>
             {t("character.selectMyCharacter")}
           </Text>
         )}
       </View>
 
-      {!isSet && (
+      {showMyCharacterGrid && (
         <View style={{ maxHeight: 280 }}>
           <CharacterGrid
             characters={characters}
             onSelect={handleMyCharacterSelect}
-            selectedSlug={null}
+            selectedSlug={myCharacter?.slug}
           />
         </View>
       )}

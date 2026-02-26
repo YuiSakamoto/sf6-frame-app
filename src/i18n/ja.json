@@ -6,6 +6,7 @@
     "noData": "データがありません",
     "search": "検索",
     "cancel": "キャンセル",
+    "change": "変更",
     "save": "保存",
     "settings": "設定"
   },
@@ -48,7 +49,7 @@
     "super": "SA",
     "unique": "固有技",
     "throw": "投げ",
-    "commandNormal": "コマンド通常技"
+    "common": "共通"
   },
   "sort": {
     "startup": "発生順",

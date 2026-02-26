@@ -15,7 +15,7 @@
     "nameJa": "ジェイミー"
   },
   {
-    "slug": "chun-li",
+    "slug": "chunli",
     "name": "Chun-Li",
     "nameJa": "春麗"
   },
@@ -50,7 +50,7 @@
     "nameJa": "ダルシム"
   },
   {
-    "slug": "honda",
+    "slug": "ehonda",
     "name": "E.Honda",
     "nameJa": "E.本田"
   },
@@ -110,7 +110,7 @@
     "nameJa": "豪鬼"
   },
   {
-    "slug": "bison",
+    "slug": "vega_mbison",
     "name": "M.Bison",
     "nameJa": "ベガ"
   },
