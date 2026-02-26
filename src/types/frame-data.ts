@@ -4,13 +4,13 @@ export type MoveCategory =
   | "super"
   | "unique"
   | "throw"
-  | "command-normal";
+  | "common";
 
 export interface Move {
   name: string;
   nameJa: string;
   input: string;
-  /** 発生フレーム（例: "7", "8~10"） */
+  /** 発生フレーム（例: "4", "8"） */
   startup: string;
   /** 持続フレーム */
   active: string;
@@ -22,6 +22,8 @@ export interface Move {
   onHit: string;
   /** ダメージ */
   damage: string;
+  /** キャンセル可能技 */
+  cancel?: string;
   category: MoveCategory;
 }
 

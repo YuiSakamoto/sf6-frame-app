@@ -1,130 +1,168 @@
-import { chromium } from "playwright";
+import { chromium, type Page } from "playwright";
 import { writeFile, mkdir } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { ALL_CHARACTERS } from "./characters.js";
-import type { CharacterFrameData, ScrapedMove, MoveCategory } from "./types.js";
+import type {
+  CharacterFrameData,
+  ScrapedMove,
+  MoveCategory,
+} from "./types.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, "../../../data");
 const FRAMES_DIR = join(DATA_DIR, "frames");
-const BASE_URL = "https://www.streetfighter.com/6/ja-jp/character";
+const BASE_URL = "https://www.streetfighter.com/6";
 
-/**
- * Capcom公式サイトからフレームデータをスクレイピング
- *
- * ページ構造（推定）:
- * - 各技は行で表示される
- * - カテゴリ別にグループ化されている
- * - テーブル形式でフレームデータが表示される
- */
-async function scrapeCharacter(
-  slug: string,
-): Promise<ScrapedMove[]> {
-  const browser = await chromium.launch({ headless: true });
-  const page = await browser.newPage();
+const UA =
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
+interface RawRow {
+  name: string;
+  startup: string;
+  active: string;
+  recovery: string;
+  onHit: string;
+  onBlock: string;
+  cancel: string;
+  damage: string;
+  category: string;
+}
+
+const CAT_KEYWORDS: Record<string, string> = {
+  通常技: "normal",
+  特殊技: "unique",
+  必殺技: "special",
+  スーパーアーツ: "super",
+  通常投げ: "throw",
+  共通システム: "common",
+  "normal moves": "normal",
+  "unique attacks": "unique",
+  "special moves": "special",
+  "super arts": "super",
+  throws: "throw",
+  "common moves": "common",
+};
+
+async function scrapePage(page: Page, url: string): Promise<RawRow[]> {
+  console.log(`    ${url}`);
+  await page.goto(url, { waitUntil: "networkidle", timeout: 60000 });
   try {
-    const url = `${BASE_URL}/${slug}/frame`;
-    console.log(`  Fetching: ${url}`);
-    await page.goto(url, { waitUntil: "networkidle", timeout: 30000 });
+    await page.waitForSelector("table", { timeout: 10000 });
+  } catch {
+    console.warn(`      テーブル未検出: ${url}`);
+    return [];
+  }
 
-    // ページが完全にレンダリングされるまで待機
-    await page.waitForTimeout(2000);
+  await page.evaluate(
+    `window.__CAT_KEYWORDS = ${JSON.stringify(CAT_KEYWORDS)}`,
+  );
 
-    // フレームデータテーブルの行を取得
-    const moves = await page.evaluate(() => {
-      const results: Array<{
-        name: string;
-        input: string;
-        startup: string;
-        active: string;
-        recovery: string;
-        onBlock: string;
-        onHit: string;
-        damage: string;
-        category: string;
-      }> = [];
+  const results = await page.evaluate(`
+    (function() {
+      var catKeywords = window.__CAT_KEYWORDS;
+      var table = document.querySelector("table");
+      if (!table) return [];
 
-      // Capcom公式サイトの構造に基づいてセレクタを調整
-      // 技のリスト行を取得（サイト構造に応じて調整が必要）
-      const rows = document.querySelectorAll(
-        "[class*='frame'] tr, [class*='move'] tr, table tr",
-      );
+      var rows = table.querySelectorAll("tr");
+      var results = [];
+      var currentCategory = "normal";
 
-      let currentCategory = "normal";
+      rows.forEach(function(row) {
+        var cells = row.querySelectorAll("td");
 
-      rows.forEach((row) => {
-        // カテゴリヘッダーの検出
-        const headerEl = row.querySelector("th, [class*='category']");
-        if (headerEl) {
-          const headerText = headerEl.textContent?.trim().toLowerCase() ?? "";
-          if (headerText.includes("通常") || headerText.includes("normal")) {
-            currentCategory = "normal";
-          } else if (
-            headerText.includes("必殺") ||
-            headerText.includes("special")
-          ) {
-            currentCategory = "special";
-          } else if (
-            headerText.includes("sa") ||
-            headerText.includes("super")
-          ) {
-            currentCategory = "super";
-          } else if (
-            headerText.includes("固有") ||
-            headerText.includes("unique")
-          ) {
-            currentCategory = "unique";
-          } else if (
-            headerText.includes("投げ") ||
-            headerText.includes("throw")
-          ) {
-            currentCategory = "throw";
+        if (cells.length <= 2 && cells.length > 0) {
+          var text = (cells[0].textContent || "").trim().toLowerCase();
+          var keys = Object.keys(catKeywords);
+          for (var k = 0; k < keys.length; k++) {
+            if (text.indexOf(keys[k].toLowerCase()) !== -1) {
+              currentCategory = catKeywords[keys[k]];
+              break;
+            }
           }
+          return;
         }
 
-        const cells = row.querySelectorAll("td");
-        if (cells.length >= 6) {
-          // 典型的なフレームデータテーブル: 技名, コマンド, 発生, 持続, 硬直, ガード時, ヒット時, ダメージ
-          const getText = (idx: number) =>
-            cells[idx]?.textContent?.trim() ?? "";
-          results.push({
-            name: getText(0),
-            input: getText(1),
-            startup: getText(2),
-            active: getText(3),
-            recovery: getText(4),
-            onBlock: getText(5),
-            onHit: cells.length > 6 ? getText(6) : "",
-            damage: cells.length > 7 ? getText(7) : "",
-            category: currentCategory,
-          });
-        }
+        if (cells.length < 6) return;
+
+        var skillCell = cells[0];
+        var artsEl = skillCell.querySelector("[class*='arts']");
+        var name = artsEl
+          ? (artsEl.textContent || "").trim()
+          : (skillCell.textContent || "").trim();
+
+        results.push({
+          name: name,
+          startup: (cells[1].textContent || "").trim(),
+          active: (cells[2].textContent || "").trim(),
+          recovery: (cells[3].textContent || "").trim(),
+          onHit: (cells[4].textContent || "").trim(),
+          onBlock: (cells[5].textContent || "").trim(),
+          cancel: cells[6] ? (cells[6].textContent || "").trim() : "",
+          damage: cells[7] ? (cells[7].textContent || "").trim() : "",
+          category: currentCategory,
+        });
       });
 
       return results;
-    });
+    })()
+  `);
 
-    return moves.map((m) => ({
-      name: m.name,
-      nameJa: m.name,
-      input: m.input,
-      startup: m.startup,
-      active: m.active,
-      recovery: m.recovery,
-      onBlock: m.onBlock,
-      onHit: m.onHit,
-      damage: m.damage,
-      category: m.category as MoveCategory,
+  return results as RawRow[];
+}
+
+/**
+ * 日本語版と英語版の2ページからデータを取得してマージ
+ * Capcom公式サイトは全言語で技名が英語/ローマ字統一なので日英だけで十分
+ */
+async function scrapeCharacter(
+  context: Awaited<ReturnType<Awaited<ReturnType<typeof chromium.launch>>["newContext"]>>,
+  slug: string,
+): Promise<ScrapedMove[]> {
+  const page = await context.newPage();
+
+  try {
+    const jaRows = await scrapePage(
+      page,
+      `${BASE_URL}/ja-jp/character/${slug}/frame`,
+    );
+    if (jaRows.length === 0) return [];
+
+    const enRows = await scrapePage(
+      page,
+      `${BASE_URL}/en-us/character/${slug}/frame`,
+    );
+
+    if (enRows.length !== jaRows.length) {
+      console.warn(
+        `    ⚠ 行数不一致: ja=${jaRows.length} en=${enRows.length}`,
+      );
+    }
+
+    const moves: ScrapedMove[] = jaRows.map((ja, i) => ({
+      name: enRows[i]?.name ?? ja.name,
+      nameJa: ja.name,
+      input: "",
+      startup: ja.startup,
+      active: ja.active,
+      recovery: ja.recovery,
+      onHit: ja.onHit,
+      onBlock: ja.onBlock,
+      cancel: ja.cancel,
+      damage: ja.damage,
+      category: ja.category as MoveCategory,
     }));
+
+    return moves;
   } finally {
-    await browser.close();
+    await page.close();
   }
 }
 
 async function main() {
-  const targetSlug = process.argv.find((_, i, arr) => arr[i - 1] === "--character");
+  const targetSlug = process.argv.find(
+    (_, i, arr) => arr[i - 1] === "--character",
+  );
   const characters = targetSlug
     ? ALL_CHARACTERS.filter((c) => c.slug === targetSlug)
     : ALL_CHARACTERS;
@@ -136,18 +174,40 @@ async function main() {
 
   await mkdir(FRAMES_DIR, { recursive: true });
 
+  const browser = await chromium.launch({
+    headless: false,
+    channel: "chrome",
+  });
+  const context = await browser.newContext({ userAgent: UA });
+
+  // Cookie同意ダイアログを事前にクリック
+  console.log("Cookie同意処理中...");
+  const initPage = await context.newPage();
+  await initPage.goto(
+    `${BASE_URL}/ja-jp/character/ryu/frame`,
+    { waitUntil: "networkidle", timeout: 60000 },
+  );
+  await initPage.waitForTimeout(2000);
+  try {
+    await initPage.click(
+      "#CybotCookiebotDialogBodyLevelButtonLevelOptinAllowAll",
+      { timeout: 5000 },
+    );
+    console.log("  ✓ Cookie同意完了");
+  } catch {
+    console.log("  Cookie同意ダイアログなし（スキップ）");
+  }
+  await initPage.close();
+
   const version = new Date().toISOString().split("T")[0];
   const successfulSlugs: string[] = [];
 
   for (const char of characters) {
-    console.log(`\nスクレイピング中: ${char.name} (${char.slug})`);
+    console.log(`\n[${char.slug}] ${char.name} スクレイピング中...`);
     try {
-      const moves = await scrapeCharacter(char.slug);
+      const moves = await scrapeCharacter(context, char.slug);
       if (moves.length === 0) {
-        console.warn(`  ⚠ 技データが取得できませんでした: ${char.name}`);
-        console.warn(
-          "  サイト構造が変更されている可能性があります。セレクタの調整が必要です。",
-        );
+        console.warn(`  ⚠ 技データなし: ${char.name}`);
         continue;
       }
 
@@ -161,12 +221,14 @@ async function main() {
 
       const filePath = join(FRAMES_DIR, `${char.slug}.json`);
       await writeFile(filePath, JSON.stringify(data, null, 2));
-      console.log(`  ✓ ${moves.length}個の技を保存: ${filePath}`);
+      console.log(`  ✓ ${moves.length}個の技を保存`);
       successfulSlugs.push(char.slug);
     } catch (error) {
       console.error(`  ✗ エラー: ${char.name}`, error);
     }
   }
+
+  await browser.close();
 
   // characters.json を出力
   const charactersJson = ALL_CHARACTERS.map((c) => ({
@@ -190,7 +252,9 @@ async function main() {
     JSON.stringify(versionJson, null, 2),
   );
 
-  console.log(`\n完了: ${successfulSlugs.length}/${characters.length} キャラクター`);
+  console.log(
+    `\n完了: ${successfulSlugs.length}/${characters.length} キャラクター`,
+  );
 }
 
 main().catch(console.error);

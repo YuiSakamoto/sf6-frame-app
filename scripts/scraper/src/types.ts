@@ -4,10 +4,12 @@ export type MoveCategory =
   | "super"
   | "unique"
   | "throw"
-  | "command-normal";
+  | "common";
 
 export interface ScrapedMove {
+  /** 英語名 */
   name: string;
+  /** 日本語名 */
   nameJa: string;
   input: string;
   startup: string;
@@ -16,6 +18,7 @@ export interface ScrapedMove {
   onBlock: string;
   onHit: string;
   damage: string;
+  cancel: string;
   category: MoveCategory;
 }
 
@@ -31,25 +34,4 @@ export interface CharacterInfo {
   slug: string;
   name: string;
   nameJa: string;
-  portraitUrl?: string;
 }
-
-/** Capcom公式サイトで使用されるロケールコード */
-export const SITE_LOCALES = [
-  "ja-jp",
-  "en-us",
-  "fr-fr",
-  "it-it",
-  "de-de",
-  "es-es",
-  "ar",
-  "pt-br",
-  "pl",
-  "ru",
-  "zh-cn",
-  "zh-tw",
-  "ko-kr",
-  "es-419",
-] as const;
-
-export type SiteLocale = (typeof SITE_LOCALES)[number];

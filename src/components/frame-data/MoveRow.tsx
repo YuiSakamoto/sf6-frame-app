@@ -3,6 +3,7 @@ import { colors } from "@/theme/colors";
 import type { Move } from "@/types/frame-data";
 import { FrameValue } from "./FrameValue";
 import { useTranslation } from "react-i18next";
+import { getMoveName } from "@/utils/moveName";
 
 interface MoveRowProps {
   move: Move;
@@ -11,7 +12,7 @@ interface MoveRowProps {
 
 export function MoveRow({ move, onPress }: MoveRowProps) {
   const { i18n } = useTranslation();
-  const displayName = i18n.language === "ja" ? move.nameJa : move.name;
+  const displayName = getMoveName(move, i18n.language);
 
   return (
     <Pressable

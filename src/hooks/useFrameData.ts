@@ -7,28 +7,20 @@ export function useFrameData(slug: string | null) {
   const cachedData = useDataStore(
     (s) => (slug ? s.frameDataCache[slug] : undefined) ?? null,
   );
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!slug || cachedData) return;
 
-    let cancelled = false;
-    setIsLoading(true);
-    setError(null);
-
     loadFrameData(slug).then((result) => {
-      if (cancelled) return;
       if (!result) {
         setError("Failed to load frame data");
       }
-      setIsLoading(false);
     });
-
-    return () => {
-      cancelled = true;
-    };
   }, [slug, cachedData, loadFrameData]);
+
+  // cachedData が存在すればロード完了、slug がなければ待機不要
+  const isLoading = slug !== null && cachedData === null && error === null;
 
   return {
     data: cachedData as CharacterFrameData | null,

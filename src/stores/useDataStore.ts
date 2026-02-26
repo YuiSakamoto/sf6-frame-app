@@ -9,11 +9,45 @@ import bundledVersion from "../../data/version.json";
 import bundledRyu from "../../data/frames/ryu.json";
 import bundledLuke from "../../data/frames/luke.json";
 import bundledKen from "../../data/frames/ken.json";
+import bundledJamie from "../../data/frames/jamie.json";
+import bundledGuile from "../../data/frames/guile.json";
+import bundledKimberly from "../../data/frames/kimberly.json";
+import bundledJuri from "../../data/frames/juri.json";
+import bundledBlanka from "../../data/frames/blanka.json";
+import bundledDhalsim from "../../data/frames/dhalsim.json";
+import bundledDeejay from "../../data/frames/deejay.json";
+import bundledManon from "../../data/frames/manon.json";
+import bundledMarisa from "../../data/frames/marisa.json";
+import bundledLily from "../../data/frames/lily.json";
+import bundledZangief from "../../data/frames/zangief.json";
+import bundledCammy from "../../data/frames/cammy.json";
+import bundledJp from "../../data/frames/jp.json";
+import bundledRashid from "../../data/frames/rashid.json";
+import bundledAki from "../../data/frames/aki.json";
+import bundledEd from "../../data/frames/ed.json";
+import bundledAkuma from "../../data/frames/gouki_akuma.json";
 
 const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   ryu: bundledRyu as CharacterFrameData,
   luke: bundledLuke as CharacterFrameData,
   ken: bundledKen as CharacterFrameData,
+  jamie: bundledJamie as CharacterFrameData,
+  guile: bundledGuile as CharacterFrameData,
+  kimberly: bundledKimberly as CharacterFrameData,
+  juri: bundledJuri as CharacterFrameData,
+  blanka: bundledBlanka as CharacterFrameData,
+  dhalsim: bundledDhalsim as CharacterFrameData,
+  deejay: bundledDeejay as CharacterFrameData,
+  manon: bundledManon as CharacterFrameData,
+  marisa: bundledMarisa as CharacterFrameData,
+  lily: bundledLily as CharacterFrameData,
+  zangief: bundledZangief as CharacterFrameData,
+  cammy: bundledCammy as CharacterFrameData,
+  jp: bundledJp as CharacterFrameData,
+  rashid: bundledRashid as CharacterFrameData,
+  aki: bundledAki as CharacterFrameData,
+  ed: bundledEd as CharacterFrameData,
+  gouki_akuma: bundledAkuma as CharacterFrameData,
 };
 
 interface DataState {

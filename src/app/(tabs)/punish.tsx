@@ -12,6 +12,7 @@ import { FilterChip } from "@/components/ui/FilterChip";
 import type { Character } from "@/types/character";
 import type { Move } from "@/types/frame-data";
 import { useTranslation } from "react-i18next";
+import { getMoveName } from "@/utils/moveName";
 
 type Step = "select-opponent" | "select-move" | "result";
 
@@ -187,9 +188,7 @@ export default function PunishScreen() {
           </ScrollView>
           <PunishResult
             punishes={punishOptions}
-            selectedMoveName={
-              i18n.language === "ja" ? selectedMove.nameJa : selectedMove.name
-            }
+            selectedMoveName={getMoveName(selectedMove, i18n.language)}
           />
         </View>
       )}
