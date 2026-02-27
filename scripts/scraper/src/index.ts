@@ -26,6 +26,13 @@ interface RawRow {
   onBlock: string;
   cancel: string;
   damage: string;
+  comboScaling: string;
+  driveGaugeGain: string;
+  driveGaugeLossBlock: string;
+  driveGaugeLossPc: string;
+  saGaugeGain: string;
+  properties: string;
+  notes: string;
   category: string;
 }
 
@@ -100,6 +107,13 @@ async function scrapePage(page: Page, url: string): Promise<RawRow[]> {
           onBlock: (cells[5].textContent || "").trim(),
           cancel: cells[6] ? (cells[6].textContent || "").trim() : "",
           damage: cells[7] ? (cells[7].textContent || "").trim() : "",
+          comboScaling: cells[8] ? (cells[8].textContent || "").trim() : "",
+          driveGaugeGain: cells[9] ? (cells[9].textContent || "").trim() : "",
+          driveGaugeLossBlock: cells[10] ? (cells[10].textContent || "").trim() : "",
+          driveGaugeLossPc: cells[11] ? (cells[11].textContent || "").trim() : "",
+          saGaugeGain: cells[12] ? (cells[12].textContent || "").trim() : "",
+          properties: cells[13] ? (cells[13].textContent || "").trim() : "",
+          notes: cells[14] ? (cells[14].textContent || "").trim() : "",
           category: currentCategory,
         });
       });
@@ -150,6 +164,13 @@ async function scrapeCharacter(
       onBlock: ja.onBlock,
       cancel: ja.cancel,
       damage: ja.damage,
+      comboScaling: ja.comboScaling,
+      driveGaugeGain: ja.driveGaugeGain,
+      driveGaugeLossBlock: ja.driveGaugeLossBlock,
+      driveGaugeLossPc: ja.driveGaugeLossPc,
+      saGaugeGain: ja.saGaugeGain,
+      properties: ja.properties,
+      notes: ja.notes,
       category: ja.category as MoveCategory,
     }));
 

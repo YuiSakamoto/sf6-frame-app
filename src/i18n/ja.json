@@ -30,7 +30,15 @@
     "onBlock": "ガード時",
     "onHit": "ヒット時",
     "damage": "ダメージ",
-    "command": "コマンド"
+    "command": "コマンド",
+    "cancel": "キャンセル",
+    "comboScaling": "コンボ補正",
+    "driveGaugeGain": "Dゲージ+",
+    "driveGaugeLossBlock": "Dゲージ-(G)",
+    "driveGaugeLossPc": "Dゲージ-(PC)",
+    "saGaugeGain": "SAゲージ+",
+    "properties": "属性",
+    "notes": "備考"
   },
   "punish": {
     "title": "確定反撃検索",

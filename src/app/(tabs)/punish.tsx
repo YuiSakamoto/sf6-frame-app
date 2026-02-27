@@ -156,7 +156,7 @@ export default function PunishScreen() {
           ) : (
             <ScrollView>
               {punishableMoves.map((move, index) => (
-                <MoveRow key={index} move={move} onPress={handleSelectMove} />
+                <MoveRow key={index} move={move} onPress={handleSelectMove} expandable={false} />
               ))}
             </ScrollView>
           )}

@@ -55,20 +55,34 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
             </Text>
           )}
         </View>
+        {/* コンボ補正値を表示 */}
+        {punish.move.comboScaling ? (
+          <Text style={{ color: colors.textMuted, fontSize: 10, marginTop: 2 }}>
+            {t("frameData.comboScaling")}: {punish.move.comboScaling}
+          </Text>
+        ) : null}
       </View>
-      <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
-        <FrameValue value={String(punish.startup)} />
-        <Text
-          style={{
-            color: colors.textSecondary,
-            fontSize: 12,
-            minWidth: 40,
-            textAlign: "center",
-            fontVariant: ["tabular-nums"],
-          }}
-        >
-          {punish.move.damage}
-        </Text>
+      <View style={{ flexDirection: "column", alignItems: "flex-end", gap: 2 }}>
+        <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
+          <FrameValue value={String(punish.startup)} />
+          <Text
+            style={{
+              color: colors.textSecondary,
+              fontSize: 12,
+              minWidth: 40,
+              textAlign: "center",
+              fontVariant: ["tabular-nums"],
+            }}
+          >
+            {punish.move.damage}
+          </Text>
+        </View>
+        {/* 属性を表示 */}
+        {punish.move.properties ? (
+          <Text style={{ color: colors.accent, fontSize: 9, textAlign: "right" }}>
+            {punish.move.properties}
+          </Text>
+        ) : null}
       </View>
     </View>
   );

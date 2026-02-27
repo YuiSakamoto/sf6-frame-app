@@ -24,6 +24,20 @@ export interface Move {
   damage: string;
   /** キャンセル可能技 */
   cancel?: string;
+  /** コンボ補正値（例: "始動補正20%", "Initial Scaling 20%"） */
+  comboScaling?: string;
+  /** Dゲージ増加（ヒット時） */
+  driveGaugeGain?: string;
+  /** Dゲージ減少（ガード時） */
+  driveGaugeLossBlock?: string;
+  /** Dゲージ減少（パニッシュカウンター時） */
+  driveGaugeLossPc?: string;
+  /** SAゲージ増加 */
+  saGaugeGain?: string;
+  /** 属性（上/中/下/投/弾/空弾） */
+  properties?: string;
+  /** 備考 */
+  notes?: string;
   category: MoveCategory;
 }
 

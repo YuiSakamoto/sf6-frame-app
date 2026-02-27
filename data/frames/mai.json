@@ -15,6 +15,13 @@
       "onBlock": "-2",
       "cancel": "C",
       "damage": "300",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上",
+      "notes": "連打キャンセル対応",
       "category": "normal"
     },
     {
@@ -28,6 +35,13 @@
       "onBlock": "-1",
       "cancel": "C",
       "damage": "300",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -41,6 +55,13 @@
       "onBlock": "-3",
       "cancel": "C",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1500",
+      "driveGaugeLossBlock": "-3000",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "600",
+      "properties": "上",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -54,6 +75,13 @@
       "onBlock": "-4",
       "cancel": "",
       "damage": "700",
+      "comboScaling": "",
+      "driveGaugeGain": "1500",
+      "driveGaugeLossBlock": "-3000",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "700",
+      "properties": "上",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -67,6 +95,13 @@
       "onBlock": "-3",
       "cancel": "C",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-8000",
+      "saGaugeGain": "800",
+      "properties": "上",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -80,6 +115,13 @@
       "onBlock": "-3",
       "cancel": "",
       "damage": "900",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "4000",
+      "driveGaugeLossBlock": "-6000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "空振り時硬直3F増加パニッシュカウンター時に膝崩れダウンに　＋22",
       "category": "normal"
     },
     {
@@ -93,6 +135,13 @@
       "onBlock": "-1",
       "cancel": "C",
       "damage": "300",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上",
+      "notes": "連打キャンセル対応",
       "category": "normal"
     },
     {
@@ -106,6 +155,13 @@
       "onBlock": "-2",
       "cancel": "",
       "damage": "200",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "下",
+      "notes": "連打キャンセル対応",
       "category": "normal"
     },
     {
@@ -119,6 +175,13 @@
       "onBlock": "-3",
       "cancel": "C",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1500",
+      "driveGaugeLossBlock": "-3000",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "600",
+      "properties": "上",
+      "notes": "空振り時硬直2F増加",
       "category": "normal"
     },
     {
@@ -132,6 +195,13 @@
       "onBlock": "-6",
       "cancel": "C",
       "damage": "500",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "500",
+      "properties": "下",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -145,6 +215,13 @@
       "onBlock": "-3",
       "cancel": "",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-8000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -158,6 +235,13 @@
       "onBlock": "-11",
       "cancel": "",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "3000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "1000",
+      "properties": "下",
+      "notes": "パニッシュカウンター時ダウン時間増加、ハードノックダウン空振り時硬直3F増加ガード時硬直1F増加",
       "category": "normal"
     },
     {
@@ -171,6 +255,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "300",
+      "comboScaling": "",
+      "driveGaugeGain": "500",
+      "driveGaugeLossBlock": "-1500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "中",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -184,6 +275,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "300",
+      "comboScaling": "",
+      "driveGaugeGain": "500",
+      "driveGaugeLossBlock": "-1500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "中",
+      "notes": "めくり性能",
       "category": "normal"
     },
     {
@@ -197,6 +295,13 @@
       "onBlock": "",
       "cancel": "C",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "500",
+      "properties": "中",
+      "notes": "空中ヒット時吹き飛びダウン",
       "category": "normal"
     },
     {
@@ -210,6 +315,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "500",
+      "properties": "中",
+      "notes": "めくり性能",
       "category": "normal"
     },
     {
@@ -223,6 +335,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "中",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -236,6 +355,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "中",
+      "notes": "",
       "category": "normal"
     },
     {
@@ -249,6 +375,13 @@
       "onBlock": "-3",
       "cancel": "",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1500",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "500",
+      "properties": "中",
+      "notes": "",
       "category": "unique"
     },
     {
@@ -262,6 +395,13 @@
       "onBlock": "-10",
       "cancel": "",
       "damage": "400",
+      "comboScaling": "",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上",
+      "notes": "強制立ち効果",
       "category": "unique"
     },
     {
@@ -275,6 +415,13 @@
       "onBlock": "-10",
       "cancel": "",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "250",
+      "driveGaugeLossBlock": "-500",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上",
+      "notes": "18F～33Fまで、ムササビの舞(OD版を含む)、空中超必殺忍蜂に派生可能10-35F　空中判定",
       "category": "unique"
     },
     {
@@ -288,6 +435,13 @@
       "onBlock": "-1",
       "cancel": "",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "強制立ち効果",
       "category": "unique"
     },
     {
@@ -301,6 +455,13 @@
       "onBlock": "-11",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "コンボ補正30%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "ヒット時のみ10-58F 完全無敵",
       "category": "unique"
     },
     {
@@ -314,6 +475,13 @@
       "onBlock": "-7",
       "cancel": "SA3",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -327,6 +495,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "700",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -340,6 +515,13 @@
       "onBlock": "-3",
       "cancel": "SA3",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -353,6 +535,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -366,6 +555,13 @@
       "onBlock": "-9",
       "cancel": "SA3",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -379,6 +575,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "700",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -392,6 +595,13 @@
       "onBlock": "-5",
       "cancel": "SA3",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -405,6 +615,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -418,6 +635,13 @@
       "onBlock": "-11",
       "cancel": "SA3",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -431,6 +655,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "700",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -444,6 +675,13 @@
       "onBlock": "-7",
       "cancel": "SA3",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "1000",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "19F以上ホールドすると性能変化",
       "category": "special"
     },
     {
@@ -457,6 +695,13 @@
       "onBlock": "-1",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -470,6 +715,13 @@
       "onBlock": "-3",
       "cancel": "SA2",
       "damage": "700",
+      "comboScaling": "始動補正20%コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "19F以上ホールドすると性能変化ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -483,6 +735,13 @@
       "onBlock": "12",
       "cancel": "SA2",
       "damage": "600",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-4000",
+      "saGaugeGain": "600",
+      "properties": "上・弾",
+      "notes": "",
       "category": "special"
     },
     {
@@ -496,6 +755,13 @@
       "onBlock": "1",
       "cancel": "SA2",
       "damage": "800",
+      "comboScaling": "始動補正20%コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-3500",
+      "driveGaugeLossPc": "-3000",
+      "saGaugeGain": "900",
+      "properties": "上・弾/上・空弾",
+      "notes": "19F以上ホールドすると性能変化ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -509,6 +775,13 @@
       "onBlock": "12",
       "cancel": "SA2",
       "damage": "700",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "1200",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -522,6 +795,13 @@
       "onBlock": "0",
       "cancel": "",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -535,6 +815,13 @@
       "onBlock": "0",
       "cancel": "",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-2000",
+      "saGaugeGain": "300",
+      "properties": "上・弾/上・空弾",
+      "notes": "ヒット・ガード時に軌道変化軌道変化後、属性が「上・空弾」に変化空弾属性に対して無敵の技に当たらない",
       "category": "special"
     },
     {
@@ -548,6 +835,13 @@
       "onBlock": "-29",
       "cancel": "",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-8000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-14F　空中判定の打撃・空弾属性に対して無敵7-37F　空中判定",
       "category": "special"
     },
     {
@@ -561,6 +855,13 @@
       "onBlock": "-29",
       "cancel": "",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-6000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-14F　空中判定の打撃・空弾属性に対して無敵7-37F　空中判定",
       "category": "special"
     },
     {
@@ -574,6 +875,13 @@
       "onBlock": "-28",
       "cancel": "",
       "damage": "1100",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-8000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-10F　空中判定の打撃・空弾属性に対して無敵8-37F　空中判定",
       "category": "special"
     },
     {
@@ -587,6 +895,13 @@
       "onBlock": "-28",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-6000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-10F　空中判定の打撃・空弾属性に対して無敵8-37F　空中判定",
       "category": "special"
     },
     {
@@ -600,6 +915,13 @@
       "onBlock": "-31",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-11F　空中判定の打撃・空弾属性に対して無敵9-38F　空中判定",
       "category": "special"
     },
     {
@@ -613,6 +935,13 @@
       "onBlock": "-31",
       "cancel": "",
       "damage": "1300",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-11F　空中判定の打撃・空弾属性に対して無敵9-38F　空中判定",
       "category": "special"
     },
     {
@@ -626,6 +955,13 @@
       "onBlock": "-40",
       "cancel": "",
       "damage": "1600",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-8F　完全無敵8-41F　空中判定ガード時硬直7F増加",
       "category": "special"
     },
     {
@@ -639,6 +975,13 @@
       "onBlock": "-40",
       "cancel": "",
       "damage": "1700",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-3000",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "1-8F　完全無敵8-41F　空中判定ガード時硬直7F増加",
       "category": "special"
     },
     {
@@ -652,6 +995,13 @@
       "onBlock": "-4",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "始動補正20%コンボ補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-2500",
+      "saGaugeGain": "600",
+      "properties": "上",
+      "notes": "アーマーヒット時硬直5F増加",
       "category": "special"
     },
     {
@@ -665,6 +1015,13 @@
       "onBlock": "-2",
       "cancel": "SA3",
       "damage": "900",
+      "comboScaling": "始動補正20%コンボ補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-2000",
+      "driveGaugeLossPc": "-2500",
+      "saGaugeGain": "600",
+      "properties": "上",
+      "notes": "アーマーヒット時硬直5F増加",
       "category": "special"
     },
     {
@@ -678,6 +1035,13 @@
       "onBlock": "-6",
       "cancel": "SA3",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "3000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -691,6 +1055,13 @@
       "onBlock": "-6",
       "cancel": "SA3",
       "damage": "1100",
+      "comboScaling": "コンボ補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -704,6 +1075,13 @@
       "onBlock": "-6",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "コンボ補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -717,6 +1095,13 @@
       "onBlock": "-6",
       "cancel": "SA3",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -730,6 +1115,13 @@
       "onBlock": "-12",
       "cancel": "SA2",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "ガード時硬直8F増加",
       "category": "special"
     },
     {
@@ -743,6 +1135,13 @@
       "onBlock": "-12",
       "cancel": "SA2",
       "damage": "1100",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1200",
+      "properties": "上",
+      "notes": "ガード時硬直8F増加",
       "category": "special"
     },
     {
@@ -756,6 +1155,13 @@
       "onBlock": "-10",
       "cancel": "SA3",
       "damage": "800",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -769,6 +1175,13 @@
       "onBlock": "-10",
       "cancel": "SA3",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -782,6 +1195,13 @@
       "onBlock": "-12",
       "cancel": "SA3",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -795,6 +1215,13 @@
       "onBlock": "-12",
       "cancel": "SA3",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -808,6 +1235,13 @@
       "onBlock": "-13",
       "cancel": "SA3",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -821,6 +1255,13 @@
       "onBlock": "-13",
       "cancel": "SA3",
       "damage": "1100",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "",
       "category": "special"
     },
     {
@@ -834,6 +1275,13 @@
       "onBlock": "-12",
       "cancel": "SA2",
       "damage": "800",
+      "comboScaling": "コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4500",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "53Fから行動可31-74F　空中判定",
       "category": "special"
     },
     {
@@ -847,6 +1295,13 @@
       "onBlock": "-12",
       "cancel": "SA2",
       "damage": "900",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4500",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "53Fから行動可31-74F　空中判定",
       "category": "special"
     },
     {
@@ -860,6 +1315,13 @@
       "onBlock": "-7～1",
       "cancel": "",
       "damage": "1000",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "空振り時硬直7F増加空振りつつ位置が入れ替わった場合硬直10F増加ガードさせた高度によって硬直差が変化",
       "category": "special"
     },
     {
@@ -873,6 +1335,13 @@
       "onBlock": "-4～2",
       "cancel": "",
       "damage": "1100",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "空振り時硬直7F増加空振りつつ位置が入れ替わった場合硬直10F増加ガードさせた高度によって硬直差が変化",
       "category": "special"
     },
     {
@@ -886,6 +1355,13 @@
       "onBlock": "-7～1",
       "cancel": "SA2",
       "damage": "1200",
+      "comboScaling": "始動補正30%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "空振り時硬直7F増加空振りつつ位置が入れ替わった場合硬直10F増加ガードさせた高度によって硬直差が変化",
       "category": "special"
     },
     {
@@ -899,6 +1375,13 @@
       "onBlock": "-4～2",
       "cancel": "SA2",
       "damage": "1300",
+      "comboScaling": "始動補正30%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "1000",
+      "properties": "上",
+      "notes": "空振り時硬直7F増加空振りつつ位置が入れ替わった場合硬直10F増加ガードさせた高度によって硬直差が変化空中ヒット時床バウンド",
       "category": "special"
     },
     {
@@ -912,6 +1395,13 @@
       "onBlock": "-31",
       "cancel": "",
       "damage": "2000",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "0",
+      "properties": "上・弾",
+      "notes": "1-8F　打撃・投げに対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
       "category": "super"
     },
     {
@@ -925,6 +1415,13 @@
       "onBlock": "-26",
       "cancel": "",
       "damage": "2300",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossPc": "-5000",
+      "saGaugeGain": "0",
+      "properties": "上・弾",
+      "notes": "1-6F　打撃・投げに対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
       "category": "super"
     },
     {
@@ -938,6 +1435,13 @@
       "onBlock": "-24",
       "cancel": "",
       "damage": "2800",
+      "comboScaling": "始動補正40%コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "1-8F　完全無敵最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
       "category": "super"
     },
     {
@@ -951,6 +1455,13 @@
       "onBlock": "-24",
       "cancel": "",
       "damage": "3000",
+      "comboScaling": "始動補正40%コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "1-8F　完全無敵9-12F　飛び道具に対して無敵最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
       "category": "super"
     },
     {
@@ -964,6 +1475,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "2800",
+      "comboScaling": "コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
       "category": "super"
     },
     {
@@ -977,6 +1495,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "3000",
+      "comboScaling": "コンボ補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
       "category": "super"
     },
     {
@@ -990,6 +1515,13 @@
       "onBlock": "-33",
       "cancel": "",
       "damage": "4000",
+      "comboScaling": "※即時補正10%始動補正50%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-7500",
+      "driveGaugeLossPc": "-15000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "1-11F 完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない※必殺技キャンセル時のみ適用",
       "category": "super"
     },
     {
@@ -1003,6 +1535,13 @@
       "onBlock": "-33",
       "cancel": "",
       "damage": "4500",
+      "comboScaling": "※即時補正10%始動補正50％",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-10000",
+      "driveGaugeLossPc": "-20000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "1-11F 完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない※必殺技キャンセル時のみ適用",
       "category": "super"
     },
     {
@@ -1016,6 +1555,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "即時補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "2000",
+      "properties": "投",
+      "notes": "パニッシュカウンター時以下の性能変化・ダメージ2040・SAゲージ4000増加・ハードノックダウン",
       "category": "throw"
     },
     {
@@ -1029,6 +1575,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "即時補正20%",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "2000",
+      "properties": "投",
+      "notes": "パニッシュカウンター時以下の性能変化・ダメージ2040・SAゲージ4000増加・ハードノックダウン",
       "category": "throw"
     },
     {
@@ -1042,6 +1595,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "1200",
+      "comboScaling": "",
+      "driveGaugeGain": "2000",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "-10000",
+      "saGaugeGain": "2000",
+      "properties": "投",
+      "notes": "パニッシュカウンター時以下の性能変化・ダメージ2040・SAゲージ4000増加・ハードノックダウン",
       "category": "throw"
     },
     {
@@ -1055,6 +1615,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "0",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "",
+      "notes": "",
       "category": "common"
     },
     {
@@ -1068,6 +1635,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "0",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "",
+      "notes": "1-15F 投げ無敵",
       "category": "common"
     },
     {
@@ -1081,6 +1655,13 @@
       "onBlock": "-3",
       "cancel": "",
       "damage": "800",
+      "comboScaling": "始動補正20%",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "-5000",
+      "driveGaugeLossPc": "-15000",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "1-27F　 アーマー判定（2回）ヒットバックでステージ端に到達すると壁やられが発生パニッシュカウンター、もしくはアーマー成立後にヒットで以下の性能変化・地上ヒット膝崩れ・空中ヒット吹き飛び時間増加・SAゲージ3000増加",
       "category": "common"
     },
     {
@@ -1094,6 +1675,13 @@
       "onBlock": "-6",
       "cancel": "",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "リカバリアブルダメージ1-22F 完全無敵ヒット時硬直5F増加",
       "category": "common"
     },
     {
@@ -1107,6 +1695,13 @@
       "onBlock": "-6",
       "cancel": "",
       "damage": "500",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "上",
+      "notes": "リカバリアブルダメージ1-20F 完全無敵ヒット時硬直5F増加",
       "category": "common"
     },
     {
@@ -1120,6 +1715,13 @@
       "onBlock": "",
       "cancel": "※1",
       "damage": "0",
+      "comboScaling": "",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "",
+      "notes": "※1 動作の4F目からドライブラッシュでキャンセル可※2 ボタンホールドでパリィの持続を延長可硬直部分はガードのみ可動作中常に被パニッシュカウンター判定",
       "category": "common"
     },
     {
@@ -1133,6 +1735,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "0",
+      "comboScaling": "始動補正50％",
+      "driveGaugeGain": "",
+      "driveGaugeLossBlock": "",
+      "driveGaugeLossPc": "",
+      "saGaugeGain": "",
+      "properties": "",
+      "notes": "相手の攻撃に対応した方向入力を行った状態でパリィを入力し、入力したフレーム、もしくはその次のフレームで攻撃を受けると成立する（上段/中段攻撃に対して←方向、下段攻撃に対しては↙方向)方向が正しくなかった場合は通常のドライブパリィとなり、追加でDゲージが3000増加する硬直終了から5Fの間完全無敵 （パリィを継続した場合は無敵にならない）ジャストパリィを取られた側はキャンセルが出来なくなり、動作終了まで強制パニッシュカウンター",
       "category": "common"
     },
     {
@@ -1146,6 +1755,13 @@
       "onBlock": "",
       "cancel": "",
       "damage": "0",
+      "comboScaling": "始動補正50％",
+      "driveGaugeGain": "",
+      "driveGaugeLossBlock": "",
+      "driveGaugeLossPc": "",
+      "saGaugeGain": "",
+      "properties": "",
+      "notes": "パリィを入力したフレーム、もしくはその次のフレームで攻撃を受けると成立する暗転演出が入らないジャストパリィを取られた側はキャンセルが出来なくなり、動作終了まで強制パニッシュカウンター",
       "category": "common"
     },
     {
@@ -1159,6 +1775,13 @@
       "onBlock": "",
       "cancel": "※",
       "damage": "0",
+      "comboScaling": "乗算補正15％",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "",
+      "notes": "暗転10F※動作9F目から攻撃行動にキャンセル可　24F目からパリィ以外の行動でキャンセル可",
       "category": "common"
     },
     {
@@ -1172,6 +1795,13 @@
       "onBlock": "",
       "cancel": "※",
       "damage": "0",
+      "comboScaling": "乗算補正15％",
+      "driveGaugeGain": "0",
+      "driveGaugeLossBlock": "0",
+      "driveGaugeLossPc": "0",
+      "saGaugeGain": "0",
+      "properties": "",
+      "notes": "暗転9F※動作10F目から攻撃行動にキャンセル可　25F目からパリィ以外の行動でキャンセル可",
       "category": "common"
     }
   ]

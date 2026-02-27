@@ -30,7 +30,15 @@
     "onBlock": "On Block",
     "onHit": "On Hit",
     "damage": "Damage",
-    "command": "Command"
+    "command": "Command",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+",
+    "properties": "Properties",
+    "notes": "Notes"
   },
   "punish": {
     "title": "Punish Finder",
