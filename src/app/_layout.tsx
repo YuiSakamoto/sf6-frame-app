@@ -4,10 +4,12 @@ import { StatusBar } from "expo-status-bar";
 import * as SystemUI from "expo-system-ui";
 import { colors } from "@/theme/colors";
 import { useDataSync } from "@/hooks/useDataSync";
+import { useAdInit } from "@/hooks/useAdInit";
 import "@/i18n";
 
 export default function RootLayout() {
   useDataSync();
+  useAdInit();
 
   useEffect(() => {
     SystemUI.setBackgroundColorAsync(colors.background);

@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
+import { SectionHeader } from "@/components/ui/SectionHeader";
 
 const LANGUAGES = [
   { code: "ja", label: "日本語" },
@@ -30,117 +31,45 @@ export default function SettingsScreen() {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: colors.background }}>
+    <ScrollView style={styles.root}>
       {/* 自キャラ設定 */}
-      <Text
-        style={{
-          color: colors.textSecondary,
-          fontSize: 11,
-          fontWeight: "600",
-          textTransform: "uppercase",
-          paddingHorizontal: 16,
-          paddingTop: 16,
-          paddingBottom: 8,
-        }}
-      >
-        {t("character.myCharacter")}
-      </Text>
-      <Pressable
-        onPress={() => setModalVisible(true)}
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
-          paddingHorizontal: 16,
-          paddingVertical: 12,
-          borderBottomWidth: 1,
-          borderBottomColor: colors.border,
-          backgroundColor: colors.surface,
-        }}
-      >
+      <SectionHeader label={t("character.myCharacter")} />
+      <Pressable onPress={() => setModalVisible(true)} style={styles.row}>
         {isSet && myCharacter ? (
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 8 }}>
-            <View
-              style={{
-                width: 28,
-                height: 28,
-                borderRadius: 14,
-                backgroundColor: colors.accent,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <Text
-                style={{
-                  color: colors.background,
-                  fontWeight: "700",
-                  fontSize: 12,
-                }}
-              >
+          <View style={styles.charRow}>
+            <View style={styles.avatar}>
+              <Text style={styles.avatarText}>
                 {myCharacter.name.charAt(0)}
               </Text>
             </View>
-            <Text
-              style={{ color: colors.text, fontSize: 14, fontWeight: "600" }}
-            >
+            <Text style={styles.charName}>
               {i18n.language === "ja" ? myCharacter.nameJa : myCharacter.name}
             </Text>
           </View>
         ) : (
-          <Text style={{ color: colors.textMuted, fontSize: 14 }}>
+          <Text style={styles.placeholder}>
             {t("character.selectMyCharacter")}
           </Text>
         )}
-        <Text style={{ color: colors.accent, fontSize: 12 }}>
-          {t("common.change")}
-        </Text>
+        <Text style={styles.changeLabel}>{t("common.change")}</Text>
       </Pressable>
 
       {/* 言語設定 */}
-      <Text
-        style={{
-          color: colors.textSecondary,
-          fontSize: 11,
-          fontWeight: "600",
-          textTransform: "uppercase",
-          paddingHorizontal: 16,
-          paddingTop: 24,
-          paddingBottom: 8,
-        }}
-      >
-        {t("settings.language")}
-      </Text>
+      <SectionHeader label={t("settings.language")} />
       {LANGUAGES.map((lang) => {
         const isSelected = i18n.language === lang.code;
         return (
           <Pressable
             key={lang.code}
             onPress={() => i18n.changeLanguage(lang.code)}
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingHorizontal: 16,
-              paddingVertical: 12,
-              borderBottomWidth: 1,
-              borderBottomColor: colors.border,
-              backgroundColor: isSelected
-                ? colors.surfaceLight
-                : colors.surface,
-            }}
+            style={[styles.langRow, isSelected && styles.langRowSelected]}
           >
             <Text
-              style={{
-                color: isSelected ? colors.accent : colors.text,
-                fontSize: 14,
-                fontWeight: isSelected ? "700" : "400",
-              }}
+              style={[styles.langLabel, isSelected && styles.langLabelSelected]}
             >
               {lang.label}
             </Text>
-            {isSelected && (
-              <Text style={{ color: colors.accent, fontSize: 14 }}>✓</Text>
-            )}
+            {isSelected && <Text style={styles.checkmark}>✓</Text>}
           </Pressable>
         );
       })}
@@ -158,3 +87,77 @@ export default function SettingsScreen() {
     </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    backgroundColor: colors.surface,
+  },
+  charRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+  },
+  avatar: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: colors.accent,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  avatarText: {
+    color: colors.background,
+    fontWeight: "700",
+    fontSize: 12,
+  },
+  charName: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: "600",
+  },
+  placeholder: {
+    color: colors.textMuted,
+    fontSize: 14,
+  },
+  changeLabel: {
+    color: colors.accent,
+    fontSize: 12,
+  },
+  langRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    backgroundColor: colors.surface,
+  },
+  langRowSelected: {
+    backgroundColor: colors.surfaceLight,
+  },
+  langLabel: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: "400",
+  },
+  langLabelSelected: {
+    color: colors.accent,
+    fontWeight: "700",
+  },
+  checkmark: {
+    color: colors.accent,
+    fontSize: 14,
+  },
+});

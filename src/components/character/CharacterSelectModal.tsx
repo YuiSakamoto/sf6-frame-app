@@ -1,4 +1,4 @@
-import { Modal, Pressable, Text, View } from "react-native";
+import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 import { CharacterGrid } from "./CharacterGrid";
 import type { Character } from "@/types/character";
@@ -31,40 +31,14 @@ export function CharacterSelectModal({
       transparent
       onRequestClose={dismissable ? onClose : undefined}
     >
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: "rgba(0,0,0,0.7)",
-          justifyContent: "flex-end",
-        }}
-      >
-        {dismissable && <Pressable style={{ flex: 1 }} onPress={onClose} />}
-        <View
-          style={{
-            backgroundColor: colors.background,
-            borderTopLeftRadius: 16,
-            borderTopRightRadius: 16,
-            maxHeight: "80%",
-          }}
-        >
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "space-between",
-              paddingHorizontal: 16,
-              paddingTop: 16,
-              paddingBottom: 8,
-            }}
-          >
-            <Text
-              style={{ color: colors.text, fontSize: 16, fontWeight: "700" }}
-            >
-              {t("character.selectMyCharacter")}
-            </Text>
+      <View style={styles.overlay}>
+        {dismissable && <Pressable style={styles.backdrop} onPress={onClose} />}
+        <View style={styles.sheet}>
+          <View style={styles.header}>
+            <Text style={styles.title}>{t("character.selectMyCharacter")}</Text>
             {dismissable && (
               <Pressable onPress={onClose}>
-                <Text style={{ color: colors.textMuted, fontSize: 14 }}>✕</Text>
+                <Text style={styles.closeButton}>✕</Text>
               </Pressable>
             )}
           </View>
@@ -78,3 +52,37 @@ export function CharacterSelectModal({
     </Modal>
   );
 }
+
+const styles = StyleSheet.create({
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.7)",
+    justifyContent: "flex-end",
+  },
+  backdrop: {
+    flex: 1,
+  },
+  sheet: {
+    backgroundColor: colors.background,
+    borderTopLeftRadius: 16,
+    borderTopRightRadius: 16,
+    maxHeight: "80%",
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingTop: 16,
+    paddingBottom: 8,
+  },
+  title: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: "700",
+  },
+  closeButton: {
+    color: colors.textMuted,
+    fontSize: 14,
+  },
+});

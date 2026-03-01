@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import { useState, useEffect } from "react";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useLocalSearchParams, useNavigation } from "expo-router";
-import { useEffect } from "react";
 import { colors } from "@/theme/colors";
 import { useFrameData } from "@/hooks/useFrameData";
 import { MoveList } from "@/components/frame-data/MoveList";
 import { FilterChip } from "@/components/ui/FilterChip";
+import { AdBanner } from "@/components/ads/BannerAd";
 import { useTranslation } from "react-i18next";
 import type { MoveCategory } from "@/types/frame-data";
 
@@ -28,7 +28,6 @@ export default function CharacterDetailScreen() {
     "all",
   );
 
-  // ヘッダーにキャラクター名を表示
   useEffect(() => {
     if (data) {
       navigation.setOptions({
@@ -39,15 +38,8 @@ export default function CharacterDetailScreen() {
 
   if (isLoading || !data) {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: colors.background,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Text style={{ color: colors.textMuted }}>
+      <View style={styles.loadingContainer}>
+        <Text style={styles.loadingText}>
           {isLoading ? t("common.loading") : (error ?? t("common.noData"))}
         </Text>
       </View>
@@ -55,18 +47,18 @@ export default function CharacterDetailScreen() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <View style={{ paddingHorizontal: 16, paddingVertical: 8 }}>
-        <Text style={{ color: colors.textMuted, fontSize: 11 }}>
+    <View style={styles.root}>
+      <View style={styles.versionRow}>
+        <Text style={styles.versionText}>
           {t("settings.version", { version: data.version })}
         </Text>
       </View>
 
-      <View style={{ paddingHorizontal: 16, paddingBottom: 8 }}>
+      <View style={styles.filterRow}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          contentContainerStyle={{ alignItems: "center" }}
+          contentContainerStyle={styles.filterContent}
         >
           {CATEGORIES.map((cat) => (
             <FilterChip
@@ -80,6 +72,39 @@ export default function CharacterDetailScreen() {
       </View>
 
       <MoveList moves={data.moves} categoryFilter={categoryFilter} />
+
+      <AdBanner />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: colors.background,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    color: colors.textMuted,
+  },
+  versionRow: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  versionText: {
+    color: colors.textMuted,
+    fontSize: 11,
+  },
+  filterRow: {
+    paddingHorizontal: 16,
+    paddingBottom: 8,
+  },
+  filterContent: {
+    alignItems: "center",
+  },
+});

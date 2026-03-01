@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { Pressable, ScrollView, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 import { useDataStore } from "@/stores/useDataStore";
 import { useFilterStore } from "@/stores/useFilterStore";
@@ -9,12 +9,14 @@ import { CharacterGrid } from "@/components/character/CharacterGrid";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { PunishResult } from "@/components/punish/PunishResult";
 import { MoveRow } from "@/components/frame-data/MoveRow";
+import { ColumnHeader } from "@/components/frame-data/ColumnHeader";
 import { FilterChip } from "@/components/ui/FilterChip";
+import { MyCharacterBar } from "@/components/ui/MyCharacterBar";
+import { Stepper } from "@/components/ui/Stepper";
 import type { Character } from "@/types/character";
 import type { Move } from "@/types/frame-data";
 import { useTranslation } from "react-i18next";
 import { getMoveName } from "@/utils/moveName";
-import { Stepper } from "@/components/ui/Stepper";
 
 type Step = "select-opponent" | "select-move" | "result";
 const STEP_INDEX: Record<Step, number> = {
@@ -61,37 +63,19 @@ export default function PunishScreen() {
     }
   }, [step]);
 
+  const handleReset = useCallback(() => {
+    setStep("select-opponent");
+    setOpponentSlug(null);
+    setSelectedMove(null);
+  }, []);
+
   if (!isSet) {
     return (
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: colors.background,
-          justifyContent: "center",
-          alignItems: "center",
-          padding: 32,
-        }}
-      >
-        <Text
-          style={{
-            color: colors.text,
-            fontSize: 16,
-            fontWeight: "700",
-            textAlign: "center",
-          }}
-        >
+      <View style={styles.emptyContainer}>
+        <Text style={styles.emptyTitle}>
           {t("character.selectMyCharacter")}
         </Text>
-        <Text
-          style={{
-            color: colors.textSecondary,
-            fontSize: 13,
-            marginTop: 8,
-            textAlign: "center",
-          }}
-        >
-          {t("punish.description")}
-        </Text>
+        <Text style={styles.emptyDescription}>{t("punish.description")}</Text>
         <CharacterSelectModal
           visible
           characters={characters}
@@ -104,58 +88,13 @@ export default function PunishScreen() {
   }
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <Pressable
-        onPress={() => {
-          setStep("select-opponent");
-          setOpponentSlug(null);
-          setSelectedMove(null);
-        }}
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          padding: 12,
-          paddingHorizontal: 16,
-          borderBottomWidth: 1,
-          borderBottomColor: colors.border,
-        }}
-      >
-        <View
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: 16,
-            backgroundColor: colors.accent,
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Text
-            style={{
-              color: colors.background,
-              fontWeight: "700",
-              fontSize: 14,
-            }}
-          >
-            {myCharacter?.name.charAt(0)}
-          </Text>
-        </View>
-        <Text
-          style={{
-            color: colors.text,
-            fontSize: 14,
-            fontWeight: "700",
-            marginLeft: 8,
-          }}
-        >
-          {i18n.language === "ja" ? myCharacter?.nameJa : myCharacter?.name}
-        </Text>
-        <Text
-          style={{ color: colors.textMuted, fontSize: 11, marginLeft: "auto" }}
-        >
-          {t("character.myCharacter")}
-        </Text>
-      </Pressable>
+    <View style={styles.root}>
+      <MyCharacterBar
+        character={myCharacter}
+        isSet={isSet}
+        onPress={handleReset}
+        trailingLabel={t("character.myCharacter")}
+      />
 
       <Stepper
         steps={[
@@ -167,19 +106,8 @@ export default function PunishScreen() {
       />
 
       {step === "select-opponent" && (
-        <View style={{ flex: 1 }}>
-          <Text
-            style={{
-              color: colors.textSecondary,
-              fontSize: 12,
-              fontWeight: "600",
-              paddingHorizontal: 16,
-              paddingTop: 12,
-              paddingBottom: 8,
-            }}
-          >
-            {t("character.opponent")}
-          </Text>
+        <View style={styles.flex}>
+          <Text style={styles.sectionLabel}>{t("character.opponent")}</Text>
           <CharacterGrid
             characters={characters}
             onSelect={handleSelectOpponent}
@@ -189,94 +117,20 @@ export default function PunishScreen() {
       )}
 
       {step === "select-move" && (
-        <View style={{ flex: 1 }}>
-          <Pressable
-            onPress={handleBack}
-            style={{ paddingHorizontal: 16, paddingVertical: 8 }}
-          >
-            <Text style={{ color: colors.accent, fontSize: 12 }}>
+        <View style={styles.flex}>
+          <Pressable onPress={handleBack} style={styles.backButton}>
+            <Text style={styles.backText}>
               {"< "}
               {t("character.opponent")}
             </Text>
           </Pressable>
-          <Text
-            style={{
-              color: colors.textSecondary,
-              fontSize: 12,
-              fontWeight: "600",
-              paddingHorizontal: 16,
-              paddingBottom: 8,
-            }}
-          >
+          <Text style={styles.sectionLabel}>
             {t("punish.selectOpponentMove")}
           </Text>
-          {/* 見出し行 */}
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              paddingVertical: 6,
-              paddingHorizontal: 16,
-              borderBottomWidth: 1,
-              borderBottomColor: colors.border,
-              backgroundColor: colors.background,
-            }}
-          >
-            <View style={{ flex: 1 }}>
-              <Text style={{ color: colors.textMuted, fontSize: 10 }}>
-                {t("frameData.title")}
-              </Text>
-            </View>
-            <View
-              style={{ flexDirection: "row", gap: 4, alignItems: "center" }}
-            >
-              <Text
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 10,
-                  minWidth: 36,
-                  textAlign: "center",
-                }}
-              >
-                {t("frameData.startup")}
-              </Text>
-              <Text
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 10,
-                  minWidth: 36,
-                  textAlign: "center",
-                }}
-              >
-                {t("frameData.onBlock")}
-              </Text>
-              <Text
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 10,
-                  minWidth: 36,
-                  textAlign: "center",
-                }}
-              >
-                {t("frameData.onHit")}
-              </Text>
-              <Text
-                style={{
-                  color: colors.textMuted,
-                  fontSize: 10,
-                  minWidth: 40,
-                  textAlign: "center",
-                }}
-              >
-                {t("frameData.damage")}
-              </Text>
-            </View>
-          </View>
+          <ColumnHeader leadingLabel={t("frameData.title")} />
           {isOpponentLoading ? (
-            <View style={{ padding: 32, alignItems: "center" }}>
-              <Text style={{ color: colors.textMuted }}>
-                {t("common.loading")}
-              </Text>
+            <View style={styles.loadingContainer}>
+              <Text style={styles.loadingText}>{t("common.loading")}</Text>
             </View>
           ) : (
             <ScrollView>
@@ -294,23 +148,14 @@ export default function PunishScreen() {
       )}
 
       {step === "result" && selectedMove && (
-        <View style={{ flex: 1 }}>
-          <Pressable
-            onPress={handleBack}
-            style={{ paddingHorizontal: 16, paddingVertical: 8 }}
-          >
-            <Text style={{ color: colors.accent, fontSize: 12 }}>
+        <View style={styles.flex}>
+          <Pressable onPress={handleBack} style={styles.backButton}>
+            <Text style={styles.backText}>
               {"< "}
               {t("punish.selectOpponentMove")}
             </Text>
           </Pressable>
-          <View
-            style={{
-              flexDirection: "row",
-              paddingHorizontal: 16,
-              paddingVertical: 8,
-            }}
-          >
+          <View style={styles.sortRow}>
             <FilterChip
               label={t("sort.startup")}
               selected={sortMode === "startup"}
@@ -331,3 +176,60 @@ export default function PunishScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  root: {
+    flex: 1,
+    backgroundColor: colors.background,
+  },
+  flex: {
+    flex: 1,
+  },
+  emptyContainer: {
+    flex: 1,
+    backgroundColor: colors.background,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 32,
+  },
+  emptyTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: "700",
+    textAlign: "center",
+  },
+  emptyDescription: {
+    color: colors.textSecondary,
+    fontSize: 13,
+    marginTop: 8,
+    textAlign: "center",
+  },
+  sectionLabel: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    fontWeight: "600",
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 8,
+  },
+  backButton: {
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  backText: {
+    color: colors.accent,
+    fontSize: 12,
+  },
+  sortRow: {
+    flexDirection: "row",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+  },
+  loadingContainer: {
+    padding: 32,
+    alignItems: "center",
+  },
+  loadingText: {
+    color: colors.textMuted,
+  },
+});
