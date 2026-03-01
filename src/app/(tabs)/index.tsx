@@ -57,11 +57,25 @@ export default function HomeScreen() {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: colors.background, fontWeight: "700", fontSize: 12 }}>
+              <Text
+                style={{
+                  color: colors.background,
+                  fontWeight: "700",
+                  fontSize: 12,
+                }}
+              >
                 {myCharacter.name.charAt(0)}
               </Text>
             </View>
-            <Text style={{ color: colors.text, fontSize: 14, fontWeight: "600", marginLeft: 8, flex: 1 }}>
+            <Text
+              style={{
+                color: colors.text,
+                fontSize: 14,
+                fontWeight: "600",
+                marginLeft: 8,
+                flex: 1,
+              }}
+            >
               {i18n.language === "ja" ? myCharacter.nameJa : myCharacter.name}
             </Text>
             <Text style={{ color: colors.accent, fontSize: 12 }}>
@@ -81,10 +95,7 @@ export default function HomeScreen() {
       </Pressable>
 
       {/* キャラクター一覧 */}
-      <CharacterGrid
-        characters={characters}
-        onSelect={handleCharacterPress}
-      />
+      <CharacterGrid characters={characters} onSelect={handleCharacterPress} />
 
       {/* 自キャラ選択モーダル（初回は閉じられない） */}
       <CharacterSelectModal

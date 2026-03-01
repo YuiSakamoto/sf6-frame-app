@@ -22,9 +22,7 @@ async function fetchJson<T>(url: string): Promise<Result<T>> {
     const data = (await response.json()) as T;
     return ok(data);
   } catch (e) {
-    return err(
-      e instanceof Error ? e : new Error("Unknown fetch error"),
-    );
+    return err(e instanceof Error ? e : new Error("Unknown fetch error"));
   }
 }
 
@@ -40,12 +38,8 @@ export const dataService = {
   },
 
   /** キャラクターのフレームデータを取得 */
-  async fetchFrameData(
-    slug: string,
-  ): Promise<Result<CharacterFrameData>> {
-    return fetchJson<CharacterFrameData>(
-      `${BASE_URL}/frames/${slug}.json`,
-    );
+  async fetchFrameData(slug: string): Promise<Result<CharacterFrameData>> {
+    return fetchJson<CharacterFrameData>(`${BASE_URL}/frames/${slug}.json`);
   },
 
   /** キャッシュされたバージョン情報を取得 */

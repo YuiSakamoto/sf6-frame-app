@@ -40,7 +40,8 @@
     "noPunish": "无确定反击",
     "fastestPunish": "最快确反",
     "framesToSpare": "{{frames}}F余裕",
-    "result": "确定反击: {{count}}个"
+    "result": "确定反击: {{count}}个",
+    "resultStep": "结果"
   },
   "filter": {
     "all": "全部",

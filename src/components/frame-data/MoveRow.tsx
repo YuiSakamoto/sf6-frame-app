@@ -4,7 +4,12 @@ import { colors } from "@/theme/colors";
 import type { Move } from "@/types/frame-data";
 import { FrameValue } from "./FrameValue";
 import { useTranslation } from "react-i18next";
-import { getMoveName, getComboScaling, getProperties, getNotes } from "@/utils/moveName";
+import {
+  getMoveName,
+  getComboScaling,
+  getProperties,
+  getNotes,
+} from "@/utils/moveName";
 
 interface MoveRowProps {
   move: Move;
@@ -17,9 +22,21 @@ interface MoveRowProps {
 function DetailItem({ label, value }: { label: string; value?: string }) {
   if (!value || value === "" || value === "-") return null;
   return (
-    <View style={{ flexDirection: "row", justifyContent: "space-between", paddingVertical: 3 }}>
+    <View
+      style={{
+        flexDirection: "row",
+        justifyContent: "space-between",
+        paddingVertical: 3,
+      }}
+    >
       <Text style={{ color: colors.textMuted, fontSize: 11 }}>{label}</Text>
-      <Text style={{ color: colors.textSecondary, fontSize: 11, fontVariant: ["tabular-nums"] }}>
+      <Text
+        style={{
+          color: colors.textSecondary,
+          fontSize: 11,
+          fontVariant: ["tabular-nums"],
+        }}
+      >
         {value}
       </Text>
     </View>
@@ -49,8 +66,20 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
         backgroundColor: expanded ? colors.surfaceLight : colors.surface,
       }}
     >
-      {/* メイン行: 技名 + 主要フレーム値 */}
+      {/* メイン行: 展開矢印 + 技名 + 主要フレーム値 */}
       <View style={{ flexDirection: "row", alignItems: "center" }}>
+        {expandable && (
+          <Text
+            style={{
+              color: colors.textMuted,
+              fontSize: 10,
+              marginRight: 6,
+              width: 12,
+            }}
+          >
+            {expanded ? "▾" : "▸"}
+          </Text>
+        )}
         <View style={{ flex: 1, marginRight: 8 }}>
           <Text
             style={{ color: colors.text, fontSize: 13, fontWeight: "600" }}
@@ -58,14 +87,27 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
           >
             {displayName}
           </Text>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 6, marginTop: 2 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              gap: 6,
+              marginTop: 2,
+            }}
+          >
             {move.input ? (
               <Text style={{ color: colors.textSecondary, fontSize: 11 }}>
                 {move.input}
               </Text>
             ) : null}
             {displayProperties ? (
-              <Text style={{ color: colors.accent, fontSize: 10, fontWeight: "600" }}>
+              <Text
+                style={{
+                  color: colors.accent,
+                  fontSize: 10,
+                  fontWeight: "600",
+                }}
+              >
                 {displayProperties}
               </Text>
             ) : null}
@@ -103,20 +145,40 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
             {/* 左列: フレーム関連 */}
             <View style={{ flex: 1 }}>
               <DetailItem label={t("frameData.active")} value={move.active} />
-              <DetailItem label={t("frameData.recovery")} value={move.recovery} />
+              <DetailItem
+                label={t("frameData.recovery")}
+                value={move.recovery}
+              />
               <DetailItem label={t("frameData.cancel")} value={move.cancel} />
-              <DetailItem label={t("frameData.comboScaling")} value={displayComboScaling} />
+              <DetailItem
+                label={t("frameData.comboScaling")}
+                value={displayComboScaling}
+              />
             </View>
             {/* 右列: ゲージ関連 */}
             <View style={{ flex: 1 }}>
-              <DetailItem label={t("frameData.driveGaugeGain")} value={move.driveGaugeGain} />
-              <DetailItem label={t("frameData.driveGaugeLossBlock")} value={move.driveGaugeLossBlock} />
-              <DetailItem label={t("frameData.driveGaugeLossPc")} value={move.driveGaugeLossPc} />
-              <DetailItem label={t("frameData.saGaugeGain")} value={move.saGaugeGain} />
+              <DetailItem
+                label={t("frameData.driveGaugeGain")}
+                value={move.driveGaugeGain}
+              />
+              <DetailItem
+                label={t("frameData.driveGaugeLossBlock")}
+                value={move.driveGaugeLossBlock}
+              />
+              <DetailItem
+                label={t("frameData.driveGaugeLossPc")}
+                value={move.driveGaugeLossPc}
+              />
+              <DetailItem
+                label={t("frameData.saGaugeGain")}
+                value={move.saGaugeGain}
+              />
             </View>
           </View>
           {displayNotes ? (
-            <Text style={{ color: colors.textMuted, fontSize: 10, marginTop: 4 }}>
+            <Text
+              style={{ color: colors.textMuted, fontSize: 10, marginTop: 4 }}
+            >
               {displayNotes}
             </Text>
           ) : null}

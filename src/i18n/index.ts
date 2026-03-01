@@ -48,7 +48,9 @@ const resolveLanguage = (): string => {
 
   // languageTag で完全一致を試みる (例: "pt-BR", "zh-CN", "es-419")
   if (
-    supportedLanguages.includes(languageTag as (typeof supportedLanguages)[number])
+    supportedLanguages.includes(
+      languageTag as (typeof supportedLanguages)[number],
+    )
   ) {
     return languageTag;
   }

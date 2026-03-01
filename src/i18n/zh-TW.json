@@ -40,7 +40,8 @@
     "noPunish": "無確定反擊",
     "fastestPunish": "最快確反",
     "framesToSpare": "{{frames}}F餘裕",
-    "result": "確定反擊: {{count}}個"
+    "result": "確定反擊: {{count}}個",
+    "resultStep": "結果"
   },
   "filter": {
     "all": "全部",

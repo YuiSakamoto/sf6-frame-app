@@ -9,7 +9,10 @@ interface PunishResultProps {
   selectedMoveName: string;
 }
 
-export function PunishResult({ punishes, selectedMoveName }: PunishResultProps) {
+export function PunishResult({
+  punishes,
+  selectedMoveName,
+}: PunishResultProps) {
   const { t } = useTranslation();
 
   if (punishes.length === 0) {
@@ -47,10 +50,14 @@ export function PunishResult({ punishes, selectedMoveName }: PunishResultProps) 
             borderBottomColor: colors.border,
           }}
         >
-          <Text style={{ color: colors.accent, fontSize: 13, fontWeight: "600" }}>
+          <Text
+            style={{ color: colors.accent, fontSize: 13, fontWeight: "600" }}
+          >
             vs {selectedMoveName}
           </Text>
-          <Text style={{ color: colors.textSecondary, fontSize: 11, marginTop: 2 }}>
+          <Text
+            style={{ color: colors.textSecondary, fontSize: 11, marginTop: 2 }}
+          >
             {t("punish.result", { count: punishes.length })}
           </Text>
         </View>

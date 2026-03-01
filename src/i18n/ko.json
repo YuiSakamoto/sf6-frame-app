@@ -40,7 +40,8 @@
     "noPunish": "확정반격 없음",
     "fastestPunish": "최속 확반",
     "framesToSpare": "{{frames}}F 여유",
-    "result": "확정반격: {{count}}개"
+    "result": "확정반격: {{count}}개",
+    "resultStep": "결과"
   },
   "filter": {
     "all": "전체",

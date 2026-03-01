@@ -40,7 +40,8 @@
     "noPunish": "Keine Bestrafung verfügbar",
     "fastestPunish": "Schnellste Bestrafung",
     "framesToSpare": "{{frames}}F Spielraum",
-    "result": "Bestrafungen: {{count}}"
+    "result": "Bestrafungen: {{count}}",
+    "resultStep": "Ergebnis"
   },
   "filter": {
     "all": "Alle",

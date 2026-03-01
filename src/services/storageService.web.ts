@@ -1,6 +1,11 @@
 import type { Result } from "@/types/result";
 import { ok, err } from "@/types/result";
 
+/** Web版はlocalStorageが同期的に利用可能なので初期化不要 */
+export async function initStorage(): Promise<void> {
+  // no-op: localStorage は同期APIなので事前読み込み不要
+}
+
 export const storageService = {
   getString(key: string): Result<string> {
     const value = localStorage.getItem(key);

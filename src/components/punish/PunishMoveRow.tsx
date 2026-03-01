@@ -48,7 +48,14 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
             />
           )}
         </View>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 8, marginTop: 2 }}>
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            gap: 8,
+            marginTop: 2,
+          }}
+        >
           <Text style={{ color: colors.textSecondary, fontSize: 11 }}>
             {punish.move.input}
           </Text>
@@ -80,7 +87,9 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
           </Text>
         </View>
         {displayProperties ? (
-          <Text style={{ color: colors.accent, fontSize: 9, textAlign: "right" }}>
+          <Text
+            style={{ color: colors.accent, fontSize: 9, textAlign: "right" }}
+          >
             {displayProperties}
           </Text>
         ) : null}

@@ -40,7 +40,8 @@
     "noPunish": "Nenhuma punição disponível",
     "fastestPunish": "Punição mais rápida",
     "framesToSpare": "{{frames}}F de margem",
-    "result": "Punições: {{count}}"
+    "result": "Punições: {{count}}",
+    "resultStep": "Resultado"
   },
   "filter": {
     "all": "Todos",

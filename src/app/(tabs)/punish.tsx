@@ -14,8 +14,14 @@ import type { Character } from "@/types/character";
 import type { Move } from "@/types/frame-data";
 import { useTranslation } from "react-i18next";
 import { getMoveName } from "@/utils/moveName";
+import { Stepper } from "@/components/ui/Stepper";
 
 type Step = "select-opponent" | "select-move" | "result";
+const STEP_INDEX: Record<Step, number> = {
+  "select-opponent": 0,
+  "select-move": 1,
+  result: 2,
+};
 
 export default function PunishScreen() {
   const { t, i18n } = useTranslation();
@@ -28,8 +34,11 @@ export default function PunishScreen() {
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
   const [selectedMove, setSelectedMove] = useState<Move | null>(null);
 
-  const { punishableMoves, punishOptions, isOpponentLoading } =
-    usePunishFinder(opponentSlug, selectedMove, sortMode);
+  const { punishableMoves, punishOptions, isOpponentLoading } = usePunishFinder(
+    opponentSlug,
+    selectedMove,
+    sortMode,
+  );
 
   const handleSelectOpponent = useCallback((character: Character) => {
     setOpponentSlug(character.slug);
@@ -54,11 +63,33 @@ export default function PunishScreen() {
 
   if (!isSet) {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.background, justifyContent: "center", alignItems: "center", padding: 32 }}>
-        <Text style={{ color: colors.text, fontSize: 16, fontWeight: "700", textAlign: "center" }}>
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: colors.background,
+          justifyContent: "center",
+          alignItems: "center",
+          padding: 32,
+        }}
+      >
+        <Text
+          style={{
+            color: colors.text,
+            fontSize: 16,
+            fontWeight: "700",
+            textAlign: "center",
+          }}
+        >
           {t("character.selectMyCharacter")}
         </Text>
-        <Text style={{ color: colors.textSecondary, fontSize: 13, marginTop: 8, textAlign: "center" }}>
+        <Text
+          style={{
+            color: colors.textSecondary,
+            fontSize: 13,
+            marginTop: 8,
+            textAlign: "center",
+          }}
+        >
           {t("punish.description")}
         </Text>
         <CharacterSelectModal
@@ -99,17 +130,41 @@ export default function PunishScreen() {
             justifyContent: "center",
           }}
         >
-          <Text style={{ color: colors.background, fontWeight: "700", fontSize: 14 }}>
+          <Text
+            style={{
+              color: colors.background,
+              fontWeight: "700",
+              fontSize: 14,
+            }}
+          >
             {myCharacter?.name.charAt(0)}
           </Text>
         </View>
-        <Text style={{ color: colors.text, fontSize: 14, fontWeight: "700", marginLeft: 8 }}>
+        <Text
+          style={{
+            color: colors.text,
+            fontSize: 14,
+            fontWeight: "700",
+            marginLeft: 8,
+          }}
+        >
           {i18n.language === "ja" ? myCharacter?.nameJa : myCharacter?.name}
         </Text>
-        <Text style={{ color: colors.textMuted, fontSize: 11, marginLeft: "auto" }}>
+        <Text
+          style={{ color: colors.textMuted, fontSize: 11, marginLeft: "auto" }}
+        >
           {t("character.myCharacter")}
         </Text>
       </Pressable>
+
+      <Stepper
+        steps={[
+          t("character.opponent"),
+          t("punish.selectOpponentMove"),
+          t("punish.resultStep"),
+        ]}
+        currentStep={STEP_INDEX[step]}
+      />
 
       {step === "select-opponent" && (
         <View style={{ flex: 1 }}>
@@ -135,9 +190,13 @@ export default function PunishScreen() {
 
       {step === "select-move" && (
         <View style={{ flex: 1 }}>
-          <Pressable onPress={handleBack} style={{ paddingHorizontal: 16, paddingVertical: 8 }}>
+          <Pressable
+            onPress={handleBack}
+            style={{ paddingHorizontal: 16, paddingVertical: 8 }}
+          >
             <Text style={{ color: colors.accent, fontSize: 12 }}>
-              {"< "}{t("character.opponent")}
+              {"< "}
+              {t("character.opponent")}
             </Text>
           </Pressable>
           <Text
@@ -168,29 +227,66 @@ export default function PunishScreen() {
                 {t("frameData.title")}
               </Text>
             </View>
-            <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
-              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+            <View
+              style={{ flexDirection: "row", gap: 4, alignItems: "center" }}
+            >
+              <Text
+                style={{
+                  color: colors.textMuted,
+                  fontSize: 10,
+                  minWidth: 36,
+                  textAlign: "center",
+                }}
+              >
                 {t("frameData.startup")}
               </Text>
-              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+              <Text
+                style={{
+                  color: colors.textMuted,
+                  fontSize: 10,
+                  minWidth: 36,
+                  textAlign: "center",
+                }}
+              >
                 {t("frameData.onBlock")}
               </Text>
-              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+              <Text
+                style={{
+                  color: colors.textMuted,
+                  fontSize: 10,
+                  minWidth: 36,
+                  textAlign: "center",
+                }}
+              >
                 {t("frameData.onHit")}
               </Text>
-              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 40, textAlign: "center" }}>
+              <Text
+                style={{
+                  color: colors.textMuted,
+                  fontSize: 10,
+                  minWidth: 40,
+                  textAlign: "center",
+                }}
+              >
                 {t("frameData.damage")}
               </Text>
             </View>
           </View>
           {isOpponentLoading ? (
             <View style={{ padding: 32, alignItems: "center" }}>
-              <Text style={{ color: colors.textMuted }}>{t("common.loading")}</Text>
+              <Text style={{ color: colors.textMuted }}>
+                {t("common.loading")}
+              </Text>
             </View>
           ) : (
             <ScrollView>
               {punishableMoves.map((move, index) => (
-                <MoveRow key={index} move={move} onPress={handleSelectMove} expandable={false} />
+                <MoveRow
+                  key={index}
+                  move={move}
+                  onPress={handleSelectMove}
+                  expandable={false}
+                />
               ))}
             </ScrollView>
           )}
@@ -199,12 +295,22 @@ export default function PunishScreen() {
 
       {step === "result" && selectedMove && (
         <View style={{ flex: 1 }}>
-          <Pressable onPress={handleBack} style={{ paddingHorizontal: 16, paddingVertical: 8 }}>
+          <Pressable
+            onPress={handleBack}
+            style={{ paddingHorizontal: 16, paddingVertical: 8 }}
+          >
             <Text style={{ color: colors.accent, fontSize: 12 }}>
-              {"< "}{t("punish.selectOpponentMove")}
+              {"< "}
+              {t("punish.selectOpponentMove")}
             </Text>
           </Pressable>
-          <View style={{ flexDirection: "row", paddingHorizontal: 16, paddingVertical: 8 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              paddingHorizontal: 16,
+              paddingVertical: 8,
+            }}
+          >
             <FilterChip
               label={t("sort.startup")}
               selected={sortMode === "startup"}

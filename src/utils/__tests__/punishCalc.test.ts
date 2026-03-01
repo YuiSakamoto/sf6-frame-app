@@ -65,9 +65,24 @@ describe("isDerivedMove", () => {
 describe("findPunishes", () => {
   it("確反可能な技を返す", () => {
     const moves = [
-      createMove({ name: "LP", startup: "4", damage: "300", category: "normal" }),
-      createMove({ name: "MP", startup: "6", damage: "500", category: "normal" }),
-      createMove({ name: "HP", startup: "8", damage: "800", category: "normal" }),
+      createMove({
+        name: "LP",
+        startup: "4",
+        damage: "300",
+        category: "normal",
+      }),
+      createMove({
+        name: "MP",
+        startup: "6",
+        damage: "500",
+        category: "normal",
+      }),
+      createMove({
+        name: "HP",
+        startup: "8",
+        damage: "800",
+        category: "normal",
+      }),
     ];
 
     const result = findPunishes("-6", moves);
@@ -79,8 +94,18 @@ describe("findPunishes", () => {
 
   it("startup 昇順、同 startup ならダメージ降順でソートされる", () => {
     const moves = [
-      createMove({ name: "Move A", startup: "4", damage: "300", category: "normal" }),
-      createMove({ name: "Move B", startup: "4", damage: "500", category: "normal" }),
+      createMove({
+        name: "Move A",
+        startup: "4",
+        damage: "300",
+        category: "normal",
+      }),
+      createMove({
+        name: "Move B",
+        startup: "4",
+        damage: "500",
+        category: "normal",
+      }),
     ];
 
     const result = findPunishes("-6", moves);
@@ -121,7 +146,12 @@ describe("findPunishes", () => {
 
   it("common カテゴリは除外される（ドライブインパクト以外）", () => {
     const moves = [
-      createMove({ name: "Some Common Move", nameJa: "共通技", startup: "4", category: "common" }),
+      createMove({
+        name: "Some Common Move",
+        nameJa: "共通技",
+        startup: "4",
+        category: "common",
+      }),
     ];
 
     const result = findPunishes("-8", moves);
@@ -131,7 +161,12 @@ describe("findPunishes", () => {
 
   it("ドライブインパクトは common でも含まれる", () => {
     const moves = [
-      createMove({ name: "Drive Impact", nameJa: "ドライブインパクト", startup: "26", category: "common" }),
+      createMove({
+        name: "Drive Impact",
+        nameJa: "ドライブインパクト",
+        startup: "26",
+        category: "common",
+      }),
     ];
 
     const result = findPunishes("-30", moves);
@@ -141,7 +176,12 @@ describe("findPunishes", () => {
 
   it("ジャンプ攻撃は除外される", () => {
     const moves = [
-      createMove({ name: "Jumping HP", nameJa: "ジャンプ強P", startup: "4", category: "normal" }),
+      createMove({
+        name: "Jumping HP",
+        nameJa: "ジャンプ強P",
+        startup: "4",
+        category: "normal",
+      }),
     ];
 
     const result = findPunishes("-8", moves);
@@ -161,7 +201,12 @@ describe("findPunishes", () => {
 
   it("framesToSpare が正しく計算される", () => {
     const moves = [
-      createMove({ name: "LP", startup: "4", damage: "300", category: "normal" }),
+      createMove({
+        name: "LP",
+        startup: "4",
+        damage: "300",
+        category: "normal",
+      }),
     ];
 
     const result = findPunishes("-8", moves);

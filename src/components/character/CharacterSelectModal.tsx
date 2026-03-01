@@ -38,9 +38,7 @@ export function CharacterSelectModal({
           justifyContent: "flex-end",
         }}
       >
-        {dismissable && (
-          <Pressable style={{ flex: 1 }} onPress={onClose} />
-        )}
+        {dismissable && <Pressable style={{ flex: 1 }} onPress={onClose} />}
         <View
           style={{
             backgroundColor: colors.background,
@@ -59,7 +57,9 @@ export function CharacterSelectModal({
               paddingBottom: 8,
             }}
           >
-            <Text style={{ color: colors.text, fontSize: 16, fontWeight: "700" }}>
+            <Text
+              style={{ color: colors.text, fontSize: 16, fontWeight: "700" }}
+            >
               {t("character.selectMyCharacter")}
             </Text>
             {dismissable && (

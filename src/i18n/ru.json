@@ -40,7 +40,8 @@
     "noPunish": "Наказание недоступно",
     "fastestPunish": "Самое быстрое наказание",
     "framesToSpare": "{{frames}}F запаса",
-    "result": "Наказания: {{count}}"
+    "result": "Наказания: {{count}}",
+    "resultStep": "Результат"
   },
   "filter": {
     "all": "Все",

@@ -24,7 +24,9 @@ export default function CharacterDetailScreen() {
   const { t, i18n } = useTranslation();
   const navigation = useNavigation();
   const { data, isLoading, error } = useFrameData(slug ?? null);
-  const [categoryFilter, setCategoryFilter] = useState<MoveCategory | "all">("all");
+  const [categoryFilter, setCategoryFilter] = useState<MoveCategory | "all">(
+    "all",
+  );
 
   // ヘッダーにキャラクター名を表示
   useEffect(() => {
@@ -46,7 +48,7 @@ export default function CharacterDetailScreen() {
         }}
       >
         <Text style={{ color: colors.textMuted }}>
-          {isLoading ? t("common.loading") : error ?? t("common.noData")}
+          {isLoading ? t("common.loading") : (error ?? t("common.noData"))}
         </Text>
       </View>
     );

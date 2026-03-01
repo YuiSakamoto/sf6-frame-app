@@ -1,5 +1,10 @@
 import { describe, it, expect } from "vitest";
-import { getMoveName, getComboScaling, getProperties, getNotes } from "../moveName";
+import {
+  getMoveName,
+  getComboScaling,
+  getProperties,
+  getNotes,
+} from "../moveName";
 import { createMove } from "@/__tests__/helpers";
 
 describe("getMoveName", () => {
@@ -20,12 +25,18 @@ describe("getMoveName", () => {
 
 describe("getComboScaling", () => {
   it("日本語の場合は comboScaling を返す", () => {
-    const move = createMove({ comboScaling: "初段100%", comboScalingEn: "1st 100%" });
+    const move = createMove({
+      comboScaling: "初段100%",
+      comboScalingEn: "1st 100%",
+    });
     expect(getComboScaling(move, "ja")).toBe("初段100%");
   });
 
   it("英語の場合は comboScalingEn を返す", () => {
-    const move = createMove({ comboScaling: "初段100%", comboScalingEn: "1st 100%" });
+    const move = createMove({
+      comboScaling: "初段100%",
+      comboScalingEn: "1st 100%",
+    });
     expect(getComboScaling(move, "en")).toBe("1st 100%");
   });
 

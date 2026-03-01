@@ -40,7 +40,8 @@
     "noPunish": "لا توجد عقوبة متاحة",
     "fastestPunish": "أسرع عقوبة",
     "framesToSpare": "{{frames}} إطار احتياطي",
-    "result": "العقوبات: {{count}}"
+    "result": "العقوبات: {{count}}",
+    "resultStep": "النتائج"
   },
   "filter": {
     "all": "الكل",

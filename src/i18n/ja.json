@@ -48,7 +48,8 @@
     "noPunish": "確定反撃なし",
     "fastestPunish": "最速確反",
     "framesToSpare": "{{frames}}F余裕",
-    "result": "確定反撃: {{count}}個"
+    "result": "確定反撃: {{count}}個",
+    "resultStep": "結果"
   },
   "filter": {
     "all": "すべて",

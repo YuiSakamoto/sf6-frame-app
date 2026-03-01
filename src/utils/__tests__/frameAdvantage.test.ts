@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { parseFrameValue, getFrameColor, isPunishable } from "../frameAdvantage";
+import {
+  parseFrameValue,
+  getFrameColor,
+  isPunishable,
+} from "../frameAdvantage";
 import { colors } from "@/theme/colors";
 
 describe("parseFrameValue", () => {

@@ -70,11 +70,19 @@ export default function SettingsScreen() {
                 justifyContent: "center",
               }}
             >
-              <Text style={{ color: colors.background, fontWeight: "700", fontSize: 12 }}>
+              <Text
+                style={{
+                  color: colors.background,
+                  fontWeight: "700",
+                  fontSize: 12,
+                }}
+              >
                 {myCharacter.name.charAt(0)}
               </Text>
             </View>
-            <Text style={{ color: colors.text, fontSize: 14, fontWeight: "600" }}>
+            <Text
+              style={{ color: colors.text, fontSize: 14, fontWeight: "600" }}
+            >
               {i18n.language === "ja" ? myCharacter.nameJa : myCharacter.name}
             </Text>
           </View>
@@ -116,7 +124,9 @@ export default function SettingsScreen() {
               paddingVertical: 12,
               borderBottomWidth: 1,
               borderBottomColor: colors.border,
-              backgroundColor: isSelected ? colors.surfaceLight : colors.surface,
+              backgroundColor: isSelected
+                ? colors.surfaceLight
+                : colors.surface,
             }}
           >
             <Text

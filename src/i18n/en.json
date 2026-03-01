@@ -48,7 +48,8 @@
     "noPunish": "No punish available",
     "fastestPunish": "Fastest punish",
     "framesToSpare": "{{frames}}F to spare",
-    "result": "Punish options: {{count}}"
+    "result": "Punish options: {{count}}",
+    "resultStep": "Result"
   },
   "filter": {
     "all": "All",

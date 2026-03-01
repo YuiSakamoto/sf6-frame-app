@@ -91,9 +91,7 @@ export function MoveList({
           </View>
         </View>
       }
-      renderItem={({ item }) => (
-        <MoveRow move={item} onPress={onMovePress} />
-      )}
+      renderItem={({ item }) => <MoveRow move={item} onPress={onMovePress} />}
       stickyHeaderIndices={[0]}
     />
   );

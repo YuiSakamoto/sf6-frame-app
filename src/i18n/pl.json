@@ -40,7 +40,8 @@
     "noPunish": "Brak dostępnego karania",
     "fastestPunish": "Najszybsze karanie",
     "framesToSpare": "{{frames}}F zapasu",
-    "result": "Karania: {{count}}"
+    "result": "Karania: {{count}}",
+    "resultStep": "Wynik"
   },
   "filter": {
     "all": "Wszystkie",
