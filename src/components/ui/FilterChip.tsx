@@ -11,17 +11,9 @@ export function FilterChip({ label, selected, onPress }: FilterChipProps) {
   return (
     <Pressable
       onPress={onPress}
-      style={[
-        styles.chip,
-        selected && styles.chipSelected,
-      ]}
+      style={[styles.chip, selected && styles.chipSelected]}
     >
-      <Text
-        style={[
-          styles.label,
-          selected && styles.labelSelected,
-        ]}
-      >
+      <Text style={[styles.label, selected && styles.labelSelected]}>
         {label}
       </Text>
     </Pressable>
