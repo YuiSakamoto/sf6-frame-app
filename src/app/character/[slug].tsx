@@ -1,10 +1,9 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useEffect } from "react";
 import { colors } from "@/theme/colors";
 import { useFrameData } from "@/hooks/useFrameData";
-import { useFilterStore } from "@/stores/useFilterStore";
 import { MoveList } from "@/components/frame-data/MoveList";
 import { FilterChip } from "@/components/ui/FilterChip";
 import { useTranslation } from "react-i18next";
