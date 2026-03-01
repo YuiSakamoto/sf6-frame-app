@@ -14,10 +14,10 @@ PR と main push で実行。3 ジョブ構成:
 | `test` | Vitest ユニットテスト + カバレッジ |
 | `build-web` | Expo Web ビルド検証 (`lint-typecheck` と `test` の両方完了後) |
 
-### AI Code Review (`ai-review.yml`)
+### Copilot Code Review (Ruleset)
 
-PR 作成・更新時に GitHub AI Inference (GPT-4o) が差分を自動レビュー。
-API キー不要（`GITHUB_TOKEN` のみ）。
+PR 作成・更新時に GitHub Copilot が自動でコードレビュー。
+Rulesets で有効化済み。カスタム指示は `.github/copilot-instructions.md` に定義。
 
 ### CodeQL (`codeql.yml`)
 
