@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDataStore } from "@/stores/useDataStore";
+import { initStorage } from "@/services/storageService";
 
 /**
  * アプリ起動時にデータを初期化し、バックグラウンドで同期を試みる
@@ -12,9 +13,10 @@ export function useDataSync() {
   const version = useDataStore((s) => s.version);
 
   useEffect(() => {
-    initialize();
-    // バックグラウンドでリモート同期
-    syncFromRemote();
+    initStorage().then(() => {
+      initialize();
+      syncFromRemote();
+    });
   }, [initialize, syncFromRemote]);
 
   return { isSyncing, isLoading, version };
