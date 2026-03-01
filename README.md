@@ -1,7 +1,6 @@
 # SF6 Frame Data & Punish Finder
 
 [![CI](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/ci.yml/badge.svg)](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/ci.yml)
-[![CodeQL](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/codeql.yml/badge.svg)](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/codeql.yml)
 
 Street Fighter 6 のフレームデータ閲覧 & 確定反撃検索アプリ。
 

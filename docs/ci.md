@@ -19,11 +19,10 @@ PR と main push で実行。3 ジョブ構成:
 PR 作成・更新時に GitHub Copilot が自動でコードレビュー。
 Rulesets で有効化済み。カスタム指示は `.github/copilot-instructions.md` に定義。
 
-### CodeQL (`codeql.yml`)
+### CodeQL (Default Setup)
 
 GitHub 公式の静的解析セキュリティテスト (SAST)。
-TypeScript/JavaScript のセキュリティ脆弱性を検出。
-main push, PR, 毎週月曜に実行。
+Default Setup で有効化済み（ワークフローファイル不要）。
 
 ### OSV-Scanner (`osv-scanner.yml`)
 
