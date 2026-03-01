@@ -1,6 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { getLocales } from "expo-localization";
+import { storageService } from "@/services/storageService";
+
+const LANGUAGE_STORAGE_KEY = "sf6-language";
 import ja from "./ja.json";
 import en from "./en.json";
 import fr from "./fr.json";
@@ -111,11 +114,19 @@ i18n.use(initReactI18next).init({
     ko: { translation: ko },
     "es-419": { translation: es419 },
   },
-  lng: resolveLanguage(),
+  lng: (() => {
+    const saved = storageService.getString(LANGUAGE_STORAGE_KEY);
+    return saved.ok ? saved.value : resolveLanguage();
+  })(),
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },
+});
+
+// 言語変更時にストレージに保存
+i18n.on("languageChanged", (lng) => {
+  storageService.set(LANGUAGE_STORAGE_KEY, lng);
 });
 
 export default i18n;

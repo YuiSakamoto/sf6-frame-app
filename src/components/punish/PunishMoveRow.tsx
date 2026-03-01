@@ -4,6 +4,7 @@ import type { PunishOption } from "@/utils/punishCalc";
 import { FrameValue } from "@/components/frame-data/FrameValue";
 import { Badge } from "@/components/ui/Badge";
 import { useTranslation } from "react-i18next";
+import { getMoveName, getComboScaling, getProperties } from "@/utils/moveName";
 
 interface PunishMoveRowProps {
   punish: PunishOption;
@@ -12,8 +13,10 @@ interface PunishMoveRowProps {
 
 export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
   const { t, i18n } = useTranslation();
-  const displayName =
-    i18n.language === "ja" ? punish.move.nameJa : punish.move.name;
+  const lang = i18n.language;
+  const displayName = getMoveName(punish.move, lang);
+  const displayComboScaling = getComboScaling(punish.move, lang);
+  const displayProperties = getProperties(punish.move, lang);
 
   return (
     <View
@@ -55,10 +58,9 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
             </Text>
           )}
         </View>
-        {/* コンボ補正値を表示 */}
-        {punish.move.comboScaling ? (
+        {displayComboScaling ? (
           <Text style={{ color: colors.textMuted, fontSize: 10, marginTop: 2 }}>
-            {t("frameData.comboScaling")}: {punish.move.comboScaling}
+            {t("frameData.comboScaling")}: {displayComboScaling}
           </Text>
         ) : null}
       </View>
@@ -77,10 +79,9 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
             {punish.move.damage}
           </Text>
         </View>
-        {/* 属性を表示 */}
-        {punish.move.properties ? (
+        {displayProperties ? (
           <Text style={{ color: colors.accent, fontSize: 9, textAlign: "right" }}>
-            {punish.move.properties}
+            {displayProperties}
           </Text>
         ) : null}
       </View>

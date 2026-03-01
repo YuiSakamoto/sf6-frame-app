@@ -6,6 +6,7 @@ import { useFilterStore } from "@/stores/useFilterStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
 import { usePunishFinder } from "@/hooks/usePunishFinder";
 import { CharacterGrid } from "@/components/character/CharacterGrid";
+import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { PunishResult } from "@/components/punish/PunishResult";
 import { MoveRow } from "@/components/frame-data/MoveRow";
 import { FilterChip } from "@/components/ui/FilterChip";
@@ -53,18 +54,19 @@ export default function PunishScreen() {
 
   if (!isSet) {
     return (
-      <View style={{ flex: 1, backgroundColor: colors.background }}>
-        <View style={{ padding: 16 }}>
-          <Text style={{ color: colors.text, fontSize: 16, fontWeight: "700" }}>
-            {t("character.selectMyCharacter")}
-          </Text>
-          <Text style={{ color: colors.textSecondary, fontSize: 13, marginTop: 4 }}>
-            {t("punish.description")}
-          </Text>
-        </View>
-        <CharacterGrid
+      <View style={{ flex: 1, backgroundColor: colors.background, justifyContent: "center", alignItems: "center", padding: 32 }}>
+        <Text style={{ color: colors.text, fontSize: 16, fontWeight: "700", textAlign: "center" }}>
+          {t("character.selectMyCharacter")}
+        </Text>
+        <Text style={{ color: colors.textSecondary, fontSize: 13, marginTop: 8, textAlign: "center" }}>
+          {t("punish.description")}
+        </Text>
+        <CharacterSelectModal
+          visible
           characters={characters}
+          dismissable={false}
           onSelect={(c) => setMyCharacter(c.slug)}
+          onClose={() => {}}
         />
       </View>
     );
@@ -149,6 +151,38 @@ export default function PunishScreen() {
           >
             {t("punish.selectOpponentMove")}
           </Text>
+          {/* 見出し行 */}
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              paddingVertical: 6,
+              paddingHorizontal: 16,
+              borderBottomWidth: 1,
+              borderBottomColor: colors.border,
+              backgroundColor: colors.background,
+            }}
+          >
+            <View style={{ flex: 1 }}>
+              <Text style={{ color: colors.textMuted, fontSize: 10 }}>
+                {t("frameData.title")}
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
+              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+                {t("frameData.startup")}
+              </Text>
+              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+                {t("frameData.onBlock")}
+              </Text>
+              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 36, textAlign: "center" }}>
+                {t("frameData.onHit")}
+              </Text>
+              <Text style={{ color: colors.textMuted, fontSize: 10, minWidth: 40, textAlign: "center" }}>
+                {t("frameData.damage")}
+              </Text>
+            </View>
+          </View>
           {isOpponentLoading ? (
             <View style={{ padding: 32, alignItems: "center" }}>
               <Text style={{ color: colors.textMuted }}>{t("common.loading")}</Text>
@@ -170,11 +204,7 @@ export default function PunishScreen() {
               {"< "}{t("punish.selectOpponentMove")}
             </Text>
           </Pressable>
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{ paddingHorizontal: 16, marginBottom: 8 }}
-          >
+          <View style={{ flexDirection: "row", paddingHorizontal: 16, paddingVertical: 8 }}>
             <FilterChip
               label={t("sort.startup")}
               selected={sortMode === "startup"}
@@ -185,7 +215,7 @@ export default function PunishScreen() {
               selected={sortMode === "damage"}
               onPress={() => setSortMode("damage")}
             />
-          </ScrollView>
+          </View>
           <PunishResult
             punishes={punishOptions}
             selectedMoveName={getMoveName(selectedMove, i18n.language)}

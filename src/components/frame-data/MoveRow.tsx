@@ -4,7 +4,7 @@ import { colors } from "@/theme/colors";
 import type { Move } from "@/types/frame-data";
 import { FrameValue } from "./FrameValue";
 import { useTranslation } from "react-i18next";
-import { getMoveName } from "@/utils/moveName";
+import { getMoveName, getComboScaling, getProperties, getNotes } from "@/utils/moveName";
 
 interface MoveRowProps {
   move: Move;
@@ -28,7 +28,11 @@ function DetailItem({ label, value }: { label: string; value?: string }) {
 
 export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
   const { t, i18n } = useTranslation();
-  const displayName = getMoveName(move, i18n.language);
+  const lang = i18n.language;
+  const displayName = getMoveName(move, lang);
+  const displayProperties = getProperties(move, lang);
+  const displayComboScaling = getComboScaling(move, lang);
+  const displayNotes = getNotes(move, lang);
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -60,9 +64,9 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
                 {move.input}
               </Text>
             ) : null}
-            {move.properties ? (
+            {displayProperties ? (
               <Text style={{ color: colors.accent, fontSize: 10, fontWeight: "600" }}>
-                {move.properties}
+                {displayProperties}
               </Text>
             ) : null}
           </View>
@@ -101,7 +105,7 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
               <DetailItem label={t("frameData.active")} value={move.active} />
               <DetailItem label={t("frameData.recovery")} value={move.recovery} />
               <DetailItem label={t("frameData.cancel")} value={move.cancel} />
-              <DetailItem label={t("frameData.comboScaling")} value={move.comboScaling} />
+              <DetailItem label={t("frameData.comboScaling")} value={displayComboScaling} />
             </View>
             {/* 右列: ゲージ関連 */}
             <View style={{ flex: 1 }}>
@@ -111,9 +115,9 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
               <DetailItem label={t("frameData.saGaugeGain")} value={move.saGaugeGain} />
             </View>
           </View>
-          {move.notes ? (
+          {displayNotes ? (
             <Text style={{ color: colors.textMuted, fontSize: 10, marginTop: 4 }}>
-              {move.notes}
+              {displayNotes}
             </Text>
           ) : null}
         </View>

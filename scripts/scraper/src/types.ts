@@ -19,8 +19,10 @@ export interface ScrapedMove {
   onHit: string;
   damage: string;
   cancel: string;
-  /** コンボ補正値 */
+  /** コンボ補正値（日本語） */
   comboScaling: string;
+  /** コンボ補正値（英語） */
+  comboScalingEn: string;
   /** Dゲージ増加（ヒット時） */
   driveGaugeGain: string;
   /** Dゲージ減少（ガード時） */
@@ -29,10 +31,14 @@ export interface ScrapedMove {
   driveGaugeLossPc: string;
   /** SAゲージ増加 */
   saGaugeGain: string;
-  /** 属性 */
+  /** 属性（日本語） */
   properties: string;
-  /** 備考 */
+  /** 属性（英語） */
+  propertiesEn: string;
+  /** 備考（日本語） */
   notes: string;
+  /** 備考（英語） */
+  notesEn: string;
   category: MoveCategory;
 }
 

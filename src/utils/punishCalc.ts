@@ -34,7 +34,7 @@ export function findPunishes(
   const punishes: PunishOption[] = [];
 
   for (const move of myMoves) {
-    // 通常投げ・共通システムは確反候補から除外（ドライブインパクトは例外として含む）
+    // 通常投げ・共通システム・ジャンプ攻撃は確反候補から除外（ドライブインパクトは例外として含む）
     if (move.category === "throw") continue;
     if (
       move.category === "common" &&
@@ -43,6 +43,16 @@ export function findPunishes(
     ) {
       continue;
     }
+    if (
+      move.name.toLowerCase().startsWith("jumping") ||
+      move.nameJa.startsWith("ジャンプ") ||
+      move.nameJa.startsWith("垂直ジャンプ") ||
+      move.name.toLowerCase().startsWith("neutral jumping")
+    ) {
+      continue;
+    }
+    // 派生技（2段目以降）は単体で出せないため除外
+    if (isDerivedMove(move.name)) continue;
 
     const startup = parseFrameValue(move.startup);
     if (startup === null || startup <= 0) continue;
@@ -90,4 +100,21 @@ function parseDamage(damage: string): number {
 
   const num = parseInt(cleaned, 10);
   return isNaN(num) ? 0 : num;
+}
+
+/**
+ * 派生技（2段目以降）かどうかを判定
+ * "(2)", "(3)", "(2段目)", "(3段目)" 等のパターンにマッチ
+ * ただし "(1)", "(1段目)" は初段なので除外しない
+ */
+function isDerivedMove(name: string): boolean {
+  // 英語: "(2)", "(3)", "(2nd hit)", etc.
+  if (/\([2-9]\)/.test(name)) return true;
+  // 英語: "2nd hit", "3rd hit" パターン
+  if (/\([2-9](?:nd|rd|th)\s+hit/i.test(name)) return true;
+  // 日本語: "（2段目）", "（3段目）"
+  if (/（[2-9]段目）/.test(name)) return true;
+  // "/ delayed", "/ longest" 等の派生バリエーション
+  if (/\(3rd hit\s*\//.test(name)) return true;
+  return false;
 }

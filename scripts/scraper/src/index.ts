@@ -153,26 +153,32 @@ async function scrapeCharacter(
       );
     }
 
-    const moves: ScrapedMove[] = jaRows.map((ja, i) => ({
-      name: enRows[i]?.name ?? ja.name,
-      nameJa: ja.name,
-      input: "",
-      startup: ja.startup,
-      active: ja.active,
-      recovery: ja.recovery,
-      onHit: ja.onHit,
-      onBlock: ja.onBlock,
-      cancel: ja.cancel,
-      damage: ja.damage,
-      comboScaling: ja.comboScaling,
-      driveGaugeGain: ja.driveGaugeGain,
-      driveGaugeLossBlock: ja.driveGaugeLossBlock,
-      driveGaugeLossPc: ja.driveGaugeLossPc,
-      saGaugeGain: ja.saGaugeGain,
-      properties: ja.properties,
-      notes: ja.notes,
-      category: ja.category as MoveCategory,
-    }));
+    const moves: ScrapedMove[] = jaRows.map((ja, i) => {
+      const en = enRows[i];
+      return {
+        name: en?.name ?? ja.name,
+        nameJa: ja.name,
+        input: "",
+        startup: ja.startup,
+        active: ja.active,
+        recovery: ja.recovery,
+        onHit: ja.onHit,
+        onBlock: ja.onBlock,
+        cancel: ja.cancel,
+        damage: ja.damage,
+        comboScaling: ja.comboScaling,
+        comboScalingEn: en?.comboScaling ?? ja.comboScaling,
+        driveGaugeGain: ja.driveGaugeGain,
+        driveGaugeLossBlock: ja.driveGaugeLossBlock,
+        driveGaugeLossPc: ja.driveGaugeLossPc,
+        saGaugeGain: ja.saGaugeGain,
+        properties: ja.properties,
+        propertiesEn: en?.properties ?? ja.properties,
+        notes: ja.notes,
+        notesEn: en?.notes ?? ja.notes,
+        category: ja.category as MoveCategory,
+      };
+    });
 
     return moves;
   } finally {

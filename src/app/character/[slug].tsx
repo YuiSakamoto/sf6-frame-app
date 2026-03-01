@@ -61,21 +61,22 @@ export default function CharacterDetailScreen() {
         </Text>
       </View>
 
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={{ paddingHorizontal: 16, marginBottom: 4, flexGrow: 0 }}
-        contentContainerStyle={{ paddingRight: 16 }}
-      >
-        {CATEGORIES.map((cat) => (
-          <FilterChip
-            key={cat}
-            label={t(`filter.${cat}`)}
-            selected={categoryFilter === cat}
-            onPress={() => setCategoryFilter(cat)}
-          />
-        ))}
-      </ScrollView>
+      <View style={{ paddingHorizontal: 16, paddingBottom: 8 }}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{ alignItems: "center" }}
+        >
+          {CATEGORIES.map((cat) => (
+            <FilterChip
+              key={cat}
+              label={t(`filter.${cat}`)}
+              selected={categoryFilter === cat}
+              onPress={() => setCategoryFilter(cat)}
+            />
+          ))}
+        </ScrollView>
+      </View>
 
       <MoveList moves={data.moves} categoryFilter={categoryFilter} />
     </View>
