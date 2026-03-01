@@ -81,7 +81,7 @@ export function findPunishes(
  * ダメージ文字列をパースして数値に変換
  * 例: "800", "500x2" → 1000, "300+200" → 500
  */
-function parseDamage(damage: string): number {
+export function parseDamage(damage: string): number {
   const cleaned = damage.trim();
   if (cleaned === "" || cleaned === "-") return 0;
 
@@ -107,7 +107,7 @@ function parseDamage(damage: string): number {
  * "(2)", "(3)", "(2段目)", "(3段目)" 等のパターンにマッチ
  * ただし "(1)", "(1段目)" は初段なので除外しない
  */
-function isDerivedMove(name: string): boolean {
+export function isDerivedMove(name: string): boolean {
   // 英語: "(2)", "(3)", "(2nd hit)", etc.
   if (/\([2-9]\)/.test(name)) return true;
   // 英語: "2nd hit", "3rd hit" パターン

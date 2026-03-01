@@ -9,7 +9,13 @@
     "web": "expo start --web",
     "lint": "eslint src/",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
-    "typecheck": "tsc --noEmit"
+    "format:check": "prettier --check 'src/**/*.{ts,tsx}'",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:ci": "vitest run --reporter=default --reporter=github-actions",
+    "build:web": "expo export --platform web"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.1.1",
@@ -37,6 +43,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/react": "~19.2.2",
+    "@vitest/coverage-v8": "^4.0.18",
     "eslint": "^10.0.2",
     "nativewind": "5.0.0-preview.2",
     "playwright": "^1.58.2",
@@ -44,7 +51,8 @@
     "tailwindcss": "^4.2.1",
     "tsx": "^4.21.0",
     "typescript": "~5.9.2",
-    "typescript-eslint": "^8.56.1"
+    "typescript-eslint": "^8.56.1",
+    "vitest": "^4.0.18"
   },
   "private": true
 }

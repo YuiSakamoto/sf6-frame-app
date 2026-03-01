@@ -42,3 +42,6 @@ yarn-error.*
 
 # NativeWind
 nativewind-env.d.ts
+
+# Test coverage
+coverage/
