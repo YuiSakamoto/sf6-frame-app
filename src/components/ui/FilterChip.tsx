@@ -1,4 +1,4 @@
-import { Pressable, Text } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 import { colors } from "@/theme/colors";
 
 interface FilterChipProps {
@@ -11,25 +11,36 @@ export function FilterChip({ label, selected, onPress }: FilterChipProps) {
   return (
     <Pressable
       onPress={onPress}
-      style={{
-        paddingHorizontal: 12,
-        paddingVertical: 6,
-        borderRadius: 16,
-        backgroundColor: selected ? colors.accent : colors.surface,
-        borderWidth: 1,
-        borderColor: selected ? colors.accent : colors.border,
-        marginRight: 8,
-      }}
+      style={[styles.chip, selected && styles.chipSelected]}
     >
-      <Text
-        style={{
-          color: selected ? colors.background : colors.text,
-          fontSize: 12,
-          fontWeight: selected ? "700" : "400",
-        }}
-      >
+      <Text style={[styles.label, selected && styles.labelSelected]}>
         {label}
       </Text>
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  chip: {
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 16,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    marginRight: 8,
+  },
+  chipSelected: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  label: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: "400",
+  },
+  labelSelected: {
+    color: colors.background,
+    fontWeight: "700",
+  },
+});

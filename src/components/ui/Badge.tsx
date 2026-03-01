@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 
 interface BadgeProps {
@@ -13,15 +13,20 @@ export function Badge({
   bgColor = colors.surfaceLight,
 }: BadgeProps) {
   return (
-    <View
-      style={{
-        backgroundColor: bgColor,
-        paddingHorizontal: 8,
-        paddingVertical: 2,
-        borderRadius: 4,
-      }}
-    >
-      <Text style={{ color, fontSize: 11, fontWeight: "600" }}>{label}</Text>
+    <View style={[styles.container, { backgroundColor: bgColor }]}>
+      <Text style={[styles.label, { color }]}>{label}</Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: 4,
+  },
+  label: {
+    fontSize: 11,
+    fontWeight: "600",
+  },
+});

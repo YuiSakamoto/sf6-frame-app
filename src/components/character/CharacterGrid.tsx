@@ -1,4 +1,4 @@
-import { FlatList, View } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import type { Character } from "@/types/character";
 import { CharacterCard } from "./CharacterCard";
 
@@ -18,10 +18,10 @@ export function CharacterGrid({
       data={characters}
       keyExtractor={(item) => item.slug}
       numColumns={4}
-      contentContainerStyle={{ padding: 16, gap: 8 }}
-      columnWrapperStyle={{ gap: 8 }}
+      contentContainerStyle={styles.content}
+      columnWrapperStyle={styles.column}
       renderItem={({ item }) => (
-        <View style={{ flex: 1, maxWidth: "25%" }}>
+        <View style={styles.item}>
           <CharacterCard
             character={item}
             onPress={onSelect}
@@ -32,3 +32,17 @@ export function CharacterGrid({
     />
   );
 }
+
+const styles = StyleSheet.create({
+  content: {
+    padding: 16,
+    gap: 8,
+  },
+  column: {
+    gap: 8,
+  },
+  item: {
+    flex: 1,
+    maxWidth: "25%",
+  },
+});
