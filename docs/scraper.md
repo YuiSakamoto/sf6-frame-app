@@ -1,37 +1,37 @@
-# スクレイパー
+# Scraper
 
-Capcom 公式サイトからフレームデータを取得するスクリプト。
+Scripts to fetch frame data from the official Capcom website.
 
-## セットアップ
+## Setup
 
 ```bash
-# Playwright ブラウザをインストール（初回のみ）
+# Install Playwright browser (first time only)
 pnpm exec playwright install chromium
 ```
 
-## 使い方
+## Usage
 
 ```bash
-# 全キャラスクレイピング
+# Scrape all characters
 pnpm exec tsx scripts/scraper/src/index.ts
 
-# 特定キャラのみ
+# Scrape a specific character
 pnpm exec tsx scripts/scraper/src/index.ts --character ryu
 ```
 
-取得したデータは `data/frames/<character>.json` に保存されます。
+Output is saved to `data/frames/<character>.json`.
 
-## データ構造
+## Data Structure
 
-各キャラクターの JSON ファイルには以下が含まれます:
+Each character JSON file contains:
 
-- `slug` - キャラクター識別子
-- `name` / `nameJa` - 英語名 / 日本語名
-- `version` - ゲームバージョン
-- `moves[]` - 技リスト
-  - `name` / `nameJa` - 技名
-  - `input` - コマンド入力
-  - `startup` / `active` / `recovery` - フレームデータ
-  - `onBlock` / `onHit` - ガード時 / ヒット時フレーム
-  - `damage` - ダメージ
-  - `category` - カテゴリ (normal, special, super, unique, throw, common)
+- `slug` - Character identifier
+- `name` / `nameJa` - English / Japanese name
+- `version` - Game version
+- `moves[]` - Move list
+  - `name` / `nameJa` - Move name
+  - `input` - Command input
+  - `startup` / `active` / `recovery` - Frame data
+  - `onBlock` / `onHit` - On-block / on-hit frames
+  - `damage` - Damage value
+  - `category` - Category (normal, special, super, unique, throw, common)

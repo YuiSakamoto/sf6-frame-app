@@ -1,19 +1,19 @@
 # Copilot Code Review Instructions
 
-## プロジェクト概要
+## Project Overview
 
-Street Fighter 6 のフレームデータ閲覧・確定反撃検索アプリ（React Native / Expo）。
+A Street Fighter 6 frame data viewer and punish finder app built with React Native / Expo.
 
-## レビュー観点
+## Review Focus
 
-- TypeScript の strict mode に準拠しているか
-- React Native と Web の両方で動作するコードか（プラットフォーム固有の API を使っていないか）
-- i18n: ハードコードされた日本語/英語文字列がないか（UI テキストは `i18n/` の翻訳キーを使う）
-- フレームデータの型（`Move`, `CharacterFrameData`）が正しく使われているか
-- `@/` パスエイリアスが一貫して使われているか
+- Ensure compliance with TypeScript strict mode
+- Verify code works on both React Native and Web (no platform-specific APIs without abstractions)
+- i18n: No hardcoded UI strings — use translation keys from `i18n/`
+- Correct usage of frame data types (`Move`, `CharacterFrameData`)
+- Consistent use of `@/` path aliases
 
-## コーディング規約
+## Coding Conventions
 
-- パッケージマネージャーは pnpm
-- コミットメッセージは Conventional Commits 形式
-- Prettier + ESLint でフォーマット・リント済みであること
+- Package manager: pnpm
+- Commit messages: Conventional Commits format
+- Code must pass Prettier formatting and ESLint checks

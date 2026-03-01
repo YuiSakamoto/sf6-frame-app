@@ -1,48 +1,48 @@
 # CI/CD
 
-GitHub Actions による自動化パイプライン。
+Automated pipeline powered by GitHub Actions.
 
-## ワークフロー一覧
+## Workflows
 
 ### CI (`ci.yml`)
 
-PR と main push で実行。3 ジョブ構成:
+Runs on PRs and main push. 3-job pipeline:
 
-| ジョブ | 内容 |
-|--------|------|
-| `lint-typecheck` | TypeScript 型チェック → ESLint → Prettier フォーマットチェック |
-| `test` | Vitest ユニットテスト + カバレッジ |
-| `build-web` | Expo Web ビルド検証 (`lint-typecheck` と `test` の両方完了後) |
+| Job | Description |
+|-----|-------------|
+| `lint-typecheck` | TypeScript type check → ESLint → Prettier format check |
+| `test` | Vitest unit tests + coverage |
+| `build-web` | Expo Web build verification (runs after `lint-typecheck` and `test`) |
 
 ### Copilot Code Review (Ruleset)
 
-PR 作成・更新時に GitHub Copilot が自動でコードレビュー。
-Rulesets で有効化済み。カスタム指示は `.github/copilot-instructions.md` に定義。
+Automatic code review by GitHub Copilot on PR creation and updates.
+Enabled via Rulesets. Custom instructions defined in `.github/copilot-instructions.md`.
 
 ### CodeQL (Default Setup)
 
-GitHub 公式の静的解析セキュリティテスト (SAST)。
-Default Setup で有効化済み（ワークフローファイル不要）。
+GitHub's official SAST (Static Application Security Testing).
+Enabled via Default Setup (no workflow file needed).
 
 ### OSV-Scanner (`osv-scanner.yml`)
 
-Google 製の依存パッケージ脆弱性スキャナー。
-OSV データベースを使い、既知の脆弱性を検出。
+Google's dependency vulnerability scanner.
+Detects known vulnerabilities using the OSV database.
 
-## テストコマンド
+## Test Commands
 
 ```bash
-pnpm test            # 全テスト実行
-pnpm test:watch      # ウォッチモード
-pnpm test:coverage   # カバレッジレポート
-pnpm test:ci         # CI 用 (github-actions reporter)
+pnpm test            # Run all tests
+pnpm test:watch      # Watch mode
+pnpm test:coverage   # With coverage report
+pnpm test:ci         # CI mode (github-actions reporter)
 ```
 
-## 依存パッケージ管理
+## Dependency Management
 
-[Renovate](https://github.com/renovatebot/renovate) で自動更新。
+Automated updates via [Renovate](https://github.com/renovatebot/renovate).
 
-- devDependencies の minor/patch は自動マージ
-- Expo SDK / React Native のメジャーアップデートは手動対応
-- GitHub Actions のアップデートはグルーピング
-- 毎週月曜朝にチェック
+- Auto-merge minor/patch updates for devDependencies
+- Major updates for Expo SDK / React Native require manual review
+- GitHub Actions updates are grouped together
+- Runs weekly on Monday mornings
