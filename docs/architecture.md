@@ -1,51 +1,51 @@
-# アーキテクチャ
+# Architecture
 
-## プロジェクト構造
+## Project Structure
 
 ```
 src/
-├── app/                  # Expo Router ページ（ファイルベースルーティング）
-│   ├── (tabs)/           # タブ: ホーム / 確反検索 / 検索
-│   └── character/[slug]  # キャラクター詳細
-├── components/           # UI コンポーネント
-├── hooks/                # カスタムフック
-├── stores/               # Zustand ストア
-├── services/             # データ取得・キャッシュ
-├── i18n/                 # 翻訳ファイル (14言語)
-├── types/                # TypeScript 型定義
-├── utils/                # ユーティリティ関数
-└── theme/                # SF6 テーマカラー
+├── app/                  # Expo Router pages (file-based routing)
+│   ├── (tabs)/           # Tabs: Home / Punish Finder / Search
+│   └── character/[slug]  # Character detail
+├── components/           # UI components
+├── hooks/                # Custom hooks
+├── stores/               # Zustand stores
+├── services/             # Data fetching & caching
+├── i18n/                 # Translation files (14 languages)
+├── types/                # TypeScript type definitions
+├── utils/                # Utility functions
+└── theme/                # SF6 theme colors
 data/
-├── characters.json       # キャラクター一覧
-├── version.json          # データバージョン
-└── frames/               # キャラ別フレームデータ JSON (28キャラ)
-scripts/scraper/          # Playwright スクレイパー
+├── characters.json       # Character list
+├── version.json          # Data version
+└── frames/               # Per-character frame data JSON (28 characters)
+scripts/scraper/          # Playwright scraper
 ```
 
-## 技術スタック
+## Tech Stack
 
-- **フレームワーク**: React Native (Expo SDK 55) + expo-router
-- **スタイリング**: NativeWind (TailwindCSS)
-- **状態管理**: Zustand
-- **ストレージ**: AsyncStorage + メモリキャッシュ (native) / localStorage (web)
-- **多言語対応**: i18next + react-i18next + expo-localization
-- **言語**: TypeScript (strict mode)
+- **Framework**: React Native (Expo SDK 55) + expo-router
+- **Styling**: NativeWind (TailwindCSS)
+- **State Management**: Zustand
+- **Storage**: AsyncStorage + in-memory cache (native) / localStorage (web)
+- **i18n**: i18next + react-i18next + expo-localization
+- **Language**: TypeScript (strict mode)
 
-## パスエイリアス
+## Path Aliases
 
-- `@/*` → `src/*`（tsconfig.json で設定）
+- `@/*` → `src/*` (configured in tsconfig.json)
 
-## 確定反撃ロジック
+## Punish Logic
 
 ```
-確反成立条件: |相手技のガード時フレーム| >= 自キャラの技の発生フレーム
+Punish condition: |opponent's on-block frame| >= your move's startup frames
 
-例: 相手の技がガード時 -8F → 自キャラの発生 8F 以下の技が確定反撃
+Example: Opponent's move is -8F on block → Any move with 8F or less startup is a punish
 ```
 
-## データフロー
+## Data Flow
 
-1. アプリ起動時に `data/frames/` のバンドル済み JSON を読み込み
-2. Zustand ストアに格納
-3. バックグラウンドで GitHub Raw URL から最新データをチェック
-4. 更新があればダウンロードしてキャッシュを更新
+1. On app launch, load bundled JSON from `data/frames/`
+2. Store in Zustand store
+3. Check for updates in background via GitHub Raw URL
+4. Download and update cache if newer data is available

@@ -2,53 +2,53 @@
 
 [![CI](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/ci.yml/badge.svg)](https://github.com/YuiSakamoto/sf6-frame-app/actions/workflows/ci.yml)
 
-Street Fighter 6 のフレームデータ閲覧 & 確定反撃検索アプリ。
+A frame data viewer and punish finder app for Street Fighter 6.
 
-## 機能
+## Features
 
-- **フレームデータ閲覧**: 全28キャラクターの技データをカテゴリ別に表示
-- **確定反撃検索**: 相手技をガードした際の確反候補を即座に検索
-- **グローバル検索**: 技名・コマンドで全キャラ横断検索
-- **オフライン対応**: バンドル済みデータで起動即使用可
-- **多言語対応**: 14言語の UI
+- **Frame Data Viewer**: Browse move data for all 28 characters by category
+- **Punish Finder**: Instantly find punish options after blocking an opponent's move
+- **Global Search**: Search across all characters by move name or command input
+- **Offline Support**: Bundled data works immediately, with background sync for updates
+- **Multilingual**: UI available in 14 languages
 
-## セットアップ
+## Setup
 
 ```bash
 pnpm install
 ```
 
-## 開発
+## Development
 
 ```bash
 pnpm web             # Web
-pnpm ios             # iOS シミュレーター
-pnpm android         # Android エミュレーター
+pnpm ios             # iOS Simulator
+pnpm android         # Android Emulator
 ```
 
-## テスト & 品質チェック
+## Testing & Quality
 
 ```bash
-pnpm test            # ユニットテスト実行
-pnpm test:watch      # ウォッチモード
-pnpm test:coverage   # カバレッジレポート付き
-pnpm typecheck       # TypeScript 型チェック
+pnpm test            # Run unit tests
+pnpm test:watch      # Watch mode
+pnpm test:coverage   # With coverage report
+pnpm typecheck       # TypeScript type check
 pnpm lint            # ESLint
-pnpm format:check    # Prettier フォーマットチェック
+pnpm format:check    # Prettier format check
 ```
 
-## ドキュメント
+## Documentation
 
-詳細なドキュメントは [docs/](docs/) を参照してください。
+See [docs/](docs/) for detailed documentation.
 
-- [アーキテクチャ](docs/architecture.md)
+- [Architecture](docs/architecture.md)
 - [CI/CD](docs/ci.md)
-- [スクレイパー](docs/scraper.md)
+- [Scraper](docs/scraper.md)
 
-## 技術スタック
+## Tech Stack
 
-| カテゴリ | 技術 |
-|---------|------|
+| Category | Technology |
+|----------|-----------|
 | Framework | Expo SDK 55 / React Native |
 | Routing | Expo Router (file-based) |
 | State | Zustand |
@@ -57,6 +57,6 @@ pnpm format:check    # Prettier フォーマットチェック
 | CI | GitHub Actions |
 | Package Manager | pnpm |
 
-## データソース
+## Data Source
 
-- [Capcom SF6 公式サイト](https://www.streetfighter.com/6/ja-jp/)
+- [Capcom SF6 Official Site](https://www.streetfighter.com/6/ja-jp/)
