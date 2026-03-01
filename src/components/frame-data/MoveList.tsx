@@ -1,8 +1,7 @@
-import { FlatList, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { FlatList } from "react-native";
 import type { Move, MoveCategory } from "@/types/frame-data";
 import { MoveRow } from "./MoveRow";
-import { useTranslation } from "react-i18next";
+import { ColumnHeader } from "./ColumnHeader";
 
 interface MoveListProps {
   moves: Move[];
@@ -15,8 +14,6 @@ export function MoveList({
   onMovePress,
   categoryFilter = "all",
 }: MoveListProps) {
-  const { t } = useTranslation();
-
   const filteredMoves =
     categoryFilter === "all"
       ? moves
@@ -26,71 +23,7 @@ export function MoveList({
     <FlatList
       data={filteredMoves}
       keyExtractor={(_, index) => index.toString()}
-      ListHeaderComponent={
-        <View
-          style={{
-            flexDirection: "row",
-            paddingHorizontal: 16,
-            paddingVertical: 8,
-            backgroundColor: colors.background,
-            borderBottomWidth: 1,
-            borderBottomColor: colors.border,
-          }}
-        >
-          <Text
-            style={{
-              flex: 1,
-              color: colors.textMuted,
-              fontSize: 10,
-              fontWeight: "600",
-            }}
-          >
-            {t("frameData.command")}
-          </Text>
-          <View style={{ flexDirection: "row", gap: 4 }}>
-            <Text
-              style={{
-                color: colors.textMuted,
-                fontSize: 10,
-                minWidth: 36,
-                textAlign: "center",
-              }}
-            >
-              {t("frameData.startup")}
-            </Text>
-            <Text
-              style={{
-                color: colors.textMuted,
-                fontSize: 10,
-                minWidth: 36,
-                textAlign: "center",
-              }}
-            >
-              {t("frameData.onBlock")}
-            </Text>
-            <Text
-              style={{
-                color: colors.textMuted,
-                fontSize: 10,
-                minWidth: 36,
-                textAlign: "center",
-              }}
-            >
-              {t("frameData.onHit")}
-            </Text>
-            <Text
-              style={{
-                color: colors.textMuted,
-                fontSize: 10,
-                minWidth: 40,
-                textAlign: "center",
-              }}
-            >
-              {t("frameData.damage")}
-            </Text>
-          </View>
-        </View>
-      }
+      ListHeaderComponent={<ColumnHeader />}
       renderItem={({ item }) => <MoveRow move={item} onPress={onMovePress} />}
       stickyHeaderIndices={[0]}
     />

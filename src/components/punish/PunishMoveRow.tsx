@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 import type { PunishOption } from "@/utils/punishCalc";
 import { FrameValue } from "@/components/frame-data/FrameValue";
@@ -20,24 +20,17 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
 
   return (
     <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        paddingVertical: 10,
-        paddingHorizontal: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: colors.border,
-        backgroundColor: isFastest ? "#0A1A12" : colors.surface,
-        borderLeftWidth: isFastest ? 3 : 0,
-        borderLeftColor: colors.punishSuccess,
-      }}
+      style={[
+        styles.container,
+        {
+          backgroundColor: isFastest ? "#0A1A12" : colors.surface,
+          borderLeftWidth: isFastest ? 3 : 0,
+        },
+      ]}
     >
-      <View style={{ flex: 1, marginRight: 8 }}>
-        <View style={{ flexDirection: "row", alignItems: "center", gap: 6 }}>
-          <Text
-            style={{ color: colors.text, fontSize: 13, fontWeight: "600" }}
-            numberOfLines={1}
-          >
+      <View style={styles.info}>
+        <View style={styles.nameRow}>
+          <Text style={styles.moveName} numberOfLines={1}>
             {displayName}
           </Text>
           {isFastest && (
@@ -48,52 +41,96 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
             />
           )}
         </View>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            gap: 8,
-            marginTop: 2,
-          }}
-        >
-          <Text style={{ color: colors.textSecondary, fontSize: 11 }}>
-            {punish.move.input}
-          </Text>
+        <View style={styles.subRow}>
+          <Text style={styles.input}>{punish.move.input}</Text>
           {punish.framesToSpare > 0 && (
-            <Text style={{ color: colors.punishSuccess, fontSize: 10 }}>
+            <Text style={styles.framesToSpare}>
               {t("punish.framesToSpare", { frames: punish.framesToSpare })}
             </Text>
           )}
         </View>
         {displayComboScaling ? (
-          <Text style={{ color: colors.textMuted, fontSize: 10, marginTop: 2 }}>
+          <Text style={styles.comboScaling}>
             {t("frameData.comboScaling")}: {displayComboScaling}
           </Text>
         ) : null}
       </View>
-      <View style={{ flexDirection: "column", alignItems: "flex-end", gap: 2 }}>
-        <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
+      <View style={styles.values}>
+        <View style={styles.frameRow}>
           <FrameValue value={String(punish.startup)} />
-          <Text
-            style={{
-              color: colors.textSecondary,
-              fontSize: 12,
-              minWidth: 40,
-              textAlign: "center",
-              fontVariant: ["tabular-nums"],
-            }}
-          >
-            {punish.move.damage}
-          </Text>
+          <Text style={styles.damage}>{punish.move.damage}</Text>
         </View>
         {displayProperties ? (
-          <Text
-            style={{ color: colors.accent, fontSize: 9, textAlign: "right" }}
-          >
-            {displayProperties}
-          </Text>
+          <Text style={styles.properties}>{displayProperties}</Text>
         ) : null}
       </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    borderLeftColor: colors.punishSuccess,
+  },
+  info: {
+    flex: 1,
+    marginRight: 8,
+  },
+  nameRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+  moveName: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  subRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 8,
+    marginTop: 2,
+  },
+  input: {
+    color: colors.textSecondary,
+    fontSize: 11,
+  },
+  framesToSpare: {
+    color: colors.punishSuccess,
+    fontSize: 10,
+  },
+  comboScaling: {
+    color: colors.textMuted,
+    fontSize: 10,
+    marginTop: 2,
+  },
+  values: {
+    flexDirection: "column",
+    alignItems: "flex-end",
+    gap: 2,
+  },
+  frameRow: {
+    flexDirection: "row",
+    gap: 4,
+    alignItems: "center",
+  },
+  damage: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    minWidth: 40,
+    textAlign: "center",
+    fontVariant: ["tabular-nums"],
+  },
+  properties: {
+    color: colors.accent,
+    fontSize: 9,
+    textAlign: "right",
+  },
+});

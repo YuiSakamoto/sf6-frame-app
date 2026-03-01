@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { colors } from "@/theme/colors";
 import type { Move } from "@/types/frame-data";
 import { FrameValue } from "./FrameValue";
@@ -18,27 +18,12 @@ interface MoveRowProps {
   expandable?: boolean;
 }
 
-/** 詳細行の1項目 */
 function DetailItem({ label, value }: { label: string; value?: string }) {
   if (!value || value === "" || value === "-") return null;
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        paddingVertical: 3,
-      }}
-    >
-      <Text style={{ color: colors.textMuted, fontSize: 11 }}>{label}</Text>
-      <Text
-        style={{
-          color: colors.textSecondary,
-          fontSize: 11,
-          fontVariant: ["tabular-nums"],
-        }}
-      >
-        {value}
-      </Text>
+    <View style={styles.detailItem}>
+      <Text style={styles.detailLabel}>{label}</Text>
+      <Text style={styles.detailValue}>{value}</Text>
     </View>
   );
 }
@@ -58,92 +43,36 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
         if (expandable) setExpanded((prev) => !prev);
         onPress?.(move);
       }}
-      style={{
-        paddingVertical: 10,
-        paddingHorizontal: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: colors.border,
-        backgroundColor: expanded ? colors.surfaceLight : colors.surface,
-      }}
+      style={[
+        styles.container,
+        { backgroundColor: expanded ? colors.surfaceLight : colors.surface },
+      ]}
     >
-      {/* メイン行: 展開矢印 + 技名 + 主要フレーム値 */}
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        {expandable && (
-          <Text
-            style={{
-              color: colors.textMuted,
-              fontSize: 10,
-              marginRight: 6,
-              width: 12,
-            }}
-          >
-            {expanded ? "▾" : "▸"}
-          </Text>
-        )}
-        <View style={{ flex: 1, marginRight: 8 }}>
-          <Text
-            style={{ color: colors.text, fontSize: 13, fontWeight: "600" }}
-            numberOfLines={1}
-          >
+      <View style={styles.mainRow}>
+        {expandable && <Text style={styles.arrow}>{expanded ? "▾" : "▸"}</Text>}
+        <View style={styles.nameColumn}>
+          <Text style={styles.moveName} numberOfLines={1}>
             {displayName}
           </Text>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "center",
-              gap: 6,
-              marginTop: 2,
-            }}
-          >
-            {move.input ? (
-              <Text style={{ color: colors.textSecondary, fontSize: 11 }}>
-                {move.input}
-              </Text>
-            ) : null}
+          <View style={styles.subRow}>
+            {move.input ? <Text style={styles.input}>{move.input}</Text> : null}
             {displayProperties ? (
-              <Text
-                style={{
-                  color: colors.accent,
-                  fontSize: 10,
-                  fontWeight: "600",
-                }}
-              >
-                {displayProperties}
-              </Text>
+              <Text style={styles.properties}>{displayProperties}</Text>
             ) : null}
           </View>
         </View>
-        <View style={{ flexDirection: "row", gap: 4, alignItems: "center" }}>
+        <View style={styles.frameColumns}>
           <FrameValue value={move.startup} />
           <FrameValue value={move.onBlock} />
           <FrameValue value={move.onHit} />
-          <Text
-            style={{
-              color: colors.textSecondary,
-              fontSize: 12,
-              minWidth: 40,
-              textAlign: "center",
-              fontVariant: ["tabular-nums"],
-            }}
-          >
-            {move.damage}
-          </Text>
+          <Text style={styles.damage}>{move.damage}</Text>
         </View>
       </View>
 
-      {/* 展開時の詳細情報 */}
       {expanded && (
-        <View
-          style={{
-            marginTop: 8,
-            paddingTop: 8,
-            borderTopWidth: 1,
-            borderTopColor: colors.border,
-          }}
-        >
-          <View style={{ flexDirection: "row", gap: 16 }}>
-            {/* 左列: フレーム関連 */}
-            <View style={{ flex: 1 }}>
+        <View style={styles.details}>
+          <View style={styles.detailColumns}>
+            <View style={styles.detailColumn}>
               <DetailItem label={t("frameData.active")} value={move.active} />
               <DetailItem
                 label={t("frameData.recovery")}
@@ -155,8 +84,7 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
                 value={displayComboScaling}
               />
             </View>
-            {/* 右列: ゲージ関連 */}
-            <View style={{ flex: 1 }}>
+            <View style={styles.detailColumn}>
               <DetailItem
                 label={t("frameData.driveGaugeGain")}
                 value={move.driveGaugeGain}
@@ -176,14 +104,97 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
             </View>
           </View>
           {displayNotes ? (
-            <Text
-              style={{ color: colors.textMuted, fontSize: 10, marginTop: 4 }}
-            >
-              {displayNotes}
-            </Text>
+            <Text style={styles.notes}>{displayNotes}</Text>
           ) : null}
         </View>
       )}
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  mainRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  arrow: {
+    color: colors.textMuted,
+    fontSize: 10,
+    marginRight: 6,
+    width: 12,
+  },
+  nameColumn: {
+    flex: 1,
+    marginRight: 8,
+  },
+  moveName: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: "600",
+  },
+  subRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginTop: 2,
+  },
+  input: {
+    color: colors.textSecondary,
+    fontSize: 11,
+  },
+  properties: {
+    color: colors.accent,
+    fontSize: 10,
+    fontWeight: "600",
+  },
+  frameColumns: {
+    flexDirection: "row",
+    gap: 4,
+    alignItems: "center",
+  },
+  damage: {
+    color: colors.textSecondary,
+    fontSize: 12,
+    minWidth: 40,
+    textAlign: "center",
+    fontVariant: ["tabular-nums"],
+  },
+  details: {
+    marginTop: 8,
+    paddingTop: 8,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+  },
+  detailColumns: {
+    flexDirection: "row",
+    gap: 16,
+  },
+  detailColumn: {
+    flex: 1,
+  },
+  detailItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingVertical: 3,
+  },
+  detailLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+  },
+  detailValue: {
+    color: colors.textSecondary,
+    fontSize: 11,
+    fontVariant: ["tabular-nums"],
+  },
+  notes: {
+    color: colors.textMuted,
+    fontSize: 10,
+    marginTop: 4,
+  },
+});
