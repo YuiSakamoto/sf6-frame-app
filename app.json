@@ -56,7 +56,8 @@
           }
         }
       ],
-      "expo-tracking-transparency"
+      "expo-tracking-transparency",
+      "@react-native-firebase/app"
     ]
   }
 }

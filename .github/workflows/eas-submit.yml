@@ -1,0 +1,41 @@
+name: EAS Submit
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: "Platform to submit"
+        required: true
+        type: choice
+        options:
+          - ios
+          - android
+          - all
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+
+      - name: Submit iOS
+        if: inputs.platform == 'ios' || inputs.platform == 'all'
+        run: eas submit --platform ios --profile production --non-interactive
+
+      - name: Submit Android
+        if: inputs.platform == 'android' || inputs.platform == 'all'
+        run: eas submit --platform android --profile production --non-interactive

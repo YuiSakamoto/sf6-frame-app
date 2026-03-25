@@ -12,6 +12,8 @@ config.resolver.resolveRequest = (context, moduleName, platform) => {
   const nativeOnlyModules = [
     "react-native-google-mobile-ads",
     "expo-tracking-transparency",
+    "@react-native-firebase/app",
+    "@react-native-firebase/analytics",
   ];
   if (platform === "web" && nativeOnlyModules.includes(moduleName)) {
     return {
