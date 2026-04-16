@@ -48,6 +48,10 @@ export default function RootLayout() {
           <meta property="og:site_name" content="SF6 Frame Data" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:locale:alternate" content="ja_JP" />
+          <meta property="og:image" content={`${SITE_URL}/og-image.png`} />
+          <meta property="og:image:width" content="1200" />
+          <meta property="og:image:height" content="630" />
+          <meta name="twitter:image" content={`${SITE_URL}/og-image.png`} />
           <link rel="sitemap" href="/sitemap.xml" />
           <script type="application/ld+json">{STRUCTURED_DATA}</script>
         </Head>

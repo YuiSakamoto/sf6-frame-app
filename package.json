@@ -16,6 +16,7 @@
     "test:coverage": "vitest run --coverage",
     "test:ci": "vitest run --reporter=default --reporter=github-actions",
     "build:web": "expo export --platform web",
+    "generate:og": "tsx scripts/generate-og.ts",
     "build:ios": "eas build --platform ios --profile preview",
     "build:android": "eas build --platform android --profile preview",
     "build:dev": "eas build --platform ios --profile development",
