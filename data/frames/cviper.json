@@ -2,7 +2,7 @@
   "slug": "cviper",
   "name": "C.Viper",
   "nameJa": "C.ヴァイパー",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -104,7 +104,7 @@
       "active": "12-14",
       "recovery": "21",
       "onHit": "3",
-      "onBlock": "-3",
+      "onBlock": "-2",
       "cancel": "",
       "damage": "900",
       "comboScaling": "",
@@ -139,7 +139,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "空中ヒット時床バウンドパニッシュカウンター時+19ハイジャンプキャンセル可能",
-      "notesEn": "Adds a floor bounding effect during a mid-air hitAdds +19 frames of advantage on a Punish CounterCan be canceled into High Jump",
+      "notesEn": "Produces a ground bound during a mid-air hitAdds +19 frames of advantage on a Punish CounterCan be canceled into High Jump",
       "category": "normal"
     },
     {
@@ -193,8 +193,8 @@
       "nameJa": "しゃがみ中P（ヴァイパーブロー）",
       "input": "",
       "startup": "6",
-      "active": "6-8",
-      "recovery": "17",
+      "active": "6-9",
+      "recovery": "16",
       "onHit": "5",
       "onBlock": "-2",
       "cancel": "C",
@@ -668,7 +668,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "発動時にDゲージを10000消費空中ヒット時床バウンド",
-      "notesEn": "Consumes 10000 of the Drive gauge on activation.Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Consumes 10000 of the Drive gauge on activation.Produces a ground bound during a mid-air hit",
       "category": "special"
     },
     {
@@ -863,7 +863,7 @@
       "active": "22-28",
       "recovery": "着地後13",
       "onHit": "D",
-      "onBlock": "-4～0",
+      "onBlock": "-3～2",
       "cancel": "",
       "damage": "900",
       "comboScaling": "",
@@ -874,8 +874,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えて空振り時、着地硬直8F増加",
-      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
+      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えてガード時、着地硬直1F増加相手を飛び越えて空振り時、着地硬直8F増加",
+      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 1 frame to landing recovery when the attack leaps over the opponent and they block itAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
       "category": "special"
     },
     {
@@ -886,7 +886,7 @@
       "active": "20-26",
       "recovery": "着地後13",
       "onHit": "D",
-      "onBlock": "-4～0",
+      "onBlock": "-3～3",
       "cancel": "",
       "damage": "900",
       "comboScaling": "",
@@ -897,8 +897,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えて空振り時、着地硬直8F増加",
-      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
+      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えてガード時、着地硬直1F増加相手を飛び越えて空振り時、着地硬直8F増加",
+      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 1 frame to landing recovery when the attack leaps over the opponent and they block itAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
       "category": "special"
     },
     {
@@ -909,7 +909,7 @@
       "active": "18-24",
       "recovery": "着地後13",
       "onHit": "D",
-      "onBlock": "-5～-2",
+      "onBlock": "-4～1",
       "cancel": "",
       "damage": "900",
       "comboScaling": "",
@@ -920,8 +920,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えて空振り時、着地硬直8F増加",
-      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
+      "notes": "めくり性能ガードさせた高度によって硬直差が変化相手を飛び越えてガード時、着地硬直1F増加相手を飛び越えて空振り時、着地硬直8F増加",
+      "notesEn": "Has cross-up attack propertiesRecovery on block changes depending on the height of the attack when it is blockedAdds 1 frame to landing recovery when the attack leaps over the opponent and they block itAdds 8 frame to landing recovery when the attack leaps over the opponent and misses",
       "category": "special"
     },
     {
@@ -932,7 +932,7 @@
       "active": "18-24",
       "recovery": "着地後13",
       "onHit": "D",
-      "onBlock": "1～4",
+      "onBlock": "1～7",
       "cancel": "",
       "damage": "1000",
       "comboScaling": "",
@@ -1242,8 +1242,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-11F　打撃・投げに対して無敵12-20F　空中判定の打撃・空弾属性に対して無敵12-42F　空中判定タイマー700付与、発動中Dゲージ消費無しで派生技とハイジャンプが可能（バーンアウト中はタイマーを全消費して派生技とハイジャンプが発動可能）カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
-      "notesEn": "Invincible to strikes and throws between frames 1 - 11Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 12 - 20Considered airborne from frames 12 - 42Adds a timer set to 700 frames, during this time Viper can perform follow-up attacks and High Jumps without consuming any Drive (During Burnout the timer is consumed, and follow-up attacks and High Jumps can be performed)Values do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
+      "notes": "1-11F　打撃・投げに対して無敵12-20F　空中判定の打撃・空弾属性に対して無敵12-42F　空中判定タイマー700付与、発動中Dゲージ消費無しで派生技とハイジャンプが可能（バーンアウト中はタイマーを全消費して派生技とハイジャンプが発動可能）タイマー中に派生技をヒット/ガード時にDゲージ3000回復するカウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
+      "notesEn": "Invincible to strikes and throws between frames 1 - 11Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 12 - 20Considered airborne from frames 12 - 42Adds a timer set to 700 frames, during this time Viper can perform follow-up attacks and High Jumps without consuming any Drive (During Burnout the timer is consumed, and follow-up attacks and High Jumps can be performed)Recovers 3000 Drive Gauge when follow-up attack hits while the timer is activeValues do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
       "category": "super"
     },
     {

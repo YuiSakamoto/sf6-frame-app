@@ -2,7 +2,7 @@
   "slug": "marisa",
   "name": "Marisa",
   "nameJa": "マリーザ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -264,7 +264,7 @@
       "startup": "9",
       "active": "9-11",
       "recovery": "18",
-      "onHit": "3",
+      "onHit": "5",
       "onBlock": "-2",
       "cancel": "",
       "damage": "600",
@@ -744,8 +744,8 @@
       "name": "Novacula Swipe/Novacula Thrust(1)",
       "nameJa": "ノバキュラスワイプ/ノバキュラシュート（1段目）",
       "input": "",
-      "startup": "10",
-      "active": "10-11",
+      "startup": "9",
+      "active": "9-10",
       "recovery": "20",
       "onHit": "2",
       "onBlock": "-3",
@@ -829,7 +829,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "14F以上ホールドすると性能変化空中ヒット時床バウンド",
-      "notesEn": "Hold down the button for over 14 frames to change its propertiesProduces a floor bound when hitting a mid-air opponent",
+      "notesEn": "Hold down the button for over 14 frames to change its propertiesProduces a ground bound when hitting a mid-air opponent",
       "category": "unique"
     },
     {
@@ -852,7 +852,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -1323,7 +1323,7 @@
       "active": "25-30",
       "recovery": "15",
       "onHit": "D",
-      "onBlock": "2",
+      "onBlock": "3",
       "cancel": "",
       "damage": "1500",
       "comboScaling": "",
@@ -1346,7 +1346,7 @@
       "active": "28-33",
       "recovery": "15",
       "onHit": "D",
-      "onBlock": "2",
+      "onBlock": "3",
       "cancel": "",
       "damage": "1600",
       "comboScaling": "",
@@ -1369,7 +1369,7 @@
       "active": "32-37",
       "recovery": "15",
       "onHit": "D",
-      "onBlock": "2",
+      "onBlock": "3",
       "cancel": "",
       "damage": "1700",
       "comboScaling": "",
@@ -1403,7 +1403,7 @@
       "saGaugeGain": "1150",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "6-12F　上半身アーマー判定12-30F　下半身飛び道具無敵14-33F　空中判定壁到達時に壁やられアーマーブレイク属性",
+      "notes": "6-17F　上半身アーマー判定12-30F　下半身飛び道具無敵14-33F　空中判定壁到達時に壁やられアーマーブレイク属性",
       "notesEn": "Upper body has Super Armor from frames 6 - 12Invincible to projectiles from frames 12 - 30Considered airborne from frames 14 - 32Produces a wall splat if the opponent reaches the wallHas armor break properties",
       "category": "special"
     },

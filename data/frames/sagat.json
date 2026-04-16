@@ -2,7 +2,7 @@
   "slug": "sagat",
   "name": "Sagat",
   "nameJa": "サガット",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -194,7 +194,7 @@
       "input": "",
       "startup": "7",
       "active": "7-9",
-      "recovery": "17",
+      "recovery": "16",
       "onHit": "4",
       "onBlock": "-1",
       "cancel": "C",
@@ -207,8 +207,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "ヒット時硬直1F減少",
-      "notesEn": "1 frames of recovery subtracted on hit",
+      "notes": "ガード時硬直1F増加空振り時硬直3F増加",
+      "notesEn": "1 frame of recovery added when blocked3 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -426,7 +426,7 @@
       "active": "22-24",
       "recovery": "19",
       "onHit": "3",
-      "onBlock": "-2",
+      "onBlock": "-3",
       "cancel": "",
       "damage": "700",
       "comboScaling": "",
@@ -438,7 +438,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -461,7 +461,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "初段カウンター/パニッシュカウンター時床バウンド",
-      "notesEn": "First attack produces a floor bound on counter or Punish Counter",
+      "notesEn": "First attack produces a ground bound on counter or Punish Counter",
       "category": "unique"
     },
     {
@@ -576,7 +576,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -1036,7 +1036,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "special"
     },
     {
@@ -1059,7 +1059,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "special"
     },
     {

@@ -2,7 +2,7 @@
   "slug": "jp",
   "name": "JP",
   "nameJa": "JP",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -59,7 +59,7 @@
       "recovery": "21",
       "onHit": "1",
       "onBlock": "-6",
-      "cancel": "",
+      "cancel": "※",
       "damage": "700",
       "comboScaling": "",
       "comboScalingEn": "",
@@ -69,8 +69,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※ヴィーハト・チェーニのみキャンセル可能",
+      "notesEn": "Can only be canceled into Departure: Shadow",
       "category": "normal"
     },
     {
@@ -133,13 +133,13 @@
       "comboScaling": "",
       "comboScalingEn": "",
       "driveGaugeGain": "3000",
-      "driveGaugeLossBlock": "-6000",
+      "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-10000",
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※ヴィーハト・チェーニのみキャンセル可能",
+      "notesEn": "Can only be canceled into Departure: Shadow",
       "category": "normal"
     },
     {
@@ -184,8 +184,8 @@
       "saGaugeGain": "300",
       "properties": "下",
       "propertiesEn": "Low",
-      "notes": "連打キャンセル対応",
-      "notesEn": "Can be rapid canceled",
+      "notes": "連打キャンセル対応※ヴィーハト・チェーニのみキャンセル可能",
+      "notesEn": "Can be rapid canceledCan only be canceled into Departure: Shadow",
       "category": "normal"
     },
     {
@@ -230,8 +230,8 @@
       "saGaugeGain": "500",
       "properties": "下",
       "propertiesEn": "Low",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※ヴィーハト・チェーニのみキャンセル可能",
+      "notesEn": "Can only be canceled into Departure: Shadow",
       "category": "normal"
     },
     {
@@ -547,7 +547,7 @@
       "comboScaling": "",
       "comboScalingEn": "",
       "driveGaugeGain": "1000",
-      "driveGaugeLossBlock": "-2500",
+      "driveGaugeLossBlock": "-2000",
       "driveGaugeLossPc": "-4000",
       "saGaugeGain": "500",
       "properties": "上",

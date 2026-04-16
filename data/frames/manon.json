@@ -2,7 +2,7 @@
   "slug": "manon",
   "name": "Manon",
   "nameJa": "マノン",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -530,7 +530,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -538,8 +538,8 @@
       "nameJa": "タン・リエ",
       "input": "",
       "startup": "5",
-      "active": "5-6",
-      "recovery": "※20",
+      "active": "5-9",
+      "recovery": "※17",
       "onHit": "3",
       "onBlock": "-8",
       "cancel": "",

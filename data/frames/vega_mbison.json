@@ -2,7 +2,7 @@
   "slug": "vega_mbison",
   "name": "M.Bison",
   "nameJa": "ベガ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -116,7 +116,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "空振り/アーマーヒット時硬直3F増加空中ヒット時床バウンドパニッシュカウンター時+17F",
-      "notesEn": "3  frames of recovery added on armor hit or if the attack missesAdds a floor bounding effect during a mid-air hit17 frames of advantage added when the attack lands as a Punish Counter",
+      "notesEn": "3  frames of recovery added on armor hit or if the attack missesProduces a ground bound during a mid-air hit17 frames of advantage added when the attack lands as a Punish Counter",
       "category": "normal"
     },
     {
@@ -438,7 +438,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -507,7 +507,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -863,7 +863,7 @@
       "active": "13-2913-14, 25-29",
       "recovery": "25",
       "onHit": "D",
-      "onBlock": "6",
+      "onBlock": "9",
       "cancel": "SA3",
       "damage": "1300",
       "comboScaling": "",
@@ -909,7 +909,7 @@
       "active": "17-3317-18, 29-33",
       "recovery": "26",
       "onHit": "D",
-      "onBlock": "6",
+      "onBlock": "9",
       "cancel": "SA3",
       "damage": "1400",
       "comboScaling": "",
@@ -955,7 +955,7 @@
       "active": "22-3922-24, 35-39",
       "recovery": "26",
       "onHit": "D",
-      "onBlock": "6",
+      "onBlock": "9",
       "cancel": "SA3",
       "damage": "1500",
       "comboScaling": "",
@@ -990,7 +990,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "最終段ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect on the final attack",
+      "notesEn": "Produces a ground bound on the final attack",
       "category": "special"
     },
     {
@@ -1174,7 +1174,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "ヒット/ガードさせた高度によって硬直差が変化空中ヒット時床バウンド",
-      "notesEn": "Recovery changes depending on the height of the attack when it hits or is blockedAdds a floor bounding effect during a mid-air hit",
+      "notesEn": "Recovery changes depending on the height of the attack when it hits or is blockedProduces a ground bound during a mid-air hit",
       "category": "special"
     },
     {
@@ -1319,8 +1319,8 @@
       "name": "SA2 Psycho Punisher",
       "nameJa": "SA2 サイコパニッシャー",
       "input": "",
-      "startup": "26",
-      "active": "26-32",
+      "startup": "24",
+      "active": "24-30",
       "recovery": "52",
       "onHit": "D",
       "onBlock": "-34",

@@ -2,7 +2,7 @@
   "slug": "ed",
   "name": "Ed",
   "nameJa": "エド",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -230,8 +230,8 @@
       "saGaugeGain": "600",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "強制立ち効果",
-      "notesEn": "Forces the opponent into a standing position",
+      "notes": "空振り時硬直3F増加強制立ち効果",
+      "notesEn": "3 frames of recovery added when the attack missesForces the opponent into a standing position",
       "category": "normal"
     },
     {
@@ -263,9 +263,9 @@
       "input": "",
       "startup": "12",
       "active": "12-13",
-      "recovery": "17",
-      "onHit": "1",
-      "onBlock": "-4",
+      "recovery": "19",
+      "onHit": "-1",
+      "onBlock": "-6",
       "cancel": "C",
       "damage": "800",
       "comboScaling": "",
@@ -276,8 +276,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "空振り時硬直2F増加",
+      "notesEn": "2 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -621,8 +621,8 @@
       "saGaugeGain": "1200",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "ヒット時キルステップ（前方）、キルステップ（後方）にキャンセル可能",
+      "notesEn": "Can be canceled into Kill Rush (Forward) and Kill Rush (Backward) when the attack hits",
       "category": "unique"
     },
     {
@@ -1142,8 +1142,8 @@
       "onBlock": "4",
       "cancel": "SA2",
       "damage": "※800",
-      "comboScaling": "始動補正20%コンボ補正15%",
-      "comboScalingEn": "Starter scaling 20%Combo scaling 15%",
+      "comboScaling": "始動補正20%コンボ補正20%",
+      "comboScalingEn": "Starter scaling 20%Combo scaling 20%",
       "driveGaugeGain": "0",
       "driveGaugeLossBlock": "-3000",
       "driveGaugeLossPc": "-5000",

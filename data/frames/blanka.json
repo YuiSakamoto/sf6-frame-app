@@ -2,7 +2,7 @@
   "slug": "blanka",
   "name": "Blanka",
   "nameJa": "ブランカ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -80,7 +80,7 @@
       "startup": "8",
       "active": "8-10",
       "recovery": "17",
-      "onHit": "4",
+      "onHit": "5",
       "onBlock": "-2",
       "cancel": "C",
       "damage": "600",
@@ -253,8 +253,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "パニッシュカウンター時吹き飛びダウン強制立ち効果",
-      "notesEn": "Forces a juggle state when the attack lands as a Punish CounterForces the opponent into a standing position",
+      "notes": "カウンター/パニッシュカウンター時吹き飛びダウン強制立ち効果",
+      "notesEn": "Forces a blowback knockdown when the attack lands as a Counter or Punish CounterForces the opponent into a standing position",
       "category": "normal"
     },
     {
@@ -530,7 +530,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "※33-34F フィアーダウンへ派生可パニッシュカウンターで以下の性能変化・地上ヒット時膝崩れ・空中ヒット時床バウンド",
-      "notesEn": "* Can transition to Coward Crouch between frames 33 - 34Properties change to the following when the attack lands as a Punish Counter:- Produces a crumple stun if the opponent is standing on the ground- Forces a floor bound if the attack hits a mid-air opponent",
+      "notesEn": "* Can transition to Coward Crouch between frames 33 - 34Properties change to the following when the attack lands as a Punish Counter:- Produces a crumple stun if the opponent is standing on the ground- Forces a ground bound if the attack hits a mid-air opponent",
       "category": "unique"
     },
     {
@@ -800,7 +800,7 @@
       "comboScaling": "始動補正10%即時補正10%",
       "comboScalingEn": "Starter scaling 10%Immediate scaling 10%",
       "driveGaugeGain": "2000",
-      "driveGaugeLossBlock": "-7500",
+      "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "0",
       "properties": "上",
@@ -846,7 +846,7 @@
       "comboScaling": "始動補正10%即時補正10%",
       "comboScalingEn": "Starter scaling 10%Immediate scaling 10%",
       "driveGaugeGain": "2000",
-      "driveGaugeLossBlock": "-7500",
+      "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "0",
       "properties": "上",
@@ -892,7 +892,7 @@
       "comboScaling": "始動補正20%即時補正10%",
       "comboScalingEn": "Starter scaling 20%Immediate scaling 10%",
       "driveGaugeGain": "2000",
-      "driveGaugeLossBlock": "-10000",
+      "driveGaugeLossBlock": "-6000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "0",
       "properties": "上",

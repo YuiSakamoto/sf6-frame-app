@@ -2,7 +2,7 @@
   "slug": "juri",
   "name": "Juri",
   "nameJa": "ジュリ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -897,8 +897,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "空中コンボ中にヒット時吹き飛びダウン",
+      "notesEn": "Produces a blowback knockdown during a mid-air combo",
       "category": "unique"
     },
     {
@@ -976,7 +976,7 @@
       "input": "",
       "startup": "15",
       "active": "15-2515-17, 23-25",
-      "recovery": "20",
+      "recovery": "※20",
       "onHit": "2",
       "onBlock": "-4",
       "cancel": "C",
@@ -989,8 +989,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "空中ヒット時吹き飛びダウン",
-      "notesEn": "Forces a juggle state when hitting a mid-air opponent",
+      "notes": "※空振り時硬直3F増加空中ヒット時吹き飛びダウン",
+      "notesEn": "* 3 frames of recovery added when the attack missesForces a juggle state when hitting a mid-air opponent",
       "category": "unique"
     },
     {
@@ -999,7 +999,7 @@
       "input": "",
       "startup": "15",
       "active": "15-2515-17, 23-25",
-      "recovery": "20",
+      "recovery": "※20",
       "onHit": "D",
       "onBlock": "-4",
       "cancel": "C",
@@ -1012,8 +1012,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※空振り時硬直3F増加",
+      "notesEn": "* 3 frames of recovery added when the attack misses",
       "category": "unique"
     },
     {
@@ -1188,8 +1188,8 @@
       "onBlock": "-12",
       "cancel": "SA2",
       "damage": "600",
-      "comboScaling": "",
-      "comboScalingEn": "",
+      "comboScaling": "コンボ補正20%",
+      "comboScalingEn": "Combo scaling 20%",
       "driveGaugeGain": "0",
       "driveGaugeLossBlock": "-2500",
       "driveGaugeLossPc": "-5000",
@@ -1277,7 +1277,7 @@
       "active": "24-27",
       "recovery": "19",
       "onHit": "5",
-      "onBlock": "-10",
+      "onBlock": "-8",
       "cancel": "SA3",
       "damage": "600",
       "comboScaling": "始動補正20%コンボ補正20%",
@@ -1288,8 +1288,8 @@
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "8-27F空中判定空中ヒット時叩きつけダウン",
-      "notesEn": "Invincible to mid-air attacks from frames 8 - 27Produces a slam knockdown on a mid-air hit",
+      "notes": "8-27F空中判定攻撃持続2-4F目ヒット時叩き付けダウン空中ヒット時叩きつけダウン",
+      "notesEn": "Invincible to mid-air attacks from frames 8 - 27Produces a slam knockdown on hit during active frames 2 - 4 of the attackProduces a slam knockdown on a mid-air hit",
       "category": "special"
     },
     {
@@ -1300,7 +1300,7 @@
       "active": "24-27",
       "recovery": "19",
       "onHit": "8",
-      "onBlock": "-10",
+      "onBlock": "-8",
       "cancel": "SA3※",
       "damage": "600",
       "comboScaling": "始動補正20%コンボ補正20%",
@@ -1311,8 +1311,8 @@
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "8-27F空中判定※風破ストックがある時に[強化版]歳破衝  or [強化版]五黄殺 に派生可能　同じ技は2回使えない空中ヒット時叩きつけダウン",
-      "notesEn": "Considered airborne from frames 8 - 27* Can transition to boosted Saihasho or boosted Go Ohsatsu when Fuha is stocked   Cannot use the same attack twiceProduces a floor bound during a mid-air hit",
+      "notes": "8-27F空中判定※風破ストックがある時に[強化版]歳破衝  or [強化版]五黄殺 に派生可能　同じ技は2回使えない空中ヒット時床バウンド",
+      "notesEn": "Considered airborne from frames 8 - 27* Can transition to boosted Saihasho or boosted Go Ohsatsu when Fuha is stocked   Cannot use the same attack twiceProduces a ground bound during a mid-air hit",
       "category": "special"
     },
     {
@@ -1323,7 +1323,7 @@
       "active": "24-27",
       "recovery": "19",
       "onHit": "9",
-      "onBlock": "-10",
+      "onBlock": "-8",
       "cancel": "SA2※",
       "damage": "800",
       "comboScaling": "始動補正20%コンボ補正20%",
@@ -1335,7 +1335,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "8-27F空中判定※風破ストックがある時にOD歳破衝 or OD五黄殺 に派生可能　同じ技は2回使えない空中ヒット時床バウンド",
-      "notesEn": "Considered airborne from frames 8 - 27* Can transition to Overdrive Saihasho or Overdrive Go Ohsatsu when Fuha is stocked   Cannot use the same attack twiceProduces a floor bound during a mid-air hit",
+      "notesEn": "Considered airborne from frames 8 - 27* Can transition to Overdrive Saihasho or Overdrive Go Ohsatsu when Fuha is stocked   Cannot use the same attack twiceProduces a ground bound during a mid-air hit",
       "category": "special"
     },
     {

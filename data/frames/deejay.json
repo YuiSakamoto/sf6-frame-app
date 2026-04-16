@@ -2,7 +2,7 @@
   "slug": "deejay",
   "name": "Dee Jay",
   "nameJa": "ディージェイ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -194,8 +194,8 @@
       "input": "",
       "startup": "6",
       "active": "6-9",
-      "recovery": "14",
-      "onHit": "4",
+      "recovery": "※14",
+      "onHit": "5",
       "onBlock": "-1",
       "cancel": "C",
       "damage": "600",
@@ -207,8 +207,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※空振り時硬直1F増加",
+      "notesEn": "* 1 frames of recovery are added if the attack misses",
       "category": "normal"
     },
     {
@@ -1055,7 +1055,7 @@
       "driveGaugeGain": "4000",
       "driveGaugeLossBlock": "-3000",
       "driveGaugeLossPc": "-5000",
-      "saGaugeGain": "2100",
+      "saGaugeGain": "2500",
       "properties": "上",
       "propertiesEn": "High",
       "notes": "初段以降は初段ヒット時のみ派生",
@@ -1066,8 +1066,8 @@
       "name": "OD Machine Gun Uppercut",
       "nameJa": "OD マシンガンアッパー",
       "input": "",
-      "startup": "28",
-      "active": "28-31",
+      "startup": "26",
+      "active": "26-29",
       "recovery": "35",
       "onHit": "D",
       "onBlock": "-19",
@@ -1197,7 +1197,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時叩き付けダウンパニッシュカウンター時床バウンド",
-      "notesEn": "Forces a slam knockdown when hitting a mid-air opponentAdds a floor bounding effect on Punish Counter",
+      "notesEn": "Forces a slam knockdown when hitting a mid-air opponentAdds a ground bounding effect on Punish Counter",
       "category": "special"
     },
     {
@@ -1220,7 +1220,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Adds a ground bounding effect during a mid-air hit",
       "category": "special"
     },
     {
@@ -1334,8 +1334,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "",
-      "notesEn": "",
+      "notes": "17-25F ジャグリンステップを除く専用技へ派生可",
+      "notesEn": "Can be canceled into follow-up attacks except for Juggling Dash from frames 17 - 25",
       "category": "special"
     },
     {
@@ -1357,8 +1357,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "",
-      "notesEn": "",
+      "notes": "13-18F ジャグリンステップを除く専用技へ派生可",
+      "notesEn": "Can be canceled into follow-up attacks except for Juggling Dash from frames 13 - 18",
       "category": "special"
     },
     {

@@ -2,7 +2,7 @@
   "slug": "aki",
   "name": "A.K.I.",
   "nameJa": "A.K.I.",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -23,8 +23,8 @@
       "saGaugeGain": "300",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "連打キャンセル対応",
+      "notesEn": "Can be rapid canceled",
       "category": "normal"
     },
     {
@@ -426,7 +426,7 @@
       "active": "24-26",
       "recovery": "18",
       "onHit": "3",
-      "onBlock": "-2",
+      "onBlock": "-3",
       "cancel": "",
       "damage": "600",
       "comboScaling": "",
@@ -516,7 +516,7 @@
       "input": "",
       "startup": "8",
       "active": "8-9",
-      "recovery": "14",
+      "recovery": "15",
       "onHit": "1",
       "onBlock": "-3",
       "cancel": "C",
@@ -921,7 +921,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "13-49F　空中判定ヒット時毒状態空中ヒット時は非ロック技に性能が変化するダメージ1000/床バウンド※非ロック技時のみキャンセル可能",
-      "notesEn": "Considered airborne from frames 13 - 49Puts the opponent in a poisoned state on hitAttack does not transition into the cinematic attack when hitting an airborne opponentDeals 1000 damage and has floor bounding effect*Only the non-cinematic version can be canceled",
+      "notesEn": "Considered airborne from frames 13 - 49Puts the opponent in a poisoned state on hitAttack does not transition into the cinematic attack when hitting an airborne opponentDeals 1000 damage and has ground bounding effect*Only the non-cinematic version can be canceled",
       "category": "special"
     },
     {

@@ -2,7 +2,7 @@
   "slug": "zangief",
   "name": "Zangief",
   "nameJa": "ザンギエフ",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -346,7 +346,7 @@
       "properties": "上",
       "propertiesEn": "High",
       "notes": "パニッシュカウンター時吹き飛び時間増加、パニッシュカウンター時床バウンド",
-      "notesEn": "Increase juggle state time when attack lands as a Punish CounterAdds a floor bounding effect on Punish Counter",
+      "notesEn": "Increase juggle state time when attack lands as a Punish CounterProduces a ground bound on Punish Counter",
       "category": "normal"
     },
     {
@@ -622,7 +622,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "パニッシュカウンター時床バウンド",
-      "notesEn": "Adds a floor bounding effect on Punish Counter",
+      "notesEn": "Produces a ground bound on Punish Counter",
       "category": "unique"
     },
     {

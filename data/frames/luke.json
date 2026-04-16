@@ -2,7 +2,7 @@
   "slug": "luke",
   "name": "Luke",
   "nameJa": "ルーク",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -102,9 +102,9 @@
       "input": "",
       "startup": "10",
       "active": "10-12",
-      "recovery": "23",
+      "recovery": "※23",
       "onHit": "1",
-      "onBlock": "-6",
+      "onBlock": "-5",
       "cancel": "C",
       "damage": "800",
       "comboScaling": "",
@@ -115,8 +115,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "※ガード時硬直1F減少",
+      "notesEn": "* Recovery is reduced by 1 frames when blocked",
       "category": "normal"
     },
     {
@@ -529,8 +529,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "ダブルインパクト（1段目）がパニッシュカウンター時に派生し、地上ヒットした場合は地上やられ",
+      "notesEn": "When the 1st attack of Double Impact hits as a Punish Counter, the 2nd hit is considered a grounded attack if the opponent is standing on the ground.",
       "category": "unique"
     },
     {
@@ -792,9 +792,9 @@
       "input": "",
       "startup": "13",
       "active": "13-15",
-      "recovery": "31",
+      "recovery": "27",
       "onHit": "D",
-      "onBlock": "-18",
+      "onBlock": "-12",
       "cancel": "SA3",
       "damage": "700",
       "comboScaling": "",
@@ -805,8 +805,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "18F以上ボタンホールドすると性能変化18-20Fの間に離すとジャスト版が発生",
-      "notesEn": "Hold the button for more than 18 frames to change propertiesPerform the Perfect version by releasing the button between frames 18 - 20",
+      "notes": "18F以上ボタンホールドすると性能変化18-20Fの間に離すとジャスト版が発生ヒット時のみ、40F目に必殺技、SAキャンセル可能",
+      "notesEn": "Hold the button for more than 18 frames to change propertiesPerform the Perfect version by releasing the button between frames 18 - 20Can be canceled into a special move or Super Art on the 40th frame when the attack hits",
       "category": "special"
     },
     {

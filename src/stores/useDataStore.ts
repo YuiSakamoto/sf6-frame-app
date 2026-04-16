@@ -34,6 +34,7 @@ import bundledMai from "../../data/frames/mai.json";
 import bundledElena from "../../data/frames/elena.json";
 import bundledCviper from "../../data/frames/cviper.json";
 import bundledSagat from "../../data/frames/sagat.json";
+import bundledAlex from "../../data/frames/alex.json";
 
 const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   ryu: bundledRyu as CharacterFrameData,
@@ -64,6 +65,7 @@ const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   elena: bundledElena as CharacterFrameData,
   cviper: bundledCviper as CharacterFrameData,
   sagat: bundledSagat as CharacterFrameData,
+  alex: bundledAlex as CharacterFrameData,
 };
 
 interface DataState {
@@ -88,12 +90,15 @@ export const useDataStore = create<DataState>()((set, get) => ({
 
   initialize: () => {
     // キャッシュからロード、なければバンドルデータを使用
+    // バンドルの方がキャラ数が多い場合はバンドルを優先（アプリ更新でキャラ追加された場合）
     const cachedCharacters = dataService.getCachedCharacters();
     const cachedVersion = dataService.getCachedVersion();
+    const bundled = bundledCharacters as Character[];
 
-    const characters = cachedCharacters.ok
-      ? cachedCharacters.value
-      : (bundledCharacters as Character[]);
+    const characters =
+      cachedCharacters.ok && cachedCharacters.value.length >= bundled.length
+        ? cachedCharacters.value
+        : bundled;
 
     const version = cachedVersion.ok
       ? cachedVersion.value

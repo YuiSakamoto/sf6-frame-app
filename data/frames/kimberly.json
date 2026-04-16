@@ -2,7 +2,7 @@
   "slug": "kimberly",
   "name": "Kimberly",
   "nameJa": "キンバリー",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -1059,7 +1059,7 @@
       "properties": "中中",
       "propertiesEn": "MidMid",
       "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a floor bounding effect during a mid-air hit",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "special"
     },
     {

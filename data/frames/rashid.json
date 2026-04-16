@@ -2,7 +2,7 @@
   "slug": "rashid",
   "name": "Rashid",
   "nameJa": "ラシード",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -599,7 +599,7 @@
       "properties": "中",
       "propertiesEn": "Mid",
       "notes": "ヒット、ガード時12-23F 空中での必殺技へ派生可24-着地まで 空中での通常技及び必殺技へ派生可空中ヒット時床バウンド",
-      "notesEn": "Can transition to a mid-air special move from frames 12 - 23 when the attack hits or is blockedCan transition to any mid-air normal attack or special move from frame 24 until landing on the groundProduces a floor bound when hitting a mid-air opponent",
+      "notesEn": "Can transition to a mid-air special move from frames 12 - 23 when the attack hits or is blockedCan transition to any mid-air normal attack or special move from frame 24 until landing on the groundProduces a ground bound when hitting a mid-air opponent",
       "category": "unique"
     },
     {
@@ -759,8 +759,8 @@
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "6-10F　空中判定の打撃・空弾属性に対して無敵13-60F　空中判定2-9F 気流干渉により性能変化ヒット時のみ、着地硬直11F間を必殺技、SAでキャンセル可",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 6 - 10Considered airborne from frames 13 - 60Attack properties changed by air currents are active from frames 2 - 911 frames of landing recovery can be canceled by a special move or Super Art when the attack hits",
+      "notes": "6-14F　空中判定の打撃・空弾属性に対して無敵13-60F　空中判定2-9F 気流干渉により性能変化ヒット時のみ、着地硬直11F間を必殺技、SAでキャンセル可",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 6 - 14Considered airborne from frames 13 - 60Attack properties changed by air currents are active from frames 2 - 911 frames of landing recovery can be canceled by a special move or Super Art when the attack hits",
       "category": "special"
     },
     {
@@ -1288,15 +1288,15 @@
       "saGaugeGain": "600",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "36Fまでボタンホールドでホールド版へ派生",
-      "notesEn": "Transition to variation attack by holding the button for 36 frames",
+      "notes": "32Fまでボタンホールドでホールド版へ派生",
+      "notesEn": "Transition to variation attack by holding the button for 32 frames",
       "category": "special"
     },
     {
       "name": "OD Whirlwind Shot(Charged)",
       "nameJa": "OD ワールウインド・ショット (ホールド版)",
       "input": "",
-      "startup": "41",
+      "startup": "38",
       "active": "",
       "recovery": "",
       "onHit": "D",
@@ -1311,8 +1311,8 @@
       "saGaugeGain": "600",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "動作後、70F間気流が発生",
-      "notesEn": "After technique is finished, an air current that lasts 70 frames will be generated",
+      "notes": "54F目 専用技へ派生可動作後、70F間気流が発生",
+      "notesEn": "Can transition to branching attacks on frame 11After technique is finished, an air current that lasts 70 frames will be generated",
       "category": "special"
     },
     {

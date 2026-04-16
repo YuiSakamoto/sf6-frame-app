@@ -2,7 +2,7 @@
   "slug": "terry",
   "name": "Terry",
   "nameJa": "テリー",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -194,7 +194,7 @@
       "input": "",
       "startup": "6",
       "active": "6-9",
-      "recovery": "14",
+      "recovery": "13",
       "onHit": "5",
       "onBlock": "-1",
       "cancel": "C",
@@ -207,8 +207,8 @@
       "saGaugeGain": "600",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "ガード時硬直1F増加空振り時硬直2F増加",
+      "notesEn": "1 frame of recovery added when blocked2 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -426,7 +426,7 @@
       "active": "22-24",
       "recovery": "19",
       "onHit": "2",
-      "onBlock": "-2",
+      "onBlock": "-3",
       "cancel": "",
       "damage": "800",
       "comboScaling": "",
@@ -989,8 +989,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "8-25F　空中判定パニッシュカウンター時ハードノックダウン空中ヒット時床バウンド",
-      "notesEn": "Considered airborne from frames 8 - 25Forces a Hard Knockdown on Punish CounterProduces a floor bound during a mid-air hit",
+      "notes": "8-25F　空中判定ヒット時のみパワーチャージを除く必殺技にキャンセル可能パニッシュカウンター時ハードノックダウン空中ヒット時床バウンド",
+      "notesEn": "Considered airborne from frames 8 - 25Can cancel into other special moves except Power Charge only on hitForces a Hard Knockdown on Punish CounterProduces a ground bound during a mid-air hit",
       "category": "special"
     },
     {

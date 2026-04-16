@@ -2,7 +2,7 @@
   "slug": "dhalsim",
   "name": "Dhalsim",
   "nameJa": "ダルシム",
-  "version": "2026-02-27",
+  "version": "2026-03-17",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -345,8 +345,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "空中コンボ中にヒット時吹き飛びダウン",
+      "notesEn": "Produces a blowback knockdown during a mid-air combo",
       "category": "normal"
     },
     {
@@ -1098,7 +1098,7 @@
       "damage": "900",
       "comboScaling": "",
       "comboScalingEn": "",
-      "driveGaugeGain": "2400",
+      "driveGaugeGain": "3000",
       "driveGaugeLossBlock": "-5000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "1000",
@@ -1121,7 +1121,7 @@
       "damage": "1200",
       "comboScaling": "",
       "comboScalingEn": "",
-      "driveGaugeGain": "2700",
+      "driveGaugeGain": "4000",
       "driveGaugeLossBlock": "-6000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "1100",
@@ -1150,8 +1150,8 @@
       "saGaugeGain": "1100",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "",
-      "notesEn": "",
+      "notes": "ヒット時硬直5F減少",
+      "notesEn": "Recovery is reduced by 5 frame on hit",
       "category": "special"
     },
     {

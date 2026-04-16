@@ -37,4 +37,5 @@ export const ALL_CHARACTERS: CharacterInfo[] = [
   // Year 3 DLC
   { slug: "cviper", name: "C.Viper", nameJa: "C.ヴァイパー" },
   { slug: "sagat", name: "Sagat", nameJa: "サガット" },
+  { slug: "alex", name: "Alex", nameJa: "アレックス" },
 ];
