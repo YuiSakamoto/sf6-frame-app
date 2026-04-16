@@ -2,6 +2,7 @@ import { Tabs } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "@/theme/colors";
 import { useTranslation } from "react-i18next";
+import { AppHeader } from "@/components/ui/AppHeader";
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -9,9 +10,13 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerStyle: { backgroundColor: colors.background },
-        headerTintColor: colors.text,
-        headerTitleStyle: { fontWeight: "700" },
+        header: ({ options }) => (
+          <AppHeader
+            sectionTitle={
+              typeof options.title === "string" ? options.title : undefined
+            }
+          />
+        ),
         tabBarStyle: {
           backgroundColor: colors.background,
           borderTopColor: colors.border,

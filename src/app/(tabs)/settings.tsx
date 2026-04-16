@@ -109,15 +109,6 @@ export default function SettingsScreen() {
           <Text style={styles.linkLabel}>{t("support.buymeacoffee")}</Text>
           <Text style={styles.arrow}>›</Text>
         </Pressable>
-        <Pressable
-          style={styles.linkRow}
-          onPress={() =>
-            Linking.openURL("https://github.com/YuiSakamoto/sf6-frame-app")
-          }
-        >
-          <Text style={styles.linkLabel}>{t("support.githubRepo")}</Text>
-          <Text style={styles.arrow}>›</Text>
-        </Pressable>
 
         {/* クレジット・プライバシーポリシー */}
         <SectionHeader label={t("credits.title")} />
