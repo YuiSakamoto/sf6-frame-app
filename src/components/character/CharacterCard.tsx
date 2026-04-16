@@ -1,8 +1,15 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { colors } from "@/theme/colors";
 import { getCharacterColors } from "@/theme/characterColors";
 import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 interface CharacterCardProps {
   character: Character;
@@ -19,16 +26,27 @@ export function CharacterCard({
   const displayName =
     i18n.language === "ja" ? character.nameJa : character.name;
   const [colorStart, colorEnd] = getCharacterColors(character.slug);
+  const scale = useSharedValue(1);
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
 
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={() => onPress(character)}
+      onPressIn={() => {
+        scale.value = withTiming(0.95, { duration: 100 });
+      }}
+      onPressOut={() => {
+        scale.value = withTiming(1, { duration: 150 });
+      }}
       style={[
         styles.container,
         {
           backgroundColor: isSelected ? colors.accent : colors.surface,
           borderColor: isSelected ? colors.accent : colors.border,
         },
+        animatedStyle,
       ]}
     >
       <View style={styles.avatarContainer}>
@@ -68,7 +86,7 @@ export function CharacterCard({
       >
         {displayName}
       </Text>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 

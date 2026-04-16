@@ -1,5 +1,10 @@
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  LinearTransition,
+} from "react-native-reanimated";
 import { colors } from "@/theme/colors";
 import type { Move } from "@/types/frame-data";
 import { FrameValue } from "./FrameValue";
@@ -70,7 +75,12 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
       </View>
 
       {expanded && (
-        <View style={styles.details}>
+        <Animated.View
+          entering={FadeIn.duration(200)}
+          exiting={FadeOut.duration(150)}
+          layout={LinearTransition.duration(200)}
+          style={styles.details}
+        >
           <View style={styles.detailColumns}>
             <View style={styles.detailColumn}>
               <DetailItem label={t("frameData.active")} value={move.active} />
@@ -106,7 +116,7 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
           {displayNotes ? (
             <Text style={styles.notes}>{displayNotes}</Text>
           ) : null}
-        </View>
+        </Animated.View>
       )}
     </Pressable>
   );

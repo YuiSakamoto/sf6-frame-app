@@ -1,6 +1,8 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
+import Animated, { FadeInUp } from "react-native-reanimated";
 import type { Character } from "@/types/character";
 import { CharacterCard } from "./CharacterCard";
+import { useResponsive } from "@/hooks/useResponsive";
 
 interface CharacterGridProps {
   characters: Character[];
@@ -13,21 +15,28 @@ export function CharacterGrid({
   onSelect,
   selectedSlug,
 }: CharacterGridProps) {
+  const { gridColumns } = useResponsive();
+  const maxWidthPercent = `${100 / gridColumns}%` as const;
+
   return (
     <FlatList
+      key={gridColumns}
       data={characters}
       keyExtractor={(item) => item.slug}
-      numColumns={4}
+      numColumns={gridColumns}
       contentContainerStyle={styles.content}
       columnWrapperStyle={styles.column}
-      renderItem={({ item }) => (
-        <View style={styles.item}>
+      renderItem={({ item, index }) => (
+        <Animated.View
+          entering={FadeInUp.delay(index * 30).duration(200)}
+          style={[styles.item, { maxWidth: maxWidthPercent }]}
+        >
           <CharacterCard
             character={item}
             onPress={onSelect}
             isSelected={item.slug === selectedSlug}
           />
-        </View>
+        </Animated.View>
       )}
     />
   );
@@ -43,6 +52,5 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    maxWidth: "25%",
   },
 });

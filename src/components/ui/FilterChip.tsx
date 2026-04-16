@@ -1,5 +1,12 @@
 import { Pressable, StyleSheet, Text } from "react-native";
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from "react-native-reanimated";
 import { colors } from "@/theme/colors";
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 interface FilterChipProps {
   label: string;
@@ -8,15 +15,26 @@ interface FilterChipProps {
 }
 
 export function FilterChip({ label, selected, onPress }: FilterChipProps) {
+  const scale = useSharedValue(1);
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
   return (
-    <Pressable
+    <AnimatedPressable
       onPress={onPress}
-      style={[styles.chip, selected && styles.chipSelected]}
+      onPressIn={() => {
+        scale.value = withTiming(0.93, { duration: 80 });
+      }}
+      onPressOut={() => {
+        scale.value = withTiming(1, { duration: 120 });
+      }}
+      style={[styles.chip, selected && styles.chipSelected, animatedStyle]}
     >
       <Text style={[styles.label, selected && styles.labelSelected]}>
         {label}
       </Text>
-    </Pressable>
+    </AnimatedPressable>
   );
 }
 
