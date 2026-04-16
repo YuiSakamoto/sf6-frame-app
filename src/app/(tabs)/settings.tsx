@@ -104,9 +104,7 @@ export default function SettingsScreen() {
         </Pressable>
         <Pressable
           style={styles.linkRow}
-          onPress={() =>
-            Linking.openURL("https://buymeacoffee.com/yui_tang")
-          }
+          onPress={() => Linking.openURL("https://buymeacoffee.com/yui_tang")}
         >
           <Text style={styles.linkLabel}>{t("support.buymeacoffee")}</Text>
           <Text style={styles.arrow}>›</Text>
