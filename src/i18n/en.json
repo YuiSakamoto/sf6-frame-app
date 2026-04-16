@@ -11,7 +11,7 @@
     "settings": "Settings"
   },
   "tabs": {
-    "home": "Home",
+    "home": "Frame Data",
     "punish": "Punish",
     "search": "Search"
   },
@@ -20,7 +20,8 @@
     "myCharacter": "My Character",
     "opponent": "Opponent",
     "selectCharacter": "Select Character",
-    "allCharacters": "All Characters"
+    "allCharacters": "All Characters",
+    "gridGuide": "Select a character to view frame data"
   },
   "frameData": {
     "title": "Frame Data",
@@ -42,14 +43,15 @@
   },
   "punish": {
     "title": "Punish Finder",
-    "description": "Find punish options after blocking opponent's moves",
+    "description": "Punish finder requires your character to be set. Select below",
     "selectOpponentMove": "Select opponent's move",
     "punishableOnly": "Punishable only",
     "noPunish": "No punish available",
     "fastestPunish": "Fastest punish",
     "framesToSpare": "{{frames}}F to spare",
     "result": "Punish options: {{count}}",
-    "resultStep": "Result"
+    "resultStep": "Result",
+    "disclaimer": "* Based on frame data only. Punishes may not connect due to distance and knockback. Always consider spacing in actual matches."
   },
   "filter": {
     "all": "All",
@@ -60,7 +62,14 @@
     "throw": "Throw",
     "common": "Common"
   },
+  "search": {
+    "placeholder": "Search moves by name or command",
+    "hint": "Enter a move name or command to search across all characters",
+    "noResults": "No matching moves found",
+    "resultCount": "{{count}} results"
+  },
   "sort": {
+    "default": "Default",
     "startup": "By Startup",
     "damage": "By Damage",
     "onBlock": "By Block Adv."
@@ -73,5 +82,46 @@
     "updating": "Updating...",
     "upToDate": "Up to date",
     "version": "Data version: {{version}}"
+  },
+  "support": {
+    "title": "Support the Developer",
+    "description": "If you enjoy this app, please consider supporting development",
+    "github": "GitHub Sponsors",
+    "buymeacoffee": "Buy Me a Coffee",
+    "githubRepo": "Source Code (GitHub)"
+  },
+  "credits": {
+    "title": "Credits & Licenses",
+    "dataSource": "Data Source",
+    "dataNotice": "Frame data is sourced from the official CAPCOM website. Street Fighter 6 and related intellectual property are owned by CAPCOM.",
+    "ossLicenses": "Open Source Licenses",
+    "trademarkNotice": "Street Fighter and related characters are registered trademarks of CAPCOM CO., LTD. This app is not endorsed or sponsored by CAPCOM.",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated: March 5, 2026",
+    "introTitle": "Introduction",
+    "introBody": "SF6 Frame Data (\"the App\") is a Street Fighter 6 frame data viewer and punish finder available on iOS, Android, and the web. This policy explains what information is collected and how it is used.",
+    "collectTitle": "Information We Collect",
+    "collectIntro": "The App does not require user registration and does not collect personal information such as names, email addresses, or phone numbers. The following data may be collected automatically through third-party services.",
+    "collectAnalyticsLabel": "Usage analytics",
+    "collectAnalyticsBody": "Anonymous usage data (screens viewed, features used) via Firebase Analytics to improve the App.",
+    "collectAdsLabel": "Advertising data",
+    "collectAdsBody": "Device advertising identifiers and general usage data via Google AdMob to serve ads. On iOS, the App requests your consent via the App Tracking Transparency framework before accessing the advertising identifier.",
+    "collectCrashLabel": "Crash data",
+    "collectCrashBody": "Anonymous crash reports to help identify and fix bugs.",
+    "localStorageTitle": "Local Storage",
+    "localStorageBody": "The App stores your preferences (selected character, language setting) locally on your device using MMKV storage. This data is never transmitted to any server.",
+    "thirdPartyTitle": "Third-Party Services",
+    "thirdPartyBody": "The App uses the following third-party services, each governed by their own privacy policies.",
+    "thirdPartyAdmob": "Advertising (subject to Google Privacy Policy)",
+    "thirdPartyFirebase": "Usage analytics & crash reporting (subject to Firebase Privacy Policy)",
+    "childrenTitle": "Children's Privacy",
+    "childrenBody": "The App is not directed at children under 13. We do not knowingly collect personal information from children.",
+    "changesTitle": "Changes to This Policy",
+    "changesBody": "We may update this policy from time to time. Changes will be posted on this page with an updated date.",
+    "contactTitle": "Contact",
+    "contactBody": "If you have questions about this privacy policy, please contact us at sf6frameapp@gmail.com."
   }
 }

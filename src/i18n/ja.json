@@ -11,7 +11,7 @@
     "settings": "設定"
   },
   "tabs": {
-    "home": "ホーム",
+    "home": "技表",
     "punish": "確定反撃",
     "search": "検索"
   },
@@ -20,7 +20,8 @@
     "myCharacter": "自キャラ",
     "opponent": "相手キャラ",
     "selectCharacter": "キャラクターを選択",
-    "allCharacters": "全キャラクター"
+    "allCharacters": "全キャラクター",
+    "gridGuide": "キャラを選んでフレームデータを確認"
   },
   "frameData": {
     "title": "フレームデータ",
@@ -42,14 +43,15 @@
   },
   "punish": {
     "title": "確定反撃検索",
-    "description": "相手の技をガードした時の確定反撃を検索",
+    "description": "確反検索には自キャラの設定が必要です。下から選択してください",
     "selectOpponentMove": "相手の技を選択",
     "punishableOnly": "確反可能のみ",
     "noPunish": "確定反撃なし",
     "fastestPunish": "最速確反",
     "framesToSpare": "{{frames}}F余裕",
     "result": "確定反撃: {{count}}個",
-    "resultStep": "結果"
+    "resultStep": "結果",
+    "disclaimer": "※フレーム数のみで判定しています。間合いやノックバックにより届かない場合があります。実戦では距離も考慮してください。"
   },
   "filter": {
     "all": "すべて",
@@ -60,7 +62,14 @@
     "throw": "投げ",
     "common": "共通"
   },
+  "search": {
+    "placeholder": "技名やコマンドで検索",
+    "hint": "技名やコマンドを入力して全キャラから検索",
+    "noResults": "該当する技が見つかりません",
+    "resultCount": "{{count}}件"
+  },
   "sort": {
+    "default": "デフォルト",
     "startup": "発生順",
     "damage": "ダメージ順",
     "onBlock": "ガード時順"
@@ -73,5 +82,46 @@
     "updating": "更新中...",
     "upToDate": "最新です",
     "version": "データバージョン: {{version}}"
+  },
+  "support": {
+    "title": "開発者を支援",
+    "description": "このアプリを気に入っていただけたら、開発支援をお願いします",
+    "github": "GitHub Sponsors",
+    "buymeacoffee": "Buy Me a Coffee",
+    "githubRepo": "ソースコード（GitHub）"
+  },
+  "credits": {
+    "title": "クレジット・ライセンス",
+    "dataSource": "データ引用元",
+    "dataNotice": "フレームデータは CAPCOM 公式サイトから取得しています。Street Fighter 6 および関連する知的財産は CAPCOM の所有物です。",
+    "ossLicenses": "オープンソースライセンス",
+    "trademarkNotice": "Street Fighter、ストリートファイターおよび関連キャラクターは株式会社カプコンの登録商標です。本アプリは CAPCOM が公認・後援するものではありません。",
+    "privacyPolicy": "プライバシーポリシー"
+  },
+  "privacy": {
+    "title": "プライバシーポリシー",
+    "lastUpdated": "最終更新日: 2026年3月5日",
+    "introTitle": "はじめに",
+    "introBody": "SF6 Frame Data（以下「本アプリ」）は、ストリートファイター6のフレームデータ閲覧・確定反撃検索アプリです。本ポリシーでは、本アプリが収集する情報とその利用方法について説明します。",
+    "collectTitle": "収集する情報",
+    "collectIntro": "本アプリはユーザー登録を必要とせず、氏名・メールアドレス・電話番号等の個人情報は収集しません。以下の情報がサードパーティサービスを通じて自動的に収集される場合があります。",
+    "collectAnalyticsLabel": "利用状況データ",
+    "collectAnalyticsBody": "Firebase Analyticsにより、閲覧した画面や使用した機能などの匿名の利用データを収集し、アプリの改善に役立てています。",
+    "collectAdsLabel": "広告データ",
+    "collectAdsBody": "Google AdMobにより、広告配信のためにデバイスの広告識別子や利用データを収集します。iOSでは、広告識別子へのアクセス前にApp Tracking Transparencyフレームワークを通じて同意を求めます。",
+    "collectCrashLabel": "クラッシュデータ",
+    "collectCrashBody": "バグの特定と修正のため、匿名のクラッシュレポートを収集します。",
+    "localStorageTitle": "ローカルストレージ",
+    "localStorageBody": "本アプリは、選択したキャラクターや言語設定などの設定情報をデバイス内のローカルストレージ（MMKV）に保存します。このデータがサーバーに送信されることはありません。",
+    "thirdPartyTitle": "サードパーティサービス",
+    "thirdPartyBody": "本アプリは以下のサードパーティサービスを利用しています。各サービスには独自のプライバシーポリシーが適用されます。",
+    "thirdPartyAdmob": "広告配信（Google プライバシーポリシー適用）",
+    "thirdPartyFirebase": "利用分析・クラッシュレポート（Firebase プライバシーポリシー適用）",
+    "childrenTitle": "児童のプライバシー",
+    "childrenBody": "本アプリは13歳未満の児童を対象としておらず、児童の個人情報を意図的に収集することはありません。",
+    "changesTitle": "ポリシーの変更",
+    "changesBody": "本ポリシーは随時更新される場合があります。変更があった場合は、このページに更新日とともに掲載します。",
+    "contactTitle": "お問い合わせ",
+    "contactBody": "本プライバシーポリシーに関するご質問は sf6frameapp@gmail.com までご連絡ください。"
   }
 }
