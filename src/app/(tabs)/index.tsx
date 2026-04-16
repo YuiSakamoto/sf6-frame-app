@@ -1,19 +1,18 @@
-import { useCallback, useState } from "react";
-import { View } from "react-native";
+import { useCallback } from "react";
+import { StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 import { colors } from "@/theme/colors";
 import { useDataStore } from "@/stores/useDataStore";
-import { useMyCharacter } from "@/hooks/useMyCharacter";
 import { CharacterGrid } from "@/components/character/CharacterGrid";
-import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
-import { MyCharacterBar } from "@/components/ui/MyCharacterBar";
+import { WebContainer } from "@/components/ui/WebContainer";
+import { PageHead } from "@/components/seo/PageHead";
+import { useTranslation } from "react-i18next";
 import type { Character } from "@/types/character";
 
 export default function HomeScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   const characters = useDataStore((s) => s.characters);
-  const { myCharacter, setMyCharacter, isSet } = useMyCharacter();
-  const [modalVisible, setModalVisible] = useState(false);
 
   const handleCharacterPress = useCallback(
     (character: Character) => {
@@ -22,30 +21,29 @@ export default function HomeScreen() {
     [router],
   );
 
-  const handleMyCharacterSelect = useCallback(
-    (character: Character) => {
-      setMyCharacter(character.slug);
-      setModalVisible(false);
-    },
-    [setMyCharacter],
-  );
-
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <MyCharacterBar
-        character={myCharacter}
-        isSet={isSet}
-        onPress={() => setModalVisible(true)}
+    <WebContainer>
+      <PageHead
+        title="SF6 Frame Data - Street Fighter 6 Frame Data & Punish Finder"
+        description="Complete Street Fighter 6 frame data for all 29 characters. Startup, recovery, block advantage, hit advantage, and punish finder. Updated for the latest SF6 patch."
+        path="/"
       />
+      <View style={styles.guideRow}>
+        <Text style={styles.guideText}>{t("character.gridGuide")}</Text>
+      </View>
       <CharacterGrid characters={characters} onSelect={handleCharacterPress} />
-      <CharacterSelectModal
-        visible={!isSet || modalVisible}
-        characters={characters}
-        selectedSlug={myCharacter?.slug}
-        dismissable={isSet}
-        onSelect={handleMyCharacterSelect}
-        onClose={() => setModalVisible(false)}
-      />
-    </View>
+    </WebContainer>
   );
 }
+
+const styles = StyleSheet.create({
+  guideRow: {
+    paddingHorizontal: 16,
+    paddingTop: 12,
+    paddingBottom: 4,
+  },
+  guideText: {
+    color: colors.textSecondary,
+    fontSize: 13,
+  },
+});

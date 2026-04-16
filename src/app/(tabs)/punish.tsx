@@ -17,6 +17,8 @@ import type { Character } from "@/types/character";
 import type { Move } from "@/types/frame-data";
 import { useTranslation } from "react-i18next";
 import { getMoveName } from "@/utils/moveName";
+import { WebContainer } from "@/components/ui/WebContainer";
+import { PageHead } from "@/components/seo/PageHead";
 
 type Step = "select-opponent" | "select-move" | "result";
 const STEP_INDEX: Record<Step, number> = {
@@ -35,6 +37,7 @@ export default function PunishScreen() {
   const [step, setStep] = useState<Step>("select-opponent");
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
   const [selectedMove, setSelectedMove] = useState<Move | null>(null);
+  const [myCharModalVisible, setMyCharModalVisible] = useState(false);
 
   const { punishableMoves, punishOptions, isOpponentLoading } = usePunishFinder(
     opponentSlug,
@@ -71,29 +74,44 @@ export default function PunishScreen() {
 
   if (!isSet) {
     return (
-      <View style={styles.emptyContainer}>
-        <Text style={styles.emptyTitle}>
-          {t("character.selectMyCharacter")}
-        </Text>
-        <Text style={styles.emptyDescription}>{t("punish.description")}</Text>
-        <CharacterSelectModal
-          visible
+      <WebContainer>
+        <View style={styles.emptyContainer}>
+          <Text style={styles.emptyTitle}>
+            {t("character.selectMyCharacter")}
+          </Text>
+          <Text style={styles.emptyDescription}>{t("punish.description")}</Text>
+        </View>
+        <CharacterGrid
           characters={characters}
-          dismissable={false}
           onSelect={(c) => setMyCharacter(c.slug)}
-          onClose={() => {}}
         />
-      </View>
+      </WebContainer>
     );
   }
 
   return (
-    <View style={styles.root}>
+    <WebContainer>
+      <PageHead
+        title="SF6 Punish Finder - Frame Data Punish Calculator"
+        description="Find guaranteed punishes after blocking in Street Fighter 6. Select the opponent's move and instantly see your best punish options with frame advantage."
+        path="/punish"
+      />
       <MyCharacterBar
         character={myCharacter}
         isSet={isSet}
-        onPress={handleReset}
+        onPress={() => setMyCharModalVisible(true)}
         trailingLabel={t("character.myCharacter")}
+      />
+      <CharacterSelectModal
+        visible={myCharModalVisible}
+        characters={characters}
+        selectedSlug={myCharacter?.slug}
+        onSelect={(c) => {
+          setMyCharacter(c.slug);
+          setMyCharModalVisible(false);
+          handleReset();
+        }}
+        onClose={() => setMyCharModalVisible(false)}
       />
 
       <Stepper
@@ -104,6 +122,8 @@ export default function PunishScreen() {
         ]}
         currentStep={STEP_INDEX[step]}
       />
+
+      <Text style={styles.disclaimer}>{t("punish.disclaimer")}</Text>
 
       {step === "select-opponent" && (
         <View style={styles.flex}>
@@ -173,7 +193,7 @@ export default function PunishScreen() {
           />
         </View>
       )}
-    </View>
+    </WebContainer>
   );
 }
 
@@ -186,11 +206,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   emptyContainer: {
-    flex: 1,
-    backgroundColor: colors.background,
-    justifyContent: "center",
     alignItems: "center",
-    padding: 32,
+    paddingHorizontal: 16,
+    paddingTop: 24,
+    paddingBottom: 8,
   },
   emptyTitle: {
     color: colors.text,
@@ -231,5 +250,11 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     color: colors.textMuted,
+  },
+  disclaimer: {
+    color: colors.textMuted,
+    fontSize: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 6,
   },
 });

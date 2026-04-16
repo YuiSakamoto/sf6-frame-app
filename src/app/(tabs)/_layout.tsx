@@ -25,7 +25,7 @@ export default function TabLayout() {
         options={{
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="people" size={size} color={color} />
+            <Ionicons name="list" size={size} color={color} />
           ),
         }}
       />
@@ -40,6 +40,15 @@ export default function TabLayout() {
       />
       <Tabs.Screen
         name="search"
+        options={{
+          title: t("tabs.search"),
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="search" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="settings"
         options={{
           title: t("common.settings"),
           tabBarIcon: ({ color, size }) => (
