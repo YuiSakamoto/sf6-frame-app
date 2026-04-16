@@ -9,6 +9,7 @@ import { useDataSync } from "@/hooks/useDataSync";
 import { useAdInit } from "@/hooks/useAdInit";
 import { useGtm } from "@/hooks/useGtm";
 import { SITE_URL } from "@/config/site";
+import { AppHeader } from "@/components/ui/AppHeader";
 import "@/i18n";
 
 const STRUCTURED_DATA = JSON.stringify({
@@ -53,17 +54,19 @@ export default function RootLayout() {
       )}
       <Stack
         screenOptions={{
-          headerStyle: { backgroundColor: colors.background },
-          headerTintColor: colors.text,
-          headerTitleStyle: { fontWeight: "700" },
           contentStyle: { backgroundColor: colors.background },
+          header: ({ navigation, options, back }) => (
+            <AppHeader
+              sectionTitle={
+                typeof options.title === "string" ? options.title : undefined
+              }
+              onBack={back ? () => navigation.goBack() : undefined}
+            />
+          ),
         }}
       >
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen
-          name="character/[slug]"
-          options={{ headerBackTitle: "" }}
-        />
+        <Stack.Screen name="character/[slug]" />
       </Stack>
     </>
   );

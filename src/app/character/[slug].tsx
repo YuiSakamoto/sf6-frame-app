@@ -57,11 +57,6 @@ export default function CharacterDetailScreen() {
         description={`Complete ${data.name} frame data for Street Fighter 6. All normals, specials, supers with startup, active, recovery, block advantage, and hit advantage frames.`}
         path={`/character/${slug}`}
       />
-      <View style={styles.versionRow}>
-        <Text style={styles.versionText}>
-          {t("settings.version", { version: data.version })}
-        </Text>
-      </View>
 
       <View style={styles.filterRow}>
         <ScrollView
@@ -127,14 +122,6 @@ const styles = StyleSheet.create({
   },
   loadingText: {
     color: colors.textMuted,
-  },
-  versionRow: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  versionText: {
-    color: colors.textMuted,
-    fontSize: 11,
   },
   filterRow: {
     paddingHorizontal: 16,

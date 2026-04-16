@@ -12,7 +12,8 @@ export function WebContainer({ children, style }: WebContainerProps) {
   const { containerMaxWidth, isWide } = useResponsive();
 
   if (!isWide) {
-    return <View style={[styles.root, style]}>{children}</View>;
+    // モバイル: 画面幅いっぱいに表示し、横方向のはみ出しを防ぐ
+    return <View style={[styles.rootMobile, style]}>{children}</View>;
   }
 
   return (
@@ -29,10 +30,18 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.background,
     alignItems: "center",
+    overflow: "hidden",
+  },
+  rootMobile: {
+    flex: 1,
+    backgroundColor: colors.background,
+    width: "100%",
+    overflow: "hidden",
   },
   inner: {
     flex: 1,
     width: "100%",
     backgroundColor: colors.background,
+    overflow: "hidden",
   },
 });
