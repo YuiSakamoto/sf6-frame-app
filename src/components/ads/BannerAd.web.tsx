@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { StyleSheet, View } from "react-native";
 import { colors } from "@/theme/colors";
+import { ADS_ENABLED } from "@/config/ads";
 
 /**
  * Web 用 AdSense バナー広告コンポーネント
@@ -11,10 +12,12 @@ import { colors } from "@/theme/colors";
  * 環境変数 EXPO_PUBLIC_ADSENSE_SLOT に広告スロットIDを設定
  * 環境変数 EXPO_PUBLIC_ADSENSE_CLIENT にクライアントIDを設定
  */
-export function AdBannerWeb() {
+export function AdBanner() {
   const adRef = useRef<HTMLDivElement>(null);
   const adSlot = process.env.EXPO_PUBLIC_ADSENSE_SLOT ?? "";
   const adClient = process.env.EXPO_PUBLIC_ADSENSE_CLIENT ?? "";
+
+  if (!ADS_ENABLED) return null;
 
   useEffect(() => {
     if (!adSlot || !adClient) return;

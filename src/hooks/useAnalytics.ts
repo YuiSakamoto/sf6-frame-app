@@ -37,21 +37,18 @@ export function useAnalytics() {
     [],
   );
 
-  const logScreenView = useCallback(
-    async (screenName: string) => {
-      const analytics = getAnalytics();
-      if (!analytics) return;
-      try {
-        await analytics.logScreenView({
-          screen_name: screenName,
-          screen_class: screenName,
-        });
-      } catch {
-        // Firebase が未初期化の場合は無視
-      }
-    },
-    [],
-  );
+  const logScreenView = useCallback(async (screenName: string) => {
+    const analytics = getAnalytics();
+    if (!analytics) return;
+    try {
+      await analytics.logScreenView({
+        screen_name: screenName,
+        screen_class: screenName,
+      });
+    } catch {
+      // Firebase が未初期化の場合は無視
+    }
+  }, []);
 
   return { logEvent, logScreenView };
 }

@@ -4,10 +4,13 @@ import { useLocalSearchParams, useNavigation } from "expo-router";
 import { colors } from "@/theme/colors";
 import { useFrameData } from "@/hooks/useFrameData";
 import { MoveList } from "@/components/frame-data/MoveList";
+import type { FrameSortMode } from "@/components/frame-data/MoveList";
 import { FilterChip } from "@/components/ui/FilterChip";
 import { AdBanner } from "@/components/ads/BannerAd";
 import { useTranslation } from "react-i18next";
 import type { MoveCategory } from "@/types/frame-data";
+import { WebContainer } from "@/components/ui/WebContainer";
+import { PageHead } from "@/components/seo/PageHead";
 
 const CATEGORIES: Array<MoveCategory | "all"> = [
   "all",
@@ -27,6 +30,7 @@ export default function CharacterDetailScreen() {
   const [categoryFilter, setCategoryFilter] = useState<MoveCategory | "all">(
     "all",
   );
+  const [sortMode, setSortMode] = useState<FrameSortMode>("default");
 
   useEffect(() => {
     if (data) {
@@ -47,7 +51,12 @@ export default function CharacterDetailScreen() {
   }
 
   return (
-    <View style={styles.root}>
+    <WebContainer>
+      <PageHead
+        title={`${data.name} Frame Data - SF6 ${data.name} Moves, Startup & Advantage`}
+        description={`Complete ${data.name} frame data for Street Fighter 6. All normals, specials, supers with startup, active, recovery, block advantage, and hit advantage frames.`}
+        path={`/character/${slug}`}
+      />
       <View style={styles.versionRow}>
         <Text style={styles.versionText}>
           {t("settings.version", { version: data.version })}
@@ -71,10 +80,37 @@ export default function CharacterDetailScreen() {
         </ScrollView>
       </View>
 
-      <MoveList moves={data.moves} categoryFilter={categoryFilter} />
+      <View style={styles.sortRow}>
+        <FilterChip
+          label={t("sort.default")}
+          selected={sortMode === "default"}
+          onPress={() => setSortMode("default")}
+        />
+        <FilterChip
+          label={t("sort.startup")}
+          selected={sortMode === "startup"}
+          onPress={() => setSortMode("startup")}
+        />
+        <FilterChip
+          label={t("sort.onBlock")}
+          selected={sortMode === "onBlock"}
+          onPress={() => setSortMode("onBlock")}
+        />
+        <FilterChip
+          label={t("sort.damage")}
+          selected={sortMode === "damage"}
+          onPress={() => setSortMode("damage")}
+        />
+      </View>
+
+      <MoveList
+        moves={data.moves}
+        categoryFilter={categoryFilter}
+        sortMode={sortMode}
+      />
 
       <AdBanner />
-    </View>
+    </WebContainer>
   );
 }
 
@@ -106,5 +142,10 @@ const styles = StyleSheet.create({
   },
   filterContent: {
     alignItems: "center",
+  },
+  sortRow: {
+    flexDirection: "row",
+    paddingHorizontal: 16,
+    paddingBottom: 8,
   },
 });
