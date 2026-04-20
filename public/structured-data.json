@@ -4,7 +4,7 @@
   "name": "SF6 Frame Data",
   "alternateName": "Street Fighter 6 Frame Data App",
   "description": "Complete Street Fighter 6 frame data for all 28 characters. Startup, recovery, block advantage, hit advantage, and punish finder.",
-  "url": "https://sf6-frame-app.pages.dev",
+  "url": "https://sf6-frame.app",
   "applicationCategory": "GameApplication",
   "operatingSystem": "iOS, Android, Web",
   "offers": {

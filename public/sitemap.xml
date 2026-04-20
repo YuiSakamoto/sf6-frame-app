@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sf6-frame-app.pages.dev/</loc>
+    <loc>https://sf6-frame.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://sf6-frame-app.pages.dev/punish</loc>
+    <loc>https://sf6-frame.app/punish</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://sf6-frame-app.pages.dev/search</loc>
+    <loc>https://sf6-frame.app/search</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <!-- Character pages -->
-  <url><loc>https://sf6-frame-app.pages.dev/character/ryu</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/luke</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/jamie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/chunli</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/guile</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/kimberly</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/juri</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/ken</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/blanka</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/dhalsim</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/ehonda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/deejay</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/manon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/marisa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/lily</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/zangief</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/cammy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/jp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/rashid</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/aki</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/ed</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/gouki_akuma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/vega_mbison</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/terry</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/mai</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/elena</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/cviper</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sf6-frame-app.pages.dev/character/sagat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/ryu</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/luke</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/jamie</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/chunli</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/guile</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/kimberly</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/juri</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/ken</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/blanka</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/dhalsim</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/ehonda</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/deejay</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/manon</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/marisa</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/lily</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/zangief</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/cammy</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/jp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/rashid</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/aki</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/ed</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/gouki_akuma</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/vega_mbison</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/terry</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/mai</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/elena</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/cviper</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sf6-frame.app/character/sagat</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <!-- Static pages -->
   <url>
-    <loc>https://sf6-frame-app.pages.dev/credits</loc>
+    <loc>https://sf6-frame.app/credits</loc>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://sf6-frame-app.pages.dev/privacy-policy.html</loc>
+    <loc>https://sf6-frame.app/privacy-policy.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
