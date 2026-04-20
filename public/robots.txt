@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sf6-frame-app.pages.dev/sitemap.xml
+Sitemap: https://sf6-frame.app/sitemap.xml
