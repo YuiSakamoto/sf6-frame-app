@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Ionicons } from "@expo/vector-icons";
+import { Icon } from "@/components/ui/Icon";
 import { colors } from "@/theme/colors";
 import { useTranslation } from "react-i18next";
 import { AppHeader } from "@/components/ui/AppHeader";
@@ -30,7 +30,7 @@ export default function TabLayout() {
         options={{
           title: t("tabs.home"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="list" size={size} color={color} />
+            <Icon name="list" size={size} color={color} />
           ),
         }}
       />
@@ -39,7 +39,7 @@ export default function TabLayout() {
         options={{
           title: t("tabs.punish"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="flash" size={size} color={color} />
+            <Icon name="flash" size={size} color={color} />
           ),
         }}
       />
@@ -48,7 +48,7 @@ export default function TabLayout() {
         options={{
           title: t("tabs.search"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="search" size={size} color={color} />
+            <Icon name="search" size={size} color={color} />
           ),
         }}
       />
@@ -57,7 +57,7 @@ export default function TabLayout() {
         options={{
           title: t("common.settings"),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="settings-outline" size={size} color={color} />
+            <Icon name="settings-outline" size={size} color={color} />
           ),
         }}
       />

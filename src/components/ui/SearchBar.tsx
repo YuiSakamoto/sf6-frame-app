@@ -1,5 +1,5 @@
 import { StyleSheet, TextInput, View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Icon } from "./Icon";
 import { colors } from "@/theme/colors";
 import { useTranslation } from "react-i18next";
 
@@ -18,7 +18,7 @@ export function SearchBar({
 
   return (
     <View style={styles.container}>
-      <Ionicons name="search" size={18} color={colors.textSecondary} />
+      <Icon name="search" size={18} color={colors.textSecondary} />
       <TextInput
         style={styles.input}
         value={value}

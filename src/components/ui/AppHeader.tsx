@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useTranslation } from "react-i18next";
-import { Ionicons } from "@expo/vector-icons";
+import { Icon } from "./Icon";
 import { colors } from "@/theme/colors";
 import { useDataStore } from "@/stores/useDataStore";
 
@@ -34,7 +34,7 @@ export function AppHeader({ sectionTitle, onBack }: AppHeaderProps) {
             accessibilityLabel={t("common.cancel")}
             hitSlop={8}
           >
-            <Ionicons name="chevron-back" size={22} color={colors.accent} />
+            <Icon name="chevron-back" size={22} color={colors.accent} />
           </Pressable>
         ) : null}
         <View style={styles.titleColumn}>
