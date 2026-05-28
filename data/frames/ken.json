@@ -2,7 +2,7 @@
   "slug": "ken",
   "name": "Ken",
   "nameJa": "ケン",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -1449,8 +1449,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-18F完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない初段ガードor空振り時、以下の性能変化・ダメージ2100・ヒット時のDゲージ減少量9000・非ロック演出※必殺技キャンセル時のみ適用",
-      "notesEn": "Completely invincible from frames 1 - 18Values do not change on counter or Punish CounterMinimum guaranteed damage is set to 50%Following properties occur if the first attack is blocked or misses- Damage is 2100- Reduces Drive Gauge by 9000 on hit- Does not go into full cinematic animation* Can only be canceled into from special moves",
+      "notes": "1-18F完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない初段ガードor空振り時、以下の性能変化・ダメージ2100・ヒット時のDゲージ減少量9000・非ロック演出※紫電カカト落とし/必殺技キャンセル時のみ適用",
+      "notesEn": "Completely invincible from frames 1 - 18Values do not change on counter or Punish CounterMinimum guaranteed damage is set to 50%Following properties occur if the first attack is blocked or misses- Damage is 2100- Reduces Drive Gauge by 9000 on hit- Does not go into full cinematic animation* Applies only when during Thunder Kick or when canceling from special moves.",
       "category": "super"
     },
     {
@@ -1472,8 +1472,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-18F完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない初段ガードor空振り時、以下の性能変化・ダメージ2300・ヒット時のDゲージ減少量16000・非ロック演出※必殺技キャンセル時のみ適用",
-      "notesEn": "Completely invincible from frames 1 - 18Values do not change on counter or Punish CounterMinimum guaranteed damage is set to 50%Following properties occur if the first attack is blocked or misses- Damage is 2300- Reduces Drive Gauge by 16000 on hit- Does not go into full cinematic animation* Can only be canceled into from special moves",
+      "notes": "1-18F完全無敵最低保障ダメージ50％カウンター/パニッシュカウンターで数値が変動しない初段ガードor空振り時、以下の性能変化・ダメージ2300・ヒット時のDゲージ減少量16000・非ロック演出※紫電カカト落とし/必殺技キャンセル時のみ適用",
+      "notesEn": "Completely invincible from frames 1 - 18Values do not change on counter or Punish CounterMinimum guaranteed damage is set to 50%Following properties occur if the first attack is blocked or misses- Damage is 2300- Reduces Drive Gauge by 16000 on hit- Does not go into full cinematic animation* Applies only when during Thunder Kick or when canceling from special moves.",
       "category": "super"
     },
     {

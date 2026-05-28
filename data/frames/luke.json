@@ -2,7 +2,7 @@
   "slug": "luke",
   "name": "Luke",
   "nameJa": "ルーク",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -529,8 +529,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "ダブルインパクト（1段目）がパニッシュカウンター時に派生し、地上ヒットした場合は地上やられ",
-      "notesEn": "When the 1st attack of Double Impact hits as a Punish Counter, the 2nd hit is considered a grounded attack if the opponent is standing on the ground.",
+      "notes": "ダブルインパクト（1段目）がパニッシュカウンター時に派生し、地上ヒットした場合は地上やられ(コンボ補正が20%⇒10%に変化)",
+      "notesEn": "When the 1st attack of Double Impact hits as a Punish Counter, the 2nd hit is considered a grounded attack if the opponent is standing on the ground. Combo scaling changes from 20% to 10% in this situation.",
       "category": "unique"
     },
     {

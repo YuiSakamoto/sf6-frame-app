@@ -2,7 +2,7 @@
   "slug": "cviper",
   "name": "C.Viper",
   "nameJa": "C.ヴァイパー",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -976,7 +976,7 @@
       "input": "",
       "startup": "24",
       "active": "24-31",
-      "recovery": "33",
+      "recovery": "26",
       "onHit": "D",
       "onBlock": "-10",
       "cancel": "SA3",
@@ -999,7 +999,7 @@
       "input": "",
       "startup": "24",
       "active": "24-31",
-      "recovery": "33",
+      "recovery": "26",
       "onHit": "D",
       "onBlock": "-10",
       "cancel": "SA3",

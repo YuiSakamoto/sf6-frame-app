@@ -38,4 +38,5 @@ export const ALL_CHARACTERS: CharacterInfo[] = [
   { slug: "cviper", name: "C.Viper", nameJa: "C.ヴァイパー" },
   { slug: "sagat", name: "Sagat", nameJa: "サガット" },
   { slug: "alex", name: "Alex", nameJa: "アレックス" },
+  { slug: "ingrid", name: "Ingrid", nameJa: "イングリッド" },
 ];

@@ -2,7 +2,7 @@
   "slug": "ed",
   "name": "Ed",
   "nameJa": "エド",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -606,8 +606,8 @@
       "name": "Low Smash Combination",
       "nameJa": "ロースマッシュコンビネーション",
       "input": "",
-      "startup": "12",
-      "active": "12-16",
+      "startup": "10",
+      "active": "10-14",
       "recovery": "19",
       "onHit": "D",
       "onBlock": "-8",
