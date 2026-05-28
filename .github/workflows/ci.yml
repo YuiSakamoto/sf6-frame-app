@@ -74,6 +74,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build:web
+        env:
+          EXPO_PUBLIC_GTM_ID: GTM-P9VNNCTQ
 
       - uses: actions/upload-artifact@v4
         with:
