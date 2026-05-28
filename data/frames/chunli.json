@@ -2,7 +2,7 @@
   "slug": "chunli",
   "name": "Chun-Li",
   "nameJa": "春麗",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -885,8 +885,8 @@
       "startup": "11",
       "active": "",
       "recovery": "全体 39",
-      "onHit": "0",
-      "onBlock": "5",
+      "onHit": "5",
+      "onBlock": "0",
       "cancel": "SA2",
       "damage": "800",
       "comboScaling": "始動補正20%",

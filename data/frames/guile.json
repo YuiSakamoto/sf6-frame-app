@@ -2,7 +2,7 @@
   "slug": "guile",
   "name": "Guile",
   "nameJa": "ガイル",
-  "version": "2026-03-17",
+  "version": "2026-05-28",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -1547,7 +1547,7 @@
     },
     {
       "name": "Judo Throw",
-      "nameJa": "ジュード―スルー",
+      "nameJa": "ジュードースルー",
       "input": "",
       "startup": "5",
       "active": "5-7",
