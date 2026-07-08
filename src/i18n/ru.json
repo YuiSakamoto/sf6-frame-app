@@ -58,7 +58,7 @@
     "onBlock": "По преимуществу при блоке"
   },
   "settings": {
-    "language": "Language",
+    "language": "Язык",
     "theme": "Theme",
     "themeSystem": "Follow system",
     "themeLight": "Light",

@@ -58,7 +58,7 @@
     "onBlock": "가드 유리순"
   },
   "settings": {
-    "language": "Language",
+    "language": "언어",
     "theme": "Theme",
     "themeSystem": "Follow system",
     "themeLight": "Light",
