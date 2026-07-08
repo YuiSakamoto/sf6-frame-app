@@ -4,7 +4,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -15,6 +15,7 @@ interface FilterChipProps {
 }
 
 export function FilterChip({ label, selected, onPress }: FilterChipProps) {
+  const styles = useThemedStyles(createStyles);
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
@@ -38,27 +39,28 @@ export function FilterChip({ label, selected, onPress }: FilterChipProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  chip: {
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-    borderRadius: 16,
-    backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    marginRight: 8,
-  },
-  chipSelected: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
-  },
-  label: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: "400",
-  },
-  labelSelected: {
-    color: colors.background,
-    fontWeight: "700",
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    chip: {
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: 16,
+      backgroundColor: theme.colors.surface,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+      marginRight: 8,
+    },
+    chipSelected: {
+      backgroundColor: theme.colors.accentSubtle,
+      borderColor: theme.colors.accent,
+    },
+    label: {
+      color: theme.colors.textPrimary,
+      fontSize: 12,
+      fontWeight: "400",
+    },
+    labelSelected: {
+      color: theme.colors.accent,
+      fontWeight: "700",
+    },
+  });

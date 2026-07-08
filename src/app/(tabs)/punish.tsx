@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useDataStore } from "@/stores/useDataStore";
 import { useFilterStore } from "@/stores/useFilterStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
@@ -33,6 +33,7 @@ export default function PunishScreen() {
   const { myCharacter, isSet, setMyCharacter } = useMyCharacter();
   const sortMode = useFilterStore((s) => s.sortMode);
   const setSortMode = useFilterStore((s) => s.setSortMode);
+  const styles = useThemedStyles(createStyles);
 
   const [step, setStep] = useState<Step>("select-opponent");
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
@@ -197,64 +198,65 @@ export default function PunishScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  flex: {
-    flex: 1,
-  },
-  emptyContainer: {
-    alignItems: "center",
-    paddingHorizontal: 16,
-    paddingTop: 24,
-    paddingBottom: 8,
-  },
-  emptyTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: "700",
-    textAlign: "center",
-  },
-  emptyDescription: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    marginTop: 8,
-    textAlign: "center",
-  },
-  sectionLabel: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    fontWeight: "600",
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 8,
-  },
-  backButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  backText: {
-    color: colors.accent,
-    fontSize: 12,
-  },
-  sortRow: {
-    flexDirection: "row",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  loadingContainer: {
-    padding: 32,
-    alignItems: "center",
-  },
-  loadingText: {
-    color: colors.textMuted,
-  },
-  disclaimer: {
-    color: colors.textMuted,
-    fontSize: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+    },
+    flex: {
+      flex: 1,
+    },
+    emptyContainer: {
+      alignItems: "center",
+      paddingHorizontal: 16,
+      paddingTop: 24,
+      paddingBottom: 8,
+    },
+    emptyTitle: {
+      color: theme.colors.textPrimary,
+      fontSize: 16,
+      fontWeight: "700",
+      textAlign: "center",
+    },
+    emptyDescription: {
+      color: theme.colors.textSecondary,
+      fontSize: 13,
+      marginTop: 8,
+      textAlign: "center",
+    },
+    sectionLabel: {
+      color: theme.colors.textSecondary,
+      fontSize: 12,
+      fontWeight: "600",
+      paddingHorizontal: 16,
+      paddingTop: 12,
+      paddingBottom: 8,
+    },
+    backButton: {
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+    },
+    backText: {
+      color: theme.colors.accent,
+      fontSize: 12,
+    },
+    sortRow: {
+      flexDirection: "row",
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+    },
+    loadingContainer: {
+      padding: 32,
+      alignItems: "center",
+    },
+    loadingText: {
+      color: theme.colors.textMuted,
+    },
+    disclaimer: {
+      color: theme.colors.textMuted,
+      fontSize: 10,
+      paddingHorizontal: 16,
+      paddingVertical: 6,
+    },
+  });

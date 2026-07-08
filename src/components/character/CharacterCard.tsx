@@ -4,7 +4,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, useTheme, type Theme } from "@/theme/ThemeContext";
 import { getCharacterColors } from "@/theme/characterColors";
 import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
@@ -30,6 +30,8 @@ export function CharacterCard({
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
   }));
+  const theme = useTheme();
+  const styles = useThemedStyles(createStyles);
 
   return (
     <AnimatedPressable
@@ -43,8 +45,10 @@ export function CharacterCard({
       style={[
         styles.container,
         {
-          backgroundColor: isSelected ? colors.accent : colors.surface,
-          borderColor: isSelected ? colors.accent : colors.border,
+          backgroundColor: isSelected
+            ? theme.colors.accentSubtle
+            : theme.colors.surface,
+          borderColor: isSelected ? theme.colors.accent : theme.colors.border,
         },
         animatedStyle,
       ]}
@@ -54,7 +58,7 @@ export function CharacterCard({
           style={[
             styles.avatarHalf,
             {
-              backgroundColor: isSelected ? colors.background : colorStart,
+              backgroundColor: isSelected ? theme.colors.surface : colorStart,
             },
           ]}
         />
@@ -62,7 +66,7 @@ export function CharacterCard({
           style={[
             styles.avatarHalf,
             {
-              backgroundColor: isSelected ? colors.background : colorEnd,
+              backgroundColor: isSelected ? theme.colors.surface : colorEnd,
             },
           ]}
         />
@@ -70,7 +74,7 @@ export function CharacterCard({
           <Text
             style={[
               styles.avatarText,
-              { color: isSelected ? colors.accent : "#FFFFFF" },
+              { color: isSelected ? theme.colors.accent : "#FFFFFF" },
             ]}
           >
             {character.name.charAt(0)}
@@ -80,7 +84,9 @@ export function CharacterCard({
       <Text
         style={[
           styles.name,
-          { color: isSelected ? colors.background : colors.text },
+          {
+            color: isSelected ? theme.colors.accent : theme.colors.textPrimary,
+          },
         ]}
         numberOfLines={1}
       >
@@ -90,43 +96,44 @@ export function CharacterCard({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: 10,
-    padding: 10,
-    alignItems: "center",
-    borderWidth: 1.5,
-    minWidth: 80,
-  },
-  avatarContainer: {
-    width: 52,
-    height: 52,
-    borderRadius: 14,
-    overflow: "hidden",
-    marginBottom: 6,
-  },
-  avatarHalf: {
-    flex: 1,
-  },
-  avatarOverlay: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarText: {
-    fontSize: 20,
-    fontWeight: "800",
-    textShadowColor: "rgba(0,0,0,0.4)",
-    textShadowOffset: { width: 0, height: 1 },
-    textShadowRadius: 2,
-  },
-  name: {
-    fontSize: 11,
-    fontWeight: "600",
-    textAlign: "center",
-  },
-});
+const createStyles = (_theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      borderRadius: 10,
+      padding: 10,
+      alignItems: "center",
+      borderWidth: 1.5,
+      minWidth: 80,
+    },
+    avatarContainer: {
+      width: 52,
+      height: 52,
+      borderRadius: 14,
+      overflow: "hidden",
+      marginBottom: 6,
+    },
+    avatarHalf: {
+      flex: 1,
+    },
+    avatarOverlay: {
+      position: "absolute",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    avatarText: {
+      fontSize: 20,
+      fontWeight: "800",
+      textShadowColor: "rgba(0,0,0,0.4)",
+      textShadowOffset: { width: 0, height: 1 },
+      textShadowRadius: 2,
+    },
+    name: {
+      fontSize: 11,
+      fontWeight: "600",
+      textAlign: "center",
+    },
+  });

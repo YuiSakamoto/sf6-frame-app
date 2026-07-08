@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useLocalSearchParams, useNavigation } from "expo-router";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useFrameData } from "@/hooks/useFrameData";
 import { MoveList } from "@/components/frame-data/MoveList";
 import type { FrameSortMode } from "@/components/frame-data/MoveList";
@@ -31,6 +31,7 @@ export default function CharacterDetailScreen() {
     "all",
   );
   const [sortMode, setSortMode] = useState<FrameSortMode>("default");
+  const styles = useThemedStyles(createStyles);
 
   useEffect(() => {
     if (data) {
@@ -109,30 +110,31 @@ export default function CharacterDetailScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  loadingContainer: {
-    flex: 1,
-    backgroundColor: colors.background,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  loadingText: {
-    color: colors.textMuted,
-  },
-  filterRow: {
-    paddingHorizontal: 16,
-    paddingBottom: 8,
-  },
-  filterContent: {
-    alignItems: "center",
-  },
-  sortRow: {
-    flexDirection: "row",
-    paddingHorizontal: 16,
-    paddingBottom: 8,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+    },
+    loadingContainer: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+      justifyContent: "center",
+      alignItems: "center",
+    },
+    loadingText: {
+      color: theme.colors.textMuted,
+    },
+    filterRow: {
+      paddingHorizontal: 16,
+      paddingBottom: 8,
+    },
+    filterContent: {
+      alignItems: "center",
+    },
+    sortRow: {
+      flexDirection: "row",
+      paddingHorizontal: 16,
+      paddingBottom: 8,
+    },
+  });

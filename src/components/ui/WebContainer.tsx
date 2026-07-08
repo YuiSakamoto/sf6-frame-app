@@ -1,6 +1,6 @@
 import { StyleSheet, View, type ViewStyle } from "react-native";
 import { useResponsive } from "@/hooks/useResponsive";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 
 interface WebContainerProps {
   children: React.ReactNode;
@@ -10,6 +10,7 @@ interface WebContainerProps {
 /** Web上で中央寄せ + maxWidth を適用するコンテナ */
 export function WebContainer({ children, style }: WebContainerProps) {
   const { containerMaxWidth, isWide } = useResponsive();
+  const styles = useThemedStyles(createStyles);
 
   if (!isWide) {
     // モバイル: 画面幅いっぱいに表示し、横方向のはみ出しを防ぐ
@@ -25,23 +26,24 @@ export function WebContainer({ children, style }: WebContainerProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-    alignItems: "center",
-    overflow: "hidden",
-  },
-  rootMobile: {
-    flex: 1,
-    backgroundColor: colors.background,
-    width: "100%",
-    overflow: "hidden",
-  },
-  inner: {
-    flex: 1,
-    width: "100%",
-    backgroundColor: colors.background,
-    overflow: "hidden",
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+      alignItems: "center",
+      overflow: "hidden",
+    },
+    rootMobile: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+      width: "100%",
+      overflow: "hidden",
+    },
+    inner: {
+      flex: 1,
+      width: "100%",
+      backgroundColor: theme.colors.bg,
+      overflow: "hidden",
+    },
+  });

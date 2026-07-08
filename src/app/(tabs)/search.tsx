@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { SearchBar } from "@/components/ui/SearchBar";
@@ -22,6 +22,7 @@ export default function SearchScreen() {
   const characters = useDataStore((s) => s.characters);
   const loadFrameData = useDataStore((s) => s.loadFrameData);
   const frameDataCache = useDataStore((s) => s.frameDataCache);
+  const styles = useThemedStyles(createStyles);
 
   const [query, setQuery] = useState("");
   const [allLoaded, setAllLoaded] = useState(false);
@@ -91,7 +92,7 @@ export default function SearchScreen() {
       }
       return <MoveRow move={item.move} />;
     },
-    [lang],
+    [lang, styles],
   );
 
   const keyExtractor = useCallback(
@@ -146,47 +147,48 @@ export default function SearchScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  resultCount: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    paddingHorizontal: 16,
-    paddingBottom: 4,
-  },
-  center: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  loadingText: {
-    color: colors.textMuted,
-    fontSize: 14,
-  },
-  hintText: {
-    color: colors.textMuted,
-    fontSize: 14,
-  },
-  sectionHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-    backgroundColor: colors.background,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  sectionName: {
-    color: colors.accent,
-    fontSize: 14,
-    fontWeight: "700",
-  },
-  sectionCount: {
-    color: colors.textMuted,
-    fontSize: 12,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+    },
+    resultCount: {
+      color: theme.colors.textSecondary,
+      fontSize: 12,
+      paddingHorizontal: 16,
+      paddingBottom: 4,
+    },
+    center: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    loadingText: {
+      color: theme.colors.textMuted,
+      fontSize: 14,
+    },
+    hintText: {
+      color: theme.colors.textMuted,
+      fontSize: 14,
+    },
+    sectionHeader: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingVertical: 8,
+      backgroundColor: theme.colors.bg,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+    },
+    sectionName: {
+      color: theme.colors.accent,
+      fontSize: 14,
+      fontWeight: "700",
+    },
+    sectionCount: {
+      color: theme.colors.textMuted,
+      fontSize: 12,
+    },
+  });

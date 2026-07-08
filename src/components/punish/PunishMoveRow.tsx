@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, useTheme, type Theme } from "@/theme/ThemeContext";
 import type { PunishOption } from "@/utils/punishCalc";
 import { FrameValue } from "@/components/frame-data/FrameValue";
 import { Badge } from "@/components/ui/Badge";
@@ -17,13 +17,17 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
   const displayName = getMoveName(punish.move, lang);
   const displayComboScaling = getComboScaling(punish.move, lang);
   const displayProperties = getProperties(punish.move, lang);
+  const theme = useTheme();
+  const styles = useThemedStyles(createStyles);
 
   return (
     <View
       style={[
         styles.container,
         {
-          backgroundColor: isFastest ? "#0A1A12" : colors.surface,
+          backgroundColor: isFastest
+            ? theme.colors.positiveSubtle
+            : theme.colors.surface,
           borderLeftWidth: isFastest ? 3 : 0,
         },
       ]}
@@ -36,8 +40,8 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
           {isFastest && (
             <Badge
               label={t("punish.fastestPunish")}
-              color={colors.background}
-              bgColor={colors.punishSuccess}
+              color={theme.colors.framePositive}
+              bgColor={theme.colors.positiveSubtle}
             />
           )}
         </View>
@@ -68,69 +72,70 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    borderLeftColor: colors.punishSuccess,
-  },
-  info: {
-    flex: 1,
-    marginRight: 8,
-  },
-  nameRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-  },
-  moveName: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: "600",
-  },
-  subRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-    marginTop: 2,
-  },
-  input: {
-    color: colors.textSecondary,
-    fontSize: 11,
-  },
-  framesToSpare: {
-    color: colors.punishSuccess,
-    fontSize: 10,
-  },
-  comboScaling: {
-    color: colors.textMuted,
-    fontSize: 10,
-    marginTop: 2,
-  },
-  values: {
-    flexDirection: "column",
-    alignItems: "flex-end",
-    gap: 2,
-  },
-  frameRow: {
-    flexDirection: "row",
-    gap: 4,
-    alignItems: "center",
-  },
-  damage: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    minWidth: 40,
-    textAlign: "center",
-    fontVariant: ["tabular-nums"],
-  },
-  properties: {
-    color: colors.accent,
-    fontSize: 9,
-    textAlign: "right",
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 10,
+      paddingHorizontal: 16,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      borderLeftColor: theme.colors.framePositive,
+    },
+    info: {
+      flex: 1,
+      marginRight: 8,
+    },
+    nameRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 6,
+    },
+    moveName: {
+      color: theme.colors.textPrimary,
+      fontSize: 13,
+      fontWeight: "600",
+    },
+    subRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 8,
+      marginTop: 2,
+    },
+    input: {
+      color: theme.colors.textSecondary,
+      fontSize: 11,
+    },
+    framesToSpare: {
+      color: theme.colors.framePositive,
+      fontSize: 10,
+    },
+    comboScaling: {
+      color: theme.colors.textMuted,
+      fontSize: 10,
+      marginTop: 2,
+    },
+    values: {
+      flexDirection: "column",
+      alignItems: "flex-end",
+      gap: 2,
+    },
+    frameRow: {
+      flexDirection: "row",
+      gap: 4,
+      alignItems: "center",
+    },
+    damage: {
+      color: theme.colors.textSecondary,
+      fontSize: 12,
+      minWidth: 40,
+      textAlign: "center",
+      fontVariant: ["tabular-nums"],
+    },
+    properties: {
+      color: theme.colors.accent,
+      fontSize: 9,
+      textAlign: "right",
+    },
+  });

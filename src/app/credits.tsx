@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import { Stack } from "expo-router";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { WebContainer } from "@/components/ui/WebContainer";
 
@@ -60,6 +60,7 @@ function LinkRow({
   sub?: string;
   url: string;
 }) {
+  const styles = useThemedStyles(createStyles);
   return (
     <Pressable style={styles.row} onPress={() => Linking.openURL(url)}>
       <View style={styles.rowContent}>
@@ -73,6 +74,7 @@ function LinkRow({
 
 export default function CreditsScreen() {
   const { t } = useTranslation();
+  const styles = useThemedStyles(createStyles);
 
   return (
     <WebContainer>
@@ -104,71 +106,72 @@ export default function CreditsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  sectionTitle: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: "600",
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
-    paddingHorizontal: 16,
-    paddingTop: 24,
-    paddingBottom: 8,
-  },
-  notice: {
-    marginHorizontal: 16,
-    marginBottom: 8,
-    padding: 12,
-    backgroundColor: colors.surface,
-    borderRadius: 8,
-    borderLeftWidth: 3,
-    borderLeftColor: colors.accent,
-  },
-  noticeText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 18,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  rowContent: {
-    flex: 1,
-  },
-  rowLabel: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: "500",
-  },
-  rowSub: {
-    color: colors.textMuted,
-    fontSize: 11,
-    marginTop: 2,
-  },
-  arrow: {
-    color: colors.textMuted,
-    fontSize: 18,
-    marginLeft: 8,
-  },
-  footer: {
-    padding: 16,
-    paddingBottom: 40,
-  },
-  footerText: {
-    color: colors.textMuted,
-    fontSize: 11,
-    lineHeight: 16,
-    textAlign: "center",
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+    },
+    sectionTitle: {
+      color: theme.colors.textMuted,
+      fontSize: 12,
+      fontWeight: "600",
+      textTransform: "uppercase",
+      letterSpacing: 0.5,
+      paddingHorizontal: 16,
+      paddingTop: 24,
+      paddingBottom: 8,
+    },
+    notice: {
+      marginHorizontal: 16,
+      marginBottom: 8,
+      padding: 12,
+      backgroundColor: theme.colors.surface,
+      borderRadius: 8,
+      borderLeftWidth: 3,
+      borderLeftColor: theme.colors.accent,
+    },
+    noticeText: {
+      color: theme.colors.textMuted,
+      fontSize: 12,
+      lineHeight: 18,
+    },
+    row: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.surface,
+    },
+    rowContent: {
+      flex: 1,
+    },
+    rowLabel: {
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+      fontWeight: "500",
+    },
+    rowSub: {
+      color: theme.colors.textMuted,
+      fontSize: 11,
+      marginTop: 2,
+    },
+    arrow: {
+      color: theme.colors.textMuted,
+      fontSize: 18,
+      marginLeft: 8,
+    },
+    footer: {
+      padding: 16,
+      paddingBottom: 40,
+    },
+    footerText: {
+      color: theme.colors.textMuted,
+      fontSize: 11,
+      lineHeight: 16,
+      textAlign: "center",
+    },
+  });

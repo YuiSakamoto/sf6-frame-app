@@ -1,5 +1,5 @@
 import { StyleSheet, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { ADS_ENABLED } from "@/config/ads";
 
 interface AdBannerProps {
@@ -8,6 +8,8 @@ interface AdBannerProps {
 }
 
 export function AdBanner({ adUnitId }: AdBannerProps) {
+  const styles = useThemedStyles(createStyles);
+
   if (!ADS_ENABLED) return null;
 
   try {
@@ -33,10 +35,11 @@ export function AdBanner({ adUnitId }: AdBannerProps) {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-    backgroundColor: colors.background,
-    paddingVertical: 4,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      alignItems: "center",
+      backgroundColor: theme.colors.bg,
+      paddingVertical: 4,
+    },
+  });

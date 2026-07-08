@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
@@ -48,6 +48,7 @@ export default function SettingsScreen() {
   const themeMode = useSettingsStore((s) => s.themeMode);
   const setThemeMode = useSettingsStore((s) => s.setThemeMode);
   const [modalVisible, setModalVisible] = useState(false);
+  const styles = useThemedStyles(createStyles);
 
   return (
     <WebContainer>
@@ -171,106 +172,107 @@ export default function SettingsScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  row: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  charRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  avatar: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: colors.accent,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarText: {
-    color: colors.background,
-    fontWeight: "700",
-    fontSize: 12,
-  },
-  charName: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  placeholder: {
-    color: colors.textMuted,
-    fontSize: 14,
-  },
-  changeLabel: {
-    color: colors.accent,
-    fontSize: 12,
-  },
-  langRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  langRowSelected: {
-    backgroundColor: colors.surfaceLight,
-  },
-  langLabel: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: "400",
-  },
-  langLabelSelected: {
-    color: colors.accent,
-    fontWeight: "700",
-  },
-  checkmark: {
-    color: colors.accent,
-    fontSize: 14,
-  },
-  linkRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.surface,
-  },
-  linkLabel: {
-    color: colors.text,
-    fontSize: 14,
-  },
-  arrow: {
-    color: colors.textMuted,
-    fontSize: 18,
-  },
-  supportDescRow: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    backgroundColor: colors.surface,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  supportDesc: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    lineHeight: 18,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    root: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+    },
+    row: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.surface,
+    },
+    charRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 8,
+    },
+    avatar: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      backgroundColor: theme.colors.accent,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    avatarText: {
+      color: theme.colors.surface,
+      fontWeight: "700",
+      fontSize: 12,
+    },
+    charName: {
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+      fontWeight: "600",
+    },
+    placeholder: {
+      color: theme.colors.textMuted,
+      fontSize: 14,
+    },
+    changeLabel: {
+      color: theme.colors.accent,
+      fontSize: 12,
+    },
+    langRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.surface,
+    },
+    langRowSelected: {
+      backgroundColor: theme.colors.surfaceRaised,
+    },
+    langLabel: {
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+      fontWeight: "400",
+    },
+    langLabelSelected: {
+      color: theme.colors.accent,
+      fontWeight: "700",
+    },
+    checkmark: {
+      color: theme.colors.accent,
+      fontSize: 14,
+    },
+    linkRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.surface,
+    },
+    linkLabel: {
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+    },
+    arrow: {
+      color: theme.colors.textMuted,
+      fontSize: 18,
+    },
+    supportDescRow: {
+      paddingHorizontal: 16,
+      paddingVertical: 10,
+      backgroundColor: theme.colors.surface,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+    },
+    supportDesc: {
+      color: theme.colors.textSecondary,
+      fontSize: 12,
+      lineHeight: 18,
+    },
+  });

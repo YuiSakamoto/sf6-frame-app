@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useTheme } from "@/theme/ThemeContext";
 
 interface BadgeProps {
   label: string;
@@ -7,14 +7,14 @@ interface BadgeProps {
   bgColor?: string;
 }
 
-export function Badge({
-  label,
-  color = colors.text,
-  bgColor = colors.surfaceLight,
-}: BadgeProps) {
+export function Badge({ label, color, bgColor }: BadgeProps) {
+  const theme = useTheme();
+  const resolvedColor = color ?? theme.colors.textPrimary;
+  const resolvedBgColor = bgColor ?? theme.colors.surfaceRaised;
+
   return (
-    <View style={[styles.container, { backgroundColor: bgColor }]}>
-      <Text style={[styles.label, { color }]}>{label}</Text>
+    <View style={[styles.container, { backgroundColor: resolvedBgColor }]}>
+      <Text style={[styles.label, { color: resolvedColor }]}>{label}</Text>
     </View>
   );
 }

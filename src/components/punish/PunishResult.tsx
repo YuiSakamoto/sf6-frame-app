@@ -1,6 +1,6 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import Animated, { FadeInDown } from "react-native-reanimated";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import type { PunishOption } from "@/utils/punishCalc";
 import { PunishMoveRow } from "./PunishMoveRow";
 import { useTranslation } from "react-i18next";
@@ -15,6 +15,7 @@ export function PunishResult({
   selectedMoveName,
 }: PunishResultProps) {
   const { t } = useTranslation();
+  const styles = useThemedStyles(createStyles);
 
   if (punishes.length === 0) {
     return (
@@ -56,53 +57,54 @@ export function PunishResult({
   );
 }
 
-const styles = StyleSheet.create({
-  emptyContainer: {
-    padding: 32,
-    alignItems: "center",
-  },
-  emptyText: {
-    color: colors.frameNegative,
-    fontSize: 14,
-    fontWeight: "600",
-  },
-  header: {
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    backgroundColor: colors.background,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  headerTitle: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: "600",
-  },
-  headerSubtitle: {
-    color: colors.textSecondary,
-    fontSize: 11,
-    marginTop: 2,
-  },
-  columnHeader: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.background,
-  },
-  columnLeading: {
-    flex: 1,
-  },
-  columnLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: "600",
-    minWidth: 36,
-    textAlign: "center",
-  },
-  columnWide: {
-    minWidth: 40,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    emptyContainer: {
+      padding: 32,
+      alignItems: "center",
+    },
+    emptyText: {
+      color: theme.colors.frameNegative,
+      fontSize: 14,
+      fontWeight: "600",
+    },
+    header: {
+      paddingHorizontal: 16,
+      paddingVertical: 10,
+      backgroundColor: theme.colors.bg,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+    },
+    headerTitle: {
+      color: theme.colors.accent,
+      fontSize: 13,
+      fontWeight: "600",
+    },
+    headerSubtitle: {
+      color: theme.colors.textSecondary,
+      fontSize: 11,
+      marginTop: 2,
+    },
+    columnHeader: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 6,
+      paddingHorizontal: 16,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.bg,
+    },
+    columnLeading: {
+      flex: 1,
+    },
+    columnLabel: {
+      color: theme.colors.textMuted,
+      fontSize: 10,
+      fontWeight: "600",
+      minWidth: 36,
+      textAlign: "center",
+    },
+    columnWide: {
+      minWidth: 40,
+    },
+  });
