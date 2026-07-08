@@ -4,7 +4,7 @@ import { Stack } from "expo-router";
 import Head from "expo-router/head";
 import { StatusBar } from "expo-status-bar";
 import * as SystemUI from "expo-system-ui";
-import { colors } from "@/theme/colors";
+import { ThemeProvider, useTheme } from "@/theme/ThemeContext";
 import { useDataSync } from "@/hooks/useDataSync";
 import { useAdInit } from "@/hooks/useAdInit";
 import { useGtm } from "@/hooks/useGtm";
@@ -26,21 +26,30 @@ const STRUCTURED_DATA = JSON.stringify({
 });
 
 export default function RootLayout() {
+  return (
+    <ThemeProvider>
+      <RootLayoutInner />
+    </ThemeProvider>
+  );
+}
+
+function RootLayoutInner() {
   useDataSync();
   useAdInit();
   useGtm();
+  const theme = useTheme();
 
   useEffect(() => {
-    SystemUI.setBackgroundColorAsync(colors.background);
-  }, []);
+    SystemUI.setBackgroundColorAsync(theme.colors.bg);
+  }, [theme.colors.bg]);
 
   return (
     <>
-      <StatusBar style="light" />
+      <StatusBar style={theme.mode === "dark" ? "light" : "dark"} />
       {Platform.OS === "web" && (
         <Head>
           <meta charSet="utf-8" />
-          <meta name="theme-color" content="#0A0A0F" />
+          <meta name="theme-color" content={theme.colors.bg} />
           <meta
             name="keywords"
             content="SF6, Street Fighter 6, frame data, punish finder, startup frames, block advantage, hit advantage, on block, on hit, fighting game, FGC, スト6, フレームデータ, 確定反撃"
@@ -54,7 +63,7 @@ export default function RootLayout() {
       )}
       <Stack
         screenOptions={{
-          contentStyle: { backgroundColor: colors.background },
+          contentStyle: { backgroundColor: theme.colors.bg },
           header: ({ navigation, options, back }) => (
             <AppHeader
               sectionTitle={
