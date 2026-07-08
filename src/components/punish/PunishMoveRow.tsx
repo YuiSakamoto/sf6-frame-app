@@ -40,8 +40,8 @@ export function PunishMoveRow({ punish, isFastest }: PunishMoveRowProps) {
           {isFastest && (
             <Badge
               label={t("punish.fastestPunish")}
-              color={theme.colors.framePositive}
-              bgColor={theme.colors.positiveSubtle}
+              color={theme.colors.surface}
+              bgColor={theme.colors.framePositive}
             />
           )}
         </View>
