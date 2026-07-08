@@ -58,7 +58,11 @@
     "onBlock": "Nach Blockvorteil"
   },
   "settings": {
-    "language": "Sprache",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Datenaktualisierung",
     "lastUpdated": "Zuletzt aktualisiert: {{date}}",
     "checkUpdate": "Nach Updates suchen",

@@ -58,7 +58,11 @@
     "onBlock": "依防禦優勢排序"
   },
   "settings": {
-    "language": "語言",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "資料更新",
     "lastUpdated": "最後更新: {{date}}",
     "checkUpdate": "檢查更新",

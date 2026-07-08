@@ -76,6 +76,10 @@
   },
   "settings": {
     "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Data Update",
     "lastUpdated": "Last updated: {{date}}",
     "checkUpdate": "Check for updates",

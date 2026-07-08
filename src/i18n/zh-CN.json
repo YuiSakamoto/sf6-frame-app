@@ -58,7 +58,11 @@
     "onBlock": "按防御优势排序"
   },
   "settings": {
-    "language": "语言",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "数据更新",
     "lastUpdated": "最后更新: {{date}}",
     "checkUpdate": "检查更新",

@@ -58,7 +58,11 @@
     "onBlock": "Por vantagem no bloqueio"
   },
   "settings": {
-    "language": "Idioma",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Atualização de dados",
     "lastUpdated": "Última atualização: {{date}}",
     "checkUpdate": "Verificar atualizações",

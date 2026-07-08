@@ -58,7 +58,11 @@
     "onBlock": "가드 유리순"
   },
   "settings": {
-    "language": "언어",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "데이터 업데이트",
     "lastUpdated": "마지막 업데이트: {{date}}",
     "checkUpdate": "업데이트 확인",

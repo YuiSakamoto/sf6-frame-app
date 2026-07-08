@@ -58,7 +58,11 @@
     "onBlock": "Par avantage garde"
   },
   "settings": {
-    "language": "Langue",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Mise à jour des données",
     "lastUpdated": "Dernière mise à jour : {{date}}",
     "checkUpdate": "Vérifier les mises à jour",

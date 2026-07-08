@@ -58,7 +58,11 @@
     "onBlock": "Per vantaggio parata"
   },
   "settings": {
-    "language": "Lingua",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Aggiornamento dati",
     "lastUpdated": "Ultimo aggiornamento: {{date}}",
     "checkUpdate": "Controlla aggiornamenti",

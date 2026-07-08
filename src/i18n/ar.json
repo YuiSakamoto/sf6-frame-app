@@ -58,7 +58,11 @@
     "onBlock": "حسب أفضلية الصد"
   },
   "settings": {
-    "language": "اللغة",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "تحديث البيانات",
     "lastUpdated": "آخر تحديث: {{date}}",
     "checkUpdate": "التحقق من التحديثات",

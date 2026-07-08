@@ -12,6 +12,7 @@ import { colors } from "@/theme/colors";
 import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
+import { useSettingsStore, type ThemeMode } from "@/stores/useSettingsStore";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WebContainer } from "@/components/ui/WebContainer";
@@ -33,11 +34,19 @@ const LANGUAGES = [
   { code: "ru", label: "Русский" },
 ] as const;
 
+const THEME_MODES: Array<{ mode: ThemeMode; labelKey: string }> = [
+  { mode: "system", labelKey: "settings.themeSystem" },
+  { mode: "light", labelKey: "settings.themeLight" },
+  { mode: "dark", labelKey: "settings.themeDark" },
+];
+
 export default function SettingsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const characters = useDataStore((s) => s.characters);
   const { myCharacter, setMyCharacter, isSet } = useMyCharacter();
+  const themeMode = useSettingsStore((s) => s.themeMode);
+  const setThemeMode = useSettingsStore((s) => s.setThemeMode);
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -64,6 +73,27 @@ export default function SettingsScreen() {
           )}
           <Text style={styles.changeLabel}>{t("common.change")}</Text>
         </Pressable>
+
+        {/* テーマ設定 */}
+        <SectionHeader label={t("settings.theme")} />
+        {THEME_MODES.map(({ mode, labelKey }) => {
+          const isSelected = themeMode === mode;
+          return (
+            <Pressable
+              key={mode}
+              onPress={() => setThemeMode(mode)}
+              accessibilityRole="radio"
+              accessibilityState={{ selected: isSelected }}
+              accessibilityLabel={t(labelKey)}
+              style={[styles.langRow, isSelected && styles.langRowSelected]}
+            >
+              <Text style={[styles.langLabel, isSelected && styles.langLabelSelected]}>
+                {t(labelKey)}
+              </Text>
+              {isSelected && <Text style={styles.checkmark}>✓</Text>}
+            </Pressable>
+          );
+        })}
 
         {/* 言語設定 */}
         <SectionHeader label={t("settings.language")} />

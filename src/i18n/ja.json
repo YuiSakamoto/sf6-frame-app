@@ -76,6 +76,10 @@
   },
   "settings": {
     "language": "言語",
+    "theme": "テーマ",
+    "themeSystem": "システムに合わせる",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
     "dataUpdate": "データ更新",
     "lastUpdated": "最終更新: {{date}}",
     "checkUpdate": "更新を確認",

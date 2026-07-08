@@ -58,7 +58,11 @@
     "onBlock": "По преимуществу при блоке"
   },
   "settings": {
-    "language": "Язык",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Обновление данных",
     "lastUpdated": "Последнее обновление: {{date}}",
     "checkUpdate": "Проверить обновления",

@@ -58,7 +58,11 @@
     "onBlock": "Wg przewagi na bloku"
   },
   "settings": {
-    "language": "Język",
+    "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Aktualizacja danych",
     "lastUpdated": "Ostatnia aktualizacja: {{date}}",
     "checkUpdate": "Sprawdź aktualizacje",
