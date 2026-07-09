@@ -1,58 +1,7 @@
 import { describe, it, expect } from "vitest";
-import {
-  getPunishableMoves,
-  getPunishSummaries,
-  sortPunishes,
-} from "../punishService";
+import { getPunishSummaries, sortPunishes } from "../punishService";
 import { createMove, createCharacterData } from "@/__tests__/helpers";
 import type { PunishOption } from "@/utils/punishCalc";
-
-describe("getPunishableMoves", () => {
-  it("負の onBlock を持つ技のみを返す", () => {
-    const data = createCharacterData({
-      moves: [
-        { name: "LP", onBlock: "+2" },
-        { name: "HP", onBlock: "-8" },
-        { name: "Hadoken", onBlock: "-6" },
-        { name: "MP", onBlock: "0" },
-      ],
-    });
-
-    const result = getPunishableMoves(data);
-
-    expect(result).toHaveLength(2);
-    expect(result.map((m) => m.name)).toEqual(
-      expect.arrayContaining(["HP", "Hadoken"]),
-    );
-  });
-
-  it("全技が有利フレームの場合は空配列を返す", () => {
-    const data = createCharacterData({
-      moves: [
-        { name: "LP", onBlock: "+2" },
-        { name: "MP", onBlock: "+1" },
-      ],
-    });
-
-    const result = getPunishableMoves(data);
-
-    expect(result).toHaveLength(0);
-  });
-
-  it("パース不能な onBlock は除外される", () => {
-    const data = createCharacterData({
-      moves: [
-        { name: "LP", onBlock: "-" },
-        { name: "HP", onBlock: "-8" },
-      ],
-    });
-
-    const result = getPunishableMoves(data);
-
-    expect(result).toHaveLength(1);
-    expect(result[0].name).toBe("HP");
-  });
-});
 
 describe("sortPunishes", () => {
   const punishes: PunishOption[] = [

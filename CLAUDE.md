@@ -5,7 +5,7 @@ Street Fighter 6 のフレームデータ閲覧・確定反撃検索アプリ。
 ## 技術スタック
 
 - **フレームワーク**: React Native (Expo SDK 55) + expo-router
-- **スタイリング**: NativeWind (TailwindCSS)
+- **スタイリング**: 自前デザイントークン(`src/theme/tokens.ts`)+ ThemeProvider / useTheme(NativeWind は削除済み)
 - **状態管理**: Zustand + react-native-mmkv
 - **多言語対応**: i18next + react-i18next
 - **言語**: TypeScript (strict mode)

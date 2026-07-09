@@ -66,8 +66,7 @@
   "searchFilter": {
     "allCharacters": "All characters",
     "startupMax": "Startup ≤ {{n}}F",
-    "onBlockMax": "On block ≤ {{n}}",
-    "showResults": "Filters"
+    "onBlockMax": "On block ≤ {{n}}"
   },
   "sort": {
     "startup": "Per avvio",

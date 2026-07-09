@@ -76,8 +76,7 @@
   "searchFilter": {
     "allCharacters": "全キャラ",
     "startupMax": "発生{{n}}F以下",
-    "onBlockMax": "ガード{{n}}以下",
-    "showResults": "フィルタ"
+    "onBlockMax": "ガード{{n}}以下"
   },
   "sort": {
     "default": "デフォルト",
