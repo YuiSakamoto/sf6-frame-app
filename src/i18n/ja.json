@@ -52,7 +52,11 @@
     "framesToSpare": "{{frames}}F余裕",
     "result": "確定反撃: {{count}}個",
     "resultStep": "結果",
-    "disclaimer": "※フレーム数のみで判定しています。間合いやノックバックにより届かない場合があります。実戦では距離も考慮してください。"
+    "disclaimer": "※フレーム数のみで判定しています。間合いやノックバックにより届かない場合があります。実戦では距離も考慮してください。",
+    "punishableCount": "確反 {{count}}件",
+    "swap": "自分と相手を入れ替え",
+    "selectOpponent": "相手キャラを選択",
+    "searchMoves": "技名で絞り込み"
   },
   "filter": {
     "all": "すべて",

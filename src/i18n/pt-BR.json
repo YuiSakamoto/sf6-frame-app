@@ -48,7 +48,11 @@
     "fastestPunish": "Punição mais rápida",
     "framesToSpare": "{{frames}}F de margem",
     "result": "Punições: {{count}}",
-    "resultStep": "Resultado"
+    "resultStep": "Resultado",
+    "punishableCount": "{{count}} punições",
+    "swap": "Trocar meu personagem com o oponente",
+    "selectOpponent": "Selecionar oponente",
+    "searchMoves": "Filtrar golpes"
   },
   "filter": {
     "all": "Todos",

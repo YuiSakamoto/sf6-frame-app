@@ -48,7 +48,11 @@
     "fastestPunish": "Самое быстрое наказание",
     "framesToSpare": "{{frames}}F запаса",
     "result": "Наказания: {{count}}",
-    "resultStep": "Результат"
+    "resultStep": "Результат",
+    "punishableCount": "{{count}} наказаний",
+    "swap": "Поменять местами моего персонажа и противника",
+    "selectOpponent": "Выбрать противника",
+    "searchMoves": "Фильтр по названию приёма"
   },
   "filter": {
     "all": "Все",

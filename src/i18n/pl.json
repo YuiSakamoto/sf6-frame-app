@@ -48,7 +48,11 @@
     "fastestPunish": "Najszybsze karanie",
     "framesToSpare": "{{frames}}F zapasu",
     "result": "Karania: {{count}}",
-    "resultStep": "Wynik"
+    "resultStep": "Wynik",
+    "punishableCount": "{{count}} kar",
+    "swap": "Zamień mojego bohatera z przeciwnikiem",
+    "selectOpponent": "Wybierz przeciwnika",
+    "searchMoves": "Filtruj ruchy"
   },
   "filter": {
     "all": "Wszystkie",

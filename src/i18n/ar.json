@@ -48,7 +48,11 @@
     "fastestPunish": "أسرع عقوبة",
     "framesToSpare": "{{frames}} إطار احتياطي",
     "result": "العقوبات: {{count}}",
-    "resultStep": "النتائج"
+    "resultStep": "النتائج",
+    "punishableCount": "{{count}} رد مؤكد",
+    "swap": "تبديل شخصيتي مع الخصم",
+    "selectOpponent": "اختر الخصم",
+    "searchMoves": "تصفية الحركات"
   },
   "filter": {
     "all": "الكل",

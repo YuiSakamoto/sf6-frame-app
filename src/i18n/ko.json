@@ -48,7 +48,11 @@
     "fastestPunish": "최속 확반",
     "framesToSpare": "{{frames}}F 여유",
     "result": "확정반격: {{count}}개",
-    "resultStep": "결과"
+    "resultStep": "결과",
+    "punishableCount": "확정반격 {{count}}개",
+    "swap": "내 캐릭터와 상대 교체",
+    "selectOpponent": "상대 캐릭터 선택",
+    "searchMoves": "기술명으로 검색"
   },
   "filter": {
     "all": "전체",

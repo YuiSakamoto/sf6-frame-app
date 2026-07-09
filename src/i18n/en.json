@@ -52,7 +52,11 @@
     "framesToSpare": "{{frames}}F to spare",
     "result": "Punish options: {{count}}",
     "resultStep": "Result",
-    "disclaimer": "* Based on frame data only. Punishes may not connect due to distance and knockback. Always consider spacing in actual matches."
+    "disclaimer": "* Based on frame data only. Punishes may not connect due to distance and knockback. Always consider spacing in actual matches.",
+    "punishableCount": "{{count}} punishes",
+    "swap": "Swap my character and opponent",
+    "selectOpponent": "Select opponent",
+    "searchMoves": "Filter moves"
   },
   "filter": {
     "all": "All",

@@ -48,7 +48,11 @@
     "fastestPunish": "最快確反",
     "framesToSpare": "{{frames}}F餘裕",
     "result": "確定反擊: {{count}}個",
-    "resultStep": "結果"
+    "resultStep": "結果",
+    "punishableCount": "確反 {{count}} 個",
+    "swap": "交換我方與對手角色",
+    "selectOpponent": "選擇對手角色",
+    "searchMoves": "依招式名稱篩選"
   },
   "filter": {
     "all": "全部",

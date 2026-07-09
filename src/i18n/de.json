@@ -48,7 +48,11 @@
     "fastestPunish": "Schnellste Bestrafung",
     "framesToSpare": "{{frames}}F Spielraum",
     "result": "Bestrafungen: {{count}}",
-    "resultStep": "Ergebnis"
+    "resultStep": "Ergebnis",
+    "punishableCount": "{{count}} Konter",
+    "swap": "Meinen Charakter und Gegner tauschen",
+    "selectOpponent": "Gegner auswählen",
+    "searchMoves": "Moves filtern"
   },
   "filter": {
     "all": "Alle",
