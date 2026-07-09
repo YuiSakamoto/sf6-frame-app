@@ -75,7 +75,15 @@ export default function SearchScreen() {
       }
     }
     return matched;
-  }, [allLoaded, hasQuery, hasFilter, query, filters, characters, frameDataCache]);
+  }, [
+    allLoaded,
+    hasQuery,
+    hasFilter,
+    query,
+    filters,
+    characters,
+    frameDataCache,
+  ]);
 
   const totalCount = useMemo(
     () => results.reduce((sum, r) => sum + r.moves.length, 0),

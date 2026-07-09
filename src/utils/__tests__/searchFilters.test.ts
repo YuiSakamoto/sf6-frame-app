@@ -4,9 +4,24 @@ import { applyFilters, DEFAULT_FILTERS } from "../searchFilters";
 
 describe("applyFilters", () => {
   const moves = [
-    createMove({ nameJa: "速い技", startup: "4", onBlock: "-2", category: "normal" }),
-    createMove({ nameJa: "遅い技", startup: "12", onBlock: "-8", category: "special" }),
-    createMove({ nameJa: "投げ", startup: "5", onBlock: "-", category: "throw" }),
+    createMove({
+      nameJa: "速い技",
+      startup: "4",
+      onBlock: "-2",
+      category: "normal",
+    }),
+    createMove({
+      nameJa: "遅い技",
+      startup: "12",
+      onBlock: "-8",
+      category: "special",
+    }),
+    createMove({
+      nameJa: "投げ",
+      startup: "5",
+      onBlock: "-",
+      category: "throw",
+    }),
   ];
 
   it("デフォルトは全件返す", () => {
