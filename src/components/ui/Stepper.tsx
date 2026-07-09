@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 
 interface StepperProps {
   steps: string[];
@@ -7,6 +7,7 @@ interface StepperProps {
 }
 
 export function Stepper({ steps, currentStep }: StepperProps) {
+  const styles = useThemedStyles(createStyles);
   return (
     <View style={styles.container}>
       {steps.map((label, index) => {
@@ -55,58 +56,59 @@ export function Stepper({ steps, currentStep }: StepperProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    gap: 4,
-  },
-  step: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  circle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    backgroundColor: colors.surfaceLight,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  circleActive: {
-    backgroundColor: colors.accent,
-  },
-  circleText: {
-    fontSize: 10,
-    fontWeight: "700",
-    color: colors.textMuted,
-  },
-  circleTextActive: {
-    color: colors.background,
-  },
-  label: {
-    fontSize: 10,
-    fontWeight: "400",
-    color: colors.textMuted,
-    marginLeft: 4,
-  },
-  labelActive: {
-    fontWeight: "700",
-    color: colors.accent,
-  },
-  labelDone: {
-    color: colors.text,
-  },
-  connector: {
-    width: 20,
-    height: 1,
-    backgroundColor: colors.border,
-    marginLeft: 4,
-  },
-  connectorDone: {
-    backgroundColor: colors.accent,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: 10,
+      paddingHorizontal: 16,
+      gap: 4,
+    },
+    step: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+    circle: {
+      width: 20,
+      height: 20,
+      borderRadius: 10,
+      backgroundColor: theme.colors.surfaceRaised,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    circleActive: {
+      backgroundColor: theme.colors.accent,
+    },
+    circleText: {
+      fontSize: 10,
+      fontWeight: "700",
+      color: theme.colors.textMuted,
+    },
+    circleTextActive: {
+      color: theme.colors.bg,
+    },
+    label: {
+      fontSize: 10,
+      fontWeight: "400",
+      color: theme.colors.textMuted,
+      marginLeft: 4,
+    },
+    labelActive: {
+      fontWeight: "700",
+      color: theme.colors.accent,
+    },
+    labelDone: {
+      color: theme.colors.textPrimary,
+    },
+    connector: {
+      width: 20,
+      height: 1,
+      backgroundColor: theme.colors.border,
+      marginLeft: 4,
+    },
+    connectorDone: {
+      backgroundColor: theme.colors.accent,
+    },
+  });

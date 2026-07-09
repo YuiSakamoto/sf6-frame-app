@@ -23,11 +23,6 @@ const OSS_LICENSES = [
     url: "https://github.com/facebook/react-native",
   },
   { name: "Expo", license: "MIT", url: "https://github.com/expo/expo" },
-  {
-    name: "NativeWind",
-    license: "MIT",
-    url: "https://github.com/marklawlor/nativewind",
-  },
   { name: "Zustand", license: "MIT", url: "https://github.com/pmndrs/zustand" },
   {
     name: "i18next",
