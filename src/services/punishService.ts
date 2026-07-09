@@ -1,7 +1,7 @@
 import type { Move, CharacterFrameData } from "@/types/frame-data";
 import type { PunishOption } from "@/utils/punishCalc";
 import { findPunishes } from "@/utils/punishCalc";
-import { isPunishable } from "@/utils/frameAdvantage";
+import { isPunishable, parseFrameValue } from "@/utils/frameAdvantage";
 
 /**
  * 確反可能な技のみをフィルタリングして返す
@@ -18,6 +18,28 @@ export function getPunishOptions(
   myCharacterData: CharacterFrameData,
 ): PunishOption[] {
   return findPunishes(opponentMove.onBlock, myCharacterData.moves);
+}
+
+export interface MovePunishSummary {
+  move: Move;
+  punishable: boolean;
+  punishes: PunishOption[];
+}
+
+/**
+ * 相手の全技に対する確反サマリを事前計算する。
+ * onBlock がパース不能な技(投げ・データなし)はリストから除外する。
+ */
+export function getPunishSummaries(
+  opponentData: CharacterFrameData,
+  myData: CharacterFrameData,
+): MovePunishSummary[] {
+  return opponentData.moves
+    .filter((move) => parseFrameValue(move.onBlock) !== null)
+    .map((move) => {
+      const punishes = findPunishes(move.onBlock, myData.moves);
+      return { move, punishable: punishes.length > 0, punishes };
+    });
 }
 
 export type SortMode = "startup" | "damage";

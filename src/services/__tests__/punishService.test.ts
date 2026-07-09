@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { getPunishableMoves, sortPunishes } from "../punishService";
+import { getPunishableMoves, getPunishSummaries, sortPunishes } from "../punishService";
 import { createMove, createCharacterData } from "@/__tests__/helpers";
 import type { PunishOption } from "@/utils/punishCalc";
 
@@ -93,5 +93,37 @@ describe("sortPunishes", () => {
     sortPunishes(punishes, "damage");
 
     expect(punishes).toEqual(original);
+  });
+});
+
+describe("getPunishSummaries", () => {
+  const opponent = createCharacterData({
+    moves: [
+      { nameJa: "確反あり技", onBlock: "-8" },
+      { nameJa: "確反なし技", onBlock: "-2" },
+      { nameJa: "有利技", onBlock: "+2" },
+      { nameJa: "投げ", onBlock: "-", category: "throw" },
+    ],
+  });
+  const me = createCharacterData({
+    moves: [{ nameJa: "立ち中P", startup: "6", damage: "600" }],
+  });
+
+  it("onBlock がパース可能な全技のサマリを返す(投げ等パース不能は除外)", () => {
+    const summaries = getPunishSummaries(opponent, me);
+    expect(summaries.map((s) => s.move.nameJa)).toEqual([
+      "確反あり技",
+      "確反なし技",
+      "有利技",
+    ]);
+  });
+
+  it("発生 <= |onBlock| の技があれば punishable", () => {
+    const summaries = getPunishSummaries(opponent, me);
+    expect(summaries[0].punishable).toBe(true);
+    expect(summaries[0].punishes[0].move.nameJa).toBe("立ち中P");
+    expect(summaries[0].punishes[0].framesToSpare).toBe(2);
+    expect(summaries[1].punishable).toBe(false);
+    expect(summaries[2].punishable).toBe(false);
   });
 });
