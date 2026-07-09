@@ -88,7 +88,12 @@ export default function SettingsScreen() {
               accessibilityLabel={t(labelKey)}
               style={[styles.langRow, isSelected && styles.langRowSelected]}
             >
-              <Text style={[styles.langLabel, isSelected && styles.langLabelSelected]}>
+              <Text
+                style={[
+                  styles.langLabel,
+                  isSelected && styles.langLabelSelected,
+                ]}
+              >
                 {t(labelKey)}
               </Text>
               {isSelected && <Text style={styles.checkmark}>✓</Text>}

@@ -1,5 +1,9 @@
 import { describe, it, expect } from "vitest";
-import { getPunishableMoves, getPunishSummaries, sortPunishes } from "../punishService";
+import {
+  getPunishableMoves,
+  getPunishSummaries,
+  sortPunishes,
+} from "../punishService";
 import { createMove, createCharacterData } from "@/__tests__/helpers";
 import type { PunishOption } from "@/utils/punishCalc";
 

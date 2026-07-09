@@ -1,9 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useMemo,
-  type ReactNode,
-} from "react";
+import { createContext, useContext, useMemo, type ReactNode } from "react";
 import { useColorScheme } from "react-native";
 import { useSettingsStore } from "@/stores/useSettingsStore";
 import {
@@ -39,9 +34,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const systemScheme = useColorScheme();
   const themeMode = useSettingsStore((s) => s.themeMode);
   const mode =
-    themeMode === "system" ? (systemScheme === "light" ? "light" : "dark") : themeMode;
+    themeMode === "system"
+      ? systemScheme === "light"
+        ? "light"
+        : "dark"
+      : themeMode;
   const theme = useMemo(() => buildTheme(mode), [mode]);
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+  );
 }
 
 export function useTheme(): Theme {

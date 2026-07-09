@@ -1,9 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  parseFrameValue,
-  getFrameTone,
-  isPunishable,
-} from "../frameAdvantage";
+import { parseFrameValue, getFrameTone, isPunishable } from "../frameAdvantage";
 
 describe("parseFrameValue", () => {
   it("正の数をパースする", () => {

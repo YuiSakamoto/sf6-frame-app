@@ -36,7 +36,11 @@ export function AppHeader({ sectionTitle, onBack }: AppHeaderProps) {
             accessibilityLabel={t("common.cancel")}
             hitSlop={8}
           >
-            <Ionicons name="chevron-back" size={22} color={theme.colors.accent} />
+            <Ionicons
+              name="chevron-back"
+              size={22}
+              color={theme.colors.accent}
+            />
           </Pressable>
         ) : null}
         <View style={styles.titleColumn}>

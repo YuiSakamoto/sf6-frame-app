@@ -14,7 +14,11 @@ function toneColor(tone: FrameTone, theme: Theme): string {
   return theme.colors.frameNeutral;
 }
 
-export function FrameValue({ value, fontSize = 13, minWidth = 36 }: FrameValueProps) {
+export function FrameValue({
+  value,
+  fontSize = 13,
+  minWidth = 36,
+}: FrameValueProps) {
   const theme = useTheme();
   return (
     <Text
