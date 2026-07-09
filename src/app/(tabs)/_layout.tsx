@@ -3,6 +3,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { useTheme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { AppHeader } from "@/components/ui/AppHeader";
+import { selectionTap } from "@/utils/haptics";
+
+// タブ切替時のハプティクス(4画面共通)。Tabs.Screen ごとに個別付与する。
+const tabListeners = { tabPress: () => selectionTap() };
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -27,6 +31,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        listeners={tabListeners}
         name="index"
         options={{
           title: t("tabs.home"),
@@ -36,6 +41,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        listeners={tabListeners}
         name="punish"
         options={{
           title: t("tabs.punish"),
@@ -45,6 +51,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        listeners={tabListeners}
         name="search"
         options={{
           title: t("tabs.search"),
@@ -54,6 +61,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        listeners={tabListeners}
         name="settings"
         options={{
           title: t("common.settings"),

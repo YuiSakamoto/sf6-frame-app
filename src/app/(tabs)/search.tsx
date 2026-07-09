@@ -149,64 +149,66 @@ export default function SearchScreen() {
         placeholder={t("search.placeholder")}
       />
 
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.filterRow}
-      >
-        <FilterChip
-          label={
-            filters.characterSlug
-              ? ((lang === "ja"
-                  ? characters.find((c) => c.slug === filters.characterSlug)
-                      ?.nameJa
-                  : characters.find((c) => c.slug === filters.characterSlug)
-                      ?.name) ?? t("searchFilter.allCharacters"))
-              : t("searchFilter.allCharacters")
-          }
-          selected={filters.characterSlug !== null}
-          onPress={() => setCharModalVisible(true)}
-        />
-        {STARTUP_PRESETS.map((n) => (
+      <View style={styles.filterRowWrap}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.filterRow}
+        >
           <FilterChip
-            key={`su-${n}`}
-            label={t("searchFilter.startupMax", { n })}
-            selected={filters.maxStartup === n}
-            onPress={() =>
-              setFilters((f) => ({
-                ...f,
-                maxStartup: f.maxStartup === n ? null : n,
-              }))
+            label={
+              filters.characterSlug
+                ? ((lang === "ja"
+                    ? characters.find((c) => c.slug === filters.characterSlug)
+                        ?.nameJa
+                    : characters.find((c) => c.slug === filters.characterSlug)
+                        ?.name) ?? t("searchFilter.allCharacters"))
+                : t("searchFilter.allCharacters")
             }
+            selected={filters.characterSlug !== null}
+            onPress={() => setCharModalVisible(true)}
           />
-        ))}
-        {ONBLOCK_PRESETS.map((n) => (
-          <FilterChip
-            key={`ob-${n}`}
-            label={t("searchFilter.onBlockMax", { n })}
-            selected={filters.maxOnBlock === n}
-            onPress={() =>
-              setFilters((f) => ({
-                ...f,
-                maxOnBlock: f.maxOnBlock === n ? null : n,
-              }))
-            }
-          />
-        ))}
-        {CATEGORY_PRESETS.map((cat) => (
-          <FilterChip
-            key={`cat-${cat}`}
-            label={t(`filter.${cat}`)}
-            selected={filters.category === cat}
-            onPress={() =>
-              setFilters((f) => ({
-                ...f,
-                category: f.category === cat ? "all" : cat,
-              }))
-            }
-          />
-        ))}
-      </ScrollView>
+          {STARTUP_PRESETS.map((n) => (
+            <FilterChip
+              key={`su-${n}`}
+              label={t("searchFilter.startupMax", { n })}
+              selected={filters.maxStartup === n}
+              onPress={() =>
+                setFilters((f) => ({
+                  ...f,
+                  maxStartup: f.maxStartup === n ? null : n,
+                }))
+              }
+            />
+          ))}
+          {ONBLOCK_PRESETS.map((n) => (
+            <FilterChip
+              key={`ob-${n}`}
+              label={t("searchFilter.onBlockMax", { n })}
+              selected={filters.maxOnBlock === n}
+              onPress={() =>
+                setFilters((f) => ({
+                  ...f,
+                  maxOnBlock: f.maxOnBlock === n ? null : n,
+                }))
+              }
+            />
+          ))}
+          {CATEGORY_PRESETS.map((cat) => (
+            <FilterChip
+              key={`cat-${cat}`}
+              label={t(`filter.${cat}`)}
+              selected={filters.category === cat}
+              onPress={() =>
+                setFilters((f) => ({
+                  ...f,
+                  category: f.category === cat ? "all" : cat,
+                }))
+              }
+            />
+          ))}
+        </ScrollView>
+      </View>
 
       <CharacterSelectModal
         visible={charModalVisible}
@@ -261,9 +263,11 @@ const createStyles = (theme: Theme) =>
       flex: 1,
       backgroundColor: theme.colors.bg,
     },
-    filterRow: {
+    filterRowWrap: {
       paddingHorizontal: theme.spacing.lg,
       paddingBottom: theme.spacing.sm,
+    },
+    filterRow: {
       alignItems: "center",
     },
     resultCount: {

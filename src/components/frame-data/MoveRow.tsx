@@ -16,6 +16,7 @@ import {
   getProperties,
   getNotes,
 } from "@/utils/moveName";
+import { lightImpact } from "@/utils/haptics";
 
 interface MoveRowProps {
   move: Move;
@@ -50,9 +51,15 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
   return (
     <Pressable
       onPress={() => {
-        if (expandable) setExpanded((prev) => !prev);
+        if (expandable) {
+          lightImpact();
+          setExpanded((prev) => !prev);
+        }
         onPress?.(move);
       }}
+      accessibilityRole="button"
+      accessibilityState={{ expanded }}
+      accessibilityLabel={displayName}
       style={[
         styles.container,
         {

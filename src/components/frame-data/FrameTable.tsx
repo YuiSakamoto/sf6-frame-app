@@ -198,6 +198,7 @@ const createStyles = (theme: Theme) =>
       color: theme.colors.accent,
     },
     nameCell: {
+      width: NAME_COLUMN_WIDTH,
       height: ROW_HEIGHT,
       justifyContent: "center",
       paddingHorizontal: theme.spacing.md,
