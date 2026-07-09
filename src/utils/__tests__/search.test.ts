@@ -54,3 +54,32 @@ describe("searchMoves", () => {
     expect(result[0].name).toBe("Standing LP");
   });
 });
+
+describe("searchMoves(強化版)", () => {
+  const moves = [
+    createMove({ name: "Standing Medium Punch", nameJa: "立ち中P（鉤突き）" }),
+    createMove({ name: "L Shoryuken", nameJa: "弱 昇龍拳" }),
+    createMove({ name: "M Hadoken", nameJa: "中 波動拳" }),
+  ];
+  it("テンキー表記 5MP で立ち中Pがヒットする", () => {
+    expect(searchMoves(moves, "5MP").map((m) => m.nameJa)).toEqual([
+      "立ち中P（鉤突き）",
+    ]);
+  });
+  it("通称 dp で昇龍拳がヒットする", () => {
+    expect(searchMoves(moves, "dp").map((m) => m.nameJa)).toEqual([
+      "弱 昇龍拳",
+    ]);
+  });
+  it("表記ゆれ 昇竜 で昇龍拳がヒットする", () => {
+    expect(searchMoves(moves, "昇竜").map((m) => m.nameJa)).toEqual([
+      "弱 昇龍拳",
+    ]);
+  });
+  it("カタカナ ハドウ ではヒットしないが 波動 でヒットする", () => {
+    expect(searchMoves(moves, "波動")).toHaveLength(1);
+  });
+  it("既存の技名部分一致は引き続き動く", () => {
+    expect(searchMoves(moves, "中P")).toHaveLength(1);
+  });
+});
