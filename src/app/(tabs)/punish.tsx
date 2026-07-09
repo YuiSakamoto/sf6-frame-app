@@ -15,6 +15,7 @@ import { PageHead } from "@/components/seo/PageHead";
 import { searchMoves } from "@/utils/search";
 import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import type { MovePunishSummary } from "@/services/punishService";
+import type { Move } from "@/types/frame-data";
 
 export default function PunishScreen() {
   const { t } = useTranslation();
@@ -26,7 +27,7 @@ export default function PunishScreen() {
 
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [expandedMove, setExpandedMove] = useState<Move | null>(null);
   const [modalTarget, setModalTarget] = useState<"my" | "opponent" | null>(
     null,
   );
@@ -57,7 +58,7 @@ export default function PunishScreen() {
     const prevMySlug = myCharacter.slug;
     setMyCharacter(opponentSlug);
     setOpponentSlug(prevMySlug);
-    setExpandedIndex(null);
+    setExpandedMove(null);
   }, [myCharacter, opponentSlug, setMyCharacter]);
 
   return (
@@ -85,7 +86,7 @@ export default function PunishScreen() {
             setOpponentSlug(c.slug);
           }
           setModalTarget(null);
-          setExpandedIndex(null);
+          setExpandedMove(null);
         }}
         onClose={() => setModalTarget(null)}
       />
@@ -125,13 +126,15 @@ export default function PunishScreen() {
           <Text style={styles.disclaimer}>{t("punish.disclaimer")}</Text>
           <FlatList
             data={filtered}
-            keyExtractor={(item) => item.move.name}
-            renderItem={({ item, index }) => (
+            keyExtractor={(item, index) => `${item.move.name}-${index}`}
+            renderItem={({ item }) => (
               <PunishSummaryRow
                 summary={item}
-                expanded={expandedIndex === index}
+                expanded={expandedMove === item.move}
                 onToggle={() =>
-                  setExpandedIndex((prev) => (prev === index ? null : index))
+                  setExpandedMove((prev) =>
+                    prev === item.move ? null : item.move,
+                  )
                 }
               />
             )}
