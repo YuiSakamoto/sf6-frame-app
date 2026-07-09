@@ -8,7 +8,8 @@
     "cancel": "Abbrechen",
     "change": "Ändern",
     "save": "Speichern",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "close": "Close"
   },
   "tabs": {
     "home": "Startseite",
@@ -30,7 +31,13 @@
     "onBlock": "Bei Block",
     "onHit": "Bei Treffer",
     "damage": "Schaden",
-    "command": "Befehl"
+    "command": "Befehl",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Bestrafungssuche",

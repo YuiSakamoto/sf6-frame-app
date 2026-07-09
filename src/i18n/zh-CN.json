@@ -8,7 +8,8 @@
     "cancel": "取消",
     "change": "更改",
     "save": "保存",
-    "settings": "设置"
+    "settings": "设置",
+    "close": "Close"
   },
   "tabs": {
     "home": "首页",
@@ -30,7 +31,13 @@
     "onBlock": "防御后",
     "onHit": "命中后",
     "damage": "伤害",
-    "command": "指令"
+    "command": "指令",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "确反搜索",

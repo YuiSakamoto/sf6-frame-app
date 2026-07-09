@@ -8,7 +8,8 @@
     "cancel": "Отмена",
     "change": "Изменить",
     "save": "Сохранить",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "close": "Close"
   },
   "tabs": {
     "home": "Главная",
@@ -30,7 +31,13 @@
     "onBlock": "При блоке",
     "onHit": "При попадании",
     "damage": "Урон",
-    "command": "Команда"
+    "command": "Команда",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Поиск наказаний",

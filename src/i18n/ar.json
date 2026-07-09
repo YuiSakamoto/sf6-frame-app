@@ -8,7 +8,8 @@
     "cancel": "إلغاء",
     "change": "تغيير",
     "save": "حفظ",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "close": "Close"
   },
   "tabs": {
     "home": "الرئيسية",
@@ -30,7 +31,13 @@
     "onBlock": "عند الصد",
     "onHit": "عند الإصابة",
     "damage": "الضرر",
-    "command": "الأمر"
+    "command": "الأمر",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "باحث العقوبات",

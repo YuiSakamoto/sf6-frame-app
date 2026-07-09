@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useFrameData } from "@/hooks/useFrameData";
-import { MoveList } from "@/components/frame-data/MoveList";
-import type { FrameSortMode } from "@/components/frame-data/MoveList";
+import { FrameTable } from "@/components/frame-data/FrameTable";
+import { MoveDetailSheet } from "@/components/frame-data/MoveDetailSheet";
 import { FilterChip } from "@/components/ui/FilterChip";
 import { AdBanner } from "@/components/ads/BannerAd";
 import { useTranslation } from "react-i18next";
-import type { MoveCategory } from "@/types/frame-data";
+import type { Move, MoveCategory } from "@/types/frame-data";
 import { WebContainer } from "@/components/ui/WebContainer";
 import { PageHead } from "@/components/seo/PageHead";
 
@@ -30,7 +30,7 @@ export default function CharacterDetailScreen() {
   const [categoryFilter, setCategoryFilter] = useState<MoveCategory | "all">(
     "all",
   );
-  const [sortMode, setSortMode] = useState<FrameSortMode>("default");
+  const [detailMove, setDetailMove] = useState<Move | null>(null);
   const styles = useThemedStyles(createStyles);
 
   useEffect(() => {
@@ -40,6 +40,14 @@ export default function CharacterDetailScreen() {
       });
     }
   }, [data, i18n.language, navigation]);
+
+  // data 読み込み前は空配列(フックは早期 return より前に置く)
+  const filteredMoves = useMemo(() => {
+    const moves = data?.moves ?? [];
+    return categoryFilter === "all"
+      ? moves
+      : moves.filter((m) => m.category === categoryFilter);
+  }, [data?.moves, categoryFilter]);
 
   if (isLoading || !data) {
     return (
@@ -76,33 +84,11 @@ export default function CharacterDetailScreen() {
         </ScrollView>
       </View>
 
-      <View style={styles.sortRow}>
-        <FilterChip
-          label={t("sort.default")}
-          selected={sortMode === "default"}
-          onPress={() => setSortMode("default")}
-        />
-        <FilterChip
-          label={t("sort.startup")}
-          selected={sortMode === "startup"}
-          onPress={() => setSortMode("startup")}
-        />
-        <FilterChip
-          label={t("sort.onBlock")}
-          selected={sortMode === "onBlock"}
-          onPress={() => setSortMode("onBlock")}
-        />
-        <FilterChip
-          label={t("sort.damage")}
-          selected={sortMode === "damage"}
-          onPress={() => setSortMode("damage")}
-        />
-      </View>
-
-      <MoveList
-        moves={data.moves}
-        categoryFilter={categoryFilter}
-        sortMode={sortMode}
+      <FrameTable moves={filteredMoves} onRowPress={setDetailMove} />
+      <MoveDetailSheet
+        move={detailMove}
+        visible={detailMove !== null}
+        onClose={() => setDetailMove(null)}
       />
 
       <AdBanner />
@@ -131,10 +117,5 @@ const createStyles = (theme: Theme) =>
     },
     filterContent: {
       alignItems: "center",
-    },
-    sortRow: {
-      flexDirection: "row",
-      paddingHorizontal: 16,
-      paddingBottom: 8,
     },
   });

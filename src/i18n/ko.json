@@ -8,7 +8,8 @@
     "cancel": "취소",
     "change": "변경",
     "save": "저장",
-    "settings": "설정"
+    "settings": "설정",
+    "close": "Close"
   },
   "tabs": {
     "home": "홈",
@@ -30,7 +31,13 @@
     "onBlock": "가드 시",
     "onHit": "히트 시",
     "damage": "데미지",
-    "command": "커맨드"
+    "command": "커맨드",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "확정반격 검색",

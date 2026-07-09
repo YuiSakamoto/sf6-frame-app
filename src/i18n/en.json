@@ -8,7 +8,8 @@
     "cancel": "Cancel",
     "change": "Change",
     "save": "Save",
-    "settings": "Settings"
+    "settings": "Settings",
+    "close": "Close"
   },
   "tabs": {
     "home": "Frame Data",

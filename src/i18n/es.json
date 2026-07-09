@@ -8,7 +8,8 @@
     "cancel": "Cancelar",
     "change": "Cambiar",
     "save": "Guardar",
-    "settings": "Ajustes"
+    "settings": "Ajustes",
+    "close": "Close"
   },
   "tabs": {
     "home": "Inicio",
@@ -30,7 +31,13 @@
     "onBlock": "En bloqueo",
     "onHit": "En golpe",
     "damage": "Daño",
-    "command": "Comando"
+    "command": "Comando",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Buscador de castigos",
