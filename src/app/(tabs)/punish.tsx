@@ -28,10 +28,18 @@ export default function PunishScreen() {
   const styles = useThemedStyles(createStyles);
 
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
+  // 画面内だけの自キャラ上書き。null なら設定の自キャラをそのまま使う
+  const [myOverrideSlug, setMyOverrideSlug] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const [expandedMove, setExpandedMove] = useState<Move | null>(null);
   const [modalTarget, setModalTarget] = useState<"my" | "opponent" | null>(
     null,
+  );
+
+  const effectiveMySlug = myOverrideSlug ?? myCharacter?.slug ?? null;
+  const effectiveMyCharacter = useMemo(
+    () => characters.find((c) => c.slug === effectiveMySlug) ?? null,
+    [characters, effectiveMySlug],
   );
 
   const opponent = useMemo(
@@ -42,6 +50,7 @@ export default function PunishScreen() {
   const { summaries, isOpponentLoading } = usePunishFinder(
     opponentSlug,
     sortMode,
+    myOverrideSlug,
   );
 
   const filtered = useMemo((): MovePunishSummary[] => {
@@ -55,13 +64,14 @@ export default function PunishScreen() {
     return summaries.filter((s) => matchedMoves.has(s.move));
   }, [summaries, query]);
 
+  // swap は画面内のみの入れ替え。永続設定(自キャラ設定)は変更しない
   const handleSwap = useCallback(() => {
-    if (!myCharacter || !opponentSlug) return;
-    const prevMySlug = myCharacter.slug;
-    setMyCharacter(opponentSlug);
-    setOpponentSlug(prevMySlug);
+    if (!effectiveMySlug || !opponentSlug) return;
+    const prevEffectiveMySlug = effectiveMySlug;
+    setMyOverrideSlug(opponentSlug);
+    setOpponentSlug(prevEffectiveMySlug);
     setExpandedMove(null);
-  }, [myCharacter, opponentSlug, setMyCharacter]);
+  }, [effectiveMySlug, opponentSlug]);
 
   return (
     <WebContainer>
@@ -71,7 +81,7 @@ export default function PunishScreen() {
         path="/punish"
       />
       <VsBar
-        myCharacter={myCharacter ?? null}
+        myCharacter={effectiveMyCharacter}
         opponent={opponent}
         onPressMy={() => setModalTarget("my")}
         onPressOpponent={() => setModalTarget("opponent")}
@@ -80,10 +90,14 @@ export default function PunishScreen() {
       <CharacterSelectModal
         visible={modalTarget !== null}
         characters={characters}
-        selectedSlug={modalTarget === "my" ? myCharacter?.slug : opponent?.slug}
+        selectedSlug={
+          modalTarget === "my" ? effectiveMyCharacter?.slug : opponent?.slug
+        }
         onSelect={(c) => {
           if (modalTarget === "my") {
+            // VsBar から明示的に選んだ場合は本命キャラ変更とみなし、永続設定に保存する
             setMyCharacter(c.slug);
+            setMyOverrideSlug(null);
           } else {
             setOpponentSlug(c.slug);
           }
@@ -93,10 +107,10 @@ export default function PunishScreen() {
         onClose={() => setModalTarget(null)}
       />
 
-      {opponent === null || !myCharacter ? (
+      {opponent === null || !effectiveMyCharacter ? (
         <View style={styles.center}>
           <Text style={styles.hint}>
-            {!myCharacter
+            {!effectiveMyCharacter
               ? t("character.selectMyCharacter")
               : t("punish.selectOpponent")}
           </Text>

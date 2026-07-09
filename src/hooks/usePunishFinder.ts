@@ -18,9 +18,11 @@ interface PunishFinderResult {
 export function usePunishFinder(
   opponentSlug: string | null,
   sortMode: SortMode = "startup",
+  mySlugOverride?: string | null,
 ): PunishFinderResult {
   const { myCharacterSlug } = useMyCharacter();
-  const { data: myData, isLoading } = useFrameData(myCharacterSlug);
+  const effectiveMySlug = mySlugOverride ?? myCharacterSlug;
+  const { data: myData, isLoading } = useFrameData(effectiveMySlug);
   const { data: opponentData, isLoading: isOpponentLoading } =
     useFrameData(opponentSlug);
 
