@@ -1,5 +1,9 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import Animated, { FadeIn, FadeOut } from "react-native-reanimated";
+import Animated, {
+  FadeIn,
+  FadeOut,
+  useReducedMotion,
+} from "react-native-reanimated";
 import { useTranslation } from "react-i18next";
 import type { MovePunishSummary } from "@/services/punishService";
 import { FrameValue } from "@/components/frame-data/FrameValue";
@@ -19,6 +23,7 @@ export function PunishSummaryRow({
 }: PunishSummaryRowProps) {
   const { t, i18n } = useTranslation();
   const styles = useThemedStyles(createStyles);
+  const reduced = useReducedMotion();
   const { move, punishable, punishes } = summary;
   const name = getMoveName(move, i18n.language);
 
@@ -58,8 +63,8 @@ export function PunishSummaryRow({
 
       {expanded && punishable && (
         <Animated.View
-          entering={FadeIn.duration(150)}
-          exiting={FadeOut.duration(100)}
+          entering={reduced ? undefined : FadeIn.duration(150)}
+          exiting={reduced ? undefined : FadeOut.duration(100)}
           style={styles.punishList}
         >
           {punishes.map((p, i) => (

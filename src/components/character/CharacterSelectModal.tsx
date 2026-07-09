@@ -38,7 +38,12 @@ export function CharacterSelectModal({
           <View style={styles.header}>
             <Text style={styles.title}>{t("character.selectMyCharacter")}</Text>
             {dismissable && (
-              <Pressable onPress={onClose}>
+              <Pressable
+                onPress={onClose}
+                accessibilityRole="button"
+                accessibilityLabel={t("common.cancel")}
+                hitSlop={8}
+              >
                 <Text style={styles.closeButton}>✕</Text>
               </Pressable>
             )}

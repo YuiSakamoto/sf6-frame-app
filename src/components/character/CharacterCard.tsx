@@ -1,6 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Animated, {
   useAnimatedStyle,
+  useReducedMotion,
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
@@ -8,6 +9,7 @@ import { useThemedStyles, useTheme, type Theme } from "@/theme/ThemeContext";
 import { getCharacterColors } from "@/theme/characterColors";
 import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
+import { lightImpact } from "@/utils/haptics";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -26,6 +28,7 @@ export function CharacterCard({
   const displayName =
     i18n.language === "ja" ? character.nameJa : character.name;
   const [colorStart, colorEnd] = getCharacterColors(character.slug);
+  const reduced = useReducedMotion();
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
@@ -35,13 +38,21 @@ export function CharacterCard({
 
   return (
     <AnimatedPressable
-      onPress={() => onPress(character)}
+      onPress={() => {
+        lightImpact();
+        onPress(character);
+      }}
       onPressIn={() => {
+        if (reduced) return;
         scale.value = withTiming(0.95, { duration: 100 });
       }}
       onPressOut={() => {
+        if (reduced) return;
         scale.value = withTiming(1, { duration: 150 });
       }}
+      accessibilityRole="button"
+      accessibilityLabel={displayName}
+      accessibilityState={{ selected: isSelected }}
       style={[
         styles.container,
         {

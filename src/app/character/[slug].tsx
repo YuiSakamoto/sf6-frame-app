@@ -6,6 +6,7 @@ import { useFrameData } from "@/hooks/useFrameData";
 import { FrameTable } from "@/components/frame-data/FrameTable";
 import { MoveDetailSheet } from "@/components/frame-data/MoveDetailSheet";
 import { FilterChip } from "@/components/ui/FilterChip";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { AdBanner } from "@/components/ads/BannerAd";
 import { useTranslation } from "react-i18next";
 import type { Move, MoveCategory } from "@/types/frame-data";
@@ -50,11 +51,18 @@ export default function CharacterDetailScreen() {
   }, [data?.moves, categoryFilter]);
 
   if (isLoading || !data) {
+    if (isLoading) {
+      return (
+        <View style={styles.skeletonContainer}>
+          {Array.from({ length: 8 }).map((_, i) => (
+            <Skeleton key={i} height={40} />
+          ))}
+        </View>
+      );
+    }
     return (
       <View style={styles.loadingContainer}>
-        <Text style={styles.loadingText}>
-          {isLoading ? t("common.loading") : (error ?? t("common.noData"))}
-        </Text>
+        <Text style={styles.loadingText}>{error ?? t("common.noData")}</Text>
       </View>
     );
   }
@@ -110,6 +118,12 @@ const createStyles = (theme: Theme) =>
     },
     loadingText: {
       color: theme.colors.textMuted,
+    },
+    skeletonContainer: {
+      flex: 1,
+      backgroundColor: theme.colors.bg,
+      padding: 16,
+      gap: 12,
     },
     filterRow: {
       paddingHorizontal: 16,

@@ -16,6 +16,7 @@ import { useSettingsStore, type ThemeMode } from "@/stores/useSettingsStore";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { WebContainer } from "@/components/ui/WebContainer";
+import { selectionTap } from "@/utils/haptics";
 
 const LANGUAGES = [
   { code: "ja", label: "日本語" },
@@ -55,7 +56,16 @@ export default function SettingsScreen() {
       <ScrollView style={styles.root}>
         {/* 自キャラ設定 */}
         <SectionHeader label={t("character.myCharacter")} />
-        <Pressable onPress={() => setModalVisible(true)} style={styles.row}>
+        <Pressable
+          onPress={() => setModalVisible(true)}
+          style={styles.row}
+          accessibilityRole="button"
+          accessibilityLabel={
+            isSet && myCharacter
+              ? `${i18n.language === "ja" ? myCharacter.nameJa : myCharacter.name} ${t("common.change")}`
+              : t("character.selectMyCharacter")
+          }
+        >
           {isSet && myCharacter ? (
             <View style={styles.charRow}>
               <View style={styles.avatar}>
@@ -82,7 +92,10 @@ export default function SettingsScreen() {
           return (
             <Pressable
               key={mode}
-              onPress={() => setThemeMode(mode)}
+              onPress={() => {
+                selectionTap();
+                setThemeMode(mode);
+              }}
               accessibilityRole="radio"
               accessibilityState={{ selected: isSelected }}
               accessibilityLabel={t(labelKey)}
@@ -108,7 +121,13 @@ export default function SettingsScreen() {
           return (
             <Pressable
               key={lang.code}
-              onPress={() => i18n.changeLanguage(lang.code)}
+              onPress={() => {
+                selectionTap();
+                i18n.changeLanguage(lang.code);
+              }}
+              accessibilityRole="radio"
+              accessibilityState={{ selected: isSelected }}
+              accessibilityLabel={lang.label}
               style={[styles.langRow, isSelected && styles.langRowSelected]}
             >
               <Text
@@ -134,6 +153,8 @@ export default function SettingsScreen() {
           onPress={() =>
             Linking.openURL("https://github.com/sponsors/YuiSakamoto")
           }
+          accessibilityRole="button"
+          accessibilityLabel={t("support.github")}
         >
           <Text style={styles.linkLabel}>{t("support.github")}</Text>
           <Text style={styles.arrow}>›</Text>
@@ -141,6 +162,8 @@ export default function SettingsScreen() {
         <Pressable
           style={styles.linkRow}
           onPress={() => Linking.openURL("https://buymeacoffee.com/yui_tang")}
+          accessibilityRole="button"
+          accessibilityLabel={t("support.buymeacoffee")}
         >
           <Text style={styles.linkLabel}>{t("support.buymeacoffee")}</Text>
           <Text style={styles.arrow}>›</Text>
@@ -151,6 +174,8 @@ export default function SettingsScreen() {
         <Pressable
           style={styles.linkRow}
           onPress={() => router.push("/credits")}
+          accessibilityRole="button"
+          accessibilityLabel={t("credits.title")}
         >
           <Text style={styles.linkLabel}>{t("credits.title")}</Text>
           <Text style={styles.arrow}>›</Text>
@@ -158,6 +183,8 @@ export default function SettingsScreen() {
         <Pressable
           style={styles.linkRow}
           onPress={() => router.push("/privacy-policy")}
+          accessibilityRole="button"
+          accessibilityLabel={t("credits.privacyPolicy")}
         >
           <Text style={styles.linkLabel}>{t("credits.privacyPolicy")}</Text>
           <Text style={styles.arrow}>›</Text>

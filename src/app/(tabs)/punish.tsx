@@ -10,9 +10,11 @@ import { VsBar } from "@/components/punish/VsBar";
 import { PunishSummaryRow } from "@/components/punish/PunishSummaryRow";
 import { FilterChip } from "@/components/ui/FilterChip";
 import { SearchBar } from "@/components/ui/SearchBar";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { WebContainer } from "@/components/ui/WebContainer";
 import { PageHead } from "@/components/seo/PageHead";
 import { searchMoves } from "@/utils/search";
+import { lightImpact } from "@/utils/haptics";
 import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import type { MovePunishSummary } from "@/services/punishService";
 import type { Move } from "@/types/frame-data";
@@ -101,8 +103,10 @@ export default function PunishScreen() {
           <Text style={styles.hintSub}>{t("punish.description")}</Text>
         </View>
       ) : isOpponentLoading ? (
-        <View style={styles.center}>
-          <Text style={styles.hint}>{t("common.loading")}</Text>
+        <View style={styles.skeletonContainer}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Skeleton key={i} height={40} />
+          ))}
         </View>
       ) : (
         <>
@@ -131,11 +135,12 @@ export default function PunishScreen() {
               <PunishSummaryRow
                 summary={item}
                 expanded={expandedMove === item.move}
-                onToggle={() =>
+                onToggle={() => {
+                  lightImpact();
                   setExpandedMove((prev) =>
                     prev === item.move ? null : item.move,
-                  )
-                }
+                  );
+                }}
               />
             )}
           />
@@ -164,6 +169,10 @@ const createStyles = (theme: Theme) =>
       color: theme.colors.textSecondary,
       fontSize: theme.fontSize.sm,
       textAlign: "center",
+    },
+    skeletonContainer: {
+      padding: theme.spacing.lg,
+      gap: theme.spacing.md,
     },
     sortRow: {
       flexDirection: "row",

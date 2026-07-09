@@ -17,6 +17,7 @@ export function SearchBar({
   const { t } = useTranslation();
   const theme = useTheme();
   const styles = useThemedStyles(createStyles);
+  const resolvedPlaceholder = placeholder ?? t("common.search");
 
   return (
     <View style={styles.container}>
@@ -25,10 +26,11 @@ export function SearchBar({
         style={styles.input}
         value={value}
         onChangeText={onChangeText}
-        placeholder={placeholder ?? t("common.search")}
+        placeholder={resolvedPlaceholder}
         placeholderTextColor={theme.colors.textMuted}
         autoCapitalize="none"
         autoCorrect={false}
+        accessibilityLabel={resolvedPlaceholder}
       />
     </View>
   );

@@ -4,6 +4,7 @@ import Animated, {
   FadeIn,
   FadeOut,
   LinearTransition,
+  useReducedMotion,
 } from "react-native-reanimated";
 import { useThemedStyles, useTheme, type Theme } from "@/theme/ThemeContext";
 import type { Move } from "@/types/frame-data";
@@ -44,6 +45,7 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
   const [expanded, setExpanded] = useState(false);
   const theme = useTheme();
   const styles = useThemedStyles(createStyles);
+  const reduced = useReducedMotion();
 
   return (
     <Pressable
@@ -83,9 +85,9 @@ export function MoveRow({ move, onPress, expandable = true }: MoveRowProps) {
 
       {expanded && (
         <Animated.View
-          entering={FadeIn.duration(200)}
-          exiting={FadeOut.duration(150)}
-          layout={LinearTransition.duration(200)}
+          entering={reduced ? undefined : FadeIn.duration(200)}
+          exiting={reduced ? undefined : FadeOut.duration(150)}
+          layout={reduced ? undefined : LinearTransition.duration(200)}
           style={styles.details}
         >
           <View style={styles.detailColumns}>

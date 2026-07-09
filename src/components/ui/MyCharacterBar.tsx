@@ -21,9 +21,18 @@ export function MyCharacterBar({
   const styles = useThemedStyles(createStyles);
   const displayName =
     character && i18n.language === "ja" ? character.nameJa : character?.name;
+  const accessibilityLabel =
+    isSet && character
+      ? `${displayName} ${trailingLabel ?? t("common.change")}`
+      : t("character.selectMyCharacter");
 
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Pressable
+      onPress={onPress}
+      style={styles.container}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+    >
       {isSet && character ? (
         <>
           <View style={styles.avatar}>

@@ -1,10 +1,12 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 import Animated, {
   useAnimatedStyle,
+  useReducedMotion,
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
 import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
+import { selectionTap } from "@/utils/haptics";
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -16,6 +18,7 @@ interface FilterChipProps {
 
 export function FilterChip({ label, selected, onPress }: FilterChipProps) {
   const styles = useThemedStyles(createStyles);
+  const reduced = useReducedMotion();
   const scale = useSharedValue(1);
   const animatedStyle = useAnimatedStyle(() => ({
     transform: [{ scale: scale.value }],
@@ -23,13 +26,22 @@ export function FilterChip({ label, selected, onPress }: FilterChipProps) {
 
   return (
     <AnimatedPressable
-      onPress={onPress}
+      onPress={() => {
+        selectionTap();
+        onPress();
+      }}
       onPressIn={() => {
+        if (reduced) return;
         scale.value = withTiming(0.93, { duration: 80 });
       }}
       onPressOut={() => {
+        if (reduced) return;
         scale.value = withTiming(1, { duration: 120 });
       }}
+      accessibilityRole="button"
+      accessibilityState={{ selected }}
+      accessibilityLabel={label}
+      hitSlop={6}
       style={[styles.chip, selected && styles.chipSelected, animatedStyle]}
     >
       <Text style={[styles.label, selected && styles.labelSelected]}>

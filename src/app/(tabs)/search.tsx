@@ -6,6 +6,7 @@ import { useDataStore } from "@/stores/useDataStore";
 import { SearchBar } from "@/components/ui/SearchBar";
 import { MoveRow } from "@/components/frame-data/MoveRow";
 import { FilterChip } from "@/components/ui/FilterChip";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { searchMoves } from "@/utils/search";
 import {
@@ -228,8 +229,10 @@ export default function SearchScreen() {
       )}
 
       {!allLoaded && (hasQuery || hasFilter) ? (
-        <View style={styles.center}>
-          <Text style={styles.loadingText}>{t("common.loading")}</Text>
+        <View style={styles.skeletonContainer}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Skeleton key={i} height={40} />
+          ))}
         </View>
       ) : !hasQuery && !hasFilter ? (
         <View style={styles.center}>
@@ -274,9 +277,9 @@ const createStyles = (theme: Theme) =>
       alignItems: "center",
       justifyContent: "center",
     },
-    loadingText: {
-      color: theme.colors.textMuted,
-      fontSize: 14,
+    skeletonContainer: {
+      padding: 16,
+      gap: 12,
     },
     hintText: {
       color: theme.colors.textMuted,
