@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Animated, {
+  cancelAnimation,
   useAnimatedStyle,
   useReducedMotion,
   useSharedValue,
@@ -28,6 +29,9 @@ export function Skeleton({
   useEffect(() => {
     if (reduced) return;
     opacity.value = withRepeat(withTiming(1, { duration: 700 }), -1, true);
+    return () => {
+      cancelAnimation(opacity);
+    };
   }, [opacity, reduced]);
 
   const style = useAnimatedStyle(() => ({ opacity: opacity.value }));
