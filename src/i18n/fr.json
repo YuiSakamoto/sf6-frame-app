@@ -63,6 +63,12 @@
     "throw": "Choppe",
     "commandNormal": "Normaux cmd"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "Par démarrage",
     "damage": "Par dégâts",

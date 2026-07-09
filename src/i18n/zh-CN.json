@@ -63,6 +63,12 @@
     "throw": "投技",
     "commandNormal": "指令普通技"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "按发生排序",
     "damage": "按伤害排序",

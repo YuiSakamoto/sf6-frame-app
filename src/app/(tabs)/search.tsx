@@ -1,15 +1,27 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { SearchBar } from "@/components/ui/SearchBar";
 import { MoveRow } from "@/components/frame-data/MoveRow";
+import { FilterChip } from "@/components/ui/FilterChip";
+import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
 import { searchMoves } from "@/utils/search";
+import {
+  applyFilters,
+  DEFAULT_FILTERS,
+  type SearchFilters,
+} from "@/utils/searchFilters";
 import type { Move } from "@/types/frame-data";
 import type { Character } from "@/types/character";
 import { WebContainer } from "@/components/ui/WebContainer";
 import { PageHead } from "@/components/seo/PageHead";
+
+const STARTUP_PRESETS = [5, 7, 10];
+const ONBLOCK_PRESETS = [-4, -6, -8];
+// カテゴリは既存の filter.* i18n キー(キャラ詳細画面と共通)を使う
+const CATEGORY_PRESETS = ["normal", "special", "super", "throw"] as const;
 
 interface SearchResult {
   character: Character;
@@ -26,6 +38,8 @@ export default function SearchScreen() {
 
   const [query, setQuery] = useState("");
   const [allLoaded, setAllLoaded] = useState(false);
+  const [filters, setFilters] = useState<SearchFilters>(DEFAULT_FILTERS);
+  const [charModalVisible, setCharModalVisible] = useState(false);
 
   // 全キャラのフレームデータを事前ロード
   useEffect(() => {
@@ -38,20 +52,30 @@ export default function SearchScreen() {
     }
   }, [characters, loadFrameData]);
 
+  const hasQuery = query.trim() !== "";
+  const hasFilter =
+    filters.characterSlug !== null ||
+    filters.category !== "all" ||
+    filters.maxStartup !== null ||
+    filters.maxOnBlock !== null;
+
   const results = useMemo((): SearchResult[] => {
-    if (!allLoaded || query.trim() === "") return [];
+    if (!allLoaded || (!hasQuery && !hasFilter)) return [];
 
     const matched: SearchResult[] = [];
     for (const char of characters) {
+      if (filters.characterSlug && char.slug !== filters.characterSlug)
+        continue;
       const data = frameDataCache[char.slug];
       if (!data) continue;
-      const moves = searchMoves(data.moves, query);
+      const bySearch = hasQuery ? searchMoves(data.moves, query) : data.moves;
+      const moves = applyFilters(bySearch, filters);
       if (moves.length > 0) {
         matched.push({ character: char, moves });
       }
     }
     return matched;
-  }, [allLoaded, query, characters, frameDataCache]);
+  }, [allLoaded, hasQuery, hasFilter, query, filters, characters, frameDataCache]);
 
   const totalCount = useMemo(
     () => results.reduce((sum, r) => sum + r.moves.length, 0),
@@ -116,17 +140,90 @@ export default function SearchScreen() {
         placeholder={t("search.placeholder")}
       />
 
-      {query.trim() !== "" && allLoaded && (
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.filterRow}
+      >
+        <FilterChip
+          label={
+            filters.characterSlug
+              ? ((lang === "ja"
+                  ? characters.find((c) => c.slug === filters.characterSlug)
+                      ?.nameJa
+                  : characters.find((c) => c.slug === filters.characterSlug)
+                      ?.name) ?? t("searchFilter.allCharacters"))
+              : t("searchFilter.allCharacters")
+          }
+          selected={filters.characterSlug !== null}
+          onPress={() => setCharModalVisible(true)}
+        />
+        {STARTUP_PRESETS.map((n) => (
+          <FilterChip
+            key={`su-${n}`}
+            label={t("searchFilter.startupMax", { n })}
+            selected={filters.maxStartup === n}
+            onPress={() =>
+              setFilters((f) => ({
+                ...f,
+                maxStartup: f.maxStartup === n ? null : n,
+              }))
+            }
+          />
+        ))}
+        {ONBLOCK_PRESETS.map((n) => (
+          <FilterChip
+            key={`ob-${n}`}
+            label={t("searchFilter.onBlockMax", { n })}
+            selected={filters.maxOnBlock === n}
+            onPress={() =>
+              setFilters((f) => ({
+                ...f,
+                maxOnBlock: f.maxOnBlock === n ? null : n,
+              }))
+            }
+          />
+        ))}
+        {CATEGORY_PRESETS.map((cat) => (
+          <FilterChip
+            key={`cat-${cat}`}
+            label={t(`filter.${cat}`)}
+            selected={filters.category === cat}
+            onPress={() =>
+              setFilters((f) => ({
+                ...f,
+                category: f.category === cat ? "all" : cat,
+              }))
+            }
+          />
+        ))}
+      </ScrollView>
+
+      <CharacterSelectModal
+        visible={charModalVisible}
+        characters={characters}
+        selectedSlug={filters.characterSlug ?? undefined}
+        onSelect={(c) => {
+          setFilters((f) => ({
+            ...f,
+            characterSlug: f.characterSlug === c.slug ? null : c.slug,
+          }));
+          setCharModalVisible(false);
+        }}
+        onClose={() => setCharModalVisible(false)}
+      />
+
+      {(hasQuery || hasFilter) && allLoaded && (
         <Text style={styles.resultCount}>
           {t("search.resultCount", { count: totalCount })}
         </Text>
       )}
 
-      {!allLoaded && query.trim() !== "" ? (
+      {!allLoaded && (hasQuery || hasFilter) ? (
         <View style={styles.center}>
           <Text style={styles.loadingText}>{t("common.loading")}</Text>
         </View>
-      ) : query.trim() === "" ? (
+      ) : !hasQuery && !hasFilter ? (
         <View style={styles.center}>
           <Text style={styles.hintText}>{t("search.hint")}</Text>
         </View>
@@ -152,6 +249,11 @@ const createStyles = (theme: Theme) =>
     root: {
       flex: 1,
       backgroundColor: theme.colors.bg,
+    },
+    filterRow: {
+      paddingHorizontal: theme.spacing.lg,
+      paddingBottom: theme.spacing.sm,
+      alignItems: "center",
     },
     resultCount: {
       color: theme.colors.textSecondary,

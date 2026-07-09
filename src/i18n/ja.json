@@ -73,6 +73,12 @@
     "noResults": "該当する技が見つかりません",
     "resultCount": "{{count}}件"
   },
+  "searchFilter": {
+    "allCharacters": "全キャラ",
+    "startupMax": "発生{{n}}F以下",
+    "onBlockMax": "ガード{{n}}以下",
+    "showResults": "フィルタ"
+  },
   "sort": {
     "default": "デフォルト",
     "startup": "発生順",

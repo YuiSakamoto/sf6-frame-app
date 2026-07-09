@@ -63,6 +63,12 @@
     "throw": "잡기",
     "commandNormal": "커맨드 일반기"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "발생순",
     "damage": "데미지순",

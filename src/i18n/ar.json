@@ -63,6 +63,12 @@
     "throw": "إمساك",
     "commandNormal": "عادية بأمر"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "حسب البدء",
     "damage": "حسب الضرر",

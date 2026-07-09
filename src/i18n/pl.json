@@ -63,6 +63,12 @@
     "throw": "Rzut",
     "commandNormal": "Normalne cmd"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "Wg startupu",
     "damage": "Wg obrażeń",

@@ -63,6 +63,12 @@
     "throw": "Wurf",
     "commandNormal": "Befehlsnormal"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "Nach Startup",
     "damage": "Nach Schaden",

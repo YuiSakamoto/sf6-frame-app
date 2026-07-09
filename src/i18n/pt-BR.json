@@ -63,6 +63,12 @@
     "throw": "Agarrão",
     "commandNormal": "Normal de cmd"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "startup": "Por startup",
     "damage": "Por dano",

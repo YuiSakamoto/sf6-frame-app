@@ -73,6 +73,12 @@
     "noResults": "No matching moves found",
     "resultCount": "{{count}} results"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}",
+    "showResults": "Filters"
+  },
   "sort": {
     "default": "Default",
     "startup": "By Startup",
