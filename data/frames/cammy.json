@@ -2,7 +2,7 @@
   "slug": "cammy",
   "name": "Cammy",
   "nameJa": "キャミィ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -426,7 +426,7 @@
       "active": "5-9",
       "recovery": "12",
       "onHit": "4",
-      "onBlock": "-1",
+      "onBlock": "1",
       "cancel": "C",
       "damage": "500",
       "comboScaling": "",
@@ -606,8 +606,8 @@
       "name": "H Spiral Arrow(Charged)",
       "nameJa": "強 スパイラルアロー（ホールド）",
       "input": "",
-      "startup": "27",
-      "active": "27-4227-29, 31-33, 34-36, 37-39, 40-42",
+      "startup": "25",
+      "active": "25-4025-27, 29-40",
       "recovery": "20",
       "onHit": "D",
       "onBlock": "-14",
@@ -621,8 +621,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "16F以上ホールドすると性能変化30-45F　空中判定",
-      "notesEn": "Hold the button for more than 16 frames to change its propertiesConsidered airborne from frames 30 - 45",
+      "notes": "16F以上ホールドすると性能変化28-43F　空中判定",
+      "notesEn": "Hold the button for more than 16 frames to change its propertiesConsidered airborne from frames 28 - 43",
       "category": "special"
     },
     {
@@ -630,7 +630,7 @@
       "nameJa": "OD スパイラルアロー",
       "input": "",
       "startup": "13",
-      "active": "13-2813-15, 17-19, 20-22, 23-25, 26-28",
+      "active": "13-2813-15, 17-28",
       "recovery": "20",
       "onHit": "D",
       "onBlock": "-14",
@@ -721,8 +721,8 @@
       "name": "H Cannon Spike(Charged)",
       "nameJa": "強 キャノンスパイク（ホールド）",
       "input": "",
-      "startup": "24",
-      "active": "24-35",
+      "startup": "22",
+      "active": "22-33",
       "recovery": "29+着地後16",
       "onHit": "D",
       "onBlock": "-40",
@@ -736,8 +736,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-7F　空中判定の打撃・空弾属性に対して無敵20-25F　完全無敵26-64F　空中判定※持続の5F目以降は個別ダメージ（900）",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 7Completely invincible from frames 20 - 25Considered airborne from frames 26 - 64* Does 900 individual damage after the 5th active frame",
+      "notes": "1-7F　空中判定の打撃・空弾属性に対して無敵18-23F　完全無敵24-62F　空中判定※持続の5F目以降は個別ダメージ（900）",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 7Completely invincible from frames 18 - 23Considered airborne from frames 24 - 62* Does 900 individual damage after the 5th active frame",
       "category": "special"
     },
     {
@@ -840,7 +840,7 @@
       "active": "25-28",
       "recovery": "17",
       "onHit": "7",
-      "onBlock": "-2",
+      "onBlock": "3",
       "cancel": "SA2",
       "damage": "800",
       "comboScaling": "始動補正20%コンボ補正20%",
@@ -851,8 +851,8 @@
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "9-24F　飛び道具無敵近距離で発動すると、相手の背後に回り込んでから攻撃を行う。その場合発生が3F遅くなる。",
-      "notesEn": "Invincible to projectiles from frames 9 - 24When performed at close range, Cammy will go behind her opponent and attack. In this situation, start up is 3 frames later",
+      "notes": "9-24F　飛び道具無敵近距離で発動すると、相手の背後に回り込んでから攻撃を行う。その場合発生が3F遅くなり、ガードさせた時の硬直差が-2Fになる。",
+      "notesEn": "Invincible to projectiles from frames 9 - 24When performed at close range, Cammy will go behind her opponent and attack. In this situation, start up is 3 frames slower, and the recovery on block is -2.",
       "category": "special"
     },
     {
@@ -943,8 +943,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "18F以上ホールドすると性能変化41F～着地まで、レイザーエッジスライサーを除いた各種派生技でキャンセル可能27F以降、空中判定",
-      "notesEn": "Hold the button for more than 18 frames to change its propertiesFrom frame 41 until landing, can be canceled into any offshoot attacks except for Razor's Edge Slicer on frame 27 or later. Is considered airborne.",
+      "notes": "18F以上ホールドすると性能変化39F～着地まで、レイザーエッジスライサーを除いた各種派生技でキャンセル可能25F以降、空中判定",
+      "notesEn": "Hold the button for more than 18 frames to change its propertiesFrom frame 39 until landing, can be canceled into any offshoot attacks except for Razor's Edge Slicer on frame 25 or later. Is considered airborne.",
       "category": "special"
     },
     {

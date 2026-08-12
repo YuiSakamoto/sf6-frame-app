@@ -2,7 +2,7 @@
   "slug": "chunli",
   "name": "Chun-Li",
   "nameJa": "春麗",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -667,8 +667,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "必殺技キャンセル可能な通常技・特殊技からキャンセル発動可能「行雲流水」中に、再度同じコマンドを入力する事で動作を中断可動作15F～各種派生技にキャンセル可能・ガード可能下方向を入力し続けると動作を継続する",
-      "notesEn": "Can be canceled by any normal or unique attack that is consideres special-cancelableDuring Serenity Stream, input the same command again to cancel the technique.Can be canceled into any branching attacks from frame 15 of the technique, as well as blockPosition can be held by continually pressing down",
+      "notes": "必殺技キャンセル可能な通常技・特殊技からキャンセル発動可能「行雲流水」中に、再度同じコマンド、もしくは↑方向を入力する事で動作を中断可動作15F～各種派生技にキャンセル可能・ガード可能下方向を入力し続けると動作を継続する",
+      "notesEn": "Can be canceled by any normal or unique attack that is consideres special-cancelableDuring Serenity Stream, input up or the same command again to cancel the technique.Can be canceled into any branching attacks from frame 15 of the technique, as well as blockPosition can be held by continually pressing down",
       "category": "unique"
     },
     {
@@ -725,7 +725,7 @@
       "active": "23-3223-24, 31-32",
       "recovery": "19",
       "onHit": "2",
-      "onBlock": "-3",
+      "onBlock": "1",
       "cancel": "C",
       "damage": "900",
       "comboScaling": "",
@@ -1208,7 +1208,7 @@
       "active": "23-25",
       "recovery": "20",
       "onHit": "D",
-      "onBlock": "-5",
+      "onBlock": "-4",
       "cancel": "SA3",
       "damage": "700",
       "comboScaling": "始動補正20%",
@@ -1328,7 +1328,7 @@
       "damage": "1000",
       "comboScaling": "",
       "comboScalingEn": "",
-      "driveGaugeGain": "2000",
+      "driveGaugeGain": "4000",
       "driveGaugeLossBlock": "-3000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "1000",
@@ -1357,8 +1357,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1～10F　空中判定の打撃・空弾属性に対して無敵8～69F　空中判定",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 10Considered airborne from frames 8 - 69",
+      "notes": "1～10F　空中判定の打撃・空弾属性に対して無敵8～69F　空中判定8～9F　投げに対して無敵",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 10Considered airborne from frames 8 - 69Invincible to throws from frames 8 - 9",
       "category": "special"
     },
     {

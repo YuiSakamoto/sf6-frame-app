@@ -2,7 +2,7 @@
   "slug": "deejay",
   "name": "Dee Jay",
   "nameJa": "ディージェイ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -460,8 +460,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "空中ヒット時叩き付けダウン",
-      "notesEn": "Forces a slam knockdown when hitting a mid-air opponent",
+      "notes": "空中ヒット時床バウンド",
+      "notesEn": "Produces a ground bound during a mid-air hit",
       "category": "unique"
     },
     {
@@ -974,8 +974,8 @@
       "name": "OD Double Rolling Sobat",
       "nameJa": "OD ダブルローリングソバット",
       "input": "",
-      "startup": "19",
-      "active": "19-3219-20, 30-32",
+      "startup": "17",
+      "active": "17-3017-18, 28-30",
       "recovery": "19",
       "onHit": "D",
       "onBlock": "-2",
@@ -1196,8 +1196,8 @@
       "saGaugeGain": "1000",
       "properties": "中",
       "propertiesEn": "Mid",
-      "notes": "空中ヒット時叩き付けダウンパニッシュカウンター時床バウンド",
-      "notesEn": "Forces a slam knockdown when hitting a mid-air opponentAdds a ground bounding effect on Punish Counter",
+      "notes": "12-26F　投げに対して無敵空中ヒット時叩き付けダウンパニッシュカウンター時床バウンド",
+      "notesEn": "Invincible to throws from frames 12 - 26Forces a slam knockdown when hitting a mid-air opponentAdds a ground bounding effect on Punish Counter",
       "category": "special"
     },
     {
@@ -1219,8 +1219,8 @@
       "saGaugeGain": "1000",
       "properties": "中",
       "propertiesEn": "Mid",
-      "notes": "空中ヒット時床バウンド",
-      "notesEn": "Adds a ground bounding effect during a mid-air hit",
+      "notes": "10-22F　投げに対して無敵空中ヒット時床バウンド",
+      "notesEn": "Invincible to throws from frames 10 - 22Adds a ground bounding effect during a mid-air hit",
       "category": "special"
     },
     {

@@ -2,7 +2,7 @@
   "slug": "alex",
   "name": "Alex",
   "nameJa": "アレックス",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -56,8 +56,8 @@
       "input": "",
       "startup": "7",
       "active": "7-10",
-      "recovery": "17",
-      "onHit": "3",
+      "recovery": "14",
+      "onHit": "4",
       "onBlock": "0",
       "cancel": "C",
       "damage": "600",
@@ -69,8 +69,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "ガード時硬直1F増加空振り時硬直3F増加",
+      "notesEn": "1 frame of recovery added when blocked3 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -264,7 +264,7 @@
       "startup": "8",
       "active": "8-10",
       "recovery": "18",
-      "onHit": "4",
+      "onHit": "5",
       "onBlock": "-2",
       "cancel": "",
       "damage": "600",
@@ -312,7 +312,7 @@
       "recovery": "26",
       "onHit": "D",
       "onBlock": "-11",
-      "cancel": "",
+      "cancel": "※",
       "damage": "1000",
       "comboScaling": "",
       "comboScalingEn": "",
@@ -322,8 +322,8 @@
       "saGaugeGain": "1000",
       "properties": "下",
       "propertiesEn": "Low",
-      "notes": "パニッシュカウンター時ダウン時間増加、ハードノックダウン",
-      "notesEn": "Knockdown time extended when the attack lands as a Punish Counter, and changes to Hard Knockdown",
+      "notes": "※ヒット時のみブレイカー・スタンスに派生可能パニッシュカウンター時ダウン時間増加、ハードノックダウン",
+      "notesEn": "Can only transition to Prowler Stance on hitKnockdown time extended when the attack lands as a Punish Counter, and changes to Hard Knockdown",
       "category": "normal"
     },
     {
@@ -381,7 +381,7 @@
       "recovery": "着地後3",
       "onHit": "",
       "onBlock": "",
-      "cancel": "",
+      "cancel": "※",
       "damage": "700",
       "comboScaling": "",
       "comboScalingEn": "",
@@ -391,8 +391,8 @@
       "saGaugeGain": "500",
       "properties": "中",
       "propertiesEn": "Mid",
-      "notes": "空中ヒット時吹き飛びダウン",
-      "notesEn": "Forces a juggle state when hitting a mid-air opponent",
+      "notes": "空中ヒット時吹き飛びダウン※前ジャンプの場合、フライングクロスチョップでキャンセル可能",
+      "notesEn": "Forces a juggle state when hitting a mid-air opponentCan be canceled into Flying Cross Chop during a forward jump",
       "category": "normal"
     },
     {
@@ -593,7 +593,7 @@
       "comboScaling": "始動補正20%",
       "comboScalingEn": "Starter scaling 20%",
       "driveGaugeGain": "2000",
-      "driveGaugeLossBlock": "-4000",
+      "driveGaugeLossBlock": "-6000",
       "driveGaugeLossPc": "-4000",
       "saGaugeGain": "800",
       "properties": "上",
@@ -640,7 +640,7 @@
       "comboScalingEn": "",
       "driveGaugeGain": "2000",
       "driveGaugeLossBlock": "-3000",
-      "driveGaugeLossPc": "-5000",
+      "driveGaugeLossPc": "-10000",
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
@@ -690,8 +690,8 @@
       "saGaugeGain": "1000",
       "properties": "",
       "propertiesEn": "",
-      "notes": "6-16F　アーマー判定（2回）カウンター/パニッシュカウンター時相手を背面やられに",
-      "notesEn": "Super Armor for 2 attack from frames 6 - 16Turns the opponent around on Counter and Punish Counter",
+      "notes": "6-23F　アーマー判定（2回）カウンター/パニッシュカウンター時相手を背面やられに",
+      "notesEn": "Super Armor for 2 attacks from frames 6 - 23Turns the opponent around on Counter and Punish Counter",
       "category": "unique"
     },
     {
@@ -863,7 +863,7 @@
       "active": "7-9",
       "recovery": "15",
       "onHit": "5",
-      "onBlock": "1",
+      "onBlock": "2",
       "cancel": "",
       "damage": "600",
       "comboScaling": "",
@@ -1058,8 +1058,8 @@
       "saGaugeGain": "1300",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-10F　空中判定の打撃・空弾属性に対して無敵5-32F　空中判定地上の相手に当たらない",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 10Considered airborne from frames 5 - 32Does not hit an opponent standing on the ground",
+      "notes": "1-10F　空中判定の打撃・空弾属性に対して無敵5-6F　投げに対して無敵5-32F　空中判定地上の相手に当たらない",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 10Invincible to throws from frames 5 - 6Considered airborne from frames 5 - 32Does not hit an opponent standing on the ground",
       "category": "special"
     },
     {
@@ -1081,8 +1081,8 @@
       "saGaugeGain": "1300",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "1-16F　空中判定の打撃・空弾属性に対して無敵6-34F　空中判定地上の相手に当たらない",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 16Considered airborne from frames 6 - 34Does not hit an opponent standing on the ground",
+      "notes": "1-16F　空中判定の打撃・空弾属性に対して無敵6-8F　投げに対して無敵6-34F　空中判定地上の相手に当たらない",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 16Invincible to throws from frames 6 - 8Considered airborne from frames 6 - 34Does not hit an opponent standing on the ground",
       "category": "special"
     },
     {
@@ -1472,8 +1472,8 @@
       "saGaugeGain": "2000",
       "properties": "投",
       "propertiesEn": "Throw",
-      "notes": "パニッシュカウンター時以下の性能変化・ダメージ2040・SAゲージ4000増加・ハードノックダウン",
-      "notesEn": "Properties change to the following when the attack lands as a Punish Counter:- Deals 2040 damage- Super Art gauge increases by 4000- Forces a hard knockdown",
+      "notes": "パニッシュカウンター時以下の性能変化・ダメージ2210・SAゲージ4000増加・ハードノックダウン",
+      "notesEn": "Properties change to the following when the attack lands as a Punish Counter:- Deals 2210 damage- Super Art gauge increases by 4000- Forces a hard knockdown",
       "category": "throw"
     },
     {
@@ -1505,7 +1505,7 @@
       "input": "",
       "startup": "",
       "active": "",
-      "recovery": "全体 25",
+      "recovery": "全体 23",
       "onHit": "",
       "onBlock": "",
       "cancel": "",

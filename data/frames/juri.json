@@ -2,7 +2,7 @@
   "slug": "juri",
   "name": "Juri",
   "nameJa": "ジュリ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -1023,7 +1023,7 @@
       "startup": "10",
       "active": "10-2110-12, 19-21",
       "recovery": "19",
-      "onHit": "2",
+      "onHit": "3",
       "onBlock": "-6",
       "cancel": "C",
       "damage": "800",

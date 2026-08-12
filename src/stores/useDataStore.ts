@@ -35,6 +35,8 @@ import bundledElena from "../../data/frames/elena.json";
 import bundledCviper from "../../data/frames/cviper.json";
 import bundledSagat from "../../data/frames/sagat.json";
 import bundledAlex from "../../data/frames/alex.json";
+import bundledIngrid from "../../data/frames/ingrid.json";
+import bundledYasmine from "../../data/frames/yasmine.json";
 
 const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   ryu: bundledRyu as CharacterFrameData,
@@ -66,6 +68,8 @@ const BUNDLED_FRAMES: Record<string, CharacterFrameData> = {
   cviper: bundledCviper as CharacterFrameData,
   sagat: bundledSagat as CharacterFrameData,
   alex: bundledAlex as CharacterFrameData,
+  ingrid: bundledIngrid as CharacterFrameData,
+  yasmine: bundledYasmine as CharacterFrameData,
 };
 
 interface DataState {

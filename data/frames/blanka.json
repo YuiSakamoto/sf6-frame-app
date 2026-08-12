@@ -2,7 +2,7 @@
   "slug": "blanka",
   "name": "Blanka",
   "nameJa": "ブランカ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -54,8 +54,8 @@
       "name": "Standing Medium Punch",
       "nameJa": "立ち中P （ビーストチョップ）",
       "input": "",
-      "startup": "10",
-      "active": "10-12",
+      "startup": "9",
+      "active": "9-11",
       "recovery": "15",
       "onHit": "3",
       "onBlock": "-4",
@@ -92,8 +92,8 @@
       "saGaugeGain": "700",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "※空振り時硬直3F増加",
-      "notesEn": "* 3 frames of recovery added when the attack misses",
+      "notes": "空振り時硬直3F増加",
+      "notesEn": "3 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -506,8 +506,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "空振り時硬直4F増加",
+      "notesEn": "4 frames of recovery added when the attack misses",
       "category": "unique"
     },
     {
@@ -690,8 +690,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "発動後にボタンホールドで延長可能",
-      "notesEn": "Hold down the button to continue that attack",
+      "notes": "発動後にボタンホールドで延長可能ホールド時、4段目以降をヒット/ガードさせると追加攻撃に移行",
+      "notesEn": "Hold down the button to continue that attackWhile held, having the fourth attack onward hit or blocked transitions into a follow-up attack.",
       "category": "special"
     },
     {
@@ -713,8 +713,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "発動後にボタンホールドで延長可能",
-      "notesEn": "Hold down the button to continue that attack",
+      "notes": "発動後にボタンホールドで延長可能ホールド時、4段目以降をヒット/ガードさせると追加攻撃に移行",
+      "notesEn": "Hold down the button to continue that attackWhile held, having the fourth attack onward hit or blocked transitions into a follow-up attack.",
       "category": "special"
     },
     {

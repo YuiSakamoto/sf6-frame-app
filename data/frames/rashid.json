@@ -2,7 +2,7 @@
   "slug": "rashid",
   "name": "Rashid",
   "nameJa": "ラシード",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -242,7 +242,7 @@
       "active": "12-14",
       "recovery": "21",
       "onHit": "5",
-      "onBlock": "-6",
+      "onBlock": "-4",
       "cancel": "SA",
       "damage": "900",
       "comboScaling": "始動補正20%",
@@ -563,7 +563,7 @@
       "startup": "16",
       "active": "16-19",
       "recovery": "20",
-      "onHit": "2",
+      "onHit": "3",
       "onBlock": "-3",
       "cancel": "",
       "damage": "900",
@@ -782,8 +782,8 @@
       "saGaugeGain": "800",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "3-11F　空中判定の打撃・空弾属性に対して無敵10-97F 空中判定",
-      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 3 - 11Considered airborne from frames 10 -97",
+      "notes": "3-17F　空中判定の打撃・空弾属性に対して無敵10-97F 空中判定",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 3 - 17Considered airborne from frames 10 -97",
       "category": "special"
     },
     {

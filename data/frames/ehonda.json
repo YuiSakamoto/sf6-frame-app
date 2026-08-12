@@ -2,7 +2,7 @@
   "slug": "ehonda",
   "name": "E.Honda",
   "nameJa": "E.本田",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -69,8 +69,8 @@
       "saGaugeGain": "500",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "空振り時硬直2F増加",
-      "notesEn": "2 frames of recovery added when the attack misses",
+      "notes": "空振り時硬直4F増加",
+      "notesEn": "4 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -243,7 +243,7 @@
       "recovery": "※17",
       "onHit": "3",
       "onBlock": "-3",
-      "cancel": "※",
+      "cancel": "※SA",
       "damage": "800",
       "comboScaling": "",
       "comboScalingEn": "",
@@ -1022,7 +1022,7 @@
       "input": "",
       "startup": "",
       "active": "",
-      "recovery": "全体 51",
+      "recovery": "全体 44",
       "onHit": "",
       "onBlock": "",
       "cancel": "",

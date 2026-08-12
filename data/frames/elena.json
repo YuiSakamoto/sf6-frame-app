@@ -2,7 +2,7 @@
   "slug": "elena",
   "name": "Elena",
   "nameJa": "エレナ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -219,7 +219,7 @@
       "active": "9-11",
       "recovery": "18",
       "onHit": "4",
-      "onBlock": "-4",
+      "onBlock": "-3",
       "cancel": "",
       "damage": "600",
       "comboScaling": "始動補正20%",
@@ -253,8 +253,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "強制立ち効果",
-      "notesEn": "Forces the opponent into a standing position",
+      "notes": "強制立ち効果2段目空中ヒット時吹き飛びダウン",
+      "notesEn": "Forces the opponent into a standing positionForces a juggle state when hitting a mid-air opponent with the 2nd attack",
       "category": "normal"
     },
     {
@@ -976,7 +976,7 @@
       "input": "",
       "startup": "",
       "active": "",
-      "recovery": "全体 34",
+      "recovery": "全体 29",
       "onHit": "",
       "onBlock": "",
       "cancel": "",

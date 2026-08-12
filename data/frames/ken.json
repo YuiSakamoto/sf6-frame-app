@@ -2,7 +2,7 @@
   "slug": "ken",
   "name": "Ken",
   "nameJa": "ケン",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -195,10 +195,10 @@
       "startup": "6",
       "active": "6-8",
       "recovery": "14",
-      "onHit": "3",
+      "onHit": "5",
       "onBlock": "0",
       "cancel": "C",
-      "damage": "700",
+      "damage": "600",
       "comboScaling": "",
       "comboScalingEn": "",
       "driveGaugeGain": "1500",
@@ -460,8 +460,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "12Fから各派生技に移行可",
-      "notesEn": "Can transition to branching attacks from frame 12",
+      "notes": "10F目から踏み込み前蹴りに移行可、12F目からその他派生技に移行可",
+      "notesEn": "Can transition into Forward Step Kick from frame 10, and other branching attacks from frame 12",
       "category": "unique"
     },
     {
@@ -514,10 +514,10 @@
       "name": "Forward Step Kick",
       "nameJa": "踏み込み前蹴り",
       "input": "",
-      "startup": "10",
-      "active": "10-13",
-      "recovery": "20",
-      "onHit": "3",
+      "startup": "8",
+      "active": "8-11",
+      "recovery": "24",
+      "onHit": "1",
       "onBlock": "-4",
       "cancel": "SA",
       "damage": "800",
@@ -529,8 +529,8 @@
       "saGaugeGain": "1000",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "SAキャンセル対応",
-      "notesEn": "Can be canceled into any Super Art",
+      "notes": "空振り/アーマーヒット時硬直4F増加SAキャンセル対応",
+      "notesEn": "Adds +4 frames of recovery on armor hit or if the attack missesCan be canceled into any Super Art",
       "category": "unique"
     },
     {

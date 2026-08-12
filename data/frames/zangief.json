@@ -2,7 +2,7 @@
   "slug": "zangief",
   "name": "Zangief",
   "nameJa": "ザンギエフ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -749,10 +749,10 @@
       "recovery": "17",
       "onHit": "4",
       "onBlock": "-3",
-      "cancel": "",
+      "cancel": "C",
       "damage": "500",
-      "comboScaling": "",
-      "comboScalingEn": "",
+      "comboScaling": "始動補正20%",
+      "comboScalingEn": "Starter scaling 20%",
       "driveGaugeGain": "1500",
       "driveGaugeLossBlock": "-2500",
       "driveGaugeLossPc": "-4000",
@@ -1012,8 +1012,8 @@
       "saGaugeGain": "4000",
       "properties": "投",
       "propertiesEn": "Throw",
-      "notes": "■クラシック操作パニッシュカウンター時個別ダメージ（3335）■モダン操作時パニッシュカウンター時個別ダメージ（2668）",
-      "notesEn": "With Classic ControlsDoes 3335 individual damage when the attack lands as a Punish CounterWith Modern ControlsDoes 3335 individual damage when the attack lands as a Punish Counter*Does 2668 individual damage using simplified inputs",
+      "notes": "強版で発動時個別ダメージ(2600)■クラシック操作パニッシュカウンター時個別ダメージ（3335）■モダン操作時パニッシュカウンター時個別ダメージ（2668）",
+      "notesEn": "The heavy version does 2600 individual damage on activationWith Classic ControlsDoes 3335 individual damage when the attack lands as a Punish CounterWith Modern ControlsDoes 3335 individual damage when the attack lands as a Punish Counter*Does 2668 individual damage using simplified inputs",
       "category": "special"
     },
     {
