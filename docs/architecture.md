@@ -14,7 +14,7 @@ src/
 ├── i18n/                 # Translation files (14 languages)
 ├── types/                # TypeScript type definitions
 ├── utils/                # Utility functions
-└── theme/                # SF6 theme colors
+└── theme/                # Design tokens, ThemeProvider, SF6 character colors
 data/
 ├── characters.json       # Character list
 ├── version.json          # Data version
@@ -25,7 +25,7 @@ scripts/scraper/          # Playwright scraper
 ## Tech Stack
 
 - **Framework**: React Native (Expo SDK 55) + expo-router
-- **Styling**: NativeWind (TailwindCSS)
+- **Styling**: Custom design tokens (`src/theme/tokens.ts`) + `ThemeProvider`/`useTheme` (StyleSheet-based, NativeWind removed)
 - **State Management**: Zustand
 - **Storage**: AsyncStorage + in-memory cache (native) / localStorage (web)
 - **i18n**: i18next + react-i18next + expo-localization

@@ -8,7 +8,8 @@
     "cancel": "إلغاء",
     "change": "تغيير",
     "save": "حفظ",
-    "settings": "الإعدادات"
+    "settings": "الإعدادات",
+    "close": "Close"
   },
   "tabs": {
     "home": "الرئيسية",
@@ -30,7 +31,13 @@
     "onBlock": "عند الصد",
     "onHit": "عند الإصابة",
     "damage": "الضرر",
-    "command": "الأمر"
+    "command": "الأمر",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "باحث العقوبات",
@@ -41,7 +48,11 @@
     "fastestPunish": "أسرع عقوبة",
     "framesToSpare": "{{frames}} إطار احتياطي",
     "result": "العقوبات: {{count}}",
-    "resultStep": "النتائج"
+    "resultStep": "النتائج",
+    "punishableCount": "{{count}} رد مؤكد",
+    "swap": "تبديل شخصيتي مع الخصم",
+    "selectOpponent": "اختر الخصم",
+    "searchMoves": "تصفية الحركات"
   },
   "filter": {
     "all": "الكل",
@@ -52,6 +63,11 @@
     "throw": "إمساك",
     "commandNormal": "عادية بأمر"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "حسب البدء",
     "damage": "حسب الضرر",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "اللغة",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "تحديث البيانات",
     "lastUpdated": "آخر تحديث: {{date}}",
     "checkUpdate": "التحقق من التحديثات",

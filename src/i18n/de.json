@@ -8,7 +8,8 @@
     "cancel": "Abbrechen",
     "change": "Ändern",
     "save": "Speichern",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "close": "Close"
   },
   "tabs": {
     "home": "Startseite",
@@ -30,7 +31,13 @@
     "onBlock": "Bei Block",
     "onHit": "Bei Treffer",
     "damage": "Schaden",
-    "command": "Befehl"
+    "command": "Befehl",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Bestrafungssuche",
@@ -41,7 +48,11 @@
     "fastestPunish": "Schnellste Bestrafung",
     "framesToSpare": "{{frames}}F Spielraum",
     "result": "Bestrafungen: {{count}}",
-    "resultStep": "Ergebnis"
+    "resultStep": "Ergebnis",
+    "punishableCount": "{{count}} Konter",
+    "swap": "Meinen Charakter und Gegner tauschen",
+    "selectOpponent": "Gegner auswählen",
+    "searchMoves": "Moves filtern"
   },
   "filter": {
     "all": "Alle",
@@ -52,6 +63,11 @@
     "throw": "Wurf",
     "commandNormal": "Befehlsnormal"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "Nach Startup",
     "damage": "Nach Schaden",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "Sprache",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Datenaktualisierung",
     "lastUpdated": "Zuletzt aktualisiert: {{date}}",
     "checkUpdate": "Nach Updates suchen",

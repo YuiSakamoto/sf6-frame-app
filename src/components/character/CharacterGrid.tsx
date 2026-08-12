@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet } from "react-native";
-import Animated, { FadeInUp } from "react-native-reanimated";
+import Animated, { FadeInUp, useReducedMotion } from "react-native-reanimated";
 import type { Character } from "@/types/character";
 import { CharacterCard } from "./CharacterCard";
 import { useResponsive } from "@/hooks/useResponsive";
@@ -16,6 +16,7 @@ export function CharacterGrid({
   selectedSlug,
 }: CharacterGridProps) {
   const { gridColumns } = useResponsive();
+  const reduced = useReducedMotion();
   const maxWidthPercent = `${100 / gridColumns}%` as const;
 
   return (
@@ -28,7 +29,9 @@ export function CharacterGrid({
       columnWrapperStyle={styles.column}
       renderItem={({ item, index }) => (
         <Animated.View
-          entering={FadeInUp.delay(index * 30).duration(200)}
+          entering={
+            reduced ? undefined : FadeInUp.delay(index * 30).duration(200)
+          }
           style={[styles.item, { maxWidth: maxWidthPercent }]}
         >
           <CharacterCard

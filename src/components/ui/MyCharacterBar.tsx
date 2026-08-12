@@ -1,5 +1,5 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
 
@@ -18,11 +18,21 @@ export function MyCharacterBar({
   trailingLabel,
 }: MyCharacterBarProps) {
   const { t, i18n } = useTranslation();
+  const styles = useThemedStyles(createStyles);
   const displayName =
     character && i18n.language === "ja" ? character.nameJa : character?.name;
+  const accessibilityLabel =
+    isSet && character
+      ? `${displayName} ${trailingLabel ?? t("common.change")}`
+      : t("character.selectMyCharacter");
 
   return (
-    <Pressable onPress={onPress} style={styles.container}>
+    <Pressable
+      onPress={onPress}
+      style={styles.container}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+    >
       {isSet && character ? (
         <>
           <View style={styles.avatar}>
@@ -47,46 +57,47 @@ export function MyCharacterBar({
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-  },
-  avatar: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: colors.accent,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  avatarText: {
-    color: colors.background,
-    fontWeight: "700",
-    fontSize: 12,
-  },
-  name: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: "600",
-    marginLeft: 8,
-    flex: 1,
-  },
-  placeholder: {
-    color: colors.textMuted,
-    fontSize: 13,
-    flex: 1,
-  },
-  trailing: {
-    color: colors.accent,
-    fontSize: 12,
-  },
-  trailingAccent: {
-    color: colors.accent,
-    fontSize: 12,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingHorizontal: 16,
+      paddingVertical: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+    },
+    avatar: {
+      width: 28,
+      height: 28,
+      borderRadius: 14,
+      backgroundColor: theme.colors.accent,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    avatarText: {
+      color: theme.colors.surface,
+      fontWeight: "700",
+      fontSize: 12,
+    },
+    name: {
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+      fontWeight: "600",
+      marginLeft: 8,
+      flex: 1,
+    },
+    placeholder: {
+      color: theme.colors.textMuted,
+      fontSize: 13,
+      flex: 1,
+    },
+    trailing: {
+      color: theme.colors.accent,
+      fontSize: 12,
+    },
+    trailingAccent: {
+      color: theme.colors.accent,
+      fontSize: 12,
+    },
+  });

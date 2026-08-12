@@ -1,10 +1,5 @@
 import { describe, it, expect } from "vitest";
-import {
-  parseFrameValue,
-  getFrameColor,
-  isPunishable,
-} from "../frameAdvantage";
-import { colors } from "@/theme/colors";
+import { parseFrameValue, getFrameTone, isPunishable } from "../frameAdvantage";
 
 describe("parseFrameValue", () => {
   it("正の数をパースする", () => {
@@ -48,24 +43,6 @@ describe("parseFrameValue", () => {
   });
 });
 
-describe("getFrameColor", () => {
-  it("正の値は framePositive 色を返す", () => {
-    expect(getFrameColor("+2")).toBe(colors.framePositive);
-  });
-
-  it("負の値は frameNegative 色を返す", () => {
-    expect(getFrameColor("-8")).toBe(colors.frameNegative);
-  });
-
-  it("0 は frameNeutral 色を返す", () => {
-    expect(getFrameColor("0")).toBe(colors.frameNeutral);
-  });
-
-  it("パース不能な値は frameNeutral 色を返す", () => {
-    expect(getFrameColor("-")).toBe(colors.frameNeutral);
-  });
-});
-
 describe("isPunishable", () => {
   it("負のフレームは確反可能", () => {
     expect(isPunishable("-8")).toBe(true);
@@ -81,5 +58,23 @@ describe("isPunishable", () => {
 
   it("パース不能な値は確反不可", () => {
     expect(isPunishable("-")).toBe(false);
+  });
+});
+
+describe("getFrameTone", () => {
+  it("正の値は positive", () => {
+    expect(getFrameTone("+5")).toBe("positive");
+    expect(getFrameTone("3")).toBe("positive");
+  });
+  it("負の値は negative", () => {
+    expect(getFrameTone("-8")).toBe("negative");
+  });
+  it("0・パース不能は neutral", () => {
+    expect(getFrameTone("0")).toBe("neutral");
+    expect(getFrameTone("-")).toBe("neutral");
+    expect(getFrameTone("D")).toBe("neutral");
+  });
+  it("レンジは最小値で判定", () => {
+    expect(getFrameTone("2~4")).toBe("positive");
   });
 });

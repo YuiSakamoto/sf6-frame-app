@@ -1,5 +1,3 @@
-import { colors } from "@/theme/colors";
-
 /**
  * フレーム値文字列をパースして数値に変換する
  * 例: "-8" → -8, "+2" → 2, "8~10" → 8（最小値）
@@ -18,15 +16,15 @@ export function parseFrameValue(value: string): number | null {
   return isNaN(num) ? null : num;
 }
 
+export type FrameTone = "positive" | "negative" | "neutral";
+
 /**
- * フレーム値の表示色を返す
+ * フレーム値の意味種別を返す(色はテーマ側で解決する)
  */
-export function getFrameColor(value: string): string {
+export function getFrameTone(value: string): FrameTone {
   const num = parseFrameValue(value);
-  if (num === null) return colors.frameNeutral;
-  if (num > 0) return colors.framePositive;
-  if (num < 0) return colors.frameNegative;
-  return colors.frameNeutral;
+  if (num === null || num === 0) return "neutral";
+  return num > 0 ? "positive" : "negative";
 }
 
 /**

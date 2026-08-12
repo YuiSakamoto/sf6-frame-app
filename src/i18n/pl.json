@@ -8,7 +8,8 @@
     "cancel": "Anuluj",
     "change": "Zmień",
     "save": "Zapisz",
-    "settings": "Ustawienia"
+    "settings": "Ustawienia",
+    "close": "Close"
   },
   "tabs": {
     "home": "Główna",
@@ -30,7 +31,13 @@
     "onBlock": "Na bloku",
     "onHit": "Na trafieniu",
     "damage": "Obrażenia",
-    "command": "Komenda"
+    "command": "Komenda",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Wyszukiwarka karań",
@@ -41,7 +48,11 @@
     "fastestPunish": "Najszybsze karanie",
     "framesToSpare": "{{frames}}F zapasu",
     "result": "Karania: {{count}}",
-    "resultStep": "Wynik"
+    "resultStep": "Wynik",
+    "punishableCount": "{{count}} kar",
+    "swap": "Zamień mojego bohatera z przeciwnikiem",
+    "selectOpponent": "Wybierz przeciwnika",
+    "searchMoves": "Filtruj ruchy"
   },
   "filter": {
     "all": "Wszystkie",
@@ -52,6 +63,11 @@
     "throw": "Rzut",
     "commandNormal": "Normalne cmd"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "Wg startupu",
     "damage": "Wg obrażeń",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "Język",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Aktualizacja danych",
     "lastUpdated": "Ostatnia aktualizacja: {{date}}",
     "checkUpdate": "Sprawdź aktualizacje",

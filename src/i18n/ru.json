@@ -8,7 +8,8 @@
     "cancel": "Отмена",
     "change": "Изменить",
     "save": "Сохранить",
-    "settings": "Настройки"
+    "settings": "Настройки",
+    "close": "Close"
   },
   "tabs": {
     "home": "Главная",
@@ -30,7 +31,13 @@
     "onBlock": "При блоке",
     "onHit": "При попадании",
     "damage": "Урон",
-    "command": "Команда"
+    "command": "Команда",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "Поиск наказаний",
@@ -41,7 +48,11 @@
     "fastestPunish": "Самое быстрое наказание",
     "framesToSpare": "{{frames}}F запаса",
     "result": "Наказания: {{count}}",
-    "resultStep": "Результат"
+    "resultStep": "Результат",
+    "punishableCount": "{{count}} наказаний",
+    "swap": "Поменять местами моего персонажа и противника",
+    "selectOpponent": "Выбрать противника",
+    "searchMoves": "Фильтр по названию приёма"
   },
   "filter": {
     "all": "Все",
@@ -52,6 +63,11 @@
     "throw": "Захват",
     "commandNormal": "Обычные cmd"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "По стартапу",
     "damage": "По урону",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "Язык",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Обновление данных",
     "lastUpdated": "Последнее обновление: {{date}}",
     "checkUpdate": "Проверить обновления",

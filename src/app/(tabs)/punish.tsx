@@ -1,180 +1,134 @@
-import { useCallback, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useCallback, useMemo, useState } from "react";
+import { FlatList, StyleSheet, Text, View } from "react-native";
+import { useTranslation } from "react-i18next";
 import { useDataStore } from "@/stores/useDataStore";
 import { useFilterStore } from "@/stores/useFilterStore";
 import { useMyCharacter } from "@/hooks/useMyCharacter";
 import { usePunishFinder } from "@/hooks/usePunishFinder";
-import { CharacterGrid } from "@/components/character/CharacterGrid";
 import { CharacterSelectModal } from "@/components/character/CharacterSelectModal";
-import { PunishResult } from "@/components/punish/PunishResult";
-import { MoveRow } from "@/components/frame-data/MoveRow";
-import { ColumnHeader } from "@/components/frame-data/ColumnHeader";
+import { VsBar } from "@/components/punish/VsBar";
+import { PunishSummaryRow } from "@/components/punish/PunishSummaryRow";
 import { FilterChip } from "@/components/ui/FilterChip";
-import { MyCharacterBar } from "@/components/ui/MyCharacterBar";
-import { Stepper } from "@/components/ui/Stepper";
-import type { Character } from "@/types/character";
-import type { Move } from "@/types/frame-data";
-import { useTranslation } from "react-i18next";
-import { getMoveName } from "@/utils/moveName";
+import { SearchBar } from "@/components/ui/SearchBar";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { WebContainer } from "@/components/ui/WebContainer";
 import { PageHead } from "@/components/seo/PageHead";
-
-type Step = "select-opponent" | "select-move" | "result";
-const STEP_INDEX: Record<Step, number> = {
-  "select-opponent": 0,
-  "select-move": 1,
-  result: 2,
-};
+import { searchMoves } from "@/utils/search";
+import { lightImpact } from "@/utils/haptics";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
+import type { MovePunishSummary } from "@/services/punishService";
+import type { Move } from "@/types/frame-data";
 
 export default function PunishScreen() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const characters = useDataStore((s) => s.characters);
-  const { myCharacter, isSet, setMyCharacter } = useMyCharacter();
+  const { myCharacter, setMyCharacter } = useMyCharacter();
   const sortMode = useFilterStore((s) => s.sortMode);
   const setSortMode = useFilterStore((s) => s.setSortMode);
+  const styles = useThemedStyles(createStyles);
 
-  const [step, setStep] = useState<Step>("select-opponent");
   const [opponentSlug, setOpponentSlug] = useState<string | null>(null);
-  const [selectedMove, setSelectedMove] = useState<Move | null>(null);
-  const [myCharModalVisible, setMyCharModalVisible] = useState(false);
-
-  const { punishableMoves, punishOptions, isOpponentLoading } = usePunishFinder(
-    opponentSlug,
-    selectedMove,
-    sortMode,
+  // 画面内だけの自キャラ上書き。null なら設定の自キャラをそのまま使う
+  const [myOverrideSlug, setMyOverrideSlug] = useState<string | null>(null);
+  const [query, setQuery] = useState("");
+  const [expandedMove, setExpandedMove] = useState<Move | null>(null);
+  const [modalTarget, setModalTarget] = useState<"my" | "opponent" | null>(
+    null,
   );
 
-  const handleSelectOpponent = useCallback((character: Character) => {
-    setOpponentSlug(character.slug);
-    setSelectedMove(null);
-    setStep("select-move");
-  }, []);
+  const effectiveMySlug = myOverrideSlug ?? myCharacter?.slug ?? null;
+  const effectiveMyCharacter = useMemo(
+    () => characters.find((c) => c.slug === effectiveMySlug) ?? null,
+    [characters, effectiveMySlug],
+  );
 
-  const handleSelectMove = useCallback((move: Move) => {
-    setSelectedMove(move);
-    setStep("result");
-  }, []);
+  const opponent = useMemo(
+    () => characters.find((c) => c.slug === opponentSlug) ?? null,
+    [characters, opponentSlug],
+  );
 
-  const handleBack = useCallback(() => {
-    if (step === "result") {
-      setSelectedMove(null);
-      setStep("select-move");
-    } else if (step === "select-move") {
-      setOpponentSlug(null);
-      setStep("select-opponent");
-    }
-  }, [step]);
+  const { summaries, isOpponentLoading } = usePunishFinder(
+    opponentSlug,
+    sortMode,
+    myOverrideSlug,
+  );
 
-  const handleReset = useCallback(() => {
-    setStep("select-opponent");
-    setOpponentSlug(null);
-    setSelectedMove(null);
-  }, []);
-
-  if (!isSet) {
-    return (
-      <WebContainer>
-        <View style={styles.emptyContainer}>
-          <Text style={styles.emptyTitle}>
-            {t("character.selectMyCharacter")}
-          </Text>
-          <Text style={styles.emptyDescription}>{t("punish.description")}</Text>
-        </View>
-        <CharacterGrid
-          characters={characters}
-          onSelect={(c) => setMyCharacter(c.slug)}
-        />
-      </WebContainer>
+  const filtered = useMemo((): MovePunishSummary[] => {
+    if (query.trim() === "") return summaries;
+    const matchedMoves = new Set(
+      searchMoves(
+        summaries.map((s) => s.move),
+        query,
+      ),
     );
-  }
+    return summaries.filter((s) => matchedMoves.has(s.move));
+  }, [summaries, query]);
+
+  // swap は画面内のみの入れ替え。永続設定(自キャラ設定)は変更しない
+  const handleSwap = useCallback(() => {
+    if (!effectiveMySlug || !opponentSlug) return;
+    const prevEffectiveMySlug = effectiveMySlug;
+    setMyOverrideSlug(opponentSlug);
+    setOpponentSlug(prevEffectiveMySlug);
+    setExpandedMove(null);
+  }, [effectiveMySlug, opponentSlug]);
 
   return (
     <WebContainer>
       <PageHead
         title="SF6 Punish Finder - Frame Data Punish Calculator"
-        description="Find guaranteed punishes after blocking in Street Fighter 6. Select the opponent's move and instantly see your best punish options with frame advantage."
+        description="Find guaranteed punishes after blocking in Street Fighter 6. Select the opponent and instantly see punishable moves with your best punish options."
         path="/punish"
       />
-      <MyCharacterBar
-        character={myCharacter}
-        isSet={isSet}
-        onPress={() => setMyCharModalVisible(true)}
-        trailingLabel={t("character.myCharacter")}
+      <VsBar
+        myCharacter={effectiveMyCharacter}
+        opponent={opponent}
+        onPressMy={() => setModalTarget("my")}
+        onPressOpponent={() => setModalTarget("opponent")}
+        onSwap={handleSwap}
       />
       <CharacterSelectModal
-        visible={myCharModalVisible}
+        visible={modalTarget !== null}
         characters={characters}
-        selectedSlug={myCharacter?.slug}
+        selectedSlug={
+          modalTarget === "my" ? effectiveMyCharacter?.slug : opponent?.slug
+        }
         onSelect={(c) => {
-          setMyCharacter(c.slug);
-          setMyCharModalVisible(false);
-          handleReset();
+          if (modalTarget === "my") {
+            // VsBar から明示的に選んだ場合は本命キャラ変更とみなし、永続設定に保存する
+            setMyCharacter(c.slug);
+            setMyOverrideSlug(null);
+          } else {
+            setOpponentSlug(c.slug);
+          }
+          setModalTarget(null);
+          setExpandedMove(null);
         }}
-        onClose={() => setMyCharModalVisible(false)}
+        onClose={() => setModalTarget(null)}
       />
 
-      <Stepper
-        steps={[
-          t("character.opponent"),
-          t("punish.selectOpponentMove"),
-          t("punish.resultStep"),
-        ]}
-        currentStep={STEP_INDEX[step]}
-      />
-
-      <Text style={styles.disclaimer}>{t("punish.disclaimer")}</Text>
-
-      {step === "select-opponent" && (
-        <View style={styles.flex}>
-          <Text style={styles.sectionLabel}>{t("character.opponent")}</Text>
-          <CharacterGrid
-            characters={characters}
-            onSelect={handleSelectOpponent}
-            selectedSlug={opponentSlug}
-          />
-        </View>
-      )}
-
-      {step === "select-move" && (
-        <View style={styles.flex}>
-          <Pressable onPress={handleBack} style={styles.backButton}>
-            <Text style={styles.backText}>
-              {"< "}
-              {t("character.opponent")}
-            </Text>
-          </Pressable>
-          <Text style={styles.sectionLabel}>
-            {t("punish.selectOpponentMove")}
+      {opponent === null || !effectiveMyCharacter ? (
+        <View style={styles.center}>
+          <Text style={styles.hint}>
+            {!effectiveMyCharacter
+              ? t("character.selectMyCharacter")
+              : t("punish.selectOpponent")}
           </Text>
-          <ColumnHeader leadingLabel={t("frameData.title")} />
-          {isOpponentLoading ? (
-            <View style={styles.loadingContainer}>
-              <Text style={styles.loadingText}>{t("common.loading")}</Text>
-            </View>
-          ) : (
-            <ScrollView>
-              {punishableMoves.map((move, index) => (
-                <MoveRow
-                  key={index}
-                  move={move}
-                  onPress={handleSelectMove}
-                  expandable={false}
-                />
-              ))}
-            </ScrollView>
-          )}
+          <Text style={styles.hintSub}>{t("punish.description")}</Text>
         </View>
-      )}
-
-      {step === "result" && selectedMove && (
-        <View style={styles.flex}>
-          <Pressable onPress={handleBack} style={styles.backButton}>
-            <Text style={styles.backText}>
-              {"< "}
-              {t("punish.selectOpponentMove")}
-            </Text>
-          </Pressable>
+      ) : isOpponentLoading ? (
+        <View style={styles.skeletonContainer}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <Skeleton key={i} height={40} />
+          ))}
+        </View>
+      ) : (
+        <>
+          <SearchBar
+            value={query}
+            onChangeText={setQuery}
+            placeholder={t("punish.searchMoves")}
+          />
           <View style={styles.sortRow}>
             <FilterChip
               label={t("sort.startup")}
@@ -187,74 +141,62 @@ export default function PunishScreen() {
               onPress={() => setSortMode("damage")}
             />
           </View>
-          <PunishResult
-            punishes={punishOptions}
-            selectedMoveName={getMoveName(selectedMove, i18n.language)}
+          <Text style={styles.disclaimer}>{t("punish.disclaimer")}</Text>
+          <FlatList
+            data={filtered}
+            keyExtractor={(item, index) => `${item.move.name}-${index}`}
+            renderItem={({ item }) => (
+              <PunishSummaryRow
+                summary={item}
+                expanded={expandedMove === item.move}
+                onToggle={() => {
+                  lightImpact();
+                  setExpandedMove((prev) =>
+                    prev === item.move ? null : item.move,
+                  );
+                }}
+              />
+            )}
           />
-        </View>
+        </>
       )}
     </WebContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  flex: {
-    flex: 1,
-  },
-  emptyContainer: {
-    alignItems: "center",
-    paddingHorizontal: 16,
-    paddingTop: 24,
-    paddingBottom: 8,
-  },
-  emptyTitle: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: "700",
-    textAlign: "center",
-  },
-  emptyDescription: {
-    color: colors.textSecondary,
-    fontSize: 13,
-    marginTop: 8,
-    textAlign: "center",
-  },
-  sectionLabel: {
-    color: colors.textSecondary,
-    fontSize: 12,
-    fontWeight: "600",
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 8,
-  },
-  backButton: {
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  backText: {
-    color: colors.accent,
-    fontSize: 12,
-  },
-  sortRow: {
-    flexDirection: "row",
-    paddingHorizontal: 16,
-    paddingVertical: 8,
-  },
-  loadingContainer: {
-    padding: 32,
-    alignItems: "center",
-  },
-  loadingText: {
-    color: colors.textMuted,
-  },
-  disclaimer: {
-    color: colors.textMuted,
-    fontSize: 10,
-    paddingHorizontal: 16,
-    paddingVertical: 6,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    center: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+      paddingHorizontal: theme.spacing.xl,
+      gap: theme.spacing.sm,
+    },
+    hint: {
+      color: theme.colors.textPrimary,
+      fontSize: theme.fontSize.md,
+      fontWeight: "600",
+      textAlign: "center",
+    },
+    hintSub: {
+      color: theme.colors.textSecondary,
+      fontSize: theme.fontSize.sm,
+      textAlign: "center",
+    },
+    skeletonContainer: {
+      padding: theme.spacing.lg,
+      gap: theme.spacing.md,
+    },
+    sortRow: {
+      flexDirection: "row",
+      paddingHorizontal: theme.spacing.lg,
+      paddingBottom: theme.spacing.sm,
+    },
+    disclaimer: {
+      color: theme.colors.textMuted,
+      fontSize: theme.fontSize.xs,
+      paddingHorizontal: theme.spacing.lg,
+      paddingBottom: 6,
+    },
+  });

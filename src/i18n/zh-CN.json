@@ -8,7 +8,8 @@
     "cancel": "取消",
     "change": "更改",
     "save": "保存",
-    "settings": "设置"
+    "settings": "设置",
+    "close": "Close"
   },
   "tabs": {
     "home": "首页",
@@ -30,7 +31,13 @@
     "onBlock": "防御后",
     "onHit": "命中后",
     "damage": "伤害",
-    "command": "指令"
+    "command": "指令",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "确反搜索",
@@ -41,7 +48,11 @@
     "fastestPunish": "最快确反",
     "framesToSpare": "{{frames}}F余裕",
     "result": "确定反击: {{count}}个",
-    "resultStep": "结果"
+    "resultStep": "结果",
+    "punishableCount": "确反 {{count}} 个",
+    "swap": "交换我方与对手角色",
+    "selectOpponent": "选择对手角色",
+    "searchMoves": "按招式名筛选"
   },
   "filter": {
     "all": "全部",
@@ -52,6 +63,11 @@
     "throw": "投技",
     "commandNormal": "指令普通技"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "按发生排序",
     "damage": "按伤害排序",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "语言",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "数据更新",
     "lastUpdated": "最后更新: {{date}}",
     "checkUpdate": "检查更新",

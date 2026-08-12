@@ -1,5 +1,5 @@
 import { Modal, Pressable, StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { CharacterGrid } from "./CharacterGrid";
 import type { Character } from "@/types/character";
 import { useTranslation } from "react-i18next";
@@ -23,6 +23,7 @@ export function CharacterSelectModal({
   onClose,
 }: CharacterSelectModalProps) {
   const { t } = useTranslation();
+  const styles = useThemedStyles(createStyles);
 
   return (
     <Modal
@@ -37,7 +38,12 @@ export function CharacterSelectModal({
           <View style={styles.header}>
             <Text style={styles.title}>{t("character.selectMyCharacter")}</Text>
             {dismissable && (
-              <Pressable onPress={onClose}>
+              <Pressable
+                onPress={onClose}
+                accessibilityRole="button"
+                accessibilityLabel={t("common.cancel")}
+                hitSlop={8}
+              >
                 <Text style={styles.closeButton}>✕</Text>
               </Pressable>
             )}
@@ -53,36 +59,37 @@ export function CharacterSelectModal({
   );
 }
 
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: "rgba(0,0,0,0.7)",
-    justifyContent: "flex-end",
-  },
-  backdrop: {
-    flex: 1,
-  },
-  sheet: {
-    backgroundColor: colors.background,
-    borderTopLeftRadius: 16,
-    borderTopRightRadius: 16,
-    maxHeight: "80%",
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 16,
-    paddingTop: 16,
-    paddingBottom: 8,
-  },
-  title: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: "700",
-  },
-  closeButton: {
-    color: colors.textMuted,
-    fontSize: 14,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    overlay: {
+      flex: 1,
+      backgroundColor: "rgba(0,0,0,0.7)",
+      justifyContent: "flex-end",
+    },
+    backdrop: {
+      flex: 1,
+    },
+    sheet: {
+      backgroundColor: theme.colors.bg,
+      borderTopLeftRadius: 16,
+      borderTopRightRadius: 16,
+      maxHeight: "80%",
+    },
+    header: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      paddingHorizontal: 16,
+      paddingTop: 16,
+      paddingBottom: 8,
+    },
+    title: {
+      color: theme.colors.textPrimary,
+      fontSize: 16,
+      fontWeight: "700",
+    },
+    closeButton: {
+      color: theme.colors.textMuted,
+      fontSize: 14,
+    },
+  });

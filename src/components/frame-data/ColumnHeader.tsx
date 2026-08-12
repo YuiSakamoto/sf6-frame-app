@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 
 interface ColumnHeaderProps {
@@ -10,6 +10,7 @@ interface ColumnHeaderProps {
 export function ColumnHeader({ leadingLabel }: ColumnHeaderProps) {
   const { t } = useTranslation();
   const label = leadingLabel ?? t("frameData.command");
+  const styles = useThemedStyles(createStyles);
 
   return (
     <View style={styles.container}>
@@ -32,34 +33,35 @@ export function ColumnHeader({ leadingLabel }: ColumnHeaderProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    paddingVertical: 6,
-    paddingHorizontal: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    backgroundColor: colors.background,
-  },
-  leading: {
-    flex: 1,
-  },
-  columns: {
-    flexDirection: "row",
-    gap: 4,
-  },
-  label: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: "600",
-  },
-  column: {
-    minWidth: 36,
-    textAlign: "center",
-  },
-  columnWide: {
-    minWidth: 40,
-    textAlign: "center",
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 6,
+      paddingHorizontal: 16,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.colors.border,
+      backgroundColor: theme.colors.bg,
+    },
+    leading: {
+      flex: 1,
+    },
+    columns: {
+      flexDirection: "row",
+      gap: 4,
+    },
+    label: {
+      color: theme.colors.textMuted,
+      fontSize: 10,
+      fontWeight: "600",
+    },
+    column: {
+      minWidth: 36,
+      textAlign: "center",
+    },
+    columnWide: {
+      minWidth: 40,
+      textAlign: "center",
+    },
+  });

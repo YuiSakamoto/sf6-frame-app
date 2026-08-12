@@ -8,7 +8,8 @@
     "cancel": "취소",
     "change": "변경",
     "save": "저장",
-    "settings": "설정"
+    "settings": "설정",
+    "close": "Close"
   },
   "tabs": {
     "home": "홈",
@@ -30,7 +31,13 @@
     "onBlock": "가드 시",
     "onHit": "히트 시",
     "damage": "데미지",
-    "command": "커맨드"
+    "command": "커맨드",
+    "cancel": "Cancel",
+    "comboScaling": "Combo Scaling",
+    "driveGaugeGain": "D.Gauge+",
+    "driveGaugeLossBlock": "D.Gauge- (Block)",
+    "driveGaugeLossPc": "D.Gauge- (PC)",
+    "saGaugeGain": "SA Gauge+"
   },
   "punish": {
     "title": "확정반격 검색",
@@ -41,7 +48,11 @@
     "fastestPunish": "최속 확반",
     "framesToSpare": "{{frames}}F 여유",
     "result": "확정반격: {{count}}개",
-    "resultStep": "결과"
+    "resultStep": "결과",
+    "punishableCount": "확정반격 {{count}}개",
+    "swap": "내 캐릭터와 상대 교체",
+    "selectOpponent": "상대 캐릭터 선택",
+    "searchMoves": "기술명으로 검색"
   },
   "filter": {
     "all": "전체",
@@ -52,6 +63,11 @@
     "throw": "잡기",
     "commandNormal": "커맨드 일반기"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "startup": "발생순",
     "damage": "데미지순",
@@ -59,6 +75,10 @@
   },
   "settings": {
     "language": "언어",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "데이터 업데이트",
     "lastUpdated": "마지막 업데이트: {{date}}",
     "checkUpdate": "업데이트 확인",

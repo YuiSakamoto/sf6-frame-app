@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, useTheme, type Theme } from "@/theme/ThemeContext";
 import { useTranslation } from "react-i18next";
 
 interface SearchBarProps {
@@ -15,40 +15,45 @@ export function SearchBar({
   placeholder,
 }: SearchBarProps) {
   const { t } = useTranslation();
+  const theme = useTheme();
+  const styles = useThemedStyles(createStyles);
+  const resolvedPlaceholder = placeholder ?? t("common.search");
 
   return (
     <View style={styles.container}>
-      <Ionicons name="search" size={18} color={colors.textSecondary} />
+      <Ionicons name="search" size={18} color={theme.colors.textSecondary} />
       <TextInput
         style={styles.input}
         value={value}
         onChangeText={onChangeText}
-        placeholder={placeholder ?? t("common.search")}
-        placeholderTextColor={colors.textMuted}
+        placeholder={resolvedPlaceholder}
+        placeholderTextColor={theme.colors.textMuted}
         autoCapitalize="none"
         autoCorrect={false}
+        accessibilityLabel={resolvedPlaceholder}
       />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: colors.surface,
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    marginHorizontal: 16,
-    marginVertical: 8,
-    height: 40,
-    borderWidth: 1,
-    borderColor: colors.border,
-  },
-  input: {
-    flex: 1,
-    marginLeft: 8,
-    color: colors.text,
-    fontSize: 14,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: theme.colors.surface,
+      borderRadius: 8,
+      paddingHorizontal: 12,
+      marginHorizontal: 16,
+      marginVertical: 8,
+      height: 40,
+      borderWidth: 1,
+      borderColor: theme.colors.border,
+    },
+    input: {
+      flex: 1,
+      marginLeft: 8,
+      color: theme.colors.textPrimary,
+      fontSize: 14,
+    },
+  });

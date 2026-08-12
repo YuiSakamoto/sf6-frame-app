@@ -8,7 +8,8 @@
     "cancel": "Cancel",
     "change": "Change",
     "save": "Save",
-    "settings": "Settings"
+    "settings": "Settings",
+    "close": "Close"
   },
   "tabs": {
     "home": "Frame Data",
@@ -51,7 +52,11 @@
     "framesToSpare": "{{frames}}F to spare",
     "result": "Punish options: {{count}}",
     "resultStep": "Result",
-    "disclaimer": "* Based on frame data only. Punishes may not connect due to distance and knockback. Always consider spacing in actual matches."
+    "disclaimer": "* Based on frame data only. Punishes may not connect due to distance and knockback. Always consider spacing in actual matches.",
+    "punishableCount": "{{count}} punishes",
+    "swap": "Swap my character and opponent",
+    "selectOpponent": "Select opponent",
+    "searchMoves": "Filter moves"
   },
   "filter": {
     "all": "All",
@@ -68,6 +73,11 @@
     "noResults": "No matching moves found",
     "resultCount": "{{count}} results"
   },
+  "searchFilter": {
+    "allCharacters": "All characters",
+    "startupMax": "Startup ≤ {{n}}F",
+    "onBlockMax": "On block ≤ {{n}}"
+  },
   "sort": {
     "default": "Default",
     "startup": "By Startup",
@@ -76,6 +86,10 @@
   },
   "settings": {
     "language": "Language",
+    "theme": "Theme",
+    "themeSystem": "Follow system",
+    "themeLight": "Light",
+    "themeDark": "Dark",
     "dataUpdate": "Data Update",
     "lastUpdated": "Last updated: {{date}}",
     "checkUpdate": "Check for updates",

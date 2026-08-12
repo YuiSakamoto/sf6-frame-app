@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useRouter } from "expo-router";
-import { colors } from "@/theme/colors";
+import { useThemedStyles, type Theme } from "@/theme/ThemeContext";
 import { useDataStore } from "@/stores/useDataStore";
 import { CharacterGrid } from "@/components/character/CharacterGrid";
 import { WebContainer } from "@/components/ui/WebContainer";
@@ -13,6 +13,7 @@ export default function HomeScreen() {
   const router = useRouter();
   const { t } = useTranslation();
   const characters = useDataStore((s) => s.characters);
+  const styles = useThemedStyles(createStyles);
 
   const handleCharacterPress = useCallback(
     (character: Character) => {
@@ -36,14 +37,15 @@ export default function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  guideRow: {
-    paddingHorizontal: 16,
-    paddingTop: 12,
-    paddingBottom: 4,
-  },
-  guideText: {
-    color: colors.textSecondary,
-    fontSize: 13,
-  },
-});
+const createStyles = (theme: Theme) =>
+  StyleSheet.create({
+    guideRow: {
+      paddingHorizontal: 16,
+      paddingTop: 12,
+      paddingBottom: 4,
+    },
+    guideText: {
+      color: theme.colors.textSecondary,
+      fontSize: 13,
+    },
+  });

@@ -8,7 +8,8 @@
     "cancel": "キャンセル",
     "change": "変更",
     "save": "保存",
-    "settings": "設定"
+    "settings": "設定",
+    "close": "閉じる"
   },
   "tabs": {
     "home": "技表",
@@ -51,7 +52,11 @@
     "framesToSpare": "{{frames}}F余裕",
     "result": "確定反撃: {{count}}個",
     "resultStep": "結果",
-    "disclaimer": "※フレーム数のみで判定しています。間合いやノックバックにより届かない場合があります。実戦では距離も考慮してください。"
+    "disclaimer": "※フレーム数のみで判定しています。間合いやノックバックにより届かない場合があります。実戦では距離も考慮してください。",
+    "punishableCount": "確反 {{count}}件",
+    "swap": "自分と相手を入れ替え",
+    "selectOpponent": "相手キャラを選択",
+    "searchMoves": "技名で絞り込み"
   },
   "filter": {
     "all": "すべて",
@@ -68,6 +73,11 @@
     "noResults": "該当する技が見つかりません",
     "resultCount": "{{count}}件"
   },
+  "searchFilter": {
+    "allCharacters": "全キャラ",
+    "startupMax": "発生{{n}}F以下",
+    "onBlockMax": "ガード{{n}}以下"
+  },
   "sort": {
     "default": "デフォルト",
     "startup": "発生順",
@@ -76,6 +86,10 @@
   },
   "settings": {
     "language": "言語",
+    "theme": "テーマ",
+    "themeSystem": "システムに合わせる",
+    "themeLight": "ライト",
+    "themeDark": "ダーク",
     "dataUpdate": "データ更新",
     "lastUpdated": "最終更新: {{date}}",
     "checkUpdate": "更新を確認",

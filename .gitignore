@@ -46,3 +46,4 @@ nativewind-env.d.ts
 
 # Test coverage
 coverage/
+.superpowers/
