@@ -2,7 +2,7 @@
   "slug": "gouki_akuma",
   "name": "Akuma",
   "nameJa": "豪鬼",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -679,7 +679,7 @@
       "active": "",
       "recovery": "全体 82",
       "onHit": "D",
-      "onBlock": "5",
+      "onBlock": "21",
       "cancel": "SA3",
       "damage": "1350",
       "comboScaling": "",
@@ -748,7 +748,7 @@
       "active": "",
       "recovery": "全体 82",
       "onHit": "D",
-      "onBlock": "5",
+      "onBlock": "21",
       "cancel": "SA3",
       "damage": "1350",
       "comboScaling": "",
@@ -817,7 +817,7 @@
       "active": "",
       "recovery": "全体 82",
       "onHit": "D",
-      "onBlock": "5",
+      "onBlock": "21",
       "cancel": "SA3",
       "damage": "1350",
       "comboScaling": "",
@@ -863,7 +863,7 @@
       "active": "",
       "recovery": "全体 57",
       "onHit": "D",
-      "onBlock": "20",
+      "onBlock": "21",
       "cancel": "SA2",
       "damage": "1350",
       "comboScaling": "",
@@ -1380,8 +1380,8 @@
       "saGaugeGain": "750",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "壁到達時に壁やられ",
+      "notesEn": "Produces a wall splat if the opponent reaches the wall",
       "category": "special"
     },
     {
@@ -1633,8 +1633,8 @@
       "saGaugeGain": "0",
       "properties": "",
       "propertiesEn": "",
-      "notes": "",
-      "notesEn": "",
+      "notes": "21-37Fまで、朧に派生可能",
+      "notesEn": "Can perform Oboro Throw between frames 21-37",
       "category": "special"
     },
     {

@@ -2,7 +2,7 @@
   "slug": "terry",
   "name": "Terry",
   "nameJa": "テリー",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -497,7 +497,7 @@
       "onHit": "D",
       "onBlock": "―",
       "cancel": "",
-      "damage": "1300",
+      "damage": "800",
       "comboScaling": "",
       "comboScalingEn": "",
       "driveGaugeGain": "2500",
@@ -506,8 +506,8 @@
       "saGaugeGain": "1750",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "クリーンヒット時ダメージ1000",
+      "notesEn": "1000 damage on a clean hit",
       "category": "unique"
     },
     {
@@ -701,7 +701,7 @@
       "startup": "10",
       "active": "10-2310-11, 22-23",
       "recovery": "23",
-      "onHit": "2",
+      "onHit": "3",
       "onBlock": "-5",
       "cancel": "SA3",
       "damage": "900",
@@ -727,7 +727,7 @@
       "onHit": "D",
       "onBlock": "-5",
       "cancel": "SA2",
-      "damage": "1400",
+      "damage": "1600",
       "comboScaling": "始動補正20%",
       "comboScalingEn": "Starter scaling 20%",
       "driveGaugeGain": "0",

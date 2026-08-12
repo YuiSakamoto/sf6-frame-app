@@ -2,7 +2,7 @@
   "slug": "aki",
   "name": "A.K.I.",
   "nameJa": "A.K.I.",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -253,8 +253,8 @@
       "saGaugeGain": "1000",
       "properties": "下",
       "propertiesEn": "Low",
-      "notes": "パニッシュカウンター時ダウン時間増加、ハードノックダウン",
-      "notesEn": "Knockdown time extended when the attack lands as a Punish Counter, and changes to Hard Knockdown",
+      "notes": "パニッシュカウンター時ダウン時間増加、ハードノックダウン、毒状態",
+      "notesEn": "Knockdown time extended when the attack lands as a Punish Counter, and opponent is put in a poisoned state.",
       "category": "normal"
     },
     {
@@ -446,10 +446,10 @@
       "nameJa": "螭吻",
       "input": "",
       "startup": "16",
-      "active": "16-18",
-      "recovery": "21",
+      "active": "16-19",
+      "recovery": "20",
       "onHit": "3",
-      "onBlock": "-4",
+      "onBlock": "-3",
       "cancel": "SA",
       "damage": "900",
       "comboScaling": "",
@@ -644,8 +644,8 @@
       "saGaugeGain": "600",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "ヒット時毒状態毒状態中にヒット時毒破裂※毒破裂時ダメージ800/吹き飛びダウン飛び道具相殺判定あり（1回）",
-      "notesEn": "Puts the opponent in a poisoned state on hitToxic Blossom triggers on hit if the opponent is already in a poisoned state* Deals 800 damage and forces a juggle state on Toxic Blossom triggerClashes with projectiles (Once)",
+      "notes": "ヒット/ガード時毒状態毒状態中にヒット時毒破裂※毒破裂時ダメージ800/吹き飛びダウン飛び道具相殺判定あり（1回）",
+      "notesEn": "Puts the opponent in a poisoned state on either hit or blockToxic Blossom triggers on hit if the opponent is already in a poisoned state* Deals 800 damage and forces a juggle state on Toxic Blossom triggerClashes with projectiles (Once)",
       "category": "special"
     },
     {
@@ -839,7 +839,7 @@
       "startup": "24",
       "active": "24-4524-25, 31-32, 37-38, 44-45",
       "recovery": "着地後18",
-      "onHit": "1",
+      "onHit": "2",
       "onBlock": "-3",
       "cancel": "SA3",
       "damage": "800",

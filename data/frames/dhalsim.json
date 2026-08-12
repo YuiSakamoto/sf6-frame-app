@@ -2,7 +2,7 @@
   "slug": "dhalsim",
   "name": "Dhalsim",
   "nameJa": "ダルシム",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -1334,8 +1334,8 @@
       "saGaugeGain": "1000",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "50Fから行動可",
-      "notesEn": "Can perform moves from frame 50",
+      "notes": "44Fから行動可",
+      "notesEn": "Can perform moves from frame 44",
       "category": "special"
     },
     {

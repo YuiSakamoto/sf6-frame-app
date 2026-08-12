@@ -2,7 +2,7 @@
   "slug": "mai",
   "name": "Mai",
   "nameJa": "マイ",
-  "version": "2026-05-28",
+  "version": "2026-08-12",
   "moves": [
     {
       "name": "Standing Light Punch",
@@ -69,8 +69,8 @@
       "saGaugeGain": "600",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "",
-      "notesEn": "",
+      "notes": "空振り時硬直2F増加",
+      "notesEn": "2 frames of recovery added when the attack misses",
       "category": "normal"
     },
     {
@@ -1277,19 +1277,19 @@
       "active": "16-4616-17, 30-34, 42-46",
       "recovery": "16",
       "onHit": "D",
-      "onBlock": "-12",
+      "onBlock": "-3",
       "cancel": "SA2",
-      "damage": "1000",
-      "comboScaling": "",
-      "comboScalingEn": "",
+      "damage": "1300",
+      "comboScaling": "始動補正40%コンボ補正20%",
+      "comboScalingEn": "Starter scaling 40%Combo scaling 20%",
       "driveGaugeGain": "0",
       "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "1200",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "ガード時硬直8F増加",
-      "notesEn": "8 frame of recovery added when blocked",
+      "notes": "",
+      "notesEn": "",
       "category": "special"
     },
     {
@@ -1300,19 +1300,19 @@
       "active": "16-4616-17, 30-34, 42-46",
       "recovery": "16",
       "onHit": "D",
-      "onBlock": "-12",
+      "onBlock": "-3",
       "cancel": "SA2",
-      "damage": "1100",
-      "comboScaling": "",
-      "comboScalingEn": "",
+      "damage": "1400",
+      "comboScaling": "始動補正40%コンボ補正20%",
+      "comboScalingEn": "Starter scaling 40%Combo scaling 20%",
       "driveGaugeGain": "0",
       "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-5000",
       "saGaugeGain": "1200",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "ガード時硬直8F増加",
-      "notesEn": "8 frame of recovery added when blocked",
+      "notes": "壁到達時に壁やられ",
+      "notesEn": "Produces a wall splat if the opponent reaches the wall",
       "category": "special"
     },
     {
@@ -1533,8 +1533,8 @@
       "onBlock": "-4～2",
       "cancel": "",
       "damage": "1100",
-      "comboScaling": "",
-      "comboScalingEn": "",
+      "comboScaling": "始動補正30%",
+      "comboScalingEn": "Starter scaling 30%",
       "driveGaugeGain": "2000",
       "driveGaugeLossBlock": "-4000",
       "driveGaugeLossPc": "-5000",
@@ -1610,8 +1610,8 @@
       "saGaugeGain": "0",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "1-8F　打撃・投げに対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
-      "notesEn": "Invincible to strikes and throws between frames 1 - 8Values do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
+      "notes": "1-39F　空中判定の打撃・空弾属性に対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 39Values do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
       "category": "super"
     },
     {
@@ -1633,8 +1633,8 @@
       "saGaugeGain": "0",
       "properties": "上・弾",
       "propertiesEn": "High - Projectile",
-      "notes": "1-6F　打撃・投げに対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
-      "notesEn": "Invincible to strikes and throws between frames 1 - 6Values do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
+      "notes": "1-77F　空中判定の打撃・空弾属性に対して無敵カウンター/パニッシュカウンターで数値が変動しない最低保障ダメージ30％",
+      "notesEn": "Invincible against mid-air projectiles and strikes with mid-air hitboxes from frames 1 - 77Values do not change when the attack lands as a counter or Punish CounterThe minimum guaranteed damage is 30%",
       "category": "super"
     },
     {
@@ -1702,8 +1702,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
-      "notesEn": "Minimum guaranteed damage is set to 40%Values do not change on counter or Punish Counter",
+      "notes": "最低保障ダメージ40％",
+      "notesEn": "Minimum guaranteed damage is set to 40%",
       "category": "super"
     },
     {
@@ -1725,8 +1725,8 @@
       "saGaugeGain": "0",
       "properties": "上",
       "propertiesEn": "High",
-      "notes": "最低保障ダメージ40％カウンター/パニッシュカウンターで数値が変動しない",
-      "notesEn": "Minimum guaranteed damage is set to 40%Values do not change on counter or Punish Counter",
+      "notes": "最低保障ダメージ40％",
+      "notesEn": "Minimum guaranteed damage is set to 40%",
       "category": "super"
     },
     {
